@@ -7,9 +7,14 @@ using UnityEngine;
 namespace AIScripting
 {
     [CustomNode("Begin",group:"AIScripting")]
-    public class BeginNode : ScriptAINodeBase
+    public class BeginNode : ScriptNodeBase
     {
         public Ref<string> text;
         protected override int OutCount => int.MaxValue;
+
+        protected override void OnProcess()
+        {
+            DoFinish(true);
+        }
     }
 }

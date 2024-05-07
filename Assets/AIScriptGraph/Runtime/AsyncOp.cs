@@ -7,26 +7,26 @@ namespace AIScripting
 {
     public class AsyncOp
     {
-        public int progress { get; protected set; }
+        public float progress { get; protected set; }
 
-        private Action<ScriptAINodeBase> _onFinishNode;
-        private Action<ScriptAINodeBase> _onProgressNode;
-        private ScriptAINodeBase _node;
+        private Action<IScriptGraphNode> _onFinishNode;
+        private Action<IScriptGraphNode> _onProgressNode;
+        private IScriptGraphNode _node;
 
-        public AsyncOp(ScriptAINodeBase target)
+        public AsyncOp(IScriptGraphNode target)
         {
             progress = 0;
             _node = target;
         }
 
-        internal void RegistComplete(Action<ScriptAINodeBase> onFinishNode)
+        public void RegistComplete(Action<IScriptGraphNode> onFinishNode)
         {
             _onFinishNode = onFinishNode;
-            if(progress == 100)
+            if(progress == 1)
                 _onFinishNode?.Invoke(_node);
         }
 
-        internal void RegistProgress(Action<ScriptAINodeBase> onProgress)
+        public void RegistProgress(Action<IScriptGraphNode> onProgress)
         {
             _onProgressNode = onProgress;
             if(progress != 0)
@@ -40,8 +40,8 @@ namespace AIScripting
 
         public void SetFinish()
         {
-            progress = 100;
-            _onFinishNode?.Invoke(null);
+            progress = 1;
+            _onFinishNode?.Invoke(_node);
         }
     }
 }

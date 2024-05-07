@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +9,8 @@ namespace AIScripting
     public class GraphDirector
     {
         public AIScriptGraph graph { get; private set; }
+
+        public Status status;
 
         public GraphDirector(AIScriptGraph graph)
         {
@@ -25,9 +24,10 @@ namespace AIScripting
                 graph.SetVariable(binding.name, new Variable<UnityEngine.Object>() { Value = binding.target });
             }
         }
-        public void Run(string beginNode)
+
+        public AsyncOp Run()
         {
-            graph.StartUp(beginNode);
+            return graph.Run();
         }
 
     }

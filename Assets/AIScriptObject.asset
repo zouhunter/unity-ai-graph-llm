@@ -305,8 +305,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Debug
     m_id: e7fd013b-885a-4c7a-9d80-a2d234039591
-    m_x: 408
-    m_y: 300
+    m_x: 684
+    m_y: 240
     m_node: {fileID: 7871981274735458423}
     m_inputPoints:
     - id: 54af0a2d-455c-4dac-a5b3-ddaf76e540e2
@@ -316,7 +316,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -335,7 +335,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 1
@@ -348,7 +348,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -367,7 +367,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -380,14 +380,14 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 77491b31-cb96-435f-8f1d-51f355abb1ab
     m_type: ->
     m_connection: {fileID: 656936231178996393}
-  - m_id: 2413b0b1-5dc3-449a-a7f2-34f0011ea241
-    m_fromNodeId: 3d8987e3-fecd-4c15-bc05-6805a6a05539
-    m_fromNodeConnectionPointId: 8004d5a4-0d0c-4719-b15f-78b102ad7c67
+  - m_id: c7160a39-1b98-492b-8db7-8407a608f244
+    m_fromNodeId: 35021e67-d15b-4b9f-8945-a6dd7336e905
+    m_fromNodeConnectionPointId: a44910e9-296a-4b11-ab18-5075a7dc0bd8
     m_toNodeId: e7fd013b-885a-4c7a-9d80-a2d234039591
     m_toNodeConnectionPoiontId: 54af0a2d-455c-4dac-a5b3-ddaf76e540e2
     m_type: ->
-    m_connection: {fileID: 8533715019018346399}
-  m_lastModified: 133595502162984145
+    m_connection: {fileID: 7927712008153981477}
+  m_lastModified: 133595644505626279
   m_graphDescription: "monobehaviour \u4EE3\u7801\u751F\u6210\u5DE5\u5177"
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &273389369304530011
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text:
     _key: 
-    _default: 
+    _default: 12312312
     _autoCreate: 1
 --- !u!114 &6121051677057588415
 MonoBehaviour:
@@ -790,6 +790,18 @@ MonoBehaviour:
     _key: 
     _default: 
     _autoCreate: 1
+--- !u!114 &7927712008153981477
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8063240763555273080
 MonoBehaviour:
   m_ObjectHideFlags: 1

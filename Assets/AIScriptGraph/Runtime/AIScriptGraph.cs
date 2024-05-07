@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
 
-using Unity.VisualScripting;
-
 namespace AIScripting
 {
-    public class AIScriptGraph : NodeGraphObj, IVariableProvider
+    public class AIScriptGraph : NodeGraphObj, IVariableProvider, IScriptGraphNode
     {
-
-        private Dictionary<Type, IEnumerable<FieldInfo>> _fieldMap = new Dictionary<Type, IEnumerable<FieldInfo>>();
-        private Dictionary<ScriptAINodeBase, List<ScriptAINodeBase>> _parentNodeMap = new Dictionary<ScriptAINodeBase, List<ScriptAINodeBase>>();
-        private Dictionary<ScriptAINodeBase, List<ScriptAINodeBase>> _subNodeMap = new Dictionary<ScriptAINodeBase, List<ScriptAINodeBase>>();
+        private AsyncOp _operate;
+        private Status _status;
+        private Dictionary<Type, IEnumerable<FieldInfo>> _fieldMap = new ();
+        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _parentNodeMap = new ();
+        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new ();
+        private Queue<IScriptGraphNode> _inExecuteNodes = new();
+        public string Name => name;
+        public Status status => _status;
+        public float progress { get; private set; }
 
         #region Variables
         private Dictionary<string, Variable> _variables = new Dictionary<string, Variable>();
@@ -89,11 +92,26 @@ namespace AIScripting
             _variables.Clear();
         }
 
-        public void StartUp(string startNodeName)
+        public void Binding(AIScriptGraph graph)
+        {
+            //TDOO 兼容
+        }
+
+        public AsyncOp Run()
+        {
+            if(_status != Status.None && _operate != null)
+                return _operate;
+            _operate = new AsyncOp(this);
+            _status = Status.Running;
+            StartUp();
+            return _operate;
+        }
+
+        private void StartUp()
         {
             foreach (var node in Nodes)
             {
-                if (node.Object is ScriptAINodeBase aiNode)
+                if (node.Object is ScriptNodeBase aiNode)
                 {
                     aiNode.Binding(this);
 
@@ -101,22 +119,22 @@ namespace AIScripting
                     {
                         node.InputPoints.ForEach(p =>
                         {
-                            var connections = Connections.FindAll(x => x.ToNodeId == p.Id);
+                            var connections = Connections.FindAll(x => x.ToNodeId == node.Id);
                             connections.ForEach(c =>
                             {
                                 var fromNodeInfo = Nodes.Find(x => x.Id == c.FromNodeId);
-                                if (fromNodeInfo.Object is ScriptAINodeBase fromNode)
+                                if (fromNodeInfo.Object is IScriptGraphNode fromNode)
                                 {
                                     if (!_parentNodeMap.TryGetValue(aiNode, out var parentNodes))
                                     {
-                                        parentNodes = new List<ScriptAINodeBase>();
+                                        parentNodes = new List<IScriptGraphNode>();
                                         _parentNodeMap[aiNode] = parentNodes;
                                     }
                                     parentNodes.Add(fromNode);
 
                                     if(!_subNodeMap.TryGetValue(fromNode, out var subNodes))
                                     {
-                                        subNodes = new List<ScriptAINodeBase>();
+                                        subNodes = new List<IScriptGraphNode>();
                                         _subNodeMap[fromNode] = subNodes;
                                     }
                                     subNodes.Add(aiNode);
@@ -126,20 +144,26 @@ namespace AIScripting
                     }
                 }
             }
-            var beginNode = Nodes.Find(x => x.Name == startNodeName);
+            var beginNode = Nodes.Find(x => x.Object.GetType() == typeof(BeginNode));
             if (beginNode != null)
             {
-                TryRunNode(beginNode.Object as ScriptAINodeBase);
+                TryRunNode(beginNode.Object as ScriptNodeBase);
+            }
+            else
+            {
+                _status = Status.Failure;
+                _operate.SetFinish();
             }
         }
-        protected void TryRunNode(ScriptAINodeBase node)
+
+        protected void TryRunNode(IScriptGraphNode node)
         {
             bool parentFinished = true;
             if (_parentNodeMap.TryGetValue(node, out var parentNodes) && parentNodes.Count > 0)
             {
                 foreach (var parentNode in parentNodes)
                 {
-                    if(parentNode.status == NodeStatus.None || parentNode.status == NodeStatus.Running)
+                    if(parentNode.status == Status.None || parentNode.status == Status.Running)
                     {
                         parentFinished = false;
                         TryRunNode(parentNode);
@@ -147,22 +171,25 @@ namespace AIScripting
                 }
             }
 
-            if(parentFinished && node.status == NodeStatus.None)
+            if(parentFinished && node.status == Status.None)
             {
-                UnityEngine.Debug.Log("run node:" + node.name);
+                UnityEngine.Debug.Log("run node:" + node.Name);
+                _inExecuteNodes.Enqueue(node);
                 var operate = node.Run();
-                operate.RegistComplete(OnFinishNode);
                 operate.RegistProgress(OnProgressNode);
+                operate.RegistComplete(OnFinishNode);
             }
         }
 
-        private void OnProgressNode(ScriptAINodeBase node)
+        private void OnProgressNode(IScriptGraphNode node)
         {
-            
+            UnityEngine.Debug.Log("node progress:" + node.Name + "," + node.progress);
         }
 
-        protected void OnFinishNode(ScriptAINodeBase node)
+        protected void OnFinishNode(IScriptGraphNode node)
         {
+            if (_status != Status.Running)
+                return;
             if(_subNodeMap.TryGetValue(node,out var subNodes))
             {
                 foreach (var subNode in subNodes)
@@ -170,11 +197,19 @@ namespace AIScripting
                     TryRunNode(subNode);
                 }
             }
+            if(_inExecuteNodes.Count == 0)
+            {
+                _status = Status.Success;
+                _operate.SetFinish();
+            }
         }
 
-        public void Stop()
+        public void Cancel()
         {
-
+            _status = Status.Failure;
+            foreach (var inExecute in _inExecuteNodes)
+                inExecute.Cancel();
+            _operate.SetFinish();
         }
         /// <summary>
         /// 反射获取所有的引用变量
@@ -193,7 +228,7 @@ namespace AIScripting
 
         void OnDestroy()
         {
-            Stop();
+            Cancel();
         }
     }
 }

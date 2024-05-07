@@ -12,7 +12,7 @@ using UnityEngine.Networking;
 namespace AIScripting
 {
     [CustomNode("Ollama",0, "AIScripting")]
-    public class OllamaNode : ScriptAINodeBase
+    public class OllamaNode : ScriptNodeBase
     {
         /// <summary>
         /// AI设定
@@ -46,15 +46,17 @@ namespace AIScripting
         /// </summary>
         [SerializeField] public List<SendData> m_DataList = new List<SendData>();
 
-        [InPort]
         public Ref<string> input;
-
-        [OutPort]
         public Ref<string> output;
 
         protected override int InCount => 1;
 
         protected override int OutCount => int.MaxValue;
+
+        protected override void OnProcess()
+        {
+
+        }
 
         /// <summary>
         /// 发送消息

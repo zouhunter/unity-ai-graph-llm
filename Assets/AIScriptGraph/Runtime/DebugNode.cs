@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UFrame.NodeGraph;
-using UFrame.NodeGraph.DataModel;
 using UnityEngine;
+using UFrame.NodeGraph;
 
 namespace AIScripting
 {
     [CustomNode("Debug",group:"AIScripting")]
-    public class DebugNode : ScriptAINodeBase
+    public class DebugNode : ScriptNodeBase
     {
-        [InPort]
         public Ref<string> info;
         public LogType logType;
+
         protected override int InCount => int.MaxValue;
+
+        protected override void OnProcess()
+        {
+            Debug.unityLogger.Log(logType, "[DebugNode]:" + info.Value);
+            DoFinish(true);
+        }
     }
 }
