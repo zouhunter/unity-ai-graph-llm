@@ -9,6 +9,8 @@ namespace AIScripting
         protected AIScriptGraph Owner { get; private set; }
         protected virtual int InCount => 0;
         protected virtual int OutCount => 0;
+        public virtual int Style => 0;
+
         protected AsyncOp _asyncOp;
         public float progress => _asyncOp != null ? _asyncOp.progress : 0;
         public Status status { get; protected set; }

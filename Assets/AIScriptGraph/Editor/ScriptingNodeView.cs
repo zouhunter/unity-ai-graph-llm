@@ -20,5 +20,16 @@ namespace AIScripting
             }
         }
         public override string Category => "ai";
+        public override int Style
+        {
+            get
+            {
+                if(target is ScriptNodeBase node)
+                {
+                    return node.Style;
+                }
+                return base.Style;
+            }
+        }
     }
 }

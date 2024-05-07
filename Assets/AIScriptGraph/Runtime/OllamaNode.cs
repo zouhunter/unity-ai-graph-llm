@@ -53,6 +53,8 @@ namespace AIScripting
 
         protected override int OutCount => int.MaxValue;
 
+        public override int Style => 1;
+
         protected override void OnProcess()
         {
 

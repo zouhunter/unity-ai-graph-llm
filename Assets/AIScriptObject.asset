@@ -47,11 +47,11 @@ MonoBehaviour:
   m_HistoryKeepCount: 15
   m_DataList: []
   input:
-    _key: 
+    _key: input_text
     _default: 
     _autoCreate: 1
   output:
-    _key: 
+    _key: out_put
     _default: 
     _autoCreate: 1
 --- !u!114 &-8080425249691551871
@@ -290,6 +290,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: AIScripting.PortConnection
   m_EditorClassIdentifier: 
+--- !u!114 &-126252396809699645
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  info:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  logType: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +389,25 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
+  - m_name: Debug
+    m_id: da683de6-b203-49ac-a66e-92ba0a3be850
+    m_x: 684
+    m_y: 336
+    m_node: {fileID: -126252396809699645}
+    m_inputPoints:
+    - id: 1f6ccc3e-fa1a-4e2e-9fce-2f40c8d6b4fa
+      label: i
+      parentId: da683de6-b203-49ac-a66e-92ba0a3be850
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.5
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints: []
   m_allConnections:
   - m_id: 1c9dfd3e-18ad-4530-a1da-da343a4976ad
     m_fromNodeId: 3d8987e3-fecd-4c15-bc05-6805a6a05539
@@ -387,7 +423,14 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 54af0a2d-455c-4dac-a5b3-ddaf76e540e2
     m_type: ->
     m_connection: {fileID: 7927712008153981477}
-  m_lastModified: 133595644505626279
+  - m_id: 1f9dc282-5708-425e-badc-71a4986b9e51
+    m_fromNodeId: 3d8987e3-fecd-4c15-bc05-6805a6a05539
+    m_fromNodeConnectionPointId: 8004d5a4-0d0c-4719-b15f-78b102ad7c67
+    m_toNodeId: da683de6-b203-49ac-a66e-92ba0a3be850
+    m_toNodeConnectionPoiontId: 1f6ccc3e-fa1a-4e2e-9fce-2f40c8d6b4fa
+    m_type: ->
+    m_connection: {fileID: 5777653536255796547}
+  m_lastModified: 133595647946451287
   m_graphDescription: "monobehaviour \u4EE3\u7801\u751F\u6210\u5DE5\u5177"
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &273389369304530011
@@ -630,9 +673,21 @@ MonoBehaviour:
   m_Name: AIScripting.BeginNode
   m_EditorClassIdentifier: 
   text:
-    _key: 
+    _key: input_text
     _default: 12312312
     _autoCreate: 1
+--- !u!114 &5777653536255796547
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6121051677057588415
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,6 +743,18 @@ MonoBehaviour:
     _key: 
     _default: 
     _autoCreate: 1
+--- !u!114 &6926213996503110081
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6955923890742588580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +837,7 @@ MonoBehaviour:
   m_Name: AIScripting.DebugNode
   m_EditorClassIdentifier: 
   info:
-    _key: 
+    _key: out_put
     _default: 
     _autoCreate: 1
   logType: 0
