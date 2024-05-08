@@ -44,9 +44,10 @@ namespace AIScripting
         }
 
         public Ref() { }
-        public Ref(string key)
+        public Ref(string key,T defaultV = default)
         {
             this._key = key;
+            this._default = defaultV;
         }
         public Ref(string key,IVariableProvider provider)
         {

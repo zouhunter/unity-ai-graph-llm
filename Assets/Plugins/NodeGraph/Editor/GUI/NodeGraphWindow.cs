@@ -1400,7 +1400,11 @@ namespace UFrame.NodeGraph
             {
                 // workaround: avoiding compilier closure bug
                 var index = i;
+                var assembleName = customNodes[index].type.Namespace;
                 var path = customNodes[index].node.Name;
+                if (!string.IsNullOrEmpty(assembleName))
+                    path = $"{assembleName}/{path}";
+
                 menu.AddItem(
                     new GUIContent(path),
                     false,
@@ -1837,7 +1841,6 @@ namespace UFrame.NodeGraph
                 ScriptObjectCatchUtil.Catch(n.Data.Id, n.Data.Object);
                 nodes.RemoveAt(deletedNodeIndex);
             }
-
         }
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace UFrame.NodeGraph
                         }
                         else
                         {
-                            Debug.LogError("exists empty sub asset!");
+                            Debug.Log("exists empty sub asset!");
                         }
                     }
                 }

@@ -15,17 +15,6 @@ using UFrame.NodeGraph.DefultSkin;
 
 namespace UFrame.NodeGraph
 {
-    public abstract class NodeGraphController<T>: NodeGraphController where T : NodeGraphObj
-    {
-        public override NodeGraphObj CreateNodeGraphObject()
-        {
-            NodeGraphObj graph = ScriptableObject.CreateInstance<T>();
-            graph.ControllerType = this.GetType().FullName;
-            ProjectWindowUtil.CreateAsset(graph, string.Format("new {0}.asset",graph.GetType().Name));
-            return graph;
-        }
-    }
-
     [System.Serializable]
     public abstract class NodeGraphController
     {
@@ -112,7 +101,13 @@ namespace UFrame.NodeGraph
 
         }
 
-        public abstract NodeGraphObj CreateNodeGraphObject();
+        public virtual NodeGraphObj CreateNodeGraphObject()
+        {
+            NodeGraphObj graph = ScriptableObject.CreateInstance<NodeGraphObj>();
+            graph.ControllerType = this.GetType().FullName;
+            ProjectWindowUtil.CreateAsset(graph, string.Format("new {0}.asset", graph.GetType().Name));
+            return graph;
+        }
 
         protected static bool IsMainAsset(ScriptableObject obj, out ScriptableObject mainAsset)
         {
@@ -134,12 +129,12 @@ namespace UFrame.NodeGraph
             {
                 Undo.RecordObject(obj, "none");
                 all.Add(obj);
-                ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.HideInHierarchy);
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.None);
                 UnityEditor.EditorUtility.SetDirty(mainAsset);
             }
             else
             {
-                ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.HideInHierarchy);
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.None);
                 UnityEditor.EditorUtility.SetDirty(obj);
             }
             AssetDatabase.Refresh();

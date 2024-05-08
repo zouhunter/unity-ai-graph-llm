@@ -6,12 +6,12 @@ namespace AIScripting
     public abstract class Variable
     {
         public event Action<string> onValueChanged;
-        internal string variableName { get; set; }
+        public string Name { get; set; }
         public abstract object GetValue();
         public abstract void SetValue(object value);
         protected void OnValueChanged()
         {
-            onValueChanged?.Invoke(variableName);
+            onValueChanged?.Invoke(Name);
         }
     }
 
@@ -47,6 +47,16 @@ namespace AIScripting
                 }
             }
         }
+        public Variable(string name, T value)
+        {
+            Name = name;
+            Value = value;
+        }
+        public Variable(string name)
+        {
+            Name = name;
+        }
+        public Variable() { }
         public override object GetValue()
         {
             return Value;

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace UFrame.NodeGraph
 {
-    public class EmptyController : NodeGraphController<NodeGraph.DataModel.NodeGraphObj>
+    public class EmptyController : NodeGraphController
     {
         public override string Group { get { return "Empty"; } }
 

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace AIScripting
 {
-
     public class GraphDirecterBehaviour : MonoBehaviour
     {
         public string beginNode;

@@ -8,6 +8,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace UFrame.NodeGraph
 {
@@ -21,6 +22,9 @@ namespace UFrame.NodeGraph
             if (data != null)
             {
                 Catch(id, data.GetType(), JsonUtility.ToJson(data));
+                AssetDatabase.RemoveObjectFromAsset(data);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
         }
 

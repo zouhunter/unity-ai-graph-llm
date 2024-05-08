@@ -17,7 +17,7 @@ namespace AIScripting
         private Status _status;
         private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _parentNodeMap = new();
         private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new();
-        private Queue<IScriptGraphNode> _inExecuteNodes = new();
+        private HashSet<IScriptGraphNode> _inExecuteNodes = new();
         public Dictionary<Type, FieldInfo[]> fieldMap = new();
         public string Name => name;
         public Status status => _status;
@@ -25,7 +25,7 @@ namespace AIScripting
         private AIScriptGraph _runingGraph;
         private VariableProvider _variableProvider = new VariableProvider();
 
-        public void Reset(AIScriptGraph graph)
+        public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;
             _variableProvider = graph._variableProvider;
@@ -66,7 +66,8 @@ namespace AIScripting
             {
                 if (node.Object is ScriptNodeBase aiNode)
                 {
-                    aiNode.Reset(_runingGraph ?? this);
+                    aiNode.ResetGraph(_runingGraph ?? this);
+
                     if (node.InputPoints.Count > 0)
                     {
                         node.InputPoints.ForEach(p =>
@@ -129,7 +130,7 @@ namespace AIScripting
             if (parentFinished && node.status == Status.None)
             {
                 UnityEngine.Debug.Log("node start:" + node.Name);
-                _inExecuteNodes.Enqueue(node);
+                _inExecuteNodes.Add(node);
                 var operate = node.Run();
                 operate.RegistProgress(OnProgressNode);
                 operate.RegistComplete(OnFinishNode);
@@ -145,6 +146,8 @@ namespace AIScripting
         {
             if (_status != Status.Running)
                 return;
+
+            _inExecuteNodes.Remove(node);
             if (_subNodeMap.TryGetValue(node, out var subNodes))
             {
                 foreach (var subNode in subNodes)
@@ -152,6 +155,7 @@ namespace AIScripting
                     TryRunNode(subNode);
                 }
             }
+
             if (_inExecuteNodes.Count == 0)
             {
                 _status = Status.Success;
@@ -164,7 +168,7 @@ namespace AIScripting
             _status = Status.Failure;
             foreach (var inExecute in _inExecuteNodes)
                 inExecute.Cancel();
-            _operate.SetFinish();
+            _operate?.SetFinish();
         }
 
         void OnDestroy()

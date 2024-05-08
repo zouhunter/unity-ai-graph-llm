@@ -80,8 +80,10 @@ namespace UFrame.NodeGraph
                      height = position.height,
                      backgroundColor = Color.clear,
                  },
-                showHorizontal = true,
-                showVertical = true,
+                //showHorizontal = true,
+                //showVertical = true,
+                horizontalScrollerVisibility = ScrollerVisibility.Auto,
+                verticalScrollerVisibility = ScrollerVisibility.Auto
             };
             //scrollView.clippingOptions = VisualElement.ClippingOptions.ClipContents;
             scrollView.Add(scrollViewContent);

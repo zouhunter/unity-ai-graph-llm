@@ -94,48 +94,49 @@ namespace UFrame.NodeGraph
 
             return list;
         }
-        public static bool HasValidCustomNodeAttribute(Type t)
-        {
-            CustomNodeAttribute attr =
-                t.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
-            return attr != null && !string.IsNullOrEmpty(attr.Name);
-        }
-        public static string GetNodeGUIName(DataModel.Node node)
-        {
-            CustomNodeAttribute attr =
-                node.GetType().GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
-            if (attr != null)
-            {
-                return attr.Name;
-            }
-            return string.Empty;
-        }
-        public static string GetNodeGUIName(string className)
-        {
-            var type = Type.GetType(className);
-            if (type != null)
-            {
-                CustomNodeAttribute attr =
-                    type.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
-                if (attr != null)
-                {
-                    return attr.Name;
-                }
-            }
-            return string.Empty;
-        }
-        public static int GetNodeOrderPriority(string className)
-        {
-            var type = Type.GetType(className);
-            if (type != null)
-            {
-                CustomNodeAttribute attr =
-                    type.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
-                if (attr != null){
-                    return attr.OrderPriority;
-                }
-            }
-            return CustomNodeAttribute.kDEFAULT_PRIORITY;
-        }
+
+        //public static bool HasValidCustomNodeAttribute(Type t)
+        //{
+        //    CustomNodeAttribute attr =
+        //        t.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
+        //    return attr != null && !string.IsNullOrEmpty(attr.Name);
+        //}
+        //public static string GetNodeGUIName(DataModel.Node node)
+        //{
+        //    CustomNodeAttribute attr =
+        //        node.GetType().GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
+        //    if (attr != null)
+        //    {
+        //        return attr.Name;
+        //    }
+        //    return string.Empty;
+        //}
+        //public static string GetNodeGUIName(string className)
+        //{
+        //    var type = Type.GetType(className);
+        //    if (type != null)
+        //    {
+        //        CustomNodeAttribute attr =
+        //            type.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
+        //        if (attr != null)
+        //        {
+        //            return attr.Name;
+        //        }
+        //    }
+        //    return string.Empty;
+        //}
+        //public static int GetNodeOrderPriority(string className)
+        //{
+        //    var type = Type.GetType(className);
+        //    if (type != null)
+        //    {
+        //        CustomNodeAttribute attr =
+        //            type.GetCustomAttributes(typeof(CustomNodeAttribute), false).FirstOrDefault() as CustomNodeAttribute;
+        //        if (attr != null){
+        //            return attr.OrderPriority;
+        //        }
+        //    }
+        //    return CustomNodeAttribute.kDEFAULT_PRIORITY;
+        //}
     }
 }

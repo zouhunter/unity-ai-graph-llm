@@ -25,13 +25,21 @@ namespace AIScripting
             {
                 data.AddInputPoint("i", "->", InCount);
             }
+            else if(data.InputPoints.Count > 0)
+            {
+                data.InputPoints[0].RefreshInfo("i", "->", InCount);
+            }
             if (OutCount > 0 && data.OutputPoints.Count == 0)
             {
                 data.AddOutputPoint("o", "->", OutCount);
             }
+            else if (data.OutputPoints.Count > 0)
+            {
+                data.OutputPoints[0].RefreshInfo("i", "->", OutCount);
+            }
         }
 
-        public void Reset(AIScriptGraph graph)
+        public virtual void ResetGraph(AIScriptGraph graph)
         {
             Owner = graph;
             status = Status.None;
@@ -76,7 +84,7 @@ namespace AIScripting
             _asyncOp?.SetFinish();
         }
 
-        public AsyncOp Run()
+        public virtual AsyncOp Run()
         {
             BindingRefVars();
             _asyncOp = new AsyncOp(this);

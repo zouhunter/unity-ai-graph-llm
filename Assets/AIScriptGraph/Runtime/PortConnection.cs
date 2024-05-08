@@ -10,9 +10,5 @@ namespace AIScripting
     public class PortConnection : Connection
     {
         public bool disable;
-        public PortConnection(string type)
-        {
-            this.type = type;
-        }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
 
+using UnityEditor;
 using UnityEditor.MemoryProfiler;
 
 using UnityEngine;
@@ -18,7 +19,10 @@ namespace AIScripting
 
         public override NodeGraphObj CreateNodeGraphObject()
         {
-            return new AIScriptGraph();
+            var graph = ScriptableObject.CreateInstance<AIScriptGraph>();
+            graph.ControllerType = GetType().FullName;
+            ProjectWindowUtil.CreateAsset(graph, Group + ".asset");
+            return graph;
         }
 
         public override NodeView CreateDefaultNodeView()
@@ -36,8 +40,10 @@ namespace AIScripting
 
         public override ConnectionGUI CreateConnection(string type, ConnectionPointData output, ConnectionPointData input)
         {
+            var connection = ScriptableObject.CreateInstance<PortConnection>();
+            connection.type = type;
             return new ConnectionGUI(
-               new ConnectionData(type, new PortConnection(type), output, input),
+               new ConnectionData(type, connection, output, input),
                output,
                input
            );

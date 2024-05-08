@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
 
+using UnityEditor.PackageManager.Requests;
+
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -23,10 +25,6 @@ namespace AIScripting
         /// </summary>
         public ModelType m_GptModel = ModelType.llama3;
         /// <summary>
-        /// api地址
-        /// </summary>
-        [SerializeField] protected string url = "http://192.168.1.10:7001/api/chat";
-        /// <summary>
         /// 提示词，与消息一起发送
         /// </summary>
         [Header("发送的提示词设定")]
@@ -44,12 +42,13 @@ namespace AIScripting
         /// <summary>
         /// 缓存对话
         /// </summary>
-        [SerializeField] public List<SendData> m_DataList = new List<SendData>();
+        [NonSerialized] public List<SendData> m_DataList = new List<SendData>();
 
-        public Ref<string> input;
-        public Ref<string> output;
+        public Ref<string> input = new Ref<string>("input_text");
+        public Ref<string> output = new Ref<string>("output_text");
+        public Ref<string> url = new Ref<string>("ollama_url","http://localhost:8081/api/chat");
 
-        protected override int InCount => 1;
+        protected override int InCount => int.MaxValue;
 
         protected override int OutCount => int.MaxValue;
 
@@ -121,6 +120,7 @@ namespace AIScripting
         public void Request(System.Action<string> _callback)
         {
             float startTime = System.DateTime.Now.Ticks;
+            Debug.Log("request:" + url);
             UnityWebRequest request = new UnityWebRequest(url, "POST");
             {
                 PostData _postData = new PostData
@@ -165,6 +165,11 @@ namespace AIScripting
                     Debug.Log("Ollama耗时：" + (System.DateTime.Now.Ticks - startTime));
                 };
             }
+        }
+
+        private void OnRecevieRequest()
+        {
+            
         }
 
         #region 数据定义
