@@ -8,8 +8,8 @@ namespace AIScripting
         string Name { get; }
         Status status { get; }
         float progress { get; }
+        void Reset(AIScriptGraph graph);
         AsyncOp Run();
-        void Binding(AIScriptGraph graph);
         void Cancel();
     }
 }

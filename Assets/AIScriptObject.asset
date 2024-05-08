@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8984791386686910250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
+  m_Name: AIScripting.BeginNode
+  m_EditorClassIdentifier: 
+  text:
+    _key: xx
+    _default: 12345
+    _autoCreate: 1
 --- !u!114 &-8798269199802679312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -49,7 +65,7 @@ MonoBehaviour:
   input:
     _key: input_text
     _default: 
-    _autoCreate: 1
+    _autoCreate: 0
   output:
     _key: out_put
     _default: 
@@ -185,6 +201,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5486079192346677169
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-5020061009385845545
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,6 +318,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: AIScripting.PortConnection
   m_EditorClassIdentifier: 
+--- !u!114 &-574233046829133889
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  info:
+    _key: xx
+    _default: 
+    _autoCreate: 1
+  logType: 0
 --- !u!114 &-126252396809699645
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -408,6 +453,44 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints: []
+  - m_name: Begin
+    m_id: cdad18be-c775-4c07-8329-58ddd7d86bc8
+    m_x: 132
+    m_y: 72
+    m_node: {fileID: -8984791386686910250}
+    m_inputPoints: []
+    m_outputPoints:
+    - id: f5de8a13-79b2-4d56-ac44-dbfac95b5960
+      label: o
+      parentId: cdad18be-c775-4c07-8329-58ddd7d86bc8
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.5
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Debug
+    m_id: db0de51e-5339-4d08-a657-bc5fdca96f41
+    m_x: 447
+    m_y: 85
+    m_node: {fileID: -574233046829133889}
+    m_inputPoints:
+    - id: ac1cfaaf-841a-4858-9ebe-811fac062173
+      label: i
+      parentId: db0de51e-5339-4d08-a657-bc5fdca96f41
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.5
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints: []
   m_allConnections:
   - m_id: 1c9dfd3e-18ad-4530-a1da-da343a4976ad
     m_fromNodeId: 3d8987e3-fecd-4c15-bc05-6805a6a05539
@@ -430,7 +513,14 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 1f6ccc3e-fa1a-4e2e-9fce-2f40c8d6b4fa
     m_type: ->
     m_connection: {fileID: 5777653536255796547}
-  m_lastModified: 133595647946451287
+  - m_id: 8f547e05-3bfc-413c-88ae-d67de2e7c6e4
+    m_fromNodeId: cdad18be-c775-4c07-8329-58ddd7d86bc8
+    m_fromNodeConnectionPointId: f5de8a13-79b2-4d56-ac44-dbfac95b5960
+    m_toNodeId: db0de51e-5339-4d08-a657-bc5fdca96f41
+    m_toNodeConnectionPoiontId: ac1cfaaf-841a-4858-9ebe-811fac062173
+    m_type: ->
+    m_connection: {fileID: -5486079192346677169}
+  m_lastModified: 133596037565295975
   m_graphDescription: "monobehaviour \u4EE3\u7801\u751F\u6210\u5DE5\u5177"
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &273389369304530011
@@ -603,6 +693,22 @@ MonoBehaviour:
     _key: 
     _default: 
     _autoCreate: 1
+--- !u!114 &4015309602850924607
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
+  m_Name: AIScripting.BeginNode
+  m_EditorClassIdentifier: 
+  text:
+    _key: 
+    _default: 
+    _autoCreate: 1
 --- !u!114 &4110700268014208917
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -674,7 +780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text:
     _key: input_text
-    _default: 12312312
+    _default: "\u4F60\u597D\uFF0C\u4ECA\u5929\u5929\u6C14\u597D\u4E48"
     _autoCreate: 1
 --- !u!114 &5777653536255796547
 MonoBehaviour:

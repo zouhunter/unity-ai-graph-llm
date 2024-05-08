@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UFrame.NodeGraph.DataModel;
+using System.Reflection;
+using System;
 
 namespace AIScripting
 {
@@ -29,22 +31,34 @@ namespace AIScripting
             }
         }
 
-        public void Binding(AIScriptGraph graph)
+        public void Reset(AIScriptGraph graph)
         {
             Owner = graph;
             status = Status.None;
-            BindingRefVars(GetRefVars());
         }
 
+        /// <summary>
+        /// 反射获取所有的引用变量
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         protected virtual IEnumerable<IRef> GetRefVars()
         {
-            return Owner.GetTypeRefs(GetType())
+            var type = GetType();
+            if (!Owner.fieldMap.TryGetValue(type, out var fields))
+            {
+                fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy).
+                    Where(f => typeof(IRef).IsAssignableFrom(f.FieldType)).ToArray();
+                Owner.fieldMap[type] = fields;
+            }
+            return fields
                 .Select(f => f.GetValue(this) as IRef)
                 .Where(r => r != null);
         }
 
-        protected void BindingRefVars(IEnumerable<IRef> refVars)
+        protected void BindingRefVars()
         {
+            var refVars = GetRefVars();
             if (refVars != null)
             {
                 foreach (var refVar in refVars)
@@ -64,6 +78,7 @@ namespace AIScripting
 
         public AsyncOp Run()
         {
+            BindingRefVars();
             _asyncOp = new AsyncOp(this);
             status = Status.Running;
             OnProcess();

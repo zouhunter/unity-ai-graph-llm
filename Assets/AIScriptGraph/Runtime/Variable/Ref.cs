@@ -28,7 +28,6 @@ namespace AIScripting
 
         private IVariableProvider _variablePrivider;
         private Variable<T> _variable;
-
         public bool Exists
         {
             get
@@ -38,8 +37,7 @@ namespace AIScripting
 
                 else if (_variablePrivider != null && !string.IsNullOrEmpty(_key))
                 {
-                    _variable = _variablePrivider.GetVariable<T>(_key, _autoCreate);
-                    return _variable != null;
+                    this._variable = _variablePrivider.GetVariable<T>(_key, false);
                 }
                 return false;
             }
@@ -59,15 +57,12 @@ namespace AIScripting
         public void Binding(IVariableProvider provider)
         {
             this._variablePrivider = provider;
-            if(!string.IsNullOrEmpty(_key))
+            _variable = _variablePrivider.GetVariable<T>(_key, false);
+            if (_variable == null && _autoCreate)
             {
-                this._variable = _variablePrivider.GetVariable<T>(_key, false);
-                if (_variable == null && _autoCreate)
-                {
-                    _variable = new Variable<T>();
-                    _variable.Value = _default;
-                    _variablePrivider.SetVariable(_key, _variable);
-                }
+                _variable = new Variable<T>();
+                _variable.Value = _default;
+                _variablePrivider.SetVariable(_key, _variable);
             }
         }
 

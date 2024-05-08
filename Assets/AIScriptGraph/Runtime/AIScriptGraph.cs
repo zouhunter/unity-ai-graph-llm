@@ -11,95 +11,48 @@ using UFrame.NodeGraph.DataModel;
 
 namespace AIScripting
 {
-    public class AIScriptGraph : NodeGraphObj, IVariableProvider, IScriptGraphNode
+    public class AIScriptGraph : NodeGraphObj, IScriptGraphNode, IVariableProvider
     {
         private AsyncOp _operate;
         private Status _status;
-        private Dictionary<Type, IEnumerable<FieldInfo>> _fieldMap = new ();
-        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _parentNodeMap = new ();
-        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new ();
+        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _parentNodeMap = new();
+        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new();
         private Queue<IScriptGraphNode> _inExecuteNodes = new();
+        public Dictionary<Type, FieldInfo[]> fieldMap = new();
         public string Name => name;
         public Status status => _status;
         public float progress { get; private set; }
+        private AIScriptGraph _runingGraph;
+        private VariableProvider _variableProvider = new VariableProvider();
+
+        public void Reset(AIScriptGraph graph)
+        {
+            _runingGraph = graph;
+            _variableProvider = graph._variableProvider;
+        }
 
         #region Variables
-        private Dictionary<string, Variable> _variables = new Dictionary<string, Variable>();
-
-        public Variable GetVariable(string name)
+        public void SetVariable(string name, Variable variable)
         {
-            _variables.TryGetValue(name, out var variable);
-            return variable;
+            _variableProvider?.SetVariable(name, variable);
         }
-        public Variable<T> GetVariable<T>(string name, bool createIfNotExits = true)
+        public Variable<T> GetVariable<T>(string name, bool crateIfNotExits)
         {
-            if (_variables.TryGetValue(name, out var variable) && variable is Variable<T> genVariable)
-            {
-                return genVariable;
-            }
-            else if (createIfNotExits)
-            {
-                var newVariable = new Variable<T>();
-                _variables[name] = newVariable;
-                return newVariable;
-            }
-            return null;
+            return _variableProvider.GetVariable<T>(name, crateIfNotExits);
         }
         public T GetVariableValue<T>(string name)
         {
-            if (_variables.TryGetValue(name, out var variable) && variable.GetValue() is T value)
-            {
-                return value;
-            }
-            return default(T);
+            return _variableProvider.GetVariableValue<T>(name);
         }
-        public bool TryGetVariable<T>(string name, out Variable<T> variable)
+        public void SetVariableValue<T>(string name,T data)
         {
-            if (_variables.TryGetValue(name, out var variableObj) && variableObj is Variable<T> genVariable && genVariable != null)
-            {
-                variable = genVariable;
-                return true;
-            }
-            variable = null;
-            return false;
-        }
-        public bool TryGetVariable(string name, out Variable variable)
-        {
-            return _variables.TryGetValue(name, out variable);
-        }
-        public void SetVariable(string name, Variable variable)
-        {
-            _variables[name] = variable;
-        }
-        public bool SetVariableValue(string name, object data)
-        {
-            if (_variables.TryGetValue(name, out var variable))
-            {
-                variable.SetValue(data);
-                return true;
-            }
-            return false;
-        }
-        public void SetVariableValue<T>(string name, T data)
-        {
-            var variable = GetVariable<T>(name, true);
-            variable.Value = data;
+            _variableProvider.SetVariableValue(name, data);
         }
         #endregion Variables
 
-        public void ClearCondition()
-        {
-            _variables.Clear();
-        }
-
-        public void Binding(AIScriptGraph graph)
-        {
-            //TDOO 兼容
-        }
-
         public AsyncOp Run()
         {
-            if(_status != Status.None && _operate != null)
+            if (_status != Status.None && _operate != null)
                 return _operate;
             _operate = new AsyncOp(this);
             _status = Status.Running;
@@ -113,8 +66,7 @@ namespace AIScripting
             {
                 if (node.Object is ScriptNodeBase aiNode)
                 {
-                    aiNode.Binding(this);
-
+                    aiNode.Reset(_runingGraph ?? this);
                     if (node.InputPoints.Count > 0)
                     {
                         node.InputPoints.ForEach(p =>
@@ -132,7 +84,7 @@ namespace AIScripting
                                     }
                                     parentNodes.Add(fromNode);
 
-                                    if(!_subNodeMap.TryGetValue(fromNode, out var subNodes))
+                                    if (!_subNodeMap.TryGetValue(fromNode, out var subNodes))
                                     {
                                         subNodes = new List<IScriptGraphNode>();
                                         _subNodeMap[fromNode] = subNodes;
@@ -144,10 +96,13 @@ namespace AIScripting
                     }
                 }
             }
-            var beginNode = Nodes.Find(x => x.Object.GetType() == typeof(BeginNode));
-            if (beginNode != null)
+            var beginNodes = Nodes.FindAll(x => x.Object.GetType() == typeof(BeginNode));
+            if (beginNodes != null && beginNodes.Count > 0)
             {
-                TryRunNode(beginNode.Object as ScriptNodeBase);
+                foreach (var beginNode in beginNodes)
+                {
+                    TryRunNode(beginNode.Object as ScriptNodeBase);
+                }
             }
             else
             {
@@ -163,7 +118,7 @@ namespace AIScripting
             {
                 foreach (var parentNode in parentNodes)
                 {
-                    if(parentNode.status == Status.None || parentNode.status == Status.Running)
+                    if (parentNode.status == Status.None || parentNode.status == Status.Running)
                     {
                         parentFinished = false;
                         TryRunNode(parentNode);
@@ -171,9 +126,9 @@ namespace AIScripting
                 }
             }
 
-            if(parentFinished && node.status == Status.None)
+            if (parentFinished && node.status == Status.None)
             {
-                UnityEngine.Debug.Log("run node:" + node.Name);
+                UnityEngine.Debug.Log("node start:" + node.Name);
                 _inExecuteNodes.Enqueue(node);
                 var operate = node.Run();
                 operate.RegistProgress(OnProgressNode);
@@ -190,14 +145,14 @@ namespace AIScripting
         {
             if (_status != Status.Running)
                 return;
-            if(_subNodeMap.TryGetValue(node,out var subNodes))
+            if (_subNodeMap.TryGetValue(node, out var subNodes))
             {
                 foreach (var subNode in subNodes)
                 {
                     TryRunNode(subNode);
                 }
             }
-            if(_inExecuteNodes.Count == 0)
+            if (_inExecuteNodes.Count == 0)
             {
                 _status = Status.Success;
                 _operate.SetFinish();
@@ -211,24 +166,11 @@ namespace AIScripting
                 inExecute.Cancel();
             _operate.SetFinish();
         }
-        /// <summary>
-        /// 反射获取所有的引用变量
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public IEnumerable<FieldInfo> GetTypeRefs(Type type)
-        {
-            if (!_fieldMap.TryGetValue(type, out var fields))
-            {
-                fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy).Where(f => typeof(IRef).IsAssignableFrom(f.FieldType));
-                _fieldMap[type] = fields;
-            }
-            return fields;
-        }
 
         void OnDestroy()
         {
             Cancel();
         }
+
     }
 }
