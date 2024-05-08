@@ -42,6 +42,9 @@ namespace AIScripting
         /// </summary>
         [Header("上下文保留条数")]
         [SerializeField] protected int m_HistoryKeepCount = 15;
+
+        [Header("消息接受key")]
+        [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
         /// <summary>
         /// 缓存对话
         /// </summary>
@@ -122,25 +125,55 @@ namespace AIScripting
         public class DownloadHandlerMessageQueue : DownloadHandlerScript
         {
             public StringBuilder allText = new StringBuilder();
-            private Action<ReceiveData> onReceive;
-            protected override void ReceiveContentLengthHeader(ulong contentLength)
-            {
-                base.ReceiveContentLengthHeader(contentLength);
-                Debug.Log("ReceiveData length:" + contentLength);
-            }
+            private Action<ReceiveData> _onReceive;
+            private StringBuilder _textInProcess = new StringBuilder();
 
             protected override bool ReceiveData(byte[] data, int dataLength)
             {
-                var text = System.Text.UTF8Encoding.UTF8.GetString(data, 0, dataLength);
-                Debug.Log(text);
-                var receiveData = JsonUtility.FromJson<ReceiveData>(text);
-                allText.Append(receiveData.message.content);
-                onReceive?.Invoke(receiveData);
+                _textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));
+                //Debug.Log("ReceiveData:" + _textInProcess.ToString());
+                int index = -1;
+                var startIndex = -1;
+                var endIndex = 0;
+                var paired = 0;
+                while (++index < _textInProcess.Length)
+                {
+                    var charItem = _textInProcess[index];
+                    if (charItem == '{')
+                    {
+                        if(startIndex < 0)
+                            startIndex = index;
+                        paired++;
+                    }
+                    if (charItem == '}')
+                    {
+                        paired--;
+                    }
+                    if (paired == 0 && startIndex >= 0)
+                    {
+                        endIndex = index;
+                        var oneMessage = _textInProcess.ToString(startIndex, endIndex - startIndex + 1);
+                        OnReceiveOne(oneMessage);
+                        startIndex = -1;
+                    }
+                }
+                if (endIndex < _textInProcess.Length - 1)
+                {
+                    _textInProcess.Remove(0, endIndex+1);
+                }
                 return base.ReceiveData(data, dataLength);
             }
+
+            private void OnReceiveOne(string text)
+            {
+                var receiveData = JsonUtility.FromJson<ReceiveData>(text);
+                allText.Append(receiveData.message.content);
+                _onReceive?.Invoke(receiveData);
+            }
+
             internal void RegistReceive(Action<ReceiveData> onReceive)
             {
-                this.onReceive = onReceive;
+                this._onReceive = onReceive;
             }
         }
 
@@ -157,7 +190,8 @@ namespace AIScripting
         /// <param name="data"></param>
         private void OnReceive(ReceiveData data)
         {
-            Debug.Log(data.message.content);
+            //Debug.Log(data.message.content);
+            Owner.SendEvent(eventReceiveKey, data);
         }
 
         /// <summary>
@@ -217,7 +251,7 @@ namespace AIScripting
                     Debug.LogError(_msgBack);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime)/ 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
 

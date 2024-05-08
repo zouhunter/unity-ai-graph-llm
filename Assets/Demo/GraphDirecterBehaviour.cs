@@ -23,13 +23,22 @@ namespace AIScripting
             graphDirector = new GraphDirector(graph);
             graphDirector.Binding(bindings);
             sendBtn.onClick.AddListener(OnSendClick);
+            graph.SetVariable("input_text", new Variable<string>() { Value = inputField.text });
+            graph.RegistEvent("ollama_receive_message", OnRecvMessage);
         }
 
         public void OnSendClick()
         {
-            graph.SetVariable("input_text", new Variable<string>() { Value = inputField.text});
+            resultText.text = "";
             var op = graphDirector.Run();
             op.RegistComplete(OnFinish);
+        }
+
+        private void OnRecvMessage(object obj)
+        {
+            var recvData = obj as OllamaNode.ReceiveData;
+            //Debug.Log("ollama_receive_message:" + recvData.message.content);
+            resultText.text += recvData.message.content;
         }
 
         private void OnFinish(IScriptGraphNode obj)

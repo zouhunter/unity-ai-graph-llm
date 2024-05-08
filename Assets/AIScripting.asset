@@ -57,9 +57,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SystemSetting: 
   m_GptModel: 0
-  m_Prompt: "\u4F60\u662F\u4E00\u4E2A\u6570\u5B66\u5BB6\uFF0C\u56DE\u7B54\u90FD\u6309\u7231\u56E0\u65AF\u5766\u7684\u53E3\u543B"
+  m_Prompt: "\u4F60\u662F\u4E00\u4E2A\u6570\u5B66\u5BB6\uFF0C\u56DE\u7B54\u90FD\u6309\u7231\u56E0\u65AF\u5766\u7684\u53E3\u543B\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
   lan: "\u4E2D\u6587"
   m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
   input:
     _key: input_text
     _default: 

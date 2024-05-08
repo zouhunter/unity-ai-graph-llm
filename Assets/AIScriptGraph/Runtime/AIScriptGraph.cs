@@ -20,10 +20,12 @@ namespace AIScripting
         private AIScriptGraph _runingGraph;
         private VariableProvider _variableProvider = new VariableProvider();
         private List<LitCoroutine> _coroutines = new List<LitCoroutine>();
+        private EventProvider _eventProvider = new EventProvider();
         public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;
             _variableProvider = graph._variableProvider;
+            _eventProvider = graph._eventProvider;
         }
 
         #region Variables
@@ -45,9 +47,24 @@ namespace AIScripting
         }
         #endregion Variables
 
+        #region Events
+        public void RegistEvent(string eventKey, Action<object> callback)
+        {
+            _eventProvider?.RegistEvent(eventKey, callback);
+        }
+        public void RemoveEvent(string eventKey, Action<object> callback)
+        {
+            _eventProvider?.RemoveEvent(eventKey, callback);
+        }
+        public void SendEvent(string eventKey, object arg = null)
+        {
+            _eventProvider?.SendEvent(eventKey, arg);
+        }
+        #endregion
+
         public AsyncOp Run()
         {
-            if (_status != Status.None && _operate != null)
+            if (_status == Status.Running && _operate != null)
                 return _operate;
             _operate = new AsyncOp(this);
             _status = Status.Running;
