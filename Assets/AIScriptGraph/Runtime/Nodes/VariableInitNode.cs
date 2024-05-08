@@ -16,7 +16,7 @@ namespace AIScripting
         {
             if(executeInEditOnly)
             {
-                if(!Application.isEditor || !Application.isPlaying)
+                if(!Application.isEditor || Application.isPlaying)
                 {
                     return null;
                 }

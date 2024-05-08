@@ -29,6 +29,7 @@ MonoBehaviour:
     _key: out_put
     _default: 
     _autoCreate: 0
+  format: 
   logType: 0
 --- !u!114 &-7625763598278455667
 MonoBehaviour:
@@ -172,8 +173,8 @@ MonoBehaviour:
       type: ->
   - m_name: VariableSetNode
     m_id: 254c0c41-aa1b-4c9a-9663-63d63787d0c1
-    m_x: 133
-    m_y: 122
+    m_x: 84
+    m_y: 120
     m_node: {fileID: 7716110878025005022}
     m_inputPoints: []
     m_outputPoints:

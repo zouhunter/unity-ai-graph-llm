@@ -31,5 +31,17 @@ namespace AIScripting
                 return base.Style;
             }
         }
+
+        public override void OnNodeGUI(Rect position, NodeData data)
+        {
+            base.OnNodeGUI(position, data);
+            if(target is ScriptNodeBase scriptNode)
+            {
+                if(scriptNode.status == Status.Running)
+                {
+                    EditorGUI.ProgressBar(new Rect(position.x + 5, position.y + position.height - 20, position.width - 10, 15), scriptNode.progress, "Running");
+                }
+            }
+        }
     }
 }

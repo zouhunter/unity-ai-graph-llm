@@ -128,6 +128,12 @@ namespace AIScripting
             private Action<ReceiveData> _onReceive;
             private StringBuilder _textInProcess = new StringBuilder();
 
+            protected override void ReceiveContentLengthHeader(ulong contentLength)
+            {
+                base.ReceiveContentLengthHeader(contentLength);
+                Debug.LogError("ReceiveContentLengthHeader:" +contentLength);
+            }
+
             protected override bool ReceiveData(byte[] data, int dataLength)
             {
                 _textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));

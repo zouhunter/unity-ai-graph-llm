@@ -15,6 +15,7 @@ namespace AIScripting
         public GraphDirector(AIScriptGraph graph)
         {
             this.graph = graph;
+            graph.Clean();
         }
 
         public void Binding(List<BindingInfo> _bindings)

@@ -203,6 +203,17 @@ namespace AIScripting
             Cancel();
         }
 
+        public void Clean()
+        {
+           _operate = null;
+            _status = Status.None;
+            _parentNodeMap.Clear();
+            _subNodeMap.Clear();
+            _inExecuteNodes.Clear();
+            _variableProvider = new VariableProvider();
+            _eventProvider = new EventProvider();
+        }
+
         public void Update()
         {
             if (_coroutines != null && _coroutines.Count > 0)
