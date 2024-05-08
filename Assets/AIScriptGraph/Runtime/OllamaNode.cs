@@ -11,7 +11,7 @@ using UnityEngine.Networking;
 
 namespace AIScripting
 {
-    [CustomNode("Ollama",0, "AIScripting")]
+    [CustomNode("Ollama", 0, "AIScripting")]
     public class OllamaNode : ScriptNodeBase
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace AIScripting
         /// <summary>
         /// api地址
         /// </summary>
-        [SerializeField] protected string url;
+        [SerializeField] protected string url = "http://192.168.1.10:7001/api/chat";
         /// <summary>
         /// 提示词，与消息一起发送
         /// </summary>
@@ -57,7 +57,10 @@ namespace AIScripting
 
         protected override void OnProcess()
         {
-
+            PostMsg(input, (result) => {
+                output.Value = result;
+                DoFinish();
+            });
         }
 
         /// <summary>
@@ -74,8 +77,7 @@ namespace AIScripting
 
             //缓存发送的信息列表
             m_DataList.Add(new SendData("user", message));
-
-            //StartCoroutine(Request(message, _callback));
+            Request(_callback);
         }
         /// <summary>
         /// 设置保留的上下文条数，防止太长
@@ -116,10 +118,10 @@ namespace AIScripting
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
         /// <returns></returns>
-        public IEnumerator Request(string _postWord, System.Action<string> _callback)
+        public void Request(System.Action<string> _callback)
         {
             float startTime = System.DateTime.Now.Ticks;
-            using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+            UnityWebRequest request = new UnityWebRequest(url, "POST");
             {
                 PostData _postData = new PostData
                 {
@@ -135,28 +137,33 @@ namespace AIScripting
                 request.SetRequestHeader("Content-Type", "application/json");
                 //request.SetRequestHeader("Authorization", string.Format("Bearer {0}", api_key));
 
-                yield return request.SendWebRequest();
-
-                if (request.responseCode == 200)
-                {
-                    string _msgBack = request.downloadHandler.text;
-                    MessageBack _textback = JsonUtility.FromJson<MessageBack>(_msgBack);
-                    if (_textback != null && _textback.message != null)
+                var operation = request.SendWebRequest();
+                operation.completed += (op) => {
+                    if (request.responseCode == 200)
                     {
-
-                        string _backMsg = _textback.message.content;
-                        //添加记录
-                        m_DataList.Add(new SendData("assistant", _backMsg));
-                        _callback(_backMsg);
+                        string _msgBack = request.downloadHandler.text;
+                        MessageBack _textback = JsonUtility.FromJson<MessageBack>(_msgBack);
+                        if (_textback != null && _textback.message != null)
+                        {
+                            string _backMsg = _textback.message.content;
+                            //添加记录
+                            m_DataList.Add(new SendData("assistant", _backMsg));
+                            _callback(_backMsg);
+                        }
+                        else
+                        {
+                            _callback(null);
+                        }
                     }
-                }
-                else
-                {
-                    string _msgBack = request.downloadHandler.text;
-                    Debug.LogError(_msgBack);
-                }
-
-                Debug.Log("Ollama耗时：" + (System.DateTime.Now.Ticks - startTime));
+                    else
+                    {
+                        string _msgBack = request.downloadHandler.text;
+                        _callback?.Invoke(null);
+                        Debug.LogError(_msgBack);
+                    }
+                    request.Dispose();
+                    Debug.Log("Ollama耗时：" + (System.DateTime.Now.Ticks - startTime));
+                };
             }
         }
 
