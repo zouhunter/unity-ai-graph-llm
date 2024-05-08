@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Xml;
 
 using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
@@ -9,6 +11,7 @@ using UnityEditor.PackageManager.Requests;
 
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.U2D;
 
 
 namespace AIScripting
@@ -46,17 +49,19 @@ namespace AIScripting
 
         public Ref<string> input = new Ref<string>("input_text");
         public Ref<string> output = new Ref<string>("output_text");
-        public Ref<string> url = new Ref<string>("ollama_url","http://localhost:8081/api/chat");
+        public Ref<string> url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
 
         protected override int InCount => int.MaxValue;
 
         protected override int OutCount => int.MaxValue;
 
         public override int Style => 1;
+        private LitCoroutine _litCoroutine;
 
         protected override void OnProcess()
         {
-            PostMsg(input, (result) => {
+            PostMsg(input, (result) =>
+            {
                 output.Value = result;
                 DoFinish();
             });
@@ -76,8 +81,9 @@ namespace AIScripting
 
             //缓存发送的信息列表
             m_DataList.Add(new SendData("user", message));
-            Request(_callback);
+            _litCoroutine = Owner.StartCoroutine(Request(_callback));
         }
+
         /// <summary>
         /// 设置保留的上下文条数，防止太长
         /// </summary>
@@ -101,7 +107,41 @@ namespace AIScripting
                 role = _role;
                 content = _content;
             }
+        }
 
+        //{"model":"llama3","created_at":"2024-05-08T09:27:16.4077711Z","message":{"role":"assistant","content":" harmony"},"done":false}
+        [Serializable]
+        public class ReceiveData
+        {
+            public string model;
+            public string created_at;
+            public Message message;
+            public bool done;
+        }
+
+        public class DownloadHandlerMessageQueue : DownloadHandlerScript
+        {
+            public StringBuilder allText = new StringBuilder();
+            private Action<ReceiveData> onReceive;
+            protected override void ReceiveContentLengthHeader(ulong contentLength)
+            {
+                base.ReceiveContentLengthHeader(contentLength);
+                Debug.Log("ReceiveData length:" + contentLength);
+            }
+
+            protected override bool ReceiveData(byte[] data, int dataLength)
+            {
+                var text = System.Text.UTF8Encoding.UTF8.GetString(data, 0, dataLength);
+                Debug.Log(text);
+                var receiveData = JsonUtility.FromJson<ReceiveData>(text);
+                allText.Append(receiveData.message.content);
+                onReceive?.Invoke(receiveData);
+                return base.ReceiveData(data, dataLength);
+            }
+            internal void RegistReceive(Action<ReceiveData> onReceive)
+            {
+                this.onReceive = onReceive;
+            }
         }
 
         private void Start()
@@ -112,64 +152,78 @@ namespace AIScripting
 
 
         /// <summary>
+        /// 收到回复
+        /// </summary>
+        /// <param name="data"></param>
+        private void OnReceive(ReceiveData data)
+        {
+            Debug.Log(data.message.content);
+        }
+
+        /// <summary>
         /// 调用接口
         /// </summary>
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
         /// <returns></returns>
-        public void Request(System.Action<string> _callback)
+        public IEnumerator Request(System.Action<string> _callback)
         {
-            float startTime = System.DateTime.Now.Ticks;
-            Debug.Log("request:" + url);
+            long startTime = System.DateTime.Now.Ticks;
+            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
             UnityWebRequest request = new UnityWebRequest(url, "POST");
             {
                 PostData _postData = new PostData
                 {
                     model = m_GptModel.ToString(),
-                    messages = m_DataList
+                    messages = m_DataList,
+                    stream = true
                 };
 
                 string _jsonText = JsonUtility.ToJson(_postData);
                 byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);
-                request.uploadHandler = (UploadHandler)new UploadHandlerRaw(data);
-                request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-
+                request.uploadHandler = new UploadHandlerRaw(data);
+                var downloadHandler = new DownloadHandlerMessageQueue();
+                downloadHandler.RegistReceive(OnReceive);
+                request.downloadHandler = downloadHandler;
                 request.SetRequestHeader("Content-Type", "application/json");
                 //request.SetRequestHeader("Authorization", string.Format("Bearer {0}", api_key));
 
                 var operation = request.SendWebRequest();
-                operation.completed += (op) => {
-                    if (request.responseCode == 200)
+
+                while (!operation.isDone)
+                {
+                    yield return null;
+                    _asyncOp.SetProgress(operation.progress);
+                }
+
+                if (request.responseCode == 200)
+                {
+                    string _msgBack = downloadHandler.allText.ToString();
+                    if (!string.IsNullOrEmpty(_msgBack))
                     {
-                        string _msgBack = request.downloadHandler.text;
-                        MessageBack _textback = JsonUtility.FromJson<MessageBack>(_msgBack);
-                        if (_textback != null && _textback.message != null)
-                        {
-                            string _backMsg = _textback.message.content;
-                            //添加记录
-                            m_DataList.Add(new SendData("assistant", _backMsg));
-                            _callback(_backMsg);
-                        }
-                        else
-                        {
-                            _callback(null);
-                        }
+                        //添加记录
+                        m_DataList.Add(new SendData("assistant", _msgBack));
+                        _callback(_msgBack);
                     }
                     else
                     {
-                        string _msgBack = request.downloadHandler.text;
-                        _callback?.Invoke(null);
-                        Debug.LogError(_msgBack);
+                        _callback(null);
                     }
-                    request.Dispose();
-                    Debug.Log("Ollama耗时：" + (System.DateTime.Now.Ticks - startTime));
-                };
+                }
+                else
+                {
+                    string _msgBack = request.downloadHandler.text;
+                    _callback?.Invoke(null);
+                    Debug.LogError(_msgBack);
+                }
+                request.Dispose();
+                Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime)/ 10000000);
             }
         }
 
         private void OnRecevieRequest()
         {
-            
+
         }
 
         #region 数据定义
@@ -184,14 +238,7 @@ namespace AIScripting
         {
             public string model;
             public List<SendData> messages;
-            public bool stream = false;//流式
-        }
-        [Serializable]
-        public class MessageBack
-        {
-            public string created_at;
-            public string model;
-            public Message message;
+            public bool stream;//流式
         }
 
         [Serializable]

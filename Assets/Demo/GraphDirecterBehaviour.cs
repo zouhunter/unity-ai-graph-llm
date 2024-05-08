@@ -36,5 +36,10 @@ namespace AIScripting
         {
             resultText.text = graph.GetVariableValue<string>("out_put");
         }
+
+        private void Update()
+        {
+            graphDirector?.Update();
+        }
     }
 }

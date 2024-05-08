@@ -28,7 +28,7 @@ MonoBehaviour:
   info:
     _key: out_put
     _default: 
-    _autoCreate: 1
+    _autoCreate: 0
   logType: 0
 --- !u!114 &-7625763598278455667
 MonoBehaviour:

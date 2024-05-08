@@ -30,5 +30,9 @@ namespace AIScripting
             return graph.Run();
         }
 
+        public void Update()
+        {
+            graph?.Update();
+        }
     }
 }

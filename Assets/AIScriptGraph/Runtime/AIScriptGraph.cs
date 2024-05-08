@@ -1,12 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-
-using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
 
 namespace AIScripting
@@ -24,7 +19,7 @@ namespace AIScripting
         public float progress { get; private set; }
         private AIScriptGraph _runingGraph;
         private VariableProvider _variableProvider = new VariableProvider();
-
+        private List<LitCoroutine> _coroutines = new List<LitCoroutine>();
         public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;
@@ -60,8 +55,13 @@ namespace AIScripting
             return _operate;
         }
 
+
         private void StartUp()
         {
+#if UNITY_EDITOR
+            if(!UnityEditor.EditorApplication.isPlaying)
+                UnityEditor.EditorApplication.update += this.Update;
+#endif
             foreach (var node in Nodes)
             {
                 if (node.Object is ScriptNodeBase aiNode)
@@ -159,7 +159,7 @@ namespace AIScripting
             if (_inExecuteNodes.Count == 0)
             {
                 _status = Status.Success;
-                _operate.SetFinish();
+                OnFinished();
             }
         }
 
@@ -168,7 +168,17 @@ namespace AIScripting
             _status = Status.Failure;
             foreach (var inExecute in _inExecuteNodes)
                 inExecute.Cancel();
+            _inExecuteNodes.Clear();
             _operate?.SetFinish();
+            OnFinished();
+        }
+
+        protected void OnFinished()
+        {
+#if UNITY_EDITOR
+            if (!UnityEditor.EditorApplication.isPlaying)
+                UnityEditor.EditorApplication.update -= this.Update;
+#endif
         }
 
         void OnDestroy()
@@ -176,5 +186,27 @@ namespace AIScripting
             Cancel();
         }
 
+        public void Update()
+        {
+            if (_coroutines != null && _coroutines.Count > 0)
+            {
+                for (int i = _coroutines.Count - 1; i >= 0; i--)
+                {
+                    var coroutine = _coroutines[i];
+                    coroutine.Update();
+                    if (coroutine.IsDone)
+                    {
+                        _coroutines.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
+        public LitCoroutine StartCoroutine(IEnumerator enumerator)
+        {
+            var litCoroutine = new LitCoroutine(enumerator,this);
+            _coroutines.Add(litCoroutine);
+            return litCoroutine;
+        }
     }
 }

@@ -45,6 +45,11 @@ namespace AIScripting
             status = Status.None;
         }
 
+        public virtual void Update()
+        {
+
+        }
+
         /// <summary>
         /// 反射获取所有的引用变量
         /// </summary>

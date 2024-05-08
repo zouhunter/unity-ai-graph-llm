@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace AIScripting
 {
@@ -33,7 +30,7 @@ namespace AIScripting
                 _onProgressNode?.Invoke(_node);
         }
 
-        public void SetProgress(int progress)
+        public void SetProgress(float progress)
         {
             this.progress = progress;
         }
