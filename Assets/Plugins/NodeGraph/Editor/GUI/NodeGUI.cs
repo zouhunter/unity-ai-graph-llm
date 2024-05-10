@@ -506,7 +506,7 @@ namespace UFrame.NodeGraph
             GUIStyle catStyle = new GUIStyle("WhiteMiniLabel");
             catStyle.alignment = TextAnchor.LowerRight;
             var categoryRect = new Rect(2f, m_baseRect.height - 14f, m_baseRect.width - 4f, 16f);
-            GUI.Label(categoryRect, nodeDataDrawer == null ? "" : nodeDataDrawer.Category, catStyle);
+            GUI.Label(categoryRect, m_data.Name, catStyle);
         }
 
         public void UpdateNodeRect()

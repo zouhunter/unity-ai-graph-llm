@@ -38,7 +38,6 @@ namespace AIScripting
                 msgtype = "text" 
            };
             var req = UnityWebRequest.Post(talk_url, JsonUtility.ToJson(sendData), "application/json");
-            Debug.LogError("SendDingTalk...");
             yield return req.SendWebRequest();
             if (req.result == UnityWebRequest.Result.Success)
             {

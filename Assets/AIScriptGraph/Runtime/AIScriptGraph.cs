@@ -14,7 +14,7 @@ namespace AIScripting
         private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new();
         private HashSet<IScriptGraphNode> _inExecuteNodes = new();
         public Dictionary<Type, FieldInfo[]> fieldMap = new();
-        public string Name => name;
+        public string Title => name;
         public Status status => _status;
         public float progress { get; private set; }
         private AIScriptGraph _runingGraph;
@@ -84,33 +84,35 @@ namespace AIScripting
                 if (node.Object is ScriptNodeBase aiNode)
                 {
                     aiNode.ResetGraph(_runingGraph ?? this);
-
-                    if (node.InputPoints.Count > 0)
+                    if(node.OutputPoints.Count > 0)
                     {
-                        node.InputPoints.ForEach(p =>
-                        {
-                            var connections = Connections.FindAll(x => x.ToNodeId == node.Id);
+                        node.OutputPoints.ForEach(p => {
+                            var connections = Connections.FindAll(x => x.FromNodeId == node.Id);
+                            connections.Sort((x, y) => {
+                                return - (x.Object is PortConnection portConnection ? portConnection.priority : 0)
+                                 + (y.Object is PortConnection portConnection2 ? portConnection2.priority : 0);
+                            });
+
                             connections.ForEach(c =>
                             {
-                                if(c.Object is PortConnection portConnection && portConnection.disable)
+                                if (c.Object is PortConnection portConnection && portConnection.disable)
                                     return;
 
-                                var fromNodeInfo = Nodes.Find(x => x.Id == c.FromNodeId);
-                                if (fromNodeInfo.Object is IScriptGraphNode fromNode)
+                                var toNodeInfo = Nodes.Find(x => x.Id == c.ToNodeId);
+                                if (toNodeInfo.Object is IScriptGraphNode toNode)
                                 {
-                                    if (!_parentNodeMap.TryGetValue(aiNode, out var parentNodes))
+                                    if (!_parentNodeMap.TryGetValue(toNode, out var parentNodes))
                                     {
                                         parentNodes = new List<IScriptGraphNode>();
-                                        _parentNodeMap[aiNode] = parentNodes;
+                                        _parentNodeMap[toNode] = parentNodes;
                                     }
-                                    parentNodes.Add(fromNode);
-
-                                    if (!_subNodeMap.TryGetValue(fromNode, out var subNodes))
+                                    parentNodes.Add(aiNode);
+                                    if (!_subNodeMap.TryGetValue(aiNode, out var subNodes))
                                     {
                                         subNodes = new List<IScriptGraphNode>();
-                                        _subNodeMap[fromNode] = subNodes;
+                                        _subNodeMap[aiNode] = subNodes;
                                     }
-                                    subNodes.Add(aiNode);
+                                    subNodes.Add(toNode);
                                 }
                             });
                         });
@@ -158,7 +160,7 @@ namespace AIScripting
 
         private void OnProgressNode(IScriptGraphNode node)
         {
-            UnityEngine.Debug.Log("node progress:" + node.Name + "," + node.progress);
+            UnityEngine.Debug.Log("node progress:" + node.Title + "," + node.progress);
         }
 
         protected void OnFinishNode(IScriptGraphNode node)

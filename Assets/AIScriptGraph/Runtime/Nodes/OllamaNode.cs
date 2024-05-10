@@ -38,7 +38,7 @@ namespace AIScripting
         /// <summary>
         /// »º´æ¶Ô»°
         /// </summary>
-        [NonSerialized] public List<SendData> m_DataList = new List<SendData>();
+        [SerializeField] public List<SendData> m_DataList = new List<SendData>();
 
         public Ref<string> input = new Ref<string>("input_text");
         public Ref<string> output = new Ref<string>("output_text");
@@ -63,6 +63,12 @@ namespace AIScripting
                 output.Value = result;
                 DoFinish();
             });
+        }
+
+        public override void ResetGraph(AIScriptGraph graph)
+        {
+            base.ResetGraph(graph);
+            m_DataList.Clear();
         }
 
         /// <summary>

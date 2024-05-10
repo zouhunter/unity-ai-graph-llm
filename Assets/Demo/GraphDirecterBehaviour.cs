@@ -9,7 +9,7 @@ namespace AIScripting
 {
     public class GraphDirecterBehaviour : MonoBehaviour
     {
-        public string beginNode;
+        [InspectorName("图")]
         public AIScriptGraph graph;
         public List<BindingInfo> bindings = new List<BindingInfo>();
         public GraphDirector graphDirector;

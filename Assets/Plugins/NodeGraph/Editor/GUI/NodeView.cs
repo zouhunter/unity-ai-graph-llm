@@ -21,7 +21,7 @@ namespace UFrame.NodeGraph
         protected Editor targetDrawer;
         public virtual GUIStyle ActiveStyle { get { return EditorStyles.miniButton; } }
         public virtual GUIStyle InactiveStyle { get { return EditorStyles.miniButton; } }
-        public virtual string Category { get { return "empty"; } }
+        public virtual string Title => _target.name;
         public virtual void OnContextMenuGUI(GenericMenu menu, NodeGUI gui) { }
         public virtual float SuperHeight { get { return 0; } }
 
@@ -38,10 +38,10 @@ namespace UFrame.NodeGraph
             var textColor = (EditorGUIUtility.isProSkin) ? Color.black : oldColor;
             var style = new GUIStyle(EditorStyles.label);
             style.alignment = TextAnchor.MiddleCenter;
-            var titleHeight = style.CalcSize(new GUIContent(data.Name)).y + NGEditorSettings.GUI.NODE_TITLE_HEIGHT_MARGIN;
+            var titleHeight = style.CalcSize(new GUIContent(Title)).y + NGEditorSettings.GUI.NODE_TITLE_HEIGHT_MARGIN;
             var nodeTitleRect = new Rect(0, 0, position.width, titleHeight);
             GUI.color = textColor;
-            GUI.Label(nodeTitleRect, data.Name, style);
+            GUI.Label(nodeTitleRect, Title, style);
             GUI.color = oldColor;
         }
 

@@ -129,12 +129,12 @@ namespace UFrame.NodeGraph
             {
                 Undo.RecordObject(obj, "none");
                 all.Add(obj);
-                ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.None);
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.HideInHierarchy);
                 UnityEditor.EditorUtility.SetDirty(mainAsset);
             }
             else
             {
-                ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.None);
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.HideInHierarchy);
                 UnityEditor.EditorUtility.SetDirty(obj);
             }
             AssetDatabase.Refresh();

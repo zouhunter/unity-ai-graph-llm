@@ -5,7 +5,7 @@ namespace AIScripting
 {
     public interface IScriptGraphNode 
     {
-        string Name { get; }
+        string Title { get; }
         Status status { get; }
         float progress { get; }
         void ResetGraph(AIScriptGraph graph);

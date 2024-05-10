@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UFrame.NodeGraph.DataModel;
 using System.Reflection;
-using System;
+using UnityEngine;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace AIScripting
 {
     public abstract class ScriptNodeBase : Node, IScriptGraphNode
     {
+        [SerializeField]
+        private string _title;
         protected AIScriptGraph Owner { get; private set; }
         protected virtual int InCount => int.MaxValue;
         protected virtual int OutCount => int.MaxValue;
@@ -16,7 +19,15 @@ namespace AIScripting
         protected AsyncOp _asyncOp;
         public float progress => _asyncOp != null ? _asyncOp.progress : 0;
         public Status status { get; protected set; }
-        public string Name => name;
+        public override string Title
+        {
+            get
+            {
+                if(string.IsNullOrEmpty(_title))
+                    _title = GetType().Name;
+                return _title;
+            }
+        }
 
         public override void Initialize(NodeData data)
         {
@@ -80,6 +91,7 @@ namespace AIScripting
 
         protected virtual void DoFinish(bool success = true)
         {
+            Debug.Log("node finish:" + Title + "," +success);
             status = success ? Status.Success : Status.Failure;
             _asyncOp?.SetFinish();
         }
@@ -89,7 +101,7 @@ namespace AIScripting
             BindingRefVars();
             _asyncOp = new AsyncOp(this);
             status = Status.Running;
-            UnityEngine.Debug.Log("node start process:" + Name);
+            UnityEngine.Debug.Log("node start process:" + Title);
             OnProcess();
             return _asyncOp;
         }

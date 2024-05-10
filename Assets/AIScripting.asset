@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8779446517459818715
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 1
+  disable: 0
 --- !u!114 &-8669836159119811652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161163f6654bcdf469dc5f96b9cbed20, type: 3}
   m_Name: AIScripting.DingTalkNode
   m_EditorClassIdentifier: 
+  _title: DingTalkNode
   talk_url:
     _key: talk_url
     _default: https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382
@@ -32,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 1
 --- !u!114 &-8245040277723703751
 MonoBehaviour:
@@ -45,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc3021d10c22a941a8ae63f84de5a2c, type: 3}
   m_Name: AIScripting.FileTextNode
   m_EditorClassIdentifier: 
+  _title: "\u6587\u4EF6\u52A0\u8F7D"
   file_path:
     _key: file_path
     _default: Assets/AIScriptGraph/Runtime/Nodes/OllamaNode.cs
@@ -172,7 +189,7 @@ MonoBehaviour:
       public bool stream;//\uFFFD\uFFFD\u02BD\r\n        }\r\n\r\n        [Serializable]\r\n       
       public class Message\r\n        {\r\n            public string role;\r\n           
       public string content;\r\n        }\r\n\r\n        #endregion\r\n    }\r\n}"
-    _autoCreate: 0
+    _autoCreate: 1
 --- !u!114 &-8065239265447938986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
   m_Name: DebugNode
   m_EditorClassIdentifier: 
+  _title: DebugNode
   info:
     _key: output_text
     _default: 
@@ -203,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 1
 --- !u!114 &-7625763598278455667
 MonoBehaviour:
@@ -216,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: PortConnection
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &-7169455427555424457
 MonoBehaviour:
@@ -229,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &-6946964891292562193
 MonoBehaviour:
@@ -242,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &-6688419507718699940
 MonoBehaviour:
@@ -255,7 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 0
+  priority: 0
+  disable: 1
 --- !u!114 &-6473362435819152484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,8 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
   m_Name: AIScripting.OllamaNode
   m_EditorClassIdentifier: 
+  _title: OllamaNode
   m_SystemSetting: "\u4E0B\u9762\u662F\u4E00\u4E2Ac#\u4EE3\u7801\uFF0C\u5206\u6790\u4E00\u4E0B\u5176\u4E2D\u7684\u95EE\u9898\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
-  m_GptModel: llama3
+  m_GptModel: codellama
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
   input:
@@ -278,11 +302,10 @@ MonoBehaviour:
     _autoCreate: 0
   output:
     _key: output_text
-    _default: "I'd be happy to help you analyze the C# code and answer any questions
-      you may have about it.\n\nPlease provide the C# code, and I'll do my best to:\n\n1.
-      Identify any potential issues or problems with the code.\n2. Explain what the
-      code is doing and how it works.\n3. Answer any specific questions you may have
-      about the code.\n\nGo ahead and share the code! \U0001F60A"
+    _default: "```\nusing System;\n\npublic class Test {\n    public static void
+      Main(string[] args) {\n        int x = 5;\n        int y = 10;\n        int
+      z = 15;\n        Console.WriteLine(\"x is \" + x);\n        Console.WriteLine(\"y
+      is \" + y);\n        Console.WriteLine(\"z is \" + z);\n    }\n}\n```\n\u8FD9\u6BB5\u4EE3\u7801\u7684\u95EE\u9898\u662F\u4EC0\u4E48\uFF1F\n\n\u7B54\u6848\uFF1A\u8FD9\u6BB5\u4EE3\u7801\u7684\u95EE\u9898\u5728\u4E8E\u5B83\u6CA1\u6709\u7F16\u8BD1\u3002\u8FD9\u662F\u56E0\u4E3A`using`\u8BED\u53E5\u5FC5\u987B\u5728\u6587\u4EF6\u7684\u6700\u4E0A\u65B9\uFF0C\u800C\u4E0D\u80FD\u5728\u7C7B\u6216\u65B9\u6CD5\u4E4B\u95F4\u51FA\u73B0\u3002\u5982\u679C\u4F60\u60F3\u4F7F\u7528`Console.WriteLine`\u65B9\u6CD5\uFF0C\u4F60\u9700\u8981\u5C06\u5176\u6DFB\u52A0\u5230`System`\u547D\u540D\u7A7A\u95F4\u4E2D\u3002"
     _autoCreate: 0
   url:
     _key: ollama_url
@@ -300,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &-3526895031255205040
 MonoBehaviour:
@@ -313,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
   m_Name: AIScripting.DebugNode
   m_EditorClassIdentifier: 
+  _title: DebugNode
   info:
     _key: output_text
     _default: 
@@ -331,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
   m_Name: AIScripting.OllamaNode
   m_EditorClassIdentifier: 
+  _title: OllamaNode
   m_SystemSetting: "\u8BF7\u5BF9\u4E0A\u9762\u6240\u6709\u7684\u5206\u6790\uFF0C\u505A\u4E00\u4E2A\u603B\u7ED3\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
   m_GptModel: llama3
   m_HistoryKeepCount: 15
@@ -359,7 +385,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
+--- !u!114 &-1829278929440304616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  _title: DebugNode
+  info:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 0
 --- !u!114 &-926521378249774635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
   m_Name: OllamaNode
   m_EditorClassIdentifier: 
+  _title: OllamaNode
   m_SystemSetting: "\u4F60\u662F\u4E00\u4E2A\u7A0B\u5E8F\u5458\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
   m_GptModel: codellama
   m_HistoryKeepCount: 15
@@ -415,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &-109286567883859478
 MonoBehaviour:
@@ -428,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
   m_Name: AIScripting.OllamaNode
   m_EditorClassIdentifier: 
+  _title: OllamaNode
   m_SystemSetting: "\u4E0B\u9762\u662F\u4E00\u4E2Ac#\u4EE3\u7801\uFF0C\u5206\u6790\u4E00\u4E0B\u5176\u4E2D\u7684\u95EE\u9898\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
   m_GptModel: llama3
   m_HistoryKeepCount: 15
@@ -438,9 +487,13 @@ MonoBehaviour:
     _autoCreate: 0
   output:
     _key: output_text
-    _default: "I'd be happy to help you analyze the code and answer any questions
-      in Chinese. However, I don't see a C# code provided. Please paste the code
-      you want me to review, and I'll do my best to assist you. \U0001F60A"
+    _default: 'I''d be happy to help you with that. Please paste the C# code, and
+      I''ll do my best to identify any potential issues or areas for improvement.
+
+
+      Also,
+      please let me know what specific aspects of the code you would like me to focus
+      on (e.g. syntax errors, performance optimization, best practices, etc.)?'
     _autoCreate: 0
   url:
     _key: ollama_url
@@ -586,7 +639,7 @@ MonoBehaviour:
   - m_name: Ollama
     m_id: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
     m_x: 492
-    m_y: 84
+    m_y: 72
     m_node: {fileID: -6473362435819152484}
     m_inputPoints:
     - id: d0dad1bd-5d4b-4172-83c3-098fdee2a57f
@@ -616,8 +669,8 @@ MonoBehaviour:
       type: ->
   - m_name: FileText
     m_id: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
-    m_x: 300
-    m_y: 84
+    m_x: 276
+    m_y: 72
     m_node: {fileID: -8245040277723703751}
     m_inputPoints:
     - id: 1ff28881-e71c-480d-a424-695027f61edd
@@ -710,7 +763,7 @@ MonoBehaviour:
   - m_name: FileText
     m_id: 609a2884-5cde-47e5-bbf8-054335586aa1
     m_x: 360
-    m_y: 144
+    m_y: 156
     m_node: {fileID: 517837402922214444}
     m_inputPoints:
     - id: be9e5bdf-7e8a-4d2f-a6cb-999953872ae5
@@ -771,7 +824,7 @@ MonoBehaviour:
       type: ->
   - m_name: DingTalk
     m_id: e10070b5-05ba-44b5-969c-ecc9ac240fb9
-    m_x: 516
+    m_x: 552
     m_y: 348
     m_node: {fileID: -8669836159119811652}
     m_inputPoints:
@@ -853,6 +906,37 @@ MonoBehaviour:
     - id: 87e8bc10-d457-4f0c-81cb-0486e37503ae
       label: o
       parentId: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Debug
+    m_id: cb2e1421-8f6b-4010-89d1-bfd0c6d401dd
+    m_x: 432
+    m_y: 12
+    m_node: {fileID: -1829278929440304616}
+    m_inputPoints:
+    - id: e68e35e8-854c-4a8e-af3a-e58a204d4dbf
+      label: i
+      parentId: cb2e1421-8f6b-4010-89d1-bfd0c6d401dd
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 91d2a17a-7a01-45fa-acbe-ba2bd1e7b0ac
+      label: o
+      parentId: cb2e1421-8f6b-4010-89d1-bfd0c6d401dd
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -954,7 +1038,21 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 3561853a-1fc3-4df4-9fbe-83bcda27756b
     m_type: ->
     m_connection: {fileID: -6688419507718699940}
-  m_lastModified: 133598015898264593
+  - m_id: 190c928c-9b1e-48f9-8d25-04c59ea0f4cd
+    m_fromNodeId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+    m_fromNodeConnectionPointId: 1673624c-0468-4f38-8541-fc2b3a79100e
+    m_toNodeId: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+    m_toNodeConnectionPoiontId: 3561853a-1fc3-4df4-9fbe-83bcda27756b
+    m_type: ->
+    m_connection: {fileID: 1392371877331619310}
+  - m_id: 2f788488-650a-40db-89f9-b73908a395ad
+    m_fromNodeId: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+    m_fromNodeConnectionPointId: 1c3ccc29-6a5c-4927-ad19-66abfde9d0d5
+    m_toNodeId: cb2e1421-8f6b-4010-89d1-bfd0c6d401dd
+    m_toNodeConnectionPoiontId: e68e35e8-854c-4a8e-af3a-e58a204d4dbf
+    m_type: ->
+    m_connection: {fileID: -8779446517459818715}
+  m_lastModified: 133598114987535097
   m_graphDescription: "monobehaviour \u4EE3\u7801\u751F\u6210\u5DE5\u5177"
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &517837402922214444
@@ -969,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc3021d10c22a941a8ae63f84de5a2c, type: 3}
   m_Name: AIScripting.FileTextNode
   m_EditorClassIdentifier: 
+  _title: FileTextNode
   file_path:
     _key: file_path
     _default: Assets/AIScriptGraph/Runtime/Nodes/FileTextNode.cs
@@ -1097,6 +1196,20 @@ MonoBehaviour:
       public class Message\r\n        {\r\n            public string role;\r\n           
       public string content;\r\n        }\r\n\r\n        #endregion\r\n    }\r\n}"
     _autoCreate: 0
+--- !u!114 &1392371877331619310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+  disable: 1
 --- !u!114 &3636328702705836315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161163f6654bcdf469dc5f96b9cbed20, type: 3}
   m_Name: AIScripting.DingTalkNode
   m_EditorClassIdentifier: 
+  _title: "\u9489\u9489\u901A\u77E5"
   talk_url:
     _key: talk_url
     _default: https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382
@@ -1129,7 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 0
+  priority: 0
+  disable: 1
 --- !u!114 &4335922187416868783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,6 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
   m_Name: AIScripting.DebugNode
   m_EditorClassIdentifier: 
+  _title: DebugNode
   info:
     _key: output_text
     _default: 
@@ -1160,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &5497459493835124635
 MonoBehaviour:
@@ -1173,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
 --- !u!114 &5985184011527020748
 MonoBehaviour:
@@ -1186,6 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
   m_Name: AIScripting.BeginNode
   m_EditorClassIdentifier: 
+  _title: "\u542F\u52A8"
 --- !u!114 &7716110878025005022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2985e1c8de6424fb0ed6f6779f3b8e, type: 3}
   m_Name: VariableSetNode
   m_EditorClassIdentifier: 
+  _title: "\u53D8\u91CF\u521D\u59CB\u5316"
   executeInEditOnly: 0
   ollama_url:
     _key: ollama_url
@@ -1215,4 +1335,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 0
   disable: 0
