@@ -60,7 +60,7 @@ namespace AIScripting
                         advance = data.targetTime <= TimeOnStartUp();
                         break;
                     case DataType.LitCoroutine:
-                        advance = (data.current as LitCoroutine).m_IsDone;
+                        advance = (data.current as LitCoroutine)._isDone;
                         break;
                     case DataType.AsyncOP:
                         advance = (data.current as AsyncOperation).isDone;
@@ -90,23 +90,24 @@ namespace AIScripting
             }
         }
 
-        public WeakReference m_Owner;
-        IEnumerator m_Routine;
-        YieldProcessor m_Processor;
-        bool m_IsDone;
-        public bool IsDone => m_IsDone;
+        WeakReference _owner;
+        IEnumerator _routine;
+        Stack<IEnumerator> _processingStack = new Stack<IEnumerator>(32);
+        YieldProcessor _processor;
+        bool _isDone;
+        public bool IsDone => _isDone;
 
         public LitCoroutine(IEnumerator routine)
         {
-            m_Owner = null;
-            m_Routine = routine;
+            _owner = null;
+            _routine = routine;
         }
 
         public LitCoroutine(IEnumerator routine, object owner)
         {
-            m_Processor = new YieldProcessor();
-            m_Owner = new WeakReference(owner);
-            m_Routine = routine;
+            _processor = new YieldProcessor();
+            _owner = new WeakReference(owner);
+            _routine = routine;
         }
 
 
@@ -118,40 +119,39 @@ namespace AIScripting
 
         public void MoveNext()
         {
-            if (m_Owner != null && !m_Owner.IsAlive)
+            if (_owner != null && !_owner.IsAlive)
             {
                 return;
             }
 
-            bool done = ProcessIEnumeratorRecursive(m_Routine);
-            m_IsDone = !done;
+            bool done = ProcessIEnumeratorRecursive(_routine);
+            _isDone = !done;
         }
 
-        static Stack<IEnumerator> kIEnumeratorProcessingStack = new Stack<IEnumerator>(32);
         private bool ProcessIEnumeratorRecursive(IEnumerator enumerator)
         {
             var root = enumerator;
             while (enumerator.Current as IEnumerator != null)
             {
-                kIEnumeratorProcessingStack.Push(enumerator);
+                _processingStack.Push(enumerator);
                 enumerator = enumerator.Current as IEnumerator;
             }
 
             //process leaf
-            m_Processor.Set(enumerator.Current);
-            var result = m_Processor.MoveNext(enumerator);
+            _processor.Set(enumerator.Current);
+            var result = _processor.MoveNext(enumerator);
 
-            while (kIEnumeratorProcessingStack.Count > 1)
+            while (_processingStack.Count > 1)
             {
                 if (!result)
                 {
-                    result = kIEnumeratorProcessingStack.Pop().MoveNext();
+                    result = _processingStack.Pop().MoveNext();
                 }
                 else
-                    kIEnumeratorProcessingStack.Clear();
+                    _processingStack.Clear();
             }
 
-            if (kIEnumeratorProcessingStack.Count > 0 && !result && root == kIEnumeratorProcessingStack.Pop())
+            if (_processingStack.Count > 0 && !result && root == _processingStack.Pop())
             {
                 result = root.MoveNext();
             }
@@ -161,8 +161,8 @@ namespace AIScripting
 
         public void Stop()
         {
-            m_Owner = null;
-            m_Routine = null;
+            _owner = null;
+            _routine = null;
         }
     }
 

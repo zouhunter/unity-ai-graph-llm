@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8669836159119811652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161163f6654bcdf469dc5f96b9cbed20, type: 3}
+  m_Name: AIScripting.DingTalkNode
+  m_EditorClassIdentifier: 
+  talk_url:
+    _key: talk_url
+    _default: https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382
+    _autoCreate: 1
+  talk_text:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
 --- !u!114 &-8362365802990645104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +32,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 0
+  disable: 1
+--- !u!114 &-8245040277723703751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc3021d10c22a941a8ae63f84de5a2c, type: 3}
+  m_Name: AIScripting.FileTextNode
+  m_EditorClassIdentifier: 
+  file_path:
+    _key: file_path
+    _default: Assets/AIScriptGraph/Runtime/Nodes/OllamaNode.cs
+    _autoCreate: 1
+  out_put:
+    _key: output_text
+    _default: "using System;\r\nusing System.Collections;\r\nusing System.Collections.Generic;\r\nusing
+      System.Text;\r\nusing System.Xml;\r\n\r\nusing UFrame.NodeGraph;\r\nusing UFrame.NodeGraph.DataModel;\r\n\r\nusing
+      UnityEditor.PackageManager.Requests;\r\n\r\nusing UnityEngine;\r\nusing UnityEngine.Networking;\r\nusing
+      UnityEngine.U2D;\r\n\r\nnamespace AIScripting\r\n{\r\n    [CustomNode(\"Ollama\",
+      0, \"AIScripting\")]\r\n    public class OllamaNode : ScriptNodeBase\r\n   
+      {\r\n        /// <summary>\r\n        /// AI\uFFFD\u8DA8\r\n        /// </summary>\r\n       
+      [Multiline(3)]\r\n        public string m_SystemSetting = string.Empty;\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\u0123\uFFFD\uFFFD,\u0123\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        public string m_GptModel = \"llama3\";\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u0131\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        [Header(\"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u0131\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\")]\r\n       
+      [SerializeField] protected int m_HistoryKeepCount = 15;\r\n\r\n        [Header(\"\uFFFD\uFFFD\u03E2\uFFFD\uFFFD\uFFFD\uFFFDkey\")]\r\n       
+      [SerializeField] protected string eventReceiveKey = \"ollama_receive_message\";\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\u053B\uFFFD\r\n       
+      /// </summary>\r\n        [NonSerialized] public List<SendData> m_DataList
+      = new List<SendData>();\r\n\r\n        public Ref<string> input = new Ref<string>(\"input_text\");\r\n       
+      public Ref<string> output = new Ref<string>(\"output_text\");\r\n        public
+      Ref<string> url = new Ref<string>(\"ollama_url\", \"http://localhost:8081/api/chat\");\r\n\r\n       
+      protected override int InCount => int.MaxValue;\r\n\r\n        protected override
+      int OutCount => int.MaxValue;\r\n\r\n        public override int Style => 1;\r\n       
+      private LitCoroutine _litCoroutine;\r\n\r\n        protected override void
+      OnProcess()\r\n        {\r\n            if(m_DataList.Count == 0)\r\n           
+      {\r\n                m_DataList.Add(new SendData(\"system\", m_SystemSetting));\r\n           
+      }\r\n\r\n            PostMsg(input, (result) =>\r\n            {\r\n               
+      output.Value = result;\r\n                DoFinish();\r\n            });\r\n       
+      }\r\n\r\n        /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u03E2\r\n       
+      /// </summary>\r\n        public virtual void PostMsg(string _msg, Action<string>
+      _callback)\r\n        {\r\n            //\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n           
+      CheckHistory();\r\n\r\n            //\uFFFD\uFFFD\uFFFD\u6DE2\uFFFD\u0375\uFFFD\uFFFD\uFFFD\u03E2\uFFFD\u0431\uFFFD\r\n           
+      m_DataList.Add(new SendData(\"user\", _msg));\r\n            _litCoroutine
+      = Owner.StartCoroutine(Request(_callback));\r\n        }\r\n\r\n        ///
+      <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\xF1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05B9\u032B\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        public virtual void CheckHistory()\r\n        {\r\n           
+      if (m_DataList.Count > m_HistoryKeepCount)\r\n            {\r\n               
+      m_DataList.RemoveAt(0);\r\n            }\r\n        }\r\n\r\n\r\n        [Serializable]\r\n       
+      public class SendData\r\n        {\r\n            [SerializeField] public string
+      role;\r\n            [SerializeField] public string content;\r\n           
+      public SendData() { }\r\n            public SendData(string _role, string _content)\r\n           
+      {\r\n                role = _role;\r\n                content = _content;\r\n           
+      }\r\n        }\r\n\r\n        //{\"model\":\"llama3\",\"created_at\":\"2024-05-08T09:27:16.4077711Z\",\"message\":{\"role\":\"assistant\",\"content\":\"
+      harmony\"},\"done\":false}\r\n        [Serializable]\r\n        public class
+      ReceiveData\r\n        {\r\n            public string model;\r\n           
+      public string created_at;\r\n            public Message message;\r\n           
+      public bool done;\r\n        }\r\n\r\n        public class DownloadHandlerMessageQueue
+      : DownloadHandlerScript\r\n        {\r\n            public StringBuilder allText
+      = new StringBuilder();\r\n            private Action<ReceiveData> _onReceive;\r\n           
+      private StringBuilder _textInProcess = new StringBuilder();\r\n\r\n           
+      protected override void ReceiveContentLengthHeader(ulong contentLength)\r\n           
+      {\r\n                base.ReceiveContentLengthHeader(contentLength);\r\n               
+      Debug.Log(\"ReceiveContentLengthHeader:\" +contentLength);\r\n            }\r\n\r\n           
+      protected override bool ReceiveData(byte[] data, int dataLength)\r\n           
+      {\r\n                var text = Encoding.UTF8.GetString(data, 0, dataLength);\r\n               
+      if(text.Contains('\\n'))\r\n                {\r\n                    var lines
+      = text.Trim().Split('\\n');\r\n                    foreach (var line in lines)\r\n                   
+      {\r\n                        if (!string.IsNullOrEmpty(line))\r\n                       
+      {\r\n                            OnReceiveOne(line.Trim());\r\n                       
+      }\r\n                    }\r\n                }\r\n                else\r\n               
+      {\r\n                    OnReceiveOne(text.Trim());\r\n                }\r\n               
+      //_textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));\r\n               
+      //Debug.Log(\"ReceiveData:\" + _textInProcess);\r\n                //int index
+      = -1;\r\n                //var startIndex = -1;\r\n                //var endIndex
+      = -1;\r\n                //var paired = 0;\r\n                //while (++index
+      < _textInProcess.Length)\r\n                //{\r\n                //    var
+      charItem = _textInProcess[index];\r\n                //    if (charItem ==
+      '{')\r\n                //    {\r\n                //        if(startIndex
+      < 0)\r\n                //            startIndex = index;\r\n               
+      //        paired++;\r\n                //    }\r\n                //    if
+      (charItem == '}')\r\n                //    {\r\n                //        paired--;\r\n               
+      //    }\r\n                //    if (paired == 0 && startIndex >= 0)\r\n               
+      //    {\r\n                //        endIndex = index;\r\n                //       
+      var oneMessage = _textInProcess.ToString(startIndex, endIndex - startIndex
+      + 1);\r\n                //        OnReceiveOne(oneMessage);\r\n               
+      //        startIndex = -1;\r\n                //    }\r\n                //}\r\n               
+      //if (endIndex > 0 && endIndex < _textInProcess.Length - 1)\r\n               
+      //{\r\n                //    _textInProcess.Remove(0, endIndex+1);\r\n               
+      //}\r\n                return base.ReceiveData(data, dataLength);\r\n           
+      }\r\n\r\n            private void OnReceiveOne(string text)\r\n           
+      {\r\n                Debug.Log(\"OnReceiveOne:\" + text);\r\n               
+      var receiveData = JsonUtility.FromJson<ReceiveData>(text);\r\n               
+      allText.Append(receiveData.message.content);\r\n                _onReceive?.Invoke(receiveData);\r\n           
+      }\r\n\r\n            internal void RegistReceive(Action<ReceiveData> onReceive)\r\n           
+      {\r\n                this._onReceive = onReceive;\r\n            }\r\n       
+      }\r\n\r\n        /// <summary>\r\n        /// \uFFFD\u0575\uFFFD\uFFFD\u0638\uFFFD\r\n       
+      /// </summary>\r\n        /// <param name=\"data\"></param>\r\n        private
+      void OnReceive(ReceiveData data)\r\n        {\r\n            //Debug.Log(data.message.content);\r\n           
+      Owner.SendEvent(eventReceiveKey, data);\r\n        }\r\n\r\n        /// <summary>\r\n       
+      /// \uFFFD\uFFFD\uFFFD\xFD\u04FF\uFFFD\r\n        /// </summary>\r\n       
+      /// <param name=\"_postWord\"></param>\r\n        /// <param name=\"_callback\"></param>\r\n       
+      /// <returns></returns>\r\n        public IEnumerator Request(System.Action<string>
+      _callback)\r\n        {\r\n            long startTime = System.DateTime.Now.Ticks;\r\n           
+      Debug.Log(System.DateTime.Now.Ticks + \",request:\" + url);\r\n           
+      UnityWebRequest request = new UnityWebRequest(url, \"POST\");\r\n           
+      {\r\n                PostData _postData = new PostData\r\n                {\r\n                   
+      model = m_GptModel.ToString(),\r\n                    messages = m_DataList,\r\n                   
+      stream = true\r\n                };\r\n\r\n                string _jsonText
+      = JsonUtility.ToJson(_postData);\r\n                byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);\r\n               
+      request.uploadHandler = new UploadHandlerRaw(data);\r\n                var
+      downloadHandler = new DownloadHandlerMessageQueue();\r\n                downloadHandler.RegistReceive(OnReceive);\r\n               
+      request.downloadHandler = downloadHandler;\r\n                request.SetRequestHeader(\"Content-Type\",
+      \"application/json\");\r\n                //request.SetRequestHeader(\"Authorization\",
+      string.Format(\"Bearer {0}\", api_key));\r\n\r\n                var operation
+      = request.SendWebRequest();\r\n\r\n                while (!operation.isDone)\r\n               
+      {\r\n                    yield return null;\r\n                    _asyncOp.SetProgress(operation.progress);\r\n               
+      }\r\n\r\n                if (request.responseCode == 200)\r\n               
+      {\r\n                    string _msgBack = downloadHandler.allText.ToString();\r\n                   
+      if (!string.IsNullOrEmpty(_msgBack))\r\n                    {\r\n                       
+      //\uFFFD\uFFFD\u04FC\uFFFD\xBC\r\n                        m_DataList.Add(new
+      SendData(\"assistant\", _msgBack));\r\n                        _callback(_msgBack);\r\n                   
+      }\r\n                    else\r\n                    {\r\n                       
+      _callback(null);\r\n                    }\r\n                }\r\n               
+      else\r\n                {\r\n                    _callback?.Invoke(null);\r\n                   
+      Debug.LogError(request.downloadHandler.error);\r\n                }\r\n               
+      request.Dispose();\r\n                Debug.Log(System.DateTime.Now.Ticks +
+      \",Ollama\uFFFD\uFFFD\u02B1\uFFFD\uFFFD\" + (System.DateTime.Now.Ticks - startTime)
+      / 10000000);\r\n            }\r\n        }\r\n\r\n        private void OnRecevieRequest()\r\n       
+      {\r\n\r\n        }\r\n\r\n        #region \uFFFD\uFFFD\uFFFD\u0776\uFFFD\uFFFD\uFFFD\r\n\r\n       
+      [Serializable]\r\n        public class PostData\r\n        {\r\n           
+      public string model;\r\n            public List<SendData> messages;\r\n           
+      public bool stream;//\uFFFD\uFFFD\u02BD\r\n        }\r\n\r\n        [Serializable]\r\n       
+      public class Message\r\n        {\r\n            public string role;\r\n           
+      public string content;\r\n        }\r\n\r\n        #endregion\r\n    }\r\n}"
+    _autoCreate: 0
 --- !u!114 &-8065239265447938986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,11 +186,24 @@ MonoBehaviour:
   m_Name: DebugNode
   m_EditorClassIdentifier: 
   info:
-    _key: out_put
+    _key: output_text
     _default: 
     _autoCreate: 0
   format: 
-  logType: 0
+  logType: 3
+--- !u!114 &-7897704624028060786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 1
 --- !u!114 &-7625763598278455667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +215,149 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
   m_Name: PortConnection
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-7169455427555424457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-6946964891292562193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-6688419507718699940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-6473362435819152484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.OllamaNode
+  m_EditorClassIdentifier: 
+  m_SystemSetting: "\u4E0B\u9762\u662F\u4E00\u4E2Ac#\u4EE3\u7801\uFF0C\u5206\u6790\u4E00\u4E0B\u5176\u4E2D\u7684\u95EE\u9898\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  input:
+    _key: output_text
+    _default: 
+    _autoCreate: 0
+  output:
+    _key: output_text
+    _default: "I'd be happy to help you analyze the C# code and answer any questions
+      you may have about it.\n\nPlease provide the C# code, and I'll do my best to:\n\n1.
+      Identify any potential issues or problems with the code.\n2. Explain what the
+      code is doing and how it works.\n3. Answer any specific questions you may have
+      about the code.\n\nGo ahead and share the code! \U0001F60A"
+    _autoCreate: 0
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 0
+--- !u!114 &-3837637956981627654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-3526895031255205040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  info:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  format: "\u603B\u7ED3:{0}"
+  logType: 2
+--- !u!114 &-2151416684536408255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.OllamaNode
+  m_EditorClassIdentifier: 
+  m_SystemSetting: "\u8BF7\u5BF9\u4E0A\u9762\u6240\u6709\u7684\u5206\u6790\uFF0C\u505A\u4E00\u4E2A\u603B\u7ED3\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  input:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
+--- !u!114 &-2129204001852777704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
   disable: 0
 --- !u!114 &-926521378249774635
@@ -56,10 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
   m_Name: OllamaNode
   m_EditorClassIdentifier: 
-  m_SystemSetting: 
-  m_GptModel: 0
-  m_Prompt: "\u4F60\u662F\u4E00\u4E2A\u6570\u5B66\u5BB6\uFF0C\u56DE\u7B54\u90FD\u6309\u7231\u56E0\u65AF\u5766\u7684\u53E3\u543B\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
-  lan: "\u4E2D\u6587"
+  m_SystemSetting: "\u4F60\u662F\u4E00\u4E2A\u7A0B\u5E8F\u5458\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
+  m_GptModel: codellama
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
   input:
@@ -67,7 +381,7 @@ MonoBehaviour:
     _default: 
     _autoCreate: 0
   output:
-    _key: out_put
+    _key: output_text
     _default: 
     _autoCreate: 1
   url:
@@ -89,6 +403,49 @@ MonoBehaviour:
   <Owner>k__BackingField: {fileID: 11400000}
   <status>k__BackingField: 0
   refs: []
+--- !u!114 &-245738143354292365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &-109286567883859478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.OllamaNode
+  m_EditorClassIdentifier: 
+  m_SystemSetting: "\u4E0B\u9762\u662F\u4E00\u4E2Ac#\u4EE3\u7801\uFF0C\u5206\u6790\u4E00\u4E0B\u5176\u4E2D\u7684\u95EE\u9898\uFF0C\u5E76\u4E14\u56DE\u7B54\u4E2D\u6587"
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  input:
+    _key: output_text
+    _default: 
+    _autoCreate: 0
+  output:
+    _key: output_text
+    _default: "I'd be happy to help you analyze the code and answer any questions
+      in Chinese. However, I don't see a C# code provided. Please paste the code
+      you want me to review, and I'll do my best to assist you. \U0001F60A"
+    _autoCreate: 0
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +461,7 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Debug
     m_id: e7fd013b-885a-4c7a-9d80-a2d234039591
-    m_x: 684
+    m_x: 540
     m_y: 240
     m_node: {fileID: -8065239265447938986}
     m_inputPoints:
@@ -120,11 +477,23 @@ MonoBehaviour:
         height: 29
       max: 2147483647
       type: ->
-    m_outputPoints: []
+    m_outputPoints:
+    - id: 9206a6ec-0e52-400b-9b9f-d4a637905a63
+      label: o
+      parentId: e7fd013b-885a-4c7a-9d80-a2d234039591
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
   - m_name: Ollama
     m_id: 35021e67-d15b-4b9f-8945-a6dd7336e905
-    m_x: 408
-    m_y: 192
+    m_x: 372
+    m_y: 240
     m_node: {fileID: -926521378249774635}
     m_inputPoints:
     - id: 77491b31-cb96-435f-8f1d-51f355abb1ab
@@ -141,7 +510,7 @@ MonoBehaviour:
       type: ->
     m_outputPoints:
     - id: a44910e9-296a-4b11-ab18-5075a7dc0bd8
-      label: i
+      label: o
       parentId: 35021e67-d15b-4b9f-8945-a6dd7336e905
       isInput: 0
       buttonRect:
@@ -154,13 +523,25 @@ MonoBehaviour:
       type: ->
   - m_name: Begin
     m_id: 5cab666c-f0da-4f80-9cde-bcb10a42c230
-    m_x: 96
-    m_y: 216
+    m_x: 180
+    m_y: 228
     m_node: {fileID: 5985184011527020748}
-    m_inputPoints: []
+    m_inputPoints:
+    - id: cf645fe2-2035-4e7d-9dd4-6247670f9400
+      label: i
+      parentId: 5cab666c-f0da-4f80-9cde-bcb10a42c230
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
     m_outputPoints:
     - id: d618190e-e345-44ce-ac62-ba243c1772b5
-      label: i
+      label: o
       parentId: 5cab666c-f0da-4f80-9cde-bcb10a42c230
       isInput: 0
       buttonRect:
@@ -173,13 +554,25 @@ MonoBehaviour:
       type: ->
   - m_name: VariableSetNode
     m_id: 254c0c41-aa1b-4c9a-9663-63d63787d0c1
-    m_x: 84
-    m_y: 120
+    m_x: 0
+    m_y: 72
     m_node: {fileID: 7716110878025005022}
-    m_inputPoints: []
+    m_inputPoints:
+    - id: 8f9c7b75-4041-40fa-9cd2-958cc86159b4
+      label: i
+      parentId: 254c0c41-aa1b-4c9a-9663-63d63787d0c1
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
     m_outputPoints:
     - id: c427b6e8-e6f2-44df-b701-c470e6f91089
-      label: i
+      label: o
       parentId: 254c0c41-aa1b-4c9a-9663-63d63787d0c1
       isInput: 0
       buttonRect:
@@ -189,6 +582,285 @@ MonoBehaviour:
         width: 10
         height: 23
       max: 1
+      type: ->
+  - m_name: Ollama
+    m_id: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+    m_x: 492
+    m_y: 84
+    m_node: {fileID: -6473362435819152484}
+    m_inputPoints:
+    - id: d0dad1bd-5d4b-4172-83c3-098fdee2a57f
+      label: i
+      parentId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1673624c-0468-4f38-8541-fc2b3a79100e
+      label: o
+      parentId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: FileText
+    m_id: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+    m_x: 300
+    m_y: 84
+    m_node: {fileID: -8245040277723703751}
+    m_inputPoints:
+    - id: 1ff28881-e71c-480d-a424-695027f61edd
+      label: i
+      parentId: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1c3ccc29-6a5c-4927-ad19-66abfde9d0d5
+      label: o
+      parentId: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Ollama
+    m_id: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+    m_x: 732
+    m_y: 144
+    m_node: {fileID: -2151416684536408255}
+    m_inputPoints:
+    - id: ffd3d4a5-3947-4ad5-a754-b48941d1f847
+      label: i
+      parentId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 5555e15e-70a0-4342-ae3a-df43c24bab2e
+      label: o
+      parentId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Debug
+    m_id: 9ec7f05a-459b-4dfe-8f4f-3cdb401b631a
+    m_x: 660
+    m_y: 24
+    m_node: {fileID: 4335922187416868783}
+    m_inputPoints:
+    - id: a4021d1f-a69e-4ffe-8ae0-84de0642d0a1
+      label: i
+      parentId: 9ec7f05a-459b-4dfe-8f4f-3cdb401b631a
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 6d8023e7-ec13-4a37-9069-12fa0055b536
+      label: o
+      parentId: 9ec7f05a-459b-4dfe-8f4f-3cdb401b631a
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: FileText
+    m_id: 609a2884-5cde-47e5-bbf8-054335586aa1
+    m_x: 360
+    m_y: 144
+    m_node: {fileID: 517837402922214444}
+    m_inputPoints:
+    - id: be9e5bdf-7e8a-4d2f-a6cb-999953872ae5
+      label: i
+      parentId: 609a2884-5cde-47e5-bbf8-054335586aa1
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 225d3b9f-2065-400f-836f-e1ddb519f79f
+      label: o
+      parentId: 609a2884-5cde-47e5-bbf8-054335586aa1
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Ollama
+    m_id: 4546636f-a125-408d-951b-2b689fb6c696
+    m_x: 528
+    m_y: 156
+    m_node: {fileID: -109286567883859478}
+    m_inputPoints:
+    - id: fe61765f-1c33-4cd7-8b64-94cd0aa486ad
+      label: i
+      parentId: 4546636f-a125-408d-951b-2b689fb6c696
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: e844a70f-f587-4484-a0d2-1f2d51a87da4
+      label: o
+      parentId: 4546636f-a125-408d-951b-2b689fb6c696
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: DingTalk
+    m_id: e10070b5-05ba-44b5-969c-ecc9ac240fb9
+    m_x: 516
+    m_y: 348
+    m_node: {fileID: -8669836159119811652}
+    m_inputPoints:
+    - id: 7b13baec-d2be-4e3f-9769-bc0510e3efd4
+      label: i
+      parentId: e10070b5-05ba-44b5-969c-ecc9ac240fb9
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: c342c260-beac-4d3d-932d-042d30941f76
+      label: o
+      parentId: e10070b5-05ba-44b5-969c-ecc9ac240fb9
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Debug
+    m_id: 333bbffc-7d70-4de4-a777-936605bf868a
+    m_x: 888
+    m_y: 180
+    m_node: {fileID: -3526895031255205040}
+    m_inputPoints:
+    - id: 0c762a3e-a7f7-443d-b7ed-2303d4b99a4a
+      label: i
+      parentId: 333bbffc-7d70-4de4-a777-936605bf868a
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 2a487426-aa41-4310-847b-b286dcaba95b
+      label: o
+      parentId: 333bbffc-7d70-4de4-a777-936605bf868a
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: DingTalk
+    m_id: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+    m_x: 900
+    m_y: 288
+    m_node: {fileID: 3636328702705836315}
+    m_inputPoints:
+    - id: 3561853a-1fc3-4df4-9fbe-83bcda27756b
+      label: i
+      parentId: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 87e8bc10-d457-4f0c-81cb-0486e37503ae
+      label: o
+      parentId: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
       type: ->
   m_allConnections:
   - m_id: c7160a39-1b98-492b-8db7-8407a608f244
@@ -205,17 +877,291 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 77491b31-cb96-435f-8f1d-51f355abb1ab
     m_type: ->
     m_connection: {fileID: -8362365802990645104}
-  - m_id: 85173222-2aee-4994-a81a-2ec6d6a62029
+  - m_id: d49cc2e1-e0f3-45ab-9f36-8aa372ba7e6d
     m_fromNodeId: 254c0c41-aa1b-4c9a-9663-63d63787d0c1
     m_fromNodeConnectionPointId: c427b6e8-e6f2-44df-b701-c470e6f91089
-    m_toNodeId: 35021e67-d15b-4b9f-8945-a6dd7336e905
-    m_toNodeConnectionPoiontId: 77491b31-cb96-435f-8f1d-51f355abb1ab
+    m_toNodeId: 5cab666c-f0da-4f80-9cde-bcb10a42c230
+    m_toNodeConnectionPoiontId: cf645fe2-2035-4e7d-9dd4-6247670f9400
     m_type: ->
-    m_connection: {fileID: 4373575954034643149}
-  m_lastModified: 133596154024344012
+    m_connection: {fileID: -2129204001852777704}
+  - m_id: 252f3483-735c-4da1-aa75-c518a654de82
+    m_fromNodeId: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+    m_fromNodeConnectionPointId: 1c3ccc29-6a5c-4927-ad19-66abfde9d0d5
+    m_toNodeId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+    m_toNodeConnectionPoiontId: d0dad1bd-5d4b-4172-83c3-098fdee2a57f
+    m_type: ->
+    m_connection: {fileID: -245738143354292365}
+  - m_id: ed0517e3-1f2d-47b4-be6c-ed55c2ea6d45
+    m_fromNodeId: 5cab666c-f0da-4f80-9cde-bcb10a42c230
+    m_fromNodeConnectionPointId: d618190e-e345-44ce-ac62-ba243c1772b5
+    m_toNodeId: 05e9c7e2-3a15-4317-b4a1-07f341f7e022
+    m_toNodeConnectionPoiontId: 1ff28881-e71c-480d-a424-695027f61edd
+    m_type: ->
+    m_connection: {fileID: 5497459493835124635}
+  - m_id: 2095e4eb-b8f8-43ac-adb3-d52148a09cf7
+    m_fromNodeId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+    m_fromNodeConnectionPointId: 1673624c-0468-4f38-8541-fc2b3a79100e
+    m_toNodeId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+    m_toNodeConnectionPoiontId: ffd3d4a5-3947-4ad5-a754-b48941d1f847
+    m_type: ->
+    m_connection: {fileID: 3949558517235700878}
+  - m_id: 4868fe3b-61c4-4d12-9323-193a267fbab4
+    m_fromNodeId: a0a4eede-7794-4f9c-a8f1-91a34a4cb2ab
+    m_fromNodeConnectionPointId: 1673624c-0468-4f38-8541-fc2b3a79100e
+    m_toNodeId: 9ec7f05a-459b-4dfe-8f4f-3cdb401b631a
+    m_toNodeConnectionPoiontId: a4021d1f-a69e-4ffe-8ae0-84de0642d0a1
+    m_type: ->
+    m_connection: {fileID: -6946964891292562193}
+  - m_id: 8cf380f0-0b66-4e6c-bb1c-0f8ddbbc9f52
+    m_fromNodeId: 609a2884-5cde-47e5-bbf8-054335586aa1
+    m_fromNodeConnectionPointId: 225d3b9f-2065-400f-836f-e1ddb519f79f
+    m_toNodeId: 4546636f-a125-408d-951b-2b689fb6c696
+    m_toNodeConnectionPoiontId: fe61765f-1c33-4cd7-8b64-94cd0aa486ad
+    m_type: ->
+    m_connection: {fileID: 8133720260627461075}
+  - m_id: 3c7bae68-4e4d-4bcc-95da-b51a97a230e6
+    m_fromNodeId: 5cab666c-f0da-4f80-9cde-bcb10a42c230
+    m_fromNodeConnectionPointId: d618190e-e345-44ce-ac62-ba243c1772b5
+    m_toNodeId: 609a2884-5cde-47e5-bbf8-054335586aa1
+    m_toNodeConnectionPoiontId: be9e5bdf-7e8a-4d2f-a6cb-999953872ae5
+    m_type: ->
+    m_connection: {fileID: -7897704624028060786}
+  - m_id: 48c759cc-bbdd-447c-90af-58cafcd80cb1
+    m_fromNodeId: 4546636f-a125-408d-951b-2b689fb6c696
+    m_fromNodeConnectionPointId: e844a70f-f587-4484-a0d2-1f2d51a87da4
+    m_toNodeId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+    m_toNodeConnectionPoiontId: ffd3d4a5-3947-4ad5-a754-b48941d1f847
+    m_type: ->
+    m_connection: {fileID: 4351341555638751592}
+  - m_id: 29603e34-88a8-4113-a333-6400456112a5
+    m_fromNodeId: 35021e67-d15b-4b9f-8945-a6dd7336e905
+    m_fromNodeConnectionPointId: a44910e9-296a-4b11-ab18-5075a7dc0bd8
+    m_toNodeId: e10070b5-05ba-44b5-969c-ecc9ac240fb9
+    m_toNodeConnectionPoiontId: 7b13baec-d2be-4e3f-9769-bc0510e3efd4
+    m_type: ->
+    m_connection: {fileID: -7169455427555424457}
+  - m_id: 6198da33-d5c1-44ee-98b8-c2f4e4924d1e
+    m_fromNodeId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+    m_fromNodeConnectionPointId: 5555e15e-70a0-4342-ae3a-df43c24bab2e
+    m_toNodeId: 333bbffc-7d70-4de4-a777-936605bf868a
+    m_toNodeConnectionPoiontId: 0c762a3e-a7f7-443d-b7ed-2303d4b99a4a
+    m_type: ->
+    m_connection: {fileID: -3837637956981627654}
+  - m_id: 999e0eab-9191-4177-8a80-5ea9de27343c
+    m_fromNodeId: 344bf3a9-c610-44b2-b1d7-c8829b47110f
+    m_fromNodeConnectionPointId: 5555e15e-70a0-4342-ae3a-df43c24bab2e
+    m_toNodeId: 93d7cdde-b2e4-4a4f-990c-42a1ca7f9bcb
+    m_toNodeConnectionPoiontId: 3561853a-1fc3-4df4-9fbe-83bcda27756b
+    m_type: ->
+    m_connection: {fileID: -6688419507718699940}
+  m_lastModified: 133598015898264593
   m_graphDescription: "monobehaviour \u4EE3\u7801\u751F\u6210\u5DE5\u5177"
   m_controllerType: AIScripting.AIScriptingController
---- !u!114 &4373575954034643149
+--- !u!114 &517837402922214444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc3021d10c22a941a8ae63f84de5a2c, type: 3}
+  m_Name: AIScripting.FileTextNode
+  m_EditorClassIdentifier: 
+  file_path:
+    _key: file_path
+    _default: Assets/AIScriptGraph/Runtime/Nodes/FileTextNode.cs
+    _autoCreate: 1
+  out_put:
+    _key: output_text
+    _default: "using System;\r\nusing System.Collections;\r\nusing System.Collections.Generic;\r\nusing
+      System.Text;\r\nusing System.Xml;\r\n\r\nusing UFrame.NodeGraph;\r\nusing UFrame.NodeGraph.DataModel;\r\n\r\nusing
+      UnityEditor.PackageManager.Requests;\r\n\r\nusing UnityEngine;\r\nusing UnityEngine.Networking;\r\nusing
+      UnityEngine.U2D;\r\n\r\nnamespace AIScripting\r\n{\r\n    [CustomNode(\"Ollama\",
+      0, \"AIScripting\")]\r\n    public class OllamaNode : ScriptNodeBase\r\n   
+      {\r\n        /// <summary>\r\n        /// AI\uFFFD\u8DA8\r\n        /// </summary>\r\n       
+      [Multiline(3)]\r\n        public string m_SystemSetting = string.Empty;\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\u0123\uFFFD\uFFFD,\u0123\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        public string m_GptModel = \"llama3\";\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u0131\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        [Header(\"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u0131\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\")]\r\n       
+      [SerializeField] protected int m_HistoryKeepCount = 15;\r\n\r\n        [Header(\"\uFFFD\uFFFD\u03E2\uFFFD\uFFFD\uFFFD\uFFFDkey\")]\r\n       
+      [SerializeField] protected string eventReceiveKey = \"ollama_receive_message\";\r\n       
+      /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\u053B\uFFFD\r\n       
+      /// </summary>\r\n        [NonSerialized] public List<SendData> m_DataList
+      = new List<SendData>();\r\n\r\n        public Ref<string> input = new Ref<string>(\"input_text\");\r\n       
+      public Ref<string> output = new Ref<string>(\"output_text\");\r\n        public
+      Ref<string> url = new Ref<string>(\"ollama_url\", \"http://localhost:8081/api/chat\");\r\n\r\n       
+      protected override int InCount => int.MaxValue;\r\n\r\n        protected override
+      int OutCount => int.MaxValue;\r\n\r\n        public override int Style => 1;\r\n       
+      private LitCoroutine _litCoroutine;\r\n\r\n        protected override void
+      OnProcess()\r\n        {\r\n            if(m_DataList.Count == 0)\r\n           
+      {\r\n                m_DataList.Add(new SendData(\"system\", m_SystemSetting));\r\n           
+      }\r\n\r\n            PostMsg(input, (result) =>\r\n            {\r\n               
+      output.Value = result;\r\n                DoFinish();\r\n            });\r\n       
+      }\r\n\r\n        /// <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u03E2\r\n       
+      /// </summary>\r\n        public virtual void PostMsg(string _msg, Action<string>
+      _callback)\r\n        {\r\n            //\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n           
+      CheckHistory();\r\n\r\n            //\uFFFD\uFFFD\uFFFD\u6DE2\uFFFD\u0375\uFFFD\uFFFD\uFFFD\u03E2\uFFFD\u0431\uFFFD\r\n           
+      m_DataList.Add(new SendData(\"user\", _msg));\r\n            _litCoroutine
+      = Owner.StartCoroutine(Request(_callback));\r\n        }\r\n\r\n        ///
+      <summary>\r\n        /// \uFFFD\uFFFD\uFFFD\xF1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05B9\u032B\uFFFD\uFFFD\r\n       
+      /// </summary>\r\n        public virtual void CheckHistory()\r\n        {\r\n           
+      if (m_DataList.Count > m_HistoryKeepCount)\r\n            {\r\n               
+      m_DataList.RemoveAt(0);\r\n            }\r\n        }\r\n\r\n\r\n        [Serializable]\r\n       
+      public class SendData\r\n        {\r\n            [SerializeField] public string
+      role;\r\n            [SerializeField] public string content;\r\n           
+      public SendData() { }\r\n            public SendData(string _role, string _content)\r\n           
+      {\r\n                role = _role;\r\n                content = _content;\r\n           
+      }\r\n        }\r\n\r\n        //{\"model\":\"llama3\",\"created_at\":\"2024-05-08T09:27:16.4077711Z\",\"message\":{\"role\":\"assistant\",\"content\":\"
+      harmony\"},\"done\":false}\r\n        [Serializable]\r\n        public class
+      ReceiveData\r\n        {\r\n            public string model;\r\n           
+      public string created_at;\r\n            public Message message;\r\n           
+      public bool done;\r\n        }\r\n\r\n        public class DownloadHandlerMessageQueue
+      : DownloadHandlerScript\r\n        {\r\n            public StringBuilder allText
+      = new StringBuilder();\r\n            private Action<ReceiveData> _onReceive;\r\n           
+      private StringBuilder _textInProcess = new StringBuilder();\r\n\r\n           
+      protected override void ReceiveContentLengthHeader(ulong contentLength)\r\n           
+      {\r\n                base.ReceiveContentLengthHeader(contentLength);\r\n               
+      Debug.Log(\"ReceiveContentLengthHeader:\" +contentLength);\r\n            }\r\n\r\n           
+      protected override bool ReceiveData(byte[] data, int dataLength)\r\n           
+      {\r\n                var text = Encoding.UTF8.GetString(data, 0, dataLength);\r\n               
+      if(text.Contains('\\n'))\r\n                {\r\n                    var lines
+      = text.Trim().Split('\\n');\r\n                    foreach (var line in lines)\r\n                   
+      {\r\n                        if (!string.IsNullOrEmpty(line))\r\n                       
+      {\r\n                            OnReceiveOne(line.Trim());\r\n                       
+      }\r\n                    }\r\n                }\r\n                else\r\n               
+      {\r\n                    OnReceiveOne(text.Trim());\r\n                }\r\n               
+      //_textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));\r\n               
+      //Debug.Log(\"ReceiveData:\" + _textInProcess);\r\n                //int index
+      = -1;\r\n                //var startIndex = -1;\r\n                //var endIndex
+      = -1;\r\n                //var paired = 0;\r\n                //while (++index
+      < _textInProcess.Length)\r\n                //{\r\n                //    var
+      charItem = _textInProcess[index];\r\n                //    if (charItem ==
+      '{')\r\n                //    {\r\n                //        if(startIndex
+      < 0)\r\n                //            startIndex = index;\r\n               
+      //        paired++;\r\n                //    }\r\n                //    if
+      (charItem == '}')\r\n                //    {\r\n                //        paired--;\r\n               
+      //    }\r\n                //    if (paired == 0 && startIndex >= 0)\r\n               
+      //    {\r\n                //        endIndex = index;\r\n                //       
+      var oneMessage = _textInProcess.ToString(startIndex, endIndex - startIndex
+      + 1);\r\n                //        OnReceiveOne(oneMessage);\r\n               
+      //        startIndex = -1;\r\n                //    }\r\n                //}\r\n               
+      //if (endIndex > 0 && endIndex < _textInProcess.Length - 1)\r\n               
+      //{\r\n                //    _textInProcess.Remove(0, endIndex+1);\r\n               
+      //}\r\n                return base.ReceiveData(data, dataLength);\r\n           
+      }\r\n\r\n            private void OnReceiveOne(string text)\r\n           
+      {\r\n                Debug.Log(\"OnReceiveOne:\" + text);\r\n               
+      var receiveData = JsonUtility.FromJson<ReceiveData>(text);\r\n               
+      allText.Append(receiveData.message.content);\r\n                _onReceive?.Invoke(receiveData);\r\n           
+      }\r\n\r\n            internal void RegistReceive(Action<ReceiveData> onReceive)\r\n           
+      {\r\n                this._onReceive = onReceive;\r\n            }\r\n       
+      }\r\n\r\n        /// <summary>\r\n        /// \uFFFD\u0575\uFFFD\uFFFD\u0638\uFFFD\r\n       
+      /// </summary>\r\n        /// <param name=\"data\"></param>\r\n        private
+      void OnReceive(ReceiveData data)\r\n        {\r\n            //Debug.Log(data.message.content);\r\n           
+      Owner.SendEvent(eventReceiveKey, data);\r\n        }\r\n\r\n        /// <summary>\r\n       
+      /// \uFFFD\uFFFD\uFFFD\xFD\u04FF\uFFFD\r\n        /// </summary>\r\n       
+      /// <param name=\"_postWord\"></param>\r\n        /// <param name=\"_callback\"></param>\r\n       
+      /// <returns></returns>\r\n        public IEnumerator Request(System.Action<string>
+      _callback)\r\n        {\r\n            long startTime = System.DateTime.Now.Ticks;\r\n           
+      Debug.Log(System.DateTime.Now.Ticks + \",request:\" + url);\r\n           
+      UnityWebRequest request = new UnityWebRequest(url, \"POST\");\r\n           
+      {\r\n                PostData _postData = new PostData\r\n                {\r\n                   
+      model = m_GptModel.ToString(),\r\n                    messages = m_DataList,\r\n                   
+      stream = true\r\n                };\r\n\r\n                string _jsonText
+      = JsonUtility.ToJson(_postData);\r\n                byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);\r\n               
+      request.uploadHandler = new UploadHandlerRaw(data);\r\n                var
+      downloadHandler = new DownloadHandlerMessageQueue();\r\n                downloadHandler.RegistReceive(OnReceive);\r\n               
+      request.downloadHandler = downloadHandler;\r\n                request.SetRequestHeader(\"Content-Type\",
+      \"application/json\");\r\n                //request.SetRequestHeader(\"Authorization\",
+      string.Format(\"Bearer {0}\", api_key));\r\n\r\n                var operation
+      = request.SendWebRequest();\r\n\r\n                while (!operation.isDone)\r\n               
+      {\r\n                    yield return null;\r\n                    _asyncOp.SetProgress(operation.progress);\r\n               
+      }\r\n\r\n                if (request.responseCode == 200)\r\n               
+      {\r\n                    string _msgBack = downloadHandler.allText.ToString();\r\n                   
+      if (!string.IsNullOrEmpty(_msgBack))\r\n                    {\r\n                       
+      //\uFFFD\uFFFD\u04FC\uFFFD\xBC\r\n                        m_DataList.Add(new
+      SendData(\"assistant\", _msgBack));\r\n                        _callback(_msgBack);\r\n                   
+      }\r\n                    else\r\n                    {\r\n                       
+      _callback(null);\r\n                    }\r\n                }\r\n               
+      else\r\n                {\r\n                    _callback?.Invoke(null);\r\n                   
+      Debug.LogError(request.downloadHandler.error);\r\n                }\r\n               
+      request.Dispose();\r\n                Debug.Log(System.DateTime.Now.Ticks +
+      \",Ollama\uFFFD\uFFFD\u02B1\uFFFD\uFFFD\" + (System.DateTime.Now.Ticks - startTime)
+      / 10000000);\r\n            }\r\n        }\r\n\r\n        private void OnRecevieRequest()\r\n       
+      {\r\n\r\n        }\r\n\r\n        #region \uFFFD\uFFFD\uFFFD\u0776\uFFFD\uFFFD\uFFFD\r\n\r\n       
+      [Serializable]\r\n        public class PostData\r\n        {\r\n           
+      public string model;\r\n            public List<SendData> messages;\r\n           
+      public bool stream;//\uFFFD\uFFFD\u02BD\r\n        }\r\n\r\n        [Serializable]\r\n       
+      public class Message\r\n        {\r\n            public string role;\r\n           
+      public string content;\r\n        }\r\n\r\n        #endregion\r\n    }\r\n}"
+    _autoCreate: 0
+--- !u!114 &3636328702705836315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161163f6654bcdf469dc5f96b9cbed20, type: 3}
+  m_Name: AIScripting.DingTalkNode
+  m_EditorClassIdentifier: 
+  talk_url:
+    _key: talk_url
+    _default: https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382
+    _autoCreate: 1
+  talk_text:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+--- !u!114 &3949558517235700878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &4335922187416868783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  info:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 3
+--- !u!114 &4351341555638751592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+--- !u!114 &5497459493835124635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,3 +1203,16 @@ MonoBehaviour:
     _key: ollama_url
     _default: http://localhost:8081/api/chat
     _autoCreate: 1
+--- !u!114 &8133720260627461075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0

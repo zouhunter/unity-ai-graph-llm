@@ -13,7 +13,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.U2D;
 
-
 namespace AIScripting
 {
     [CustomNode("Ollama", 0, "AIScripting")]
@@ -22,21 +21,12 @@ namespace AIScripting
         /// <summary>
         /// AI设定
         /// </summary>
+        [Multiline(3)]
         public string m_SystemSetting = string.Empty;
         /// <summary>
         /// 设置模型,模型类型自行添加
         /// </summary>
-        public ModelType m_GptModel = ModelType.llama3;
-        /// <summary>
-        /// 提示词，与消息一起发送
-        /// </summary>
-        [Header("发送的提示词设定")]
-        [SerializeField] protected string m_Prompt = string.Empty;
-        /// <summary>
-        /// 语言
-        /// </summary
-        [Header("设置回复的语言")]
-        [SerializeField] protected string lan = "中文";
+        public string m_GptModel = "llama3";
         /// <summary>
         /// 上下文保留条数
         /// </summary>
@@ -63,6 +53,11 @@ namespace AIScripting
 
         protected override void OnProcess()
         {
+            if(m_DataList.Count == 0)
+            {
+                m_DataList.Add(new SendData("system", m_SystemSetting));
+            }
+
             PostMsg(input, (result) =>
             {
                 output.Value = result;
@@ -77,13 +72,9 @@ namespace AIScripting
         {
             //上下文条数设置
             CheckHistory();
-            //提示词处理
-            string message = "当前为角色的人物设定：" + m_Prompt +
-                " 回答的语言：" + lan +
-                " 接下来是我的提问：" + _msg;
 
             //缓存发送的信息列表
-            m_DataList.Add(new SendData("user", message));
+            m_DataList.Add(new SendData("user", _msg));
             _litCoroutine = Owner.StartCoroutine(Request(_callback));
         }
 
@@ -131,47 +122,64 @@ namespace AIScripting
             protected override void ReceiveContentLengthHeader(ulong contentLength)
             {
                 base.ReceiveContentLengthHeader(contentLength);
-                Debug.LogError("ReceiveContentLengthHeader:" +contentLength);
+                Debug.Log("ReceiveContentLengthHeader:" +contentLength);
             }
 
             protected override bool ReceiveData(byte[] data, int dataLength)
             {
-                _textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));
-                //Debug.Log("ReceiveData:" + _textInProcess.ToString());
-                int index = -1;
-                var startIndex = -1;
-                var endIndex = 0;
-                var paired = 0;
-                while (++index < _textInProcess.Length)
+                var text = Encoding.UTF8.GetString(data, 0, dataLength);
+                if(text.Contains('\n'))
                 {
-                    var charItem = _textInProcess[index];
-                    if (charItem == '{')
+                    var lines = text.Trim().Split('\n');
+                    foreach (var line in lines)
                     {
-                        if(startIndex < 0)
-                            startIndex = index;
-                        paired++;
-                    }
-                    if (charItem == '}')
-                    {
-                        paired--;
-                    }
-                    if (paired == 0 && startIndex >= 0)
-                    {
-                        endIndex = index;
-                        var oneMessage = _textInProcess.ToString(startIndex, endIndex - startIndex + 1);
-                        OnReceiveOne(oneMessage);
-                        startIndex = -1;
+                        if (!string.IsNullOrEmpty(line))
+                        {
+                            OnReceiveOne(line.Trim());
+                        }
                     }
                 }
-                if (endIndex < _textInProcess.Length - 1)
+                else
                 {
-                    _textInProcess.Remove(0, endIndex+1);
+                    OnReceiveOne(text.Trim());
                 }
+                //_textInProcess.Append(Encoding.UTF8.GetString(data, 0, dataLength));
+                //Debug.Log("ReceiveData:" + _textInProcess);
+                //int index = -1;
+                //var startIndex = -1;
+                //var endIndex = -1;
+                //var paired = 0;
+                //while (++index < _textInProcess.Length)
+                //{
+                //    var charItem = _textInProcess[index];
+                //    if (charItem == '{')
+                //    {
+                //        if(startIndex < 0)
+                //            startIndex = index;
+                //        paired++;
+                //    }
+                //    if (charItem == '}')
+                //    {
+                //        paired--;
+                //    }
+                //    if (paired == 0 && startIndex >= 0)
+                //    {
+                //        endIndex = index;
+                //        var oneMessage = _textInProcess.ToString(startIndex, endIndex - startIndex + 1);
+                //        OnReceiveOne(oneMessage);
+                //        startIndex = -1;
+                //    }
+                //}
+                //if (endIndex > 0 && endIndex < _textInProcess.Length - 1)
+                //{
+                //    _textInProcess.Remove(0, endIndex+1);
+                //}
                 return base.ReceiveData(data, dataLength);
             }
 
             private void OnReceiveOne(string text)
             {
+                Debug.Log("OnReceiveOne:" + text);
                 var receiveData = JsonUtility.FromJson<ReceiveData>(text);
                 allText.Append(receiveData.message.content);
                 _onReceive?.Invoke(receiveData);
@@ -182,13 +190,6 @@ namespace AIScripting
                 this._onReceive = onReceive;
             }
         }
-
-        private void Start()
-        {
-            //运行时，添加AI设定
-            m_DataList.Add(new SendData("system", m_SystemSetting));
-        }
-
 
         /// <summary>
         /// 收到回复
@@ -252,9 +253,8 @@ namespace AIScripting
                 }
                 else
                 {
-                    string _msgBack = request.downloadHandler.text;
                     _callback?.Invoke(null);
-                    Debug.LogError(_msgBack);
+                    Debug.LogError(request.downloadHandler.error);
                 }
                 request.Dispose();
                 Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
@@ -267,11 +267,6 @@ namespace AIScripting
         }
 
         #region 数据定义
-
-        public enum ModelType
-        {
-            llama3
-        }
 
         [Serializable]
         public class PostData
@@ -289,6 +284,5 @@ namespace AIScripting
         }
 
         #endregion
-
     }
 }

@@ -9,8 +9,8 @@ namespace AIScripting
     public abstract class ScriptNodeBase : Node, IScriptGraphNode
     {
         protected AIScriptGraph Owner { get; private set; }
-        protected virtual int InCount => 0;
-        protected virtual int OutCount => 0;
+        protected virtual int InCount => int.MaxValue;
+        protected virtual int OutCount => int.MaxValue;
         public virtual int Style => 0;
 
         protected AsyncOp _asyncOp;
@@ -35,7 +35,7 @@ namespace AIScripting
             }
             else if (data.OutputPoints.Count > 0)
             {
-                data.OutputPoints[0].RefreshInfo("i", "->", OutCount);
+                data.OutputPoints[0].RefreshInfo("o", "->", OutCount);
             }
         }
 
@@ -43,11 +43,6 @@ namespace AIScripting
         {
             Owner = graph;
             status = Status.None;
-        }
-
-        public virtual void Update()
-        {
-
         }
 
         /// <summary>
@@ -94,6 +89,7 @@ namespace AIScripting
             BindingRefVars();
             _asyncOp = new AsyncOp(this);
             status = Status.Running;
+            UnityEngine.Debug.Log("node start process:" + Name);
             OnProcess();
             return _asyncOp;
         }

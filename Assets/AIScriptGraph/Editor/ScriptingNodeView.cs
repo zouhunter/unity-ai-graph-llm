@@ -39,7 +39,8 @@ namespace AIScripting
             {
                 if(scriptNode.status == Status.Running)
                 {
-                    EditorGUI.ProgressBar(new Rect(position.x + 5, position.y + position.height - 20, position.width - 10, 15), scriptNode.progress, "Running");
+                    var progressRect = new Rect(position.x,position.y,position.width,5);
+                    EditorGUI.ProgressBar(progressRect, scriptNode.progress, "Running");
                 }
             }
         }

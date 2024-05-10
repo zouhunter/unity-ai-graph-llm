@@ -92,6 +92,9 @@ namespace AIScripting
                             var connections = Connections.FindAll(x => x.ToNodeId == node.Id);
                             connections.ForEach(c =>
                             {
+                                if(c.Object is PortConnection portConnection && portConnection.disable)
+                                    return;
+
                                 var fromNodeInfo = Nodes.Find(x => x.Id == c.FromNodeId);
                                 if (fromNodeInfo.Object is IScriptGraphNode fromNode)
                                 {
@@ -146,7 +149,6 @@ namespace AIScripting
 
             if (parentFinished && node.status == Status.None)
             {
-                UnityEngine.Debug.Log("node start:" + node.Name);
                 _inExecuteNodes.Add(node);
                 var operate = node.Run();
                 operate.RegistProgress(OnProgressNode);
@@ -192,6 +194,7 @@ namespace AIScripting
 
         protected void OnFinished()
         {
+            UnityEngine.Debug.Log("graph finished!");
 #if UNITY_EDITOR
             if (!UnityEditor.EditorApplication.isPlaying)
                 UnityEditor.EditorApplication.update -= this.Update;
@@ -205,7 +208,7 @@ namespace AIScripting
 
         public void Clean()
         {
-           _operate = null;
+            _operate = null;
             _status = Status.None;
             _parentNodeMap.Clear();
             _subNodeMap.Clear();

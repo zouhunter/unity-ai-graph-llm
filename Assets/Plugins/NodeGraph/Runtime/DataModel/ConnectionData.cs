@@ -41,7 +41,7 @@ namespace UFrame.NodeGraph.DataModel {
 			m_toNodeId = input.ParentId;
 			m_toNodeConnectionPoiontId = input.Id;
             m_connection = connection;
-            m_connection.name = connection.name;
+            //m_connection.name = connection.name;
         }
 
         public bool Validate()

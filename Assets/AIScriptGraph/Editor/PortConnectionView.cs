@@ -13,6 +13,21 @@ namespace AIScripting
     [CustomView(typeof(PortConnection))]
     public class PortConnectionView : ConnectionView
     {
+        public override Color LineColor
+        {
+            get
+            {
+                if (target is PortConnection portConnection)
+                {
+                    if (portConnection.disable)
+                    {
+                        return Color.red;
+                    }
+                }
+                return base.LineColor;
+            }
+        }
+
         public override void OnDrawLabel(Vector2 centerPos, string label)
         {
             //base.OnDrawLabel(centerPos, label);
