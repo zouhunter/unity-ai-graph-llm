@@ -42,6 +42,7 @@ namespace AIScripting
         {
             var connection = ScriptableObject.CreateInstance<PortConnection>();
             connection.type = type;
+            connection.name = type;
             return new ConnectionGUI(
                new ConnectionData(type, connection, output, input),
                output,

@@ -25,6 +25,7 @@ namespace AIScripting
         private T _default;
         [SerializeField]
         private bool _autoCreate = true;
+        private T _value;
 
         private IVariableProvider _variablePrivider;
         private Variable<T> _variable;
@@ -44,10 +45,11 @@ namespace AIScripting
         }
 
         public Ref() { }
-        public Ref(string key,T defaultV = default)
+
+        public Ref(string key,T value = default)
         {
             this._key = key;
-            this._default = defaultV;
+            this._default = value;
         }
         public Ref(string key,IVariableProvider provider)
         {
@@ -65,34 +67,25 @@ namespace AIScripting
                 _variable.Value = _default;
                 _variablePrivider.SetVariable(_key, _variable);
             }
+            if(_variable == null)
+                _value = _default;
         }
 
         public void SetValue(T value)
         {
-            Value = value;
+            if (Exists)
+                _variable.Value = value;
+            else
+                _value = value;
         }
 
         public T Value
         {
             get
             {
-               
                 if (Exists)
-                {
                     return _variable.Value;
-                }
-                return _default;
-            }
-            set
-            {
-                if (Exists)
-                {
-                    _variable.Value = value;
-                }
-                else
-                {
-                    _default = value;
-                }
+                return _value;
             }
         }
 

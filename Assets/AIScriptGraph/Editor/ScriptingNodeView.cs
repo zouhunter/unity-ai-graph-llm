@@ -53,8 +53,8 @@ namespace AIScripting
                 }
                 else if(scriptNode.status == Status.Failure)
                 {
-                    Debug.LogError("Failure");
-                    throw new NodeException(Title + " Failure", data.Id);
+                    //Debug.LogError(Title + ",execute Failure");
+                    //throw new NodeException(Title + " Failure", data.Id);
                 }
             }
         }

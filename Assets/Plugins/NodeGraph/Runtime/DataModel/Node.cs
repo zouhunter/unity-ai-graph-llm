@@ -14,6 +14,7 @@ namespace UFrame.NodeGraph.DataModel
 	public abstract class Node : ScriptableObject
     {
         public virtual string Title => name;
+
         public virtual void Initialize(NodeData data)
         {
             InitInputPoints(data);

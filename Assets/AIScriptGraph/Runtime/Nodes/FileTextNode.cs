@@ -18,7 +18,7 @@ namespace AIScripting
             else
             {
                 var fileInfo = System.IO.File.ReadAllText(file_path);
-                out_put.Value = fileInfo;
+                out_put.SetValue(fileInfo);
                 DoFinish();
             }
         }

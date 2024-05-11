@@ -10,5 +10,10 @@ using UnityEngine;
 [CustomNode("VariableSetNode",0,"AIScripting")]
 public class VariableSetNode : VariableInitNode
 {
-    public Ref<string> ollama_url = new Ref<string>() { Value = "http://localhost:8081/api/chat" };
+    public Ref<string> ollama_url;
+
+    public VariableSetNode()
+    {
+        ollama_url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
+    }
 }

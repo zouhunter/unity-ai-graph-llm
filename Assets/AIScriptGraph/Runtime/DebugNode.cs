@@ -14,13 +14,17 @@ namespace AIScripting
 
         protected override void OnProcess()
         {
-            if(string.IsNullOrEmpty(format) || !format.Contains("{0}"))
+            if(string.IsNullOrEmpty(format))
             {
-                Debug.unityLogger.Log(logType, "[DebugNode]:" + info.Value);
+                Debug.unityLogger.LogFormat(logType, "{0}:{1}",Title,info.Value);
+            }
+            else if (!format.Contains("{0}"))
+            {
+                Debug.unityLogger.LogFormat(logType, "{0}.{1}:{2}", Title, format, info.Value);
             }
             else
             {
-                Debug.unityLogger.LogFormat(logType, format,info.Value);
+                Debug.unityLogger.LogFormat(logType, "{0}.{1}",Title,string.Format(format,info.Value));
             }
             DoFinish(true);
         }

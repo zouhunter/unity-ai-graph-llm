@@ -7,50 +7,27 @@ using UnityEngine.Networking;
 
 namespace AIScripting.Ollama
 {
-    [CustomNode("Ollama", 0, "AIScripting")]
-    public class OllamaNode : ScriptNodeBase
+    [CustomNode("OllamaRequest", 0, "AIScripting")]
+    public class OllamaRequestNode : ScriptNodeBase
     {
-        /// <summary>
-        /// AI设定
-        /// </summary>
-        [Multiline(3)]
-        public string m_SystemSetting = string.Empty;
-
-        /// <summary>
-        /// 设置模型,模型类型自行添加
-        /// </summary>
-        public string m_GptModel = "llama3";
-        /// <summary>
-        /// 上下文保留条数
-        /// </summary>
-        [Header("上下文保留条数")]
-        [SerializeField] protected int m_HistoryKeepCount = 15;
-
-        [Header("消息接受key")]
-        [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
-        /// <summary>
-        /// 缓存对话
-        /// </summary>
-        [NonSerialized] public List<SendData> m_DataList = new List<SendData>();
-
-        public Ref<string> input = new Ref<string>("input_text");
-        public Ref<string> output = new Ref<string>("output_text");
-        public Ref<string> url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
+        [SerializeField,Header("消息接受key")]
+        protected string eventReceiveKey = "ollama_receive_message";
+   
+        public Ref<string> url = new ("ollama_url", "http://localhost:8081/api/chat");
+        public Ref<string> ollama_model = new ("ollama_model","llama3");
+        public Ref<List<SendData>> input = new ("send_data_list");
+        public Ref<string> output = new ("output_text");
 
         protected override int InCount => int.MaxValue;
 
         protected override int OutCount => int.MaxValue;
 
         public override int Style => 1;
+
         private LitCoroutine _litCoroutine;
 
         protected override void OnProcess()
         {
-            if(m_DataList.Count == 0)
-            {
-                m_DataList.Add(new SendData("system", m_SystemSetting));
-            }
-
             PostMsg(input, (result) =>
             {
                 output.SetValue(result);
@@ -58,37 +35,13 @@ namespace AIScripting.Ollama
             });
         }
 
-        public override void ResetGraph(AIScriptGraph graph)
-        {
-            base.ResetGraph(graph);
-            m_DataList.Clear();
-        }
-
         /// <summary>
         /// 发送消息
         /// </summary>
-        public virtual void PostMsg(string _msg, Action<string> _callback)
+        public virtual void PostMsg(List<SendData> _msg, Action<string> _callback)
         {
-            //上下文条数设置
-            CheckHistory();
-
-            //缓存发送的信息列表
-            m_DataList.Add(new SendData("user", _msg));
-            _litCoroutine = Owner.StartCoroutine(Request(_callback));
+            _litCoroutine = Owner.StartCoroutine(Request(input, _callback));
         }
-
-        /// <summary>
-        /// 设置保留的上下文条数，防止太长
-        /// </summary>
-        public virtual void CheckHistory()
-        {
-            if (m_DataList.Count > m_HistoryKeepCount)
-            {
-                m_DataList.RemoveAt(0);
-            }
-        }
-
-
         /// <summary>
         /// 收到回复
         /// </summary>
@@ -105,16 +58,15 @@ namespace AIScripting.Ollama
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
         /// <returns></returns>
-        public IEnumerator Request(System.Action<string> _callback)
+        public IEnumerator Request(List<SendData> _msg,System.Action<string> _callback)
         {
             long startTime = System.DateTime.Now.Ticks;
-            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
             UnityWebRequest request = new UnityWebRequest(url, "POST");
             {
                 PostData _postData = new PostData
                 {
-                    model = m_GptModel.ToString(),
-                    messages = m_DataList,
+                    model = ollama_model.Value,
+                    messages = _msg,
                     stream = true
                 };
 
@@ -140,8 +92,6 @@ namespace AIScripting.Ollama
                     string _msgBack = downloadHandler.allText.ToString();
                     if (!string.IsNullOrEmpty(_msgBack))
                     {
-                        //添加记录
-                        m_DataList.Add(new SendData("assistant", _msgBack));
                         _callback(_msgBack);
                     }
                     else
@@ -155,7 +105,7 @@ namespace AIScripting.Ollama
                     Debug.LogError(request.downloadHandler.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log("Ollama耗时(s)：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
     }
