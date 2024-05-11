@@ -53,6 +53,7 @@ namespace UFrame.NodeGraph
             CreateScrollView(position);
             CreateZoomManipulator(position);
             root.Add(scrollView);
+            scrollView.scrollOffset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
         }
 
         public void UpdateScale(Rect position)
@@ -101,8 +102,8 @@ namespace UFrame.NodeGraph
                     //left = 10,
                     width = position.width / minZoomSize,
                     height = position.height / minZoomSize,
-                    backgroundColor = Color.clear,
-                    position = Position.Absolute
+                    backgroundColor = Color.blue,
+                    position = Position.Relative
                 }
             };
             scrollViewContent.Add(content);
@@ -128,11 +129,18 @@ namespace UFrame.NodeGraph
             zoomMa.onZoomChanged = OnZoomValueChanged;
             zoomMa.onScrollMove = (arg1) =>
             {
-                //Debug.LogError((-arg1)  +"," +(- arg1 * new Vector2(position.width, position.height)));
-                scrollView.scrollOffset = -arg1 * new Vector2(position.width,position.height);
+                scrollView.scrollOffset = -arg1;
             };
-            zoomMa.scrollPosGet = () => {
-                return scrollView.scrollOffset; 
+            zoomMa.scrollPosGet = () =>
+            {
+                return scrollView.scrollOffset;
+            };
+            zoomMa.onAnchorZoom = (target,arg1) =>
+            {
+                var pos = VisualElementExtensions.ChangeCoordinatesTo(target, content, arg1.localMousePosition);
+                var centerOffset = pos - (position.size / minZoomSize)*0.5f;
+                scrollView.scrollOffset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
+                scrollView.scrollOffset += centerOffset * zoomSize;
             };
             scrollView.AddManipulator(zoomMa);
         }
@@ -177,6 +185,7 @@ namespace UFrame.NodeGraph
         public readonly float zoomStep = 0.05f;
 
         public System.Action<float> onZoomChanged { get; set; }
+        public System.Action<VisualElement, WheelEvent> onAnchorZoom { get; set; }
         public System.Action<Vector2> onScrollMove { get; set; }
         public System.Func<Vector2> scrollPosGet { get; set; }
 
@@ -228,23 +237,18 @@ namespace UFrame.NodeGraph
 
         private void OnScroll(WheelEvent e)
         {
-            Vector2 zoomCenter = VisualElementExtensions.ChangeCoordinatesTo(base.target, this.targetElement, e.localMousePosition);
             float zoomScale = 1f - e.delta.y * zoomStep;
-            this.Zoom(zoomCenter, zoomScale);
+            this.Zoom(zoomScale);
+            onAnchorZoom?.Invoke(this.target,e);
             e.StopPropagation();
         }
 
-        private void Zoom(Vector2 zoomCenter, float zoomScale)
+        private void Zoom(float zoomScale)
         {
             var offset = -scrollPosGet.Invoke();
             var scale = Mathf.Clamp(this.targetElement.transform.scale.x * zoomScale, minSize, maxSize);
             this.targetElement.transform.scale = scale * Vector2.one;
             onZoomChanged?.Invoke(scale);
-
-            var percentx = zoomCenter.x/targetElement.style.width.value.value;
-            var percenty = zoomCenter.y/targetElement.style.height.value.value;
-            offset = -new Vector2(percentx, percenty);
-            onScrollMove?.Invoke(offset);
         }
     }
 }
