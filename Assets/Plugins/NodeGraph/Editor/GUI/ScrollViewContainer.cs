@@ -237,6 +237,7 @@ namespace UFrame.NodeGraph
 
         private void OnScroll(WheelEvent e)
         {
+            var anchorPos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement.parent.parent, e.localMousePosition);
             var pos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement, e.localMousePosition);
             float zoomScale = 1f - e.delta.y * zoomStep;
             var offset = -scrollPosGet.Invoke();
@@ -253,7 +254,7 @@ namespace UFrame.NodeGraph
             var percent = pos / (_contentSize / minSize);
             offset = percent * scrollSizeMax;
             onScrollMove?.Invoke(offset);
-            Debug.Log($"pos:{pos} scrolOffset:{offset} scrollSizeMax:{scrollSizeMax} percentOffset:{percent} cotentSize:{_contentSize} scrollSize:{targetElement.style.width}");
+            Debug.Log($"anchorPos:{anchorPos} pos:{pos} scrolOffset:{offset} scrollSizeMax:{scrollSizeMax} percentOffset:{percent} cotentSize:{_contentSize} scrollSize:{targetElement.style.width}");
             e.StopPropagation();
         }
     }
