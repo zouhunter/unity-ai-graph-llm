@@ -70,6 +70,8 @@ namespace UFrame.NodeGraph
 
             scrollViewContent.style.width = position.width * zoomSize / minZoomSize;//缩放容器以动态改变ScrollView的内部尺寸
             scrollViewContent.style.height = position.height * zoomSize / minZoomSize;
+
+            zoomMa.SetContentSize(position.size);
         }
 
         private void CreateScrollView(Rect position)
@@ -102,7 +104,7 @@ namespace UFrame.NodeGraph
                     //left = 10,
                     width = position.width / minZoomSize,
                     height = position.height / minZoomSize,
-                    backgroundColor = Color.blue,
+                    backgroundColor = Color.clear,
                     position = Position.Relative
                 }
             };
@@ -126,21 +128,15 @@ namespace UFrame.NodeGraph
         private void CreateZoomManipulator(Rect position)
         {
             zoomMa = new ZoomManipulator(minZoomSize, maxZoomSize, content);
+            zoomMa.SetContentSize(position.size);
             zoomMa.onZoomChanged = OnZoomValueChanged;
             zoomMa.onScrollMove = (arg1) =>
             {
-                scrollView.scrollOffset = -arg1;
+                scrollView.scrollOffset = arg1;
             };
             zoomMa.scrollPosGet = () =>
             {
                 return scrollView.scrollOffset;
-            };
-            zoomMa.onAnchorZoom = (target,arg1) =>
-            {
-                var pos = VisualElementExtensions.ChangeCoordinatesTo(target, content, arg1.localMousePosition);
-                var centerOffset = pos - (position.size / minZoomSize)*0.5f;
-                scrollView.scrollOffset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
-                scrollView.scrollOffset -= centerOffset * zoomSize;
             };
             scrollView.AddManipulator(zoomMa);
         }
@@ -185,10 +181,9 @@ namespace UFrame.NodeGraph
         public readonly float zoomStep = 0.05f;
 
         public System.Action<float> onZoomChanged { get; set; }
-        public System.Action<VisualElement, WheelEvent> onAnchorZoom { get; set; }
         public System.Action<Vector2> onScrollMove { get; set; }
         public System.Func<Vector2> scrollPosGet { get; set; }
-
+        private Vector2 _contentSize;
         public ZoomManipulator(float minSize, float maxSize, VisualElement element)
         {
             this.minSize = minSize;
@@ -201,11 +196,16 @@ namespace UFrame.NodeGraph
             });
         }
 
+        public void SetContentSize(Vector2 size)
+        {
+            _contentSize = size;
+        }
+
         public float SetZoom(float zoom)
         {
             var scale = Mathf.Clamp(zoom, minSize, maxSize);
-            //targetElement.transform.scale = Vector3.one * scale;
-            targetElement.style.scale = new StyleScale(Vector3.one * scale);
+            targetElement.transform.scale = Vector3.one * scale;
+            //targetElement.style.scale = new StyleScale(Vector3.one * scale);
             if (onZoomChanged != null)
             {
                 onZoomChanged.Invoke(scale);
@@ -231,24 +231,30 @@ namespace UFrame.NodeGraph
                 var offset = -scrollPosGet.Invoke();
                 Vector2 delta = evt.mouseDelta;
                 offset += delta;
-                onScrollMove?.Invoke(offset);
+                onScrollMove?.Invoke(-offset);
             }
         }
 
         private void OnScroll(WheelEvent e)
         {
+            var pos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement, e.localMousePosition);
             float zoomScale = 1f - e.delta.y * zoomStep;
-            onAnchorZoom?.Invoke(this.target,e);
-            this.Zoom(zoomScale);
-            e.StopPropagation();
-        }
-
-        private void Zoom(float zoomScale)
-        {
             var offset = -scrollPosGet.Invoke();
             var scale = Mathf.Clamp(this.targetElement.transform.scale.x * zoomScale, minSize, maxSize);
             this.targetElement.transform.scale = scale * Vector2.one;
             onZoomChanged?.Invoke(scale);
+
+            //var scrollSizeMax = scale * _contentSize / minSize - _contentSize;
+            //var percent = pos / (_contentSize / minSize) - 0.5f * Vector2.one;
+            //offset = - (scrollSizeMax * 0.5f + percent * scrollSizeMax);
+            //onScrollMove?.Invoke(offset);
+
+            var scrollSizeMax = scale * _contentSize / minSize - _contentSize;
+            var percent = pos / (_contentSize / minSize);
+            offset = percent * scrollSizeMax;
+            onScrollMove?.Invoke(offset);
+            Debug.Log($"pos:{pos} scrolOffset:{offset} scrollSizeMax:{scrollSizeMax} percentOffset:{percent} cotentSize:{_contentSize} scrollSize:{targetElement.style.width}");
+            e.StopPropagation();
         }
     }
 }

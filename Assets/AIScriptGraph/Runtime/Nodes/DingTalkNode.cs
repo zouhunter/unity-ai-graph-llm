@@ -37,7 +37,8 @@ namespace AIScripting
                 text = new SendData.Text() { content = "пбне:" + talk_text.Value },
                 msgtype = "text" 
            };
-            var req = UnityWebRequest.Post(talk_url, JsonUtility.ToJson(sendData), "application/json");
+            var req = UnityWebRequest.Post(talk_url, JsonUtility.ToJson(sendData));
+            req.SetRequestHeader("Content-Type", "application/json");
             yield return req.SendWebRequest();
             if (req.result == UnityWebRequest.Result.Success)
             {

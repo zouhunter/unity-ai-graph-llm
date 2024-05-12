@@ -3,7 +3,6 @@ using System.Linq;
 using UFrame.NodeGraph.DataModel;
 using System.Reflection;
 using UnityEngine;
-using static UnityEngine.Analytics.IAnalytic;
 
 namespace AIScripting
 {
