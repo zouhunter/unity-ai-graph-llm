@@ -140,7 +140,7 @@ namespace UFrame.NodeGraph
                 var pos = VisualElementExtensions.ChangeCoordinatesTo(target, content, arg1.localMousePosition);
                 var centerOffset = pos - (position.size / minZoomSize)*0.5f;
                 scrollView.scrollOffset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
-                scrollView.scrollOffset += centerOffset * zoomSize;
+                scrollView.scrollOffset -= centerOffset * zoomSize;
             };
             scrollView.AddManipulator(zoomMa);
         }
@@ -238,8 +238,8 @@ namespace UFrame.NodeGraph
         private void OnScroll(WheelEvent e)
         {
             float zoomScale = 1f - e.delta.y * zoomStep;
-            this.Zoom(zoomScale);
             onAnchorZoom?.Invoke(this.target,e);
+            this.Zoom(zoomScale);
             e.StopPropagation();
         }
 
