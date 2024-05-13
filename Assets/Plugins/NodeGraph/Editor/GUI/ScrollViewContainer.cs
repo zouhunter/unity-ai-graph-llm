@@ -59,7 +59,6 @@ namespace UFrame.NodeGraph
         public void UpdateScale(Rect position)
         {
             currentPosition = position;
-
             scrollView.style.marginTop = position.y;
             scrollView.style.marginLeft = position.x;
             scrollView.style.width = position.width;
@@ -239,22 +238,28 @@ namespace UFrame.NodeGraph
         {
             var anchorPos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement.parent.parent, e.localMousePosition);
             var pos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement, e.localMousePosition);
+            Debug.Log(anchorPos);
             float zoomScale = 1f - e.delta.y * zoomStep;
             var offset = -scrollPosGet.Invoke();
             var scale = Mathf.Clamp(this.targetElement.transform.scale.x * zoomScale, minSize, maxSize);
             this.targetElement.transform.scale = scale * Vector2.one;
             onZoomChanged?.Invoke(scale);
 
+            var realPos = pos * targetElement.transform.scale;
+            var offset0 = anchorPos - realPos;
+            onScrollMove?.Invoke(realPos - anchorPos);
+            //Debug.Log("realPos:" + realPos + ", offset:" +offset0);
+            ////var scrollSizeMax = scale * _contentSize / minSize - _contentSize;
+            ////var percent = pos / (_contentSize / minSize) - 0.5f * Vector2.one;
+            ////offset = - (scrollSizeMax * 0.5f + percent * scrollSizeMax);
+            ////onScrollMove?.Invoke(offset);
+            //var percentBase = anchorPos / _contentSize;
             //var scrollSizeMax = scale * _contentSize / minSize - _contentSize;
-            //var percent = pos / (_contentSize / minSize) - 0.5f * Vector2.one;
-            //offset = - (scrollSizeMax * 0.5f + percent * scrollSizeMax);
-            //onScrollMove?.Invoke(offset);
-
-            var scrollSizeMax = scale * _contentSize / minSize - _contentSize;
-            var percent = pos / (_contentSize / minSize);
-            offset = percent * scrollSizeMax;
-            onScrollMove?.Invoke(offset);
-            Debug.Log($"anchorPos:{anchorPos} pos:{pos} scrolOffset:{offset} scrollSizeMax:{scrollSizeMax} percentOffset:{percent} cotentSize:{_contentSize} scrollSize:{targetElement.style.width}");
+            //var percent = (pos / (_contentSize / minSize));
+            ////percent = percent *2 - percentBase;
+            //offset = percent * scrollSizeMax;
+            //onScrollMove?.Invoke(-offset0);
+            //Debug.Log($"pos:{pos} scrol:{offset} offset0:{offset0} scrollMax:{scrollSizeMax} percentBase:{percentBase} percent:{percent} cotentSize:{_contentSize} scrollSize:{targetElement.style.width}");
             e.StopPropagation();
         }
     }
