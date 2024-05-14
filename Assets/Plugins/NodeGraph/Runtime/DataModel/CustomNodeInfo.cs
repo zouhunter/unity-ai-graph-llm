@@ -23,7 +23,7 @@ namespace UFrame.NodeGraph.DataModel
 
         public Node CreateInstance()
         {
-            Node o = UnityEngine.ScriptableObject.CreateInstance(type) as Node;
+            Node o = System.Activator.CreateInstance(type) as Node;
             o.name = type.FullName;
             return o;
         }

@@ -17,18 +17,18 @@ namespace UFrame.NodeGraph
         private static Dictionary<string, System.Tuple<string,string>> typeCatch = new Dictionary<string, System.Tuple<string, string>>();
         private static Dictionary<string, string> jsonCatch = new Dictionary<string, string>();
 
-        public static void Catch(string id, ScriptableObject data)
+        public static void Catch(string id, DataModel.NodeBaseObject data)
         {
             if (data != null)
             {
                 Catch(id, data.GetType(), JsonUtility.ToJson(data));
-                AssetDatabase.RemoveObjectFromAsset(data);
+                //AssetDatabase.RemoveObjectFromAsset(data);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
             }
         }
 
-        public static ScriptableObject Revert(string id)
+        public static DataModel.NodeBaseObject Revert(string id)
         {
             try
             {
@@ -36,9 +36,9 @@ namespace UFrame.NodeGraph
                 var type = GetType(id);
                 if (!string.IsNullOrEmpty(json) && type != null)
                 {
-                    var m_node = ScriptableObject.CreateInstance(type);
+                    var m_node = System.Activator.CreateInstance(type);
                     JsonUtility.FromJsonOverwrite(json, m_node);
-                    return m_node;
+                    return m_node as DataModel.NodeBaseObject;
                 }
                 return null;
             }

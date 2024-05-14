@@ -13,6 +13,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UFrame.NodeGraph.DataModel;
+using Unity.Android.Gradle.Manifest;
 
 namespace UFrame.NodeGraph
 {
@@ -44,7 +45,8 @@ namespace UFrame.NodeGraph
                     else
                     {
                         m_connectionDrawer = UserDefineUtility.GetUserDrawer(m_data.Object.GetType()) as ConnectionView;
-                        if (m_connectionDrawer == null) m_connectionDrawer = new ConnectionView();
+                        if (m_connectionDrawer == null)
+                            m_connectionDrawer = new ConnectionView();
                         m_connectionDrawer.target = m_data.Object;
                     }
                 }
@@ -117,7 +119,7 @@ namespace UFrame.NodeGraph
             {
                 if (m_inspector == null)
                 {
-                    m_inspector = ScriptableObject.CreateInstance<ConnectionGUIInspectorHelper>();
+                    m_inspector = UnityEngine.ScriptableObject.CreateInstance<ConnectionGUIInspectorHelper>();
                     m_inspector.hideFlags = HideFlags.DontSave;
                 }
                 m_inspector.UpdateInspector(this);
@@ -149,7 +151,7 @@ namespace UFrame.NodeGraph
             //UnityEngine.Assertions.Assert.IsTrue(output.IsOutput, "Given Output point is not output.");
             //UnityEngine.Assertions.Assert.IsTrue(input.IsInput, "Given Input point is not input.");
 
-            m_inspector = ScriptableObject.CreateInstance<ConnectionGUIInspectorHelper>();
+            m_inspector = UnityEngine.ScriptableObject.CreateInstance<ConnectionGUIInspectorHelper>();
             m_inspector.hideFlags = HideFlags.DontSave;
 
             this.m_data = data;
@@ -225,7 +227,7 @@ namespace UFrame.NodeGraph
             //自定义绘制
             connectionDrawer.OnConnectionGUI(startPoint, endPoint, startTan, endTan);
             //绘制标签
-            connectionDrawer.OnDrawLabel(centerPoint, Data.Object ? Data.Object.type : ConnectionName);
+            connectionDrawer.OnDrawLabel(centerPoint, Data.Object != null ? Data.Object.type : ConnectionName);
         }
         private void DrawCurve(Vector2 startV3, Vector2 endV3, Vector2 startTan, Vector2 endTan)
         {
@@ -312,7 +314,8 @@ namespace UFrame.NodeGraph
                 connectionDrawer.OnInspectorGUI();
             if (EditorGUI.EndChangeCheck())
             {
-                EditorUtility.SetDirty(Data.Object);
+                Data.Serialize();
+                //EditorUtility.SetDirty(Data.Object);
             }
         }
         public void Delete()

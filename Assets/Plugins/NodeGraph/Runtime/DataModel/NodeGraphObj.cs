@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace UFrame.NodeGraph.DataModel
 {
-    public class NodeGraphObj : ScriptableObject
+    public class NodeGraphObj : UnityEngine.ScriptableObject
     {
         public const int ABG_FILE_VERSION = 2;
 

@@ -14,7 +14,8 @@ namespace UFrame.NodeGraph
     public class ConnectionView
     {
         public DataModel.Connection target;
-        protected Editor targetDrawer;
+
+        protected NodeBaseObjectDrawer targetDrawer;
 
         public virtual int LineWidth { get { return 3; } }
         public virtual Color LineColor { get { return Color.white; } }
@@ -37,7 +38,7 @@ namespace UFrame.NodeGraph
             if (target == null) return;
 
             if (targetDrawer == null)
-                targetDrawer = Editor.CreateEditor(target);
+                targetDrawer = new NodeBaseObjectDrawer(target);
 
             targetDrawer.DrawHeader();
             targetDrawer.OnInspectorGUI();

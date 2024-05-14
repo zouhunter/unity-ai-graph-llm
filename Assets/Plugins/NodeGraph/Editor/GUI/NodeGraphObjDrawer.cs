@@ -90,7 +90,8 @@ namespace UFrame.NodeGraph
                 {
                     string label = node.Name;
                     var type = node.Object == null ? typeof(Node) : node.Object.GetType();
-                    node.Object = EditorGUILayout.ObjectField(label, node.Object, type, false) as Node;
+                    //node.Object = EditorGUILayout.ObjectField(label, node.Object, type, false) as Node;
+                    EditorGUILayout.TextField(node.Name,node.ObjectJson);
                 }
 
                 GUILayout.Space(10);
@@ -105,9 +106,9 @@ namespace UFrame.NodeGraph
                 {
                     string label = connection.ConnectionType;
                     var type = connection.Object == null ? typeof(Connection) : connection.Object.GetType();
-                    EditorGUILayout.ObjectField(label, connection.Object, type, false);
+                    //EditorGUILayout.ObjectField(label, connection.Object, type, false);
+                    EditorGUILayout.TextField(connection.Name, connection.ObjectJson);
                 }
-
                 GUILayout.Space(10);
             }
 

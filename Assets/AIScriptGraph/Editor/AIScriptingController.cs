@@ -19,7 +19,7 @@ namespace AIScripting
 
         public override NodeGraphObj CreateNodeGraphObject()
         {
-            var graph = ScriptableObject.CreateInstance<AIScriptGraph>();
+            var graph = UnityEngine.ScriptableObject.CreateInstance<AIScriptGraph>();
             graph.ControllerType = GetType().FullName;
             ProjectWindowUtil.CreateAsset(graph, Group + ".asset");
             return graph;
@@ -40,7 +40,7 @@ namespace AIScripting
 
         public override ConnectionGUI CreateConnection(string type, ConnectionPointData output, ConnectionPointData input)
         {
-            var connection = ScriptableObject.CreateInstance<PortConnection>();
+            var connection = new PortConnection();
             connection.type = type;
             connection.name = type;
             return new ConnectionGUI(

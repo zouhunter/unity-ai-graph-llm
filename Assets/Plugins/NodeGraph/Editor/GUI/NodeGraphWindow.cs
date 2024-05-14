@@ -603,7 +603,6 @@ namespace UFrame.NodeGraph
          */
         private void ConstructGraphGUI()
         {
-
             var activeGraph = controller.TargetGraph;
 
             if (activeGraph == null) return;

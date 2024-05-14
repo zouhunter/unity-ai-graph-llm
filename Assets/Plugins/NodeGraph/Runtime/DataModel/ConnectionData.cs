@@ -22,6 +22,7 @@ namespace UFrame.NodeGraph.DataModel {
 		[SerializeField] protected string m_toNodeConnectionPoiontId;
 		[SerializeField] protected string m_type;
         [SerializeField] protected Connection m_connection;
+		[SerializeField] protected string m_connectionJson;
 
         #region Propertys
         public string Id => m_id;
@@ -31,6 +32,9 @@ namespace UFrame.NodeGraph.DataModel {
         public string FromNodeConnectionPointId => m_fromNodeConnectionPointId;
 		public string ToNodeId => m_toNodeId;
 		public string ToNodeConnectionPointId => m_toNodeConnectionPoiontId;
+		public string Name => m_connection == null ? "" :m_connection.name;
+
+		public string ObjectJson => m_connectionJson;
         #endregion
 
         public ConnectionData(string type, Connection connection, ConnectionPointData output, ConnectionPointData input) {
@@ -48,6 +52,13 @@ namespace UFrame.NodeGraph.DataModel {
         {
             if (m_connection == null){
                 m_connection = ScriptObjectCatchUtil.Revert(Id) as Connection;
+            }
+			if(m_connection == null)
+			{
+                var item = JSONClass.Parse(m_connectionJson);
+                var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
+                var m_node = System.Activator.CreateInstance(nodeType) as Node;
+                m_node.DeSeraizlize(m_connectionJson);
             }
             return m_connection != null;
         }
@@ -83,6 +94,11 @@ namespace UFrame.NodeGraph.DataModel {
 
 			return true;
 		}
-   
-	}
+
+        public void Serialize()
+        {
+            m_connectionJson = m_connection.ToJson();
+        }
+
+    }
 }

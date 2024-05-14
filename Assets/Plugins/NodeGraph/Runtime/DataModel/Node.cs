@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace UFrame.NodeGraph.DataModel
 {
-	public abstract class Node : ScriptableObject
+	public abstract class Node : NodeBaseObject
     {
         public virtual string Title => name;
 
@@ -74,6 +74,7 @@ namespace UFrame.NodeGraph.DataModel
         }
         protected virtual IEnumerable<Point> CreateInPoints() => null;
         protected virtual IEnumerable<Point> CreateOutPoints() => null;
+
     }
 
 }

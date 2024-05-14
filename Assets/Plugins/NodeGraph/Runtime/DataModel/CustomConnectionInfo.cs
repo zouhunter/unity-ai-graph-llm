@@ -27,7 +27,7 @@ namespace UFrame.NodeGraph.DataModel
             {
                 type = typeof(Connection);
             }
-            var c = Connection.CreateInstance(type) as Connection;
+            var c = System.Activator.CreateInstance(type) as Connection;
             c.name = type.FullName;
             c.type = connection.Name;
             return c;

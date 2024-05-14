@@ -9,6 +9,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using static UnityEditor.Progress;
 
 namespace UFrame.NodeGraph.DataModel
 {
@@ -26,6 +27,8 @@ namespace UFrame.NodeGraph.DataModel
         [SerializeField]
         protected Node m_node;
         [SerializeField]
+        protected string m_nodeJson;
+        [SerializeField]
         protected List<ConnectionPointData> m_inputPoints;
         [SerializeField]
         protected List<ConnectionPointData> m_outputPoints;
@@ -40,7 +43,9 @@ namespace UFrame.NodeGraph.DataModel
 
         public List<ConnectionPointData> InputPoints => m_inputPoints;
         public List<ConnectionPointData> OutputPoints => m_outputPoints;
-        
+
+        public string ObjectJson => m_nodeJson;
+
         public NodeData(string name, Node node, float x, float y)
         {
             m_id = Guid.NewGuid().ToString();
@@ -79,7 +84,7 @@ namespace UFrame.NodeGraph.DataModel
             }
             else
             {
-                m_node = UnityEngine.Object.Instantiate((UnityEngine.Object)node.Object) as Node;
+                m_node = node.Object.Instantiate() as Node;
                 m_node.name = node.Object.name;
             }
         }
@@ -87,6 +92,11 @@ namespace UFrame.NodeGraph.DataModel
         public NodeData Duplicate(bool keepId = false)
         {
             return new NodeData(this, keepId);
+        }
+
+        public void Serialize()
+        {
+           m_nodeJson = m_node.ToJson();
         }
 
         public ConnectionPointData AddInputPoint(string label, string type, int max = 1, int index = -1)
@@ -142,6 +152,13 @@ namespace UFrame.NodeGraph.DataModel
             if (m_node == null)
             {
                 m_node = ScriptObjectCatchUtil.Revert(Id) as Node;
+            }
+            if(m_node == null && !string.IsNullOrEmpty(m_nodeJson))
+            {
+                var item = JSONClass.Parse(m_nodeJson);
+                var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
+                var m_node = System.Activator.CreateInstance(nodeType) as Node;
+                m_node.DeSeraizlize(m_nodeJson);
             }
             return Object != null;
         }

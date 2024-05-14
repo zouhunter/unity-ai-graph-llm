@@ -36,7 +36,8 @@ namespace UFrame.NodeGraph
             {
                 if (_nodeDataDrawer == null)
                 {
-                    if (m_data.Object == null) return null;
+                    if (m_data.Object == null) 
+                        return null;
 
                     _nodeDataDrawer = UserDefineUtility.GetUserDrawer(m_data.Object.GetType()) as NodeView;
                     if (_nodeDataDrawer == null)
@@ -171,7 +172,7 @@ namespace UFrame.NodeGraph
             m_nodeWindowId = 0;
             m_controller = controller;
             m_data = data;
-            m_data.Object.Initialize(m_data);
+            m_data.Object?.Initialize(m_data);
             var superwidth = nodeDataDrawer != null ? nodeDataDrawer.SuperWidth : 0;
             var superHeight = nodeDataDrawer != null ? nodeDataDrawer.SuperHeight : 0;
             m_baseRect = new Rect(m_data.X, m_data.Y, NGEditorSettings.GUI.NODE_BASE_WIDTH + superwidth, NGEditorSettings.GUI.NODE_BASE_HEIGHT + superHeight);
@@ -725,7 +726,8 @@ namespace UFrame.NodeGraph
                     Controller.Perform();
                 }
 
-                EditorUtility.SetDirty(Data.Object);
+                //EditorUtility.SetDirty(Data.Object);
+                Data.Serialize();
 
                 if (Event.current != null && NodeGUIUtility.NodeEventHandler != null)
                 {
