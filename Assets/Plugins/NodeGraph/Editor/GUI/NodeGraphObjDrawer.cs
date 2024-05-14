@@ -90,7 +90,11 @@ namespace UFrame.NodeGraph
                 {
                     string label = node.Name;
                     var type = node.Object == null ? typeof(Node) : node.Object.GetType();
-                    EditorGUILayout.TextField(node.Object ? node.Object.Title : node.Name, node.ObjectJson);
+                    using (var hor = new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.TextField(node.Object ? node.Object.Title : node.Name, node.ObjectJson);
+                        EditorGUILayout.ObjectField(node.Object, type, allowSceneObjects: false, GUILayout.Width(120));
+                    }
                 }
 
                 GUILayout.Space(10);
@@ -105,7 +109,12 @@ namespace UFrame.NodeGraph
                 {
                     string label = connection.ConnectionType;
                     var type = connection.Object == null ? typeof(Connection) : connection.Object.GetType();
-                    EditorGUILayout.TextField(connection.Object ? connection.Object.Title : connection.Name, connection.ObjectJson);
+                    using(var hor = new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.TextField(connection.Object ? connection.Object.Title : connection.Name, connection.ObjectJson);
+                        EditorGUILayout.ObjectField(connection.Object, type,allowSceneObjects:false,GUILayout.Width(120));
+                    }
+                   
                 }
                 GUILayout.Space(10);
             }

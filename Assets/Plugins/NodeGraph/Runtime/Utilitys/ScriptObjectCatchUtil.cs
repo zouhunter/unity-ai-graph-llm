@@ -23,6 +23,7 @@ namespace UFrame.NodeGraph
             if (data != null)
             {
                 Catch(id, data.GetType(), data.ToJson());
+                AssetDatabase.RemoveObjectFromAsset(data);
             }
         }
 

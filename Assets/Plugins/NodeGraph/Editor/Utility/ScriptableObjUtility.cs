@@ -42,7 +42,6 @@ namespace UFrame.NodeGraph
         {
             if (subAsset != null && mainAsset != null)
             {
-                Debug.Log(subAsset.GetType());
                 UnityEditor.AssetDatabase.AddObjectToAsset(subAsset, mainAsset);
                 subAsset.hideFlags = hideFlag;
             }

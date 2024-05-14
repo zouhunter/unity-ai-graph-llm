@@ -42,7 +42,6 @@ namespace UFrame.NodeGraph
             }
 
             var guids = AssetDatabase.FindAssets(NGSettings.GRAPH_SEARCH_CONDITION);
-
             foreach (var guid in guids)
             {
                 string graphPath = AssetDatabase.GUIDToAssetPath(guid);
@@ -65,11 +64,9 @@ namespace UFrame.NodeGraph
             string name = Path.GetFileNameWithoutExtension(fileSelected);
 
             var jsonContent = File.ReadAllText(fileSelected, System.Text.Encoding.UTF8);
-
             if (graph != null)
             {
                 Undo.RecordObject(graph, "Import");
-                DeserializeGraph(jsonContent, ref graph);
             }
             else
             {
@@ -120,21 +117,20 @@ namespace UFrame.NodeGraph
             var folderName = String.Format("ImportedGraphs_{0:D4}-{1:D2}_{2:D2}_{3:D2}{4:D2}{5:D2}", t.Year, t.Month, t.Day, t.Hour, t.Minute, t.Second);
 
             AssetDatabase.CreateFolder("Assets", folderName);
-
             return String.Format("Assets/{0}", folderName);
         }
 
         public static void DeserializeGraph(string json, ref NodeGraphObj graph)
         {
-            if (graph == null)
-                graph = ScriptableObject.CreateInstance<NodeGraphObj>();
-            EditorJsonUtility.FromJsonOverwrite(json, graph);
+            JsonUtility.FromJsonOverwrite(json, graph);
+            graph.Nodes.ForEach(x => x.Object = null);
+            graph.Connections.ForEach(x => x.Object = null);
             graph.CheckValidate();
         }
 
         public static string SerializeGraph(NodeGraphObj graph)
         {
-            var rootJson = EditorJsonUtility.ToJson(graph);
+            var rootJson = JsonUtility.ToJson(graph);
             return rootJson;
         }
     }
