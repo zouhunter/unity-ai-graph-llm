@@ -24,7 +24,7 @@ namespace UFrame.NodeGraph
         public void OnEnable()
         {
             canvas = (NodeGraphObj)target;
-            canvas.Validate();
+            canvas.CheckValidate();
         }
 
         public override void OnInspectorGUI()

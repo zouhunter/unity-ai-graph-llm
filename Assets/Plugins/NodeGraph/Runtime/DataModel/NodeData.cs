@@ -39,7 +39,7 @@ namespace UFrame.NodeGraph.DataModel
         public string Id => m_id;
         public ref Node Object => ref m_node;
         public ref float X => ref m_x;
-        public ref  float Y => ref m_y;
+        public ref float Y => ref m_y;
 
         public List<ConnectionPointData> InputPoints => m_inputPoints;
         public List<ConnectionPointData> OutputPoints => m_outputPoints;
@@ -78,7 +78,7 @@ namespace UFrame.NodeGraph.DataModel
             {
                 m_id = Guid.NewGuid().ToString();
             }
-            if (node.Object == null)
+            if (!node.Validate())
             {
                 m_node = ScriptObjectCatchUtil.Revert(node.Id) as Node;
             }
@@ -88,7 +88,7 @@ namespace UFrame.NodeGraph.DataModel
                 m_node.name = node.Object.name;
             }
         }
-        
+
         public NodeData Duplicate(bool keepId = false)
         {
             return new NodeData(this, keepId);
@@ -96,13 +96,13 @@ namespace UFrame.NodeGraph.DataModel
 
         public void Serialize()
         {
-           m_nodeJson = m_node.ToJson();
+            m_nodeJson = m_node.ToJson();
         }
 
         public ConnectionPointData AddInputPoint(string label, string type, int max = 1, int index = -1)
         {
             var p = new ConnectionPointData(label, type, max, this, true);
-            if(index >=0)
+            if (index >= 0)
             {
                 m_inputPoints[index] = p;
             }
@@ -113,7 +113,7 @@ namespace UFrame.NodeGraph.DataModel
             return p;
         }
 
-        public ConnectionPointData AddOutputPoint(string label, string type, int max = 1,int index = -1)
+        public ConnectionPointData AddOutputPoint(string label, string type, int max = 1, int index = -1)
         {
             var p = new ConnectionPointData(label, type, max, this, false);
             if (index >= 0)
@@ -153,11 +153,11 @@ namespace UFrame.NodeGraph.DataModel
             {
                 m_node = ScriptObjectCatchUtil.Revert(Id) as Node;
             }
-            if(m_node == null && !string.IsNullOrEmpty(m_nodeJson))
+            if (m_node == null && !string.IsNullOrEmpty(m_nodeJson))
             {
                 var item = JSONClass.Parse(m_nodeJson);
                 var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
-                var m_node = System.Activator.CreateInstance(nodeType) as Node;
+                m_node = Activator.CreateInstance(nodeType) as Node;
                 m_node.DeSeraizlize(m_nodeJson);
             }
             return Object != null;

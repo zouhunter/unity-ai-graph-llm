@@ -53,12 +53,13 @@ namespace UFrame.NodeGraph.DataModel {
             if (m_connection == null){
                 m_connection = ScriptObjectCatchUtil.Revert(Id) as Connection;
             }
+
 			if(m_connection == null)
 			{
                 var item = JSONClass.Parse(m_connectionJson);
                 var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
-                var m_node = System.Activator.CreateInstance(nodeType) as Node;
-                m_node.DeSeraizlize(m_connectionJson);
+                m_connection = System.Activator.CreateInstance(nodeType) as Connection;
+                m_connection.DeSeraizlize(m_connectionJson);
             }
             return m_connection != null;
         }

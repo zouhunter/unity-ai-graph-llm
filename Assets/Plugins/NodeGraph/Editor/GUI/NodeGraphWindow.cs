@@ -690,7 +690,7 @@ namespace UFrame.NodeGraph
                 node.HideProgress();
 
                 controller.SaveGraph(nodes.Select(x => x.Data).ToList(), connections.Select(x => x.Data).ToList()); ;
-                controller.Validate(node);
+                controller.CheckValidate(node);
 
                 //RefreshInspector(controller.StreamManager);
                 ShowErrorOnNodes();

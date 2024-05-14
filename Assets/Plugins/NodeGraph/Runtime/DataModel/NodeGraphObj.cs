@@ -38,7 +38,7 @@ namespace UFrame.NodeGraph.DataModel
         protected void OnEnable()
         {
             Initialize();
-            Validate();
+            CheckValidate();
         }
 
         protected string GetFileTimeUtcString()
@@ -108,7 +108,7 @@ namespace UFrame.NodeGraph.DataModel
             }
         }
 
-        public bool Validate()
+        public bool CheckValidate()
         {
             var changed = false;
 

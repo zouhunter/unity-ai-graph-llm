@@ -21,9 +21,9 @@ namespace UFrame.NodeGraph.DataModel
         [HideInInspector, SerializeField]
         public string name;
         [HideInInspector, SerializeField]
-        private string _assembly;
+        public string _assembly;
         [HideInInspector, SerializeField]
-        private string _type;
+        public string _type;
 
         internal NodeBaseObject Instantiate()
         {
@@ -58,5 +58,15 @@ namespace UFrame.NodeGraph.DataModel
 #endif
         }
 
+    }
+
+
+    [System.Serializable]
+    public class NodeBaseObject2 : NodeBaseObject
+    {
+        [SerializeField]
+        public string aaaaaaa;
+        [SerializeField]
+        private string bbbbbbb;
     }
 }

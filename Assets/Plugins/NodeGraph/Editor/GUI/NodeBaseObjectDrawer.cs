@@ -3,31 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using System.Reflection;
-
 using UnityEngine;
+using UFrame.NodeGraph.DataModel;
+
 namespace UFrame.NodeGraph
 {
+   
     public class NodeBaseObjectDrawer
     {
         public object target { get; private set; }
         protected List<SerializedProperty> properties;
         private SerializedObject serializedObject;
 
+        public NodeBaseObjectDrawer() 
+        {
+            target = new NodeBaseObject2();
+        }
+
         public NodeBaseObjectDrawer(object target)
         {
             this.target = target;
-            properties = new List<SerializedProperty>();
-            //serializedObject = new SerializedObject(target);
-            //var props = target.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
-            //foreach (var prop in props)
-            //{
-            //    var serializeProp = serializedObject.FindProperty(prop.Name);
-            //    if (serializeProp != null)
-            //    {
-            //        properties.Add(serializeProp);
-            //    }
-            //}
         }
+
+        private void InitProps(SerializedProperty property)
+        {
+            if (properties != null)
+                return;
+
+            properties = new List<SerializedProperty>();
+            Debug.LogError(target.GetType());
+            var props = target.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+            foreach (var prop in props)
+            {
+                Debug.LogError(prop.Name);
+                var serializeProp = property.FindPropertyRelative(prop.Name);
+                if (serializeProp != null)
+                {
+                    properties.Add(serializeProp);
+                    Debug.LogError(prop.Name + ",ok!");
+                }
+            }
+        }
+
+        //public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        //{
+        //    InitProps(property);
+        //    return base.GetPropertyHeight(property, label);
+        //}
+
+        //public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        //{
+        //    //base.OnGUI(position, property, label);
+        //    Debug.LogError("OnGUI");
+        //}
 
         internal void DrawHeader()
         {
@@ -39,6 +67,7 @@ namespace UFrame.NodeGraph
             //throw new NotImplementedException();\
             Debug.Log("OnInspectorGUI");
         }
+
         /// <summary>
         /// 获取属性高度
         /// </summary>

@@ -84,7 +84,7 @@ namespace UFrame.NodeGraph
         public virtual void BuildFromGraph(NodeGraphObj m_targetGraph) { }
         public virtual void OnDragUpdated() { }
         public virtual List<KeyValuePair<string, Node>> OnDragAccept(UnityEngine.Object[] objectReferences) { return null; }
-        public virtual void Validate(NodeGUI node) {
+        public virtual void CheckValidate(NodeGUI node) {
            
         }
 
@@ -122,23 +122,11 @@ namespace UFrame.NodeGraph
             TargetGraph.ApplyGraph(nodes, connections);
             foreach (var node in nodes)
                 node.Serialize();
-            foreach (var node in connections)
-                node.Serialize();
+            foreach (var connection in connections)
+                connection.Serialize();
             UnityEditor.EditorUtility.SetDirty(TargetGraph);
-            //ScriptableObject mainAsset;
-            //if (!IsMainAsset(obj, out mainAsset))
-            //{
-            //    Undo.RecordObject(obj, "none");
-            //    all.Add(obj);
-            //    ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.HideInHierarchy);
-            //    UnityEditor.EditorUtility.SetDirty(mainAsset);
-            //}
-            //else
-            //{
-            //    ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.HideInHierarchy);
-            //    UnityEditor.EditorUtility.SetDirty(obj);
-            //}
             AssetDatabase.Refresh();
+            Debug.Log("SaveGraph!" + nodes.Count);
         }
 
         public virtual NodeView CreateDefaultNodeView()

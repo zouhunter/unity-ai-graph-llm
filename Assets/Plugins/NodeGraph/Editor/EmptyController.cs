@@ -30,7 +30,7 @@ namespace UFrame.NodeGraph
             return new List<KeyValuePair<string, DataModel.Node>>();
         }
 
-        public override void Validate(NodeGUI node)
+        public override void CheckValidate(NodeGUI node)
         {
             Debug.Log("When One Node Is  Updated, Judge Validate!");
         }

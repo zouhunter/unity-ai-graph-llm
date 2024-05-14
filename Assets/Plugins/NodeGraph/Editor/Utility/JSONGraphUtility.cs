@@ -133,7 +133,7 @@ namespace UFrame.NodeGraph {
 #else
             JsonUtility.FromJsonOverwrite(json, graph);
 #endif
-            graph.Validate();
+            graph.CheckValidate();
 
             //for (int i = 0; i < jsonNode["m_allNodes"].AsArray.Count; i++)
             //{

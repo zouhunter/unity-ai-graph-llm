@@ -9,6 +9,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
+using UFrame.NodeGraph.DataModel;
 
 namespace UFrame.NodeGraph
 {
@@ -21,14 +22,11 @@ namespace UFrame.NodeGraph
         {
             if (data != null)
             {
-                Catch(id, data.GetType(), JsonUtility.ToJson(data));
-                //AssetDatabase.RemoveObjectFromAsset(data);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                Catch(id, data.GetType(), data.ToJson());
             }
         }
 
-        public static DataModel.NodeBaseObject Revert(string id)
+        public static NodeBaseObject Revert(string id)
         {
             try
             {
@@ -36,9 +34,9 @@ namespace UFrame.NodeGraph
                 var type = GetType(id);
                 if (!string.IsNullOrEmpty(json) && type != null)
                 {
-                    var m_node = System.Activator.CreateInstance(type);
-                    JsonUtility.FromJsonOverwrite(json, m_node);
-                    return m_node as DataModel.NodeBaseObject;
+                    var m_node = System.Activator.CreateInstance(type) as NodeBaseObject;
+                    m_node.DeSeraizlize(json);
+                    return m_node;
                 }
                 return null;
             }
@@ -46,7 +44,6 @@ namespace UFrame.NodeGraph
             {
                 throw;
             }
-
         }
 
         private static System.Type GetType(string hash)
@@ -58,12 +55,14 @@ namespace UFrame.NodeGraph
             }
             return null;
         }
+
         private static string GetJson(string hash)
         {
             string json = null;
             jsonCatch.TryGetValue(hash, out json);
             return json;
         }
+
         private static void Catch(string hash, System.Type type, string json)
         {
             typeCatch[hash] = new System.Tuple<string, string>(type.Assembly.FullName,type.FullName);

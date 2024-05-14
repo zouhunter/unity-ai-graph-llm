@@ -21,6 +21,7 @@ namespace AIScripting
         private VariableProvider _variableProvider = new VariableProvider();
         private List<LitCoroutine> _coroutines = new List<LitCoroutine>();
         private EventProvider _eventProvider = new EventProvider();
+
         public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;

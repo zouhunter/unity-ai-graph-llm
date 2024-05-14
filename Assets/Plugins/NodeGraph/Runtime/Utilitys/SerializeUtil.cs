@@ -53,7 +53,7 @@ namespace UFrame.NodeGraph
 
             json = json.Replace("bool", "Boolean");
             JsonUtility.FromJsonOverwrite(json, graph);
-            graph.Validate();
+            graph.CheckValidate();
             //for (int i = 0; i < jsonNode["m_allNodes"].AsArray.Count; i++)
             //{
             //    var item = jsonNode["m_allNodes"][i]["m_nodeJson"];

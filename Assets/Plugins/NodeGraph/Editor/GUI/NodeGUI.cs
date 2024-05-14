@@ -722,7 +722,7 @@ namespace UFrame.NodeGraph
             {
                 if (Controller != null)
                 {
-                    Controller.Validate(this);
+                    Controller.CheckValidate(this);
                     Controller.Perform();
                 }
 

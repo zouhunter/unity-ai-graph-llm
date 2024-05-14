@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: AIScripting
   m_EditorClassIdentifier: 
   m_allNodes:
-  - m_name: DingTalk
-    m_id: f0c03409-40bf-472e-8889-679e1c79e065
-    m_x: 1873
-    m_y: 546
-    m_nodeJson: '{"name":"AIScripting.DingTalkNode","_assembly":"Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.DingTalkNode","_title":"DingTalkNode","talk_url":{"_key":"talk_url","_default":"https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382","_autoCreate":true},"talk_text":{"_key":"","_default":"","_autoCreate":true}}'
+  - m_name: VariableSetNode
+    m_id: 6492ee8e-ce13-4d80-8c65-1948dee23766
+    m_x: 1589
+    m_y: 683
+    m_nodeJson: '{"name":"VariableSetNode","_assembly":"Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
-    - id: 741787fb-a94d-4d1d-8eee-25555e84f7ad
+    - id: 1f523e45-0026-43f8-a66f-a3acafd33872
       label: i
-      parentId: f0c03409-40bf-472e-8889-679e1c79e065
+      parentId: 6492ee8e-ce13-4d80-8c65-1948dee23766
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -33,19 +33,19 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: fe6cd571-1108-4855-b0c5-a823a73e8e24
+    - id: feb70fd8-4c42-4c44-8c37-57c6dcf9c81f
       label: o
-      parentId: f0c03409-40bf-472e-8889-679e1c79e065
+      parentId: 6492ee8e-ce13-4d80-8c65-1948dee23766
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 111
+        x: 138.41
         y: 22.029999
         width: 10
         height: 23
-      max: 2147483647
+      max: 1
       type: ->
   m_allConnections: []
-  m_lastModified: 133601553317310126
+  m_lastModified: 133601572293648307
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
