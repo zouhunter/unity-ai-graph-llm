@@ -16,10 +16,8 @@ using System;
 namespace UFrame.NodeGraph.DataModel
 {
     [System.Serializable]
-    public class NodeBaseObject
+    public class NodeBaseObject : ScriptableObject
     {
-        [HideInInspector, SerializeField]
-        public string name;
         [HideInInspector, SerializeField]
         public string _assembly;
         [HideInInspector, SerializeField]
@@ -29,7 +27,7 @@ namespace UFrame.NodeGraph.DataModel
         {
             var json = ToJson();
             var type = GetType();
-            var instance = System.Activator.CreateInstance(type) as NodeBaseObject;
+            var instance = CreateInstance(type) as NodeBaseObject;
             instance.DeSeraizlize(json);
             return instance;
         }
@@ -38,11 +36,7 @@ namespace UFrame.NodeGraph.DataModel
         {
             _assembly = GetType().Assembly.FullName;
             _type = GetType().FullName;
-#if UNITY_EDITOR
-            var json = EditorJsonUtility.ToJson(this);
-#else
-            varjson = JsonUtility.ToJson(this);
-#endif
+            var json = JsonUtility.ToJson(this);
             return json;
         }
 
@@ -50,23 +44,7 @@ namespace UFrame.NodeGraph.DataModel
         {
             if (string.IsNullOrEmpty(json))
                 return;
-
-#if UNITY_EDITOR
-            EditorJsonUtility.FromJsonOverwrite(json, this);
-#else
             JsonUtility.FromJsonOverwrite(json, this);
-#endif
         }
-
-    }
-
-
-    [System.Serializable]
-    public class NodeBaseObject2 : NodeBaseObject
-    {
-        [SerializeField]
-        public string aaaaaaa;
-        [SerializeField]
-        private string bbbbbbb;
     }
 }

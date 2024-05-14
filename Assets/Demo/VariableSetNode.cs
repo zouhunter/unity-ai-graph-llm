@@ -11,7 +11,7 @@ using UnityEngine;
 public class VariableSetNode : VariableInitNode
 {
     public Ref<string> ollama_url;
-
+    public GameObject target;
     public VariableSetNode()
     {
         ollama_url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");

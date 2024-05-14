@@ -9,7 +9,6 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using static UnityEditor.Progress;
 
 namespace UFrame.NodeGraph.DataModel
 {
@@ -157,7 +156,7 @@ namespace UFrame.NodeGraph.DataModel
             {
                 var item = JSONClass.Parse(m_nodeJson);
                 var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
-                m_node = Activator.CreateInstance(nodeType) as Node;
+                m_node = Node.CreateInstance(nodeType) as Node;
                 m_node.DeSeraizlize(m_nodeJson);
             }
             return Object != null;
@@ -201,7 +200,6 @@ namespace UFrame.NodeGraph.DataModel
                     return false;
                 }
             }
-
 
             return true;
         }

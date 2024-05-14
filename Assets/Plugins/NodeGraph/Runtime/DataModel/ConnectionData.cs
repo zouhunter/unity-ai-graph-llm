@@ -45,7 +45,6 @@ namespace UFrame.NodeGraph.DataModel {
 			m_toNodeId = input.ParentId;
 			m_toNodeConnectionPoiontId = input.Id;
             m_connection = connection;
-            //m_connection.name = connection.name;
         }
 
         public bool Validate()
@@ -58,7 +57,7 @@ namespace UFrame.NodeGraph.DataModel {
 			{
                 var item = JSONClass.Parse(m_connectionJson);
                 var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
-                m_connection = System.Activator.CreateInstance(nodeType) as Connection;
+                m_connection = ScriptableObject.CreateInstance(nodeType) as Connection;
                 m_connection.DeSeraizlize(m_connectionJson);
             }
             return m_connection != null;

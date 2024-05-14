@@ -18,7 +18,7 @@ namespace UFrame.NodeGraph
         protected Node _target;
         public virtual Node target { get { return _target; } set { _target = value; } }
 
-        protected NodeBaseObjectDrawer targetDrawer;
+        protected Editor targetDrawer;
         public virtual GUIStyle ActiveStyle { get { return EditorStyles.miniButton; } }
         public virtual GUIStyle InactiveStyle { get { return EditorStyles.miniButton; } }
         public virtual string Title => _target.name;
@@ -50,7 +50,7 @@ namespace UFrame.NodeGraph
             if (target == null) return;
 
             if (targetDrawer == null)
-                targetDrawer = new NodeBaseObjectDrawer(target);
+                targetDrawer = Editor.CreateEditor(target);
 
             targetDrawer.DrawHeader();
             targetDrawer.OnInspectorGUI();

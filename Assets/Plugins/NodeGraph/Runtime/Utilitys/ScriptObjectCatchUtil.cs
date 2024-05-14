@@ -34,7 +34,7 @@ namespace UFrame.NodeGraph
                 var type = GetType(id);
                 if (!string.IsNullOrEmpty(json) && type != null)
                 {
-                    var m_node = System.Activator.CreateInstance(type) as NodeBaseObject;
+                    var m_node = NodeBaseObject.CreateInstance(type) as NodeBaseObject;
                     m_node.DeSeraizlize(json);
                     return m_node;
                 }

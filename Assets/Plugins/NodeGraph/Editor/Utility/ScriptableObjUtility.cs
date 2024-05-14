@@ -20,7 +20,8 @@ namespace UFrame.NodeGraph
 
             foreach (ScriptableObject subAsset in subAssets)
             {
-                if (subAsset == mainAsset) continue;
+                if (subAsset == mainAsset) 
+                    continue;
                 UnityEditor.EditorUtility.SetDirty(subAsset);
                 if (System.Array.Find(oldAssets, x => x == subAsset) == null)
                 {
@@ -41,6 +42,7 @@ namespace UFrame.NodeGraph
         {
             if (subAsset != null && mainAsset != null)
             {
+                Debug.Log(subAsset.GetType());
                 UnityEditor.AssetDatabase.AddObjectToAsset(subAsset, mainAsset);
                 subAsset.hideFlags = hideFlag;
             }

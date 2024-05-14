@@ -109,12 +109,12 @@ namespace UFrame.NodeGraph
             return graph;
         }
 
-        //protected static bool IsMainAsset(ScriptableObject obj, out ScriptableObject mainAsset)
-        //{
-        //    var path = AssetDatabase.GetAssetPath(obj);
-        //    mainAsset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
-        //    return mainAsset == obj;
-        //}
+        protected static bool IsMainAsset(ScriptableObject obj, out ScriptableObject mainAsset)
+        {
+            var path = AssetDatabase.GetAssetPath(obj);
+            mainAsset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
+            return mainAsset == obj;
+        }
 
         public virtual void SaveGraph(List<NodeData> nodes, List<ConnectionData> connections,bool resetAll = false)
         {
@@ -124,9 +124,26 @@ namespace UFrame.NodeGraph
                 node.Serialize();
             foreach (var connection in connections)
                 connection.Serialize();
+
+            NodeGraphObj obj = TargetGraph;
+            var all = new List<ScriptableObject>();
+            all.AddRange(Array.ConvertAll<NodeData, Node>(nodes.ToArray(), x => x.Object));
+            all.AddRange(Array.ConvertAll<ConnectionData, Connection>(connections.ToArray(), x => x.Object));
+            ScriptableObject mainAsset;
+            if (!IsMainAsset(obj, out mainAsset))
+            {
+                Undo.RecordObject(obj, "none");
+                all.Add(obj);
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), mainAsset, resetAll, HideFlags.HideInHierarchy);
+                EditorUtility.SetDirty(mainAsset);
+            }
+            else
+            {
+                ScriptableObjUtility.SetSubAssets(all.ToArray(), obj, resetAll, HideFlags.HideInHierarchy);
+                EditorUtility.SetDirty(obj);
+            }
             UnityEditor.EditorUtility.SetDirty(TargetGraph);
             AssetDatabase.Refresh();
-            Debug.Log("SaveGraph!" + nodes.Count);
         }
 
         public virtual NodeView CreateDefaultNodeView()
