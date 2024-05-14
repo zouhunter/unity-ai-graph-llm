@@ -1,0 +1,303 @@
+**ScriptableSingleton<T>**
+
+ ScriptableSingleton 是一个 ScriptableObject 的子类，用于实现单例模式。它使用了 Unity 的 Editor 模块来读取和写入文件。
+
+可能出现问题：
+
+1. **ReloadInstance() 方法**：如果 s_instance 为 null，方法会重新加载文件，但没有检查文件是否存在或是否是合法的 ScriptableObject。如果文件不存在或不是 ScriptableObject，程序可能会抛出异常。
+2. **Save() 方法**：如果文件已经被保存过，但是 s_instance 对象变化了，Save() 方法可能会覆盖原来的文件内容。
+3. **GetPath() 方法**：使用 GetCustomAttributes() 获取文件路径时，如果 T 类没有 FilePathAttribute 属性，这个方法将返回 null。可能需要添加错误处理或默认值。
+
+其他注意点：
+
+* 使用 ScriptableObject 实现单例模式可以避免使用 Unity 的 Singleton 模块，因为后者可能会导致性能问题。
+* ReloadInstance() 方法可能会影响游戏的性能，如果频繁地读取和写入文件。
+* Save() 方法可能会覆盖原来的文件内容，如果 s_instance 对象变化了。
+
+总之，这个代码基本上是正确的，但需要注意可能出现的问题并进行相应的处理。A C# code snippet related to Unity's Asset Management system!
+
+This class, named `AssetManager`, appears to be a wrapper around Unity's built-in asset loading mechanisms. It provides methods for loading assets (both single and multiple) from an asset bundle, as well as registering sub-bundles and unloading asset bundles.
+
+Here are some key features of this code:
+
+1. **Loading Assets**: The class has two main methods for loading assets: `LoadAssetAsync` and `LoadAssetsAsync`. These methods take in the name of the asset bundle and either a single asset name or an array of asset names, respectively.
+2. **Registering Sub-Bundles**: The `RegistSubBundle` method allows you to register sub-bundles under a given root bundle.
+3. **Unloading Asset Bundles**: The `UnloadAssetBundle` method unloads an asset bundle and its associated assets.
+4. **Preloading Asset Bundles**: The `PreloadAssetBundle` method preloads an asset bundle in the background, allowing for faster loading times later on.
+
+The class also has some internal methods for finding asset paths (`LocatAssetPath` and `LocatAssetsPath`) and maintaining a cache of asset paths (`_bundleAssetPathMap`).
+
+Overall, this code seems to be designed to simplify the process of working with assets in Unity, providing a more convenient interface for loading and managing assets.**BaseNativeBridge**
+
+This class is the core of the native bridge, responsible for managing the communication between Unity and the native platform.
+
+**Potential Issues:**
+
+1. ** duplicated code**: The code has many duplicated lines, especially in the `UnityCallNativeWithLoadMoudle`, `UnityCallNativeSendDeviceInfo`, and `UnityCallNativeFileCheckFinish` methods. This could be improved by extracting a common method or using a template.
+2. **Magic strings**: The class uses many magic strings (e.g., `"onNativeLoadMoudle"`) which can make the code harder to maintain and debug.
+3. **Lack of error handling**: There is no explicit error handling in the `OnBaseNativeCallBack` method, which could lead to unexpected behavior or crashes if an exception occurs.
+4. **Redundant checks**: The `if (LoadDll.loadDll != null)` check in the `NativeCallUnityWithLoadBundle` method seems unnecessary, as it would always be true when the method is called.
+5. **Unclear naming conventions**: Some methods have unclear or inconsistent naming conventions (e.g., `UnityCallRequestonSendLogEvent` vs. `UnityCallNativeHotUpdateState`).
+
+**Recommendations:**
+
+1. Extract common code into a separate method to reduce duplication.
+2. Use constants or enumerations instead of magic strings for better maintainability and readability.
+3. Add explicit error handling in the `OnBaseNativeCallBack` method to ensure robustness.
+4. Remove redundant checks and simplify the code.
+5. Refactor naming conventions to be consistent and easy to understand.
+
+**Additional Suggestions:**
+
+1. Consider using a more robust JSON library instead of LitJson for better performance and features.
+2. Review the use of `#if OLD_BRIDGE` directives and consider refactoring the code to be more modular or configurable.
+3. Add documentation comments (XML comments) to explain the purpose and behavior of each method.**MateBridge**
+
+* 该命名空间定义了一个名为`Bridge`的类，用于提供静态方法调用和注册局部方法处理器。
+
+可能出现问题：
+
+1. 在`#if`语句中，使用了`!UNITY_EDITOR`条件，这意味着在编辑模式下 `_activeBridge` 将被设置为`EditorPlantformBridge`。这可能会导致在编辑模式下无法正确地调用原生方法。
+2. 在`RegistCallback`方法中，如果 handler 已经注册过某个方法，程序将打印错误信息。但是，如果 handler 未来想要注册另一个方法，这时会导致之前的方法处理器被覆盖。
+3. 在`CallNative`方法中，使用了 `JsonData` 类型的参数 param，但是没有对其进行验证。如果 param 是 null 或无效，将可能导致程序崩溃或产生错误结果。
+4. 在`OnNativeMethod`方法中，如果 `_handlers` 字典中不存在某个方法，程序将打印错误信息。然而，如果 `_handler` 为空，这时将无法调用回调事件。
+
+其他注意点：
+
+1. 在代码中使用了 Unity 的 `UnityEngine.Assertions` 和 `Debug` 类库。
+2. 使用 LitJson 库将 JSON 对象转换为字符串。
+3. 使用 `System.Collections.Generic` 库中的 `Dictionary<string, MethodEvent>` 類型来存储方法处理器。**FileDryion**
+
+* 该类名为`FileDryion`，继承自 Unity 的 `MonoBehaviour`。
+* `Key` 属性是一个静态的字符串常量，用于 AES 加密/解密。
+* `bufferSize` 是一个私有的整数常量，用于控制内存流中的数据大小。
+
+可能出现问题：
+
+1. 在 `DecryptByets` 方法中，如果 `key` 或 `vector` 是 null 或空字符串，将使用静态的 `Key` 属性。然而，这可能会导致加密/解密不正确。
+2. 在 `DecryptByets` 方法中，使用了 `Aes.Create()` 创建一个 AES 加密器对象。如果这个对象在后续使用时已经被释放，则可能会导致程序崩溃或错误结果。
+3. 在 `DecryptByets` 方法中，使用了 `MemoryStream` 对象来读取加密数据。如果内存流中的数据大小超过了缓冲区的大小，可能会导致程序崩溃或错误结果。
+
+其他注意点：
+
+1. 该类使用了 Unity 的 `UnityEngine` 和 `System.Security.Cryptography` 类库。
+2. 使用 `Encoding.UTF8.GetBytes()` 将字符串转换为 byte 数组。
+3. 使用 `Array.Copy()` 将 byte 数组复制到另一个数组中。
+4. 使用 `using` 语句来确保内存流中的数据被正确地释放。**HotEnvironmentType**
+
+* 代码分析：这是一个枚举类，用于定义热更新环境的类型。
+* 可能出现问题：没有找到明显的问题，但是枚举类的使用场景可能不太广泛。
+
+**HotConfig**
+
+* 代码分析：这是一个 MonoBehaviour 类，用于配置热更新环境和全局设置。
+* 可能出现问题：
+	+ `Config` 属性可能会在不同的 Scene 中产生冲突，因为它是 static 的。
+	+ `Awake()` 方法中使用的 `if` 语句可能会在一些场景下导致意外行为。
+
+**AppConfigData**
+
+* 代码分析：这是一个类，用于存储应用程序的配置数据。
+* 可能出现问题：没有找到明显的问题，但是这个类的使用场景可能不太广泛。
+
+**ResConfig** 和 **CodeConfig**
+
+* 代码分析：这两个字符串变量用于存储资源和代码配置信息。
+* 可能出现问题：没有找到明显的问题，但是这两个变量的作用范围可能太广泛。
+
+**BuildinAssetsList** 和 **BuildinAssetsMD5**
+
+* 代码分析：这两个 List 变量用于存储内置资产和 MD5 值。
+* 可能出现问题：没有找到明显的问题，但是这两个列表的使用场景可能不太广泛。
+
+**OpenLoger**
+
+* 代码分析：这是一个整数变量，用于控制日志记录的开启状态。
+* 可能出现问题：没有找到明显的问题，但是这个变量的作用范围可能太广泛。
+
+**Lang**
+
+* 代码分析：这是一个字符串变量，用于存储语言信息。
+* 可能出现问题：没有找到明显的问题，但是这个变量的作用范围可能太广泛。
+
+**TingkerSignKey**
+
+* 代码分析：这是一个字符串变量，用于存储 Tingker 签名密钥。
+* 可能出现问题：没有找到明显的问题，但是这个变量的作用范围可能太广泛。**HotFileDown**
+
+This class appears to be a script for downloading files in Unity using the `UnityWebRequest` class. Here's a breakdown of the code:
+
+* The class inherits from `MonoBehaviour`, indicating that it is a script that should be attached to a GameObject in the Unity scene.
+* The class has several private variables:
+	+ `_fileTimeOut`: a float value representing the timeout for file download progress updates (default 15 seconds).
+	+ `_fileRetryCount`: an integer value representing the number of times to retry downloading a file if it fails (default 5).
+	+ `_fileTimer`, `_fileLastTimeProgress`, and `_fileMaxProgress`: variables used to track file download progress.
+* The `RefreshRequestProgress()` method is called once per frame, which:
+	+ Updates the `_fileMaxProgress` variable with the maximum progress reported by the `UnityWebRequest`.
+	+ If the progress is greater than 0, it calls a delegate (`HotLoadNetWork.delegater`) to notify other scripts that the download has made progress.
+* The `DownloadFile()` coroutine method:
+	+ Initializes variables for the file download (e.g., `sapd`, `_fileLastTimeProgress`, and `_fileTimer`).
+	+ Creates a new `UnityWebRequest` object to download the file.
+	+ Sets the `downloadHandler` property of the request to a `DownloadHandlerFile` object, which is used to save the downloaded file.
+	+ Sends the request and waits for it to complete (using `yield return null;`).
+	+ While the request is not completed:
+		- Calls `RefreshRequestProgress()` to update progress tracking variables.
+		- Checks if the request has timed out (i.e., no progress updates in `_fileTimeOut` seconds). If so, it:
+			- Aborts the request and retries downloading the file (`goto retry;`).
+			- Decays the retry count (`_fileRetryCount--`) until it reaches 0.
+* After the request completes:
+	+ If the request was successful (i.e., `request.result == UnityWebRequest.Result.Success`):
+		- Deletes any previous files with the same name as the downloaded file.
+		- Renames the temporary file to the final file name.
+		- Calls a delegate (`HotLoadNetWork.delegater`) to notify other scripts that the download is complete.
+	+ If the request failed:
+		- Logs an error message.
+		- Destroys the GameObject hosting this script.
+
+**Potential issues:**
+
+1. The `goto` statement is used, which is generally considered a bad practice in programming. It can make the code harder to follow and maintain.
+2. The script assumes that the `HotLoadNetWork.delegater` delegate is always available and not null. If it's not, the script will throw an exception.
+3. The script does not handle errors or exceptions properly. For example, if the file download fails for some reason, the script will simply log an error message and destroy itself without trying to recover from the failure.
+4. The script uses `Time.time` to track progress updates, which may not be accurate if the game is running at a slow pace or if the system clock is not updated frequently enough.
+
+Overall, while this script seems to be doing its job of downloading files, it could benefit from some improvements in terms of error handling, code organization, and best practices.The code is a part of a Unity game that handles hot updates (real-time updates) for the game. It appears to be responsible for recording and reporting the version number of the updated code or resources.
+
+Here's a breakdown of the methods:
+
+1. `RecordHotloadVersionCode()`: Records the version number of the updated code and sends it to the server.
+2. `RecordHotloadVersionResource()`: Records the version number of the updated resources and sends it to the server.
+3. `ResynsHotLoadRebuild(string api)`: A retry mechanism for hot updates that failed due to network issues.
+4. `oploadLoadNetWorkRequests(HotLoadNetWorkAPI.tracePatchAPI, object[] args)`: Sends a request to the server with the recorded version number and other information.
+5. `CheckUpdateBuildinArtVersion(int versionId, List<string> files)`: Checks if there's an update for the built-in role version and updates it if necessary.
+6. `CheckClearMainRes()`: Clears old versions of resources when a new update is available.
+7. `LocalFilesCheck()`: The entry point for the hot update process. It checks for updates, clears old versions, and initializes the request.
+
+Overall, this code seems to be handling the business logic for hot updates in the game, including recording and reporting version numbers, updating built-in roles, and clearing old resources.I'm a large language model, I'll do my best to help you.
+
+Based on the provided code, it appears that this is part of a Unity project written in C#. The code seems to be related to a hotload network API, which allows for dynamic updates and patches to a game or application. 
+
+Here are some observations:
+
+1. The `HotLoadNetWorkAPI` enum defines three possible types: `appPatchCodeAPI`, `appPatchResAPI`, and `tracePatchAPI`. These seem to be related to different types of patches that can be applied.
+
+2. The `EncapsulatenetHotLoadConfigRequests` method takes in an API type, values (which seems to be some sort of data), and a hotload config type. It then constructs a URL based on the API type and config type. This URL is then used to make a UnityWebRequest request.
+
+3. The `ExecuteLoadConfigsServices` method handles this request by checking for any errors or network issues, and if successful, it retrieves the response data as a JSON string. If the status code is 200 (OK), it extracts some relevant information from the JSON data and calls a delegate with that information.
+
+4. There are several other methods and variables defined in the code, but they all seem to be related to handling hotload network requests and parsing the responses.
+
+If you have any specific questions about this code or would like help with something in particular, please let me know!**LoadingABResPanel**
+
+加载AB资源面板类。
+
+可能出现的问题：
+
+1. **public static LoadingABResPanel abPanel;**: 在 MonoBehaviour 中使用 `static`  field 可能会导致问题，例如在编辑器中创建多个实例时。
+2. **private bool isFirstEnter = true;**: 这个变量的作用不明确，可以删除或重新命名。
+3. **public int maxFilecount = 0;**: 在这里声明一个 public 整数字段可能不是很好，考虑使用 private 或 protected  field。
+4. **/public GameObject image_Background;**: 这个字段的名称中包含斜杠 `/` 可能会导致问题，在 Unity 中，对象名不能包含特殊字符。
+5. **private Task<string> awaitInfoTask;**: 在 Update() 方法中更新这个任务可能不是很好，可以考虑使用 coroutine 或 async/await 语法来处理异步操作。
+6. **public static double startLoadingTime;**: 在 MonoBehaviour 中使用 `static`  field 可能会导致问题，例如在编辑器中创建多个实例时。
+7. **private void Update()**: 在这里更新 UI 组件可能不是很好，可以考虑使用 coroutine 或 async/await 语法来处理异步操作。
+8. **public void UpdateProgressBar(string info, float progress, int currentFileCount = -1);**: 这个方法的参数太多，可以考虑使用对象或类来封装这些参数。
+9. **private void LoadMLoadingStart();**: 在这里调用 native 代码可能不是很好，可以考虑使用 Unity 的 native  API 或 plugin 来处理 native 操作。
+10. **/private void OnDestroy();**: 这个方法的注释中包含斜杠 `/` 可能会导致问题，在 Unity 中，对象名不能包含特殊字符。
+
+总之，这个类似需要重新评估和优化，以确保在实际应用中工作正常。**LoadingSpritePlayer**
+
+这个类名为`LoadingSpritePlayer`,是一个Unity游戏对象脚本。它负责播放加载 Sprite 序列。
+
+可能出现问题:
+
+1. **bundleName**：如果`bundleName`不是有效的资产包名称， AssetBundleManager.Instance.LoadAssetsAsync<Sprite>(bundleName) 将返回 null，导致 OnLoadSprites 方法无法被调用。
+2. **operation**：在 Start 方法中，如果`operation`为 null，意味着加载资产失败，这可能会导致游戏对象创建失败。
+3. **OnEnable**：在 OnEnable 方法中，如果 `_sprites` 为空或长度为 0，可能会导致 OnLoadSprites 方法被调用两次，或者在 Sprite 数组还没有加载完成时就播放。
+4. **LoopPlaySprites**：在 LoopPlaySprites 方法中，如果游戏对象被禁用或销毁，而 `_sprites` 仍然保持不为空，这可能会导致内存泄露。
+5. **Time.realtimeSinceStartup**：使用 `Time.realtimeSinceStartup` 计算时间差，这可能会因为Unity中的时间戳问题而引起错误。
+
+总的来说，这个脚本主要用于播放加载 Sprite 序列，但是需要注意可能出现的问题，并进行相应的优化和处理。**RandomTextBehaviour**
+
+这个类名为`RandomTextBehaviour`,是一个Unity游戏对象脚本。它负责设置文本框的描述。
+可能出现问题:
+1. **_baseText**：如果组件没有获取到正确的 `TMPro.TMP_Text` 组件，_baseText 将保持 null状态，导致 SetDescs 方法失败。
+2. **OnEnable**：在 OnEnable 方法中，如果 `_currentDesc` 为空或空字符串，可能会导致 SetDescs 方法被调用两次，或者在设置描述时文本框还没有准备好。
+3. **SetDescs**：在 SetDescs 方法中，如果 `descs` 字符串为空或空字符串，或者 `_baseText` 为空，可能会导致方法失败。
+4. **Random.Range(0, lines.Length);**：如果 `lines.Length` 是 0，Random.Range 将返回 0，这可能会导致文本框显示错误信息。
+5. **Trim()**：在设置文本框的文本时，如果 `_baseText.text` 中包含了不需要的空格或换行符，这可能会导致文本框显示不正确的内容。
+
+总的来说，这个脚本主要用于设置文本框的描述，但是需要注意可能出现的问题，并进行相应的优化和处理。*AppLifeStatus*
+这个类名为`AppLifeStatus`,是一个Unity游戏对象脚本。它负责记录应用程序的生命周期状态。
+可能出现问题:
+1. **isFirstEnterLoadScene**：这个静态变量可能会在不同的场景中保留不同的值，这可能会导致其他脚本无法正确地访问该变量。
+2. **Awake()**：在Awake方法中，如果调用DontDestroyOnLoad(this)后，应用程序退出或重新加载时，该对象将不被销毁。这可能会导致内存泄露或其他问题。
+3. **DontDestroyOnLoad()**：如果在其他脚本中也使用了DontDestroyOnLoad()方法，可能会导致该对象在应用程序退出后仍然保留在内存中，这可能会导致内存泄露或其他问题。
+
+总的来说，这个脚本主要用于记录应用程序的生命周期状态，但是需要注意可能出现的问题，并进行相应的优化和处理。*LoadSceneHotLoadCtr*
+这个类名为`LoadSceneHotLoadCtr`,是一个Unity游戏对象脚本。它负责处理热加载相关的逻辑。
+可能出现问题:
+1. **AppLifeStatus**：如果 `AppLifeStatus.isFirstEnterLoadScene` 为空或空字符串，这个方法将不会执行正确的逻辑。
+2. **HotLoadMgr** 和 **loadDLL**：如果这两个游戏对象没有正确地被赋值，这个脚本可能会出现错误或抛出 NullReferenceException。
+3. **Awake()**：在Awake方法中，如果 `AppLifeStatus.isFirstEnterLoadScene` 为空或空字符串，可能会导致该方法执行两次，或者在设置热加载相关的对象时出现问题。
+4. **if (AppLifeStatus.isFirstEnterLoadScene)**：这个 if 语句可能会在非热加载场景下也被执行，这可能会导致热加载相关的逻辑在不需要的情况下被执行。
+5. **AppLifeStatus.isFirstEnterLoadScene = false**：如果这个变量没有正确地被初始化或赋值，可能会导致热加载相关的逻辑出现问题。
+
+总的来说，这个脚本主要用于处理热加载相关的逻辑，但是需要注意可能出现的问题，并进行相应的优化和处理。**LanguageData**
+
+这个脚本是一个 Unity ScriptableObject，用于存储语言数据。
+可能出现问题:
+
+1. **KeyValueMap**：如果 `_keyValueMap` 为空或空字符串，这个方法将不会执行正确的逻辑。
+2. **GetText**：如果 `KeyValueMap` 为空或空字符串，这个方法将返回 key 字符串，而不是对应的值。
+3. **datas**：如果 `datas` 为空或空列表，这个脚本可能会出现错误或抛出 NullReferenceException。
+4. **_keyValueMap**：如果 `_keyValueMap` 没有正确地被初始化或赋值，可能会导致 KeyValueMap 方法出现问题。
+5. **CopyAllText**：如果 Unity Editor 不支持复制到剪贴板，这个方法将无法执行。
+
+总的来说，这个脚本主要用于存储语言数据，但是需要注意可能出现的问题，并进行相应的优化和处理。**LocalizationCtr**
+
+This class is responsible for handling localization and font assets in the game. It provides methods to set the language, load font assets, and retrieve text values.
+
+Possible issues:
+
+1. **Singleton pattern**: The `_instance` field uses a singleton pattern to ensure that only one instance of `LocalizationCtr` exists throughout the game. However, this approach can lead to tight coupling between components and make it difficult to test and maintain.
+2. **Thread-safety**: The class uses asynchronous methods (`GetTextAsync`, `SetTextAsync`) and static fields (`_instance`). These combinations can lead to thread-safety issues if not handled correctly.
+3. **Error handling**: The class logs errors using `Debug.LogError` but does not provide any meaningful error messages or handle exceptions properly.
+4. **Code organization**: The class has a mix of logic, utility methods, and asset loading code. It would be beneficial to separate these concerns into different classes or files for better maintainability.
+
+**FontAssetMap**
+
+The `_fontAssetMap` dictionary stores font assets loaded from asset bundles. This dictionary is used to cache font assets for faster access.
+
+Possible issues:
+
+1. **Key collision**: If two languages share the same key in the `_fontMap` dictionary, it may cause unexpected behavior when trying to load a font asset.
+2. **Font asset naming convention**: The class assumes that font asset names follow a specific naming convention (`zh-CN`, `en-US`, etc.). If this assumption is not met, the class will not work as expected.
+
+**GetText**
+
+The `GetText` method retrieves text values from an asset bundle based on the current language. This method uses asynchronous programming to retrieve text values and caches them in the `_keyValueCacheMap` dictionary for faster access.
+
+Possible issues:
+
+1. **Language key**: The method assumes that the language key is always available and does not handle cases where it may be missing.
+2. **Text value retrieval**: If the asset bundle or the language data is not available, the method will return an empty string, which may lead to unexpected behavior in the game.
+
+**SetText**
+
+The `SetText` method sets the text of a `TextMeshProUGUI` component based on a key-value pair.
+
+Possible issues:
+
+1. **Text component**: The method assumes that the provided `TextMeshProUGUI` component is always available and does not handle cases where it may be missing.
+2. **Text value**: If the text value is not retrieved correctly, the method will set an empty string to the text component's text property.
+
+**LanguageNameMap**
+
+The `_languageNameMap` dictionary maps language codes to their corresponding keys in the asset bundle.
+
+Possible issues:
+
+1. **Language code mapping**: The class assumes that the language code mapping is correct and does not handle cases where it may be incorrect.
+2. **Key collision**: If two languages share the same key in the `_languageNameMap` dictionary, it may cause unexpected behavior when trying to load a font asset or text value.
+
+Overall, the `LocalizationCtr` class provides a foundation for handling localization and font assets in the game. However, there are several potential issues that need to be addressed to ensure its reliability and maintainability.

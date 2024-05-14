@@ -99,8 +99,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: DingTalk
     m_id: c76909f7-8400-45ff-87a7-01b16ba3a980
-    m_x: 3444
-    m_y: 24
+    m_x: 2712
+    m_y: 576
     m_node: {fileID: -2838965018443630923}
     m_inputPoints:
     - id: 72567a46-8ecb-4c50-8333-f1fa67769bd5
@@ -110,7 +110,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -123,15 +123,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: DingTalk
     m_id: 83ca7085-f424-4b33-9fe5-6b58df73d581
-    m_x: 27.000072
-    m_y: 23.166687
+    m_x: 528
+    m_y: 612
     m_node: {fileID: -7299050423811071110}
     m_inputPoints:
     - id: a9569c56-73f5-4a93-be7e-1b0697d188ab
@@ -141,7 +141,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -154,15 +154,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: DingTalk
     m_id: 90febb44-fdeb-454b-9260-b65830dd5dca
-    m_x: 12
-    m_y: 1788
+    m_x: 720
+    m_y: 612
     m_node: {fileID: -3693989795684656386}
     m_inputPoints:
     - id: 8fef8ef6-6c92-4d2c-9b3e-2200e7dfaba6
@@ -172,7 +172,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -185,15 +185,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: DingTalk
     m_id: 49e0e28c-eaec-4041-b356-39b6d892e676
-    m_x: 3432
-    m_y: 1548
+    m_x: 2316
+    m_y: 1188
     m_node: {fileID: -5795819194097447556}
     m_inputPoints:
     - id: a0f34ec0-78f3-41e8-bf3d-61587f6ad9e2
@@ -203,7 +203,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -216,43 +216,34 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  - m_name: VariableSetNode
-    m_id: 4a953395-0103-4bcf-bb8f-301f22a7282d
-    m_x: 36
-    m_y: 1452
-    m_node: {fileID: 0}
-    m_inputPoints:
-    - id: cfb8730d-e195-40e3-9c7c-56e3ee3e4115
-      label: i
-      parentId: 4a953395-0103-4bcf-bb8f-301f22a7282d
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 17.833332
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: e424ee2d-6147-4386-af41-919b2d9c5142
-      label: o
-      parentId: 4a953395-0103-4bcf-bb8f-301f22a7282d
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 133
-        y: 20.833332
-        width: 10
-        height: 23
-      max: 1
-      type: ->
-  m_allConnections: []
-  m_lastModified: 133600310279172314
+  m_allConnections:
+  - m_id: 3e7d58ba-5fe5-410f-b783-35bd900bf011
+    m_fromNodeId: 83ca7085-f424-4b33-9fe5-6b58df73d581
+    m_fromNodeConnectionPointId: 91253103-6d34-407f-80c2-857ebc6d4866
+    m_toNodeId: 90febb44-fdeb-454b-9260-b65830dd5dca
+    m_toNodeConnectionPoiontId: 8fef8ef6-6c92-4d2c-9b3e-2200e7dfaba6
+    m_type: ->
+    m_connection: {fileID: 2040533647224328124}
+  m_lastModified: 133600476369056265
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
+--- !u!114 &2040533647224328124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _title: 
+  priority: 0
+  disable: 0

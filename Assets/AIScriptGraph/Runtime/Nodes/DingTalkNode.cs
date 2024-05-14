@@ -34,10 +34,10 @@ namespace AIScripting
         private IEnumerator SendRequest()
         {
             var sendData = new SendData() { 
-                text = new SendData.Text() { content = "ÐÂÎÅ:" + talk_text.Value },
+                text = new SendData.Text() { content = "ï¿½ï¿½ï¿½ï¿½:" + talk_text.Value },
                 msgtype = "text" 
            };
-            var req = UnityWebRequest.Post(talk_url, JsonUtility.ToJson(sendData));
+            var req = UnityWebRequest.PostWwwForm(talk_url, JsonUtility.ToJson(sendData));
             req.SetRequestHeader("Content-Type", "application/json");
             yield return req.SendWebRequest();
             if (req.result == UnityWebRequest.Result.Success)

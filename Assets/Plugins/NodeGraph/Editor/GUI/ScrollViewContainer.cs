@@ -238,7 +238,7 @@ namespace UFrame.NodeGraph
         {
             var anchorPos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement.parent.parent, e.localMousePosition);
             var pos = VisualElementExtensions.ChangeCoordinatesTo(target, targetElement, e.localMousePosition);
-            Debug.Log(anchorPos);
+            //Debug.Log(anchorPos);
             float zoomScale = 1f - e.delta.y * zoomStep;
             var offset = -scrollPosGet.Invoke();
             var scale = Mathf.Clamp(this.targetElement.transform.scale.x * zoomScale, minSize, maxSize);

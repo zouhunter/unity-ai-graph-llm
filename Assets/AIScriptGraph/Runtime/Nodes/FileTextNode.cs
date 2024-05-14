@@ -1,3 +1,5 @@
+using System.Linq;
+
 using UFrame.NodeGraph;
 using UnityEngine;
 
@@ -6,6 +8,8 @@ namespace AIScripting
     [CustomNode("FileText", 0, "AIScripting")]
     public class FileTextNode : ScriptNodeBase
     {
+        [TextArea()]
+        public string pofile_Text;
         public Ref<string> file_path;
         public Ref<string> out_put;
 
@@ -17,8 +21,15 @@ namespace AIScripting
             }
             else
             {
+                var fileName = System.IO.Path.GetFileName(file_path);
                 var fileInfo = System.IO.File.ReadAllText(file_path);
-                out_put.SetValue(fileInfo);
+                var textStr = new System.Text.StringBuilder();
+                textStr.AppendLine(pofile_Text);
+                textStr.AppendLine("文件名:");
+                textStr.AppendLine(fileName);
+                textStr.AppendLine("文件内容:");
+                textStr.AppendLine(fileInfo);
+                out_put.SetValue(textStr.ToString());
                 DoFinish();
             }
         }

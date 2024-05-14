@@ -37,6 +37,9 @@ public class GraphDirecterBehaviour : MonoBehaviour
 
     private void OnRecvMessage(object obj)
     {
+        if (!resultText)
+            return;
+
         var recvData = obj as ReceiveData;
         //Debug.Log("ollama_receive_message:" + recvData.message.content);
         resultText.text += recvData.message.content;
@@ -44,6 +47,9 @@ public class GraphDirecterBehaviour : MonoBehaviour
 
     private void OnFinish(IScriptGraphNode obj)
     {
+        if (!resultText)
+            return;
+
         resultText.text = graph.GetVariableValue<string>("out_put");
     }
 
