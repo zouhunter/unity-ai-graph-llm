@@ -17,7 +17,7 @@ namespace AIScripting
     }
 
     [Serializable]
-    public class Ref<T>: IRef
+    public class Ref<T> : IRef
     {
         [SerializeField]
         private string _key;
@@ -46,12 +46,12 @@ namespace AIScripting
 
         public Ref() { }
 
-        public Ref(string key,T value = default)
+        public Ref(string key, T value = default)
         {
             this._key = key;
             this._default = value;
         }
-        public Ref(string key,IVariableProvider provider)
+        public Ref(string key, IVariableProvider provider)
         {
             this._key = key;
             Binding(provider);
@@ -60,15 +60,18 @@ namespace AIScripting
         public void Binding(IVariableProvider provider)
         {
             this._variablePrivider = provider;
-            _variable = _variablePrivider.GetVariable<T>(_key, false);
-            if (_variable == null && _autoCreate)
+            if (!string.IsNullOrEmpty(_key))
             {
-                _variable = new Variable<T>();
-                _variable.Value = _default;
-                _variablePrivider.SetVariable(_key, _variable);
+                _variable = _variablePrivider.GetVariable<T>(_key, false);
+                if (_variable == null && _autoCreate)
+                {
+                    _variable = new Variable<T>();
+                    _variable.Value = _default;
+                    _variablePrivider.SetVariable(_key, _variable);
+                }
+                if (_variable == null)
+                    _value = _default;
             }
-            if(_variable == null)
-                _value = _default;
         }
 
         public void SetValue(T value)

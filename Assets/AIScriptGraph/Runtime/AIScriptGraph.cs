@@ -15,6 +15,7 @@ namespace AIScripting
         private Dictionary<string, IScriptGraphNode> _nodeMap = new();
         private Dictionary<string, Dictionary<string, NodeConnection>> _connectionMap = new();
         private HashSet<IScriptGraphNode> _inExecuteNodes = new();
+        private Queue<string> _nextExecuteNodes = new();
         public Dictionary<Type, FieldInfo[]> fieldMap = new();
         public string Title => name;
         public Status status => _status;
@@ -167,7 +168,7 @@ namespace AIScripting
         /// <returns></returns>
         protected bool CheckStackOverFlow(string nodeId, string parentId)
         {
-            if (_parentNodeMap.TryGetValue(nodeId, out var childIds))
+            if (_subNodeMap.TryGetValue(nodeId, out var childIds))
             {
                 foreach (var childId in childIds)
                 {
@@ -177,9 +178,15 @@ namespace AIScripting
                     }
                     else
                     {
-                        var match = CheckStackOverFlow(childId, parentId);
+                        var match = CheckStackOverFlow(childId, nodeId);
                         if (match)
                             return true;
+                        else
+                        {
+                            match = CheckStackOverFlow(childId, parentId);
+                            if (match)
+                                return true;
+                        }
                     }
                 }
             }
@@ -193,12 +200,10 @@ namespace AIScripting
             {
                 foreach (var parentNodeId in parentNodes)
                 {
-                    var connection = GetConnection(parentNodeId, nodeId);
                     if (CheckStackOverFlow(nodeId, parentNodeId))
-                    {
-                        UnityEngine.Debug.Log("StackOverFlow:" + parentNodeId+"," + nodeId);
                         continue;
-                    }
+
+                    var connection = GetConnection(parentNodeId, nodeId);
 
                     if (!connection.Pass())
                         continue;
@@ -215,16 +220,11 @@ namespace AIScripting
             if (parentFinished)
             {
                 var node = _nodeMap[nodeId];
-                if (node.status == Status.None)
-                {
-                    _inExecuteNodes.Add(node);
-                    var operate = node.Run();
-                    operate.Id = nodeId;
-                    operate.RegistProgress(OnProgressNode);
-                    operate.RegistComplete(OnFinishNode);
-                }
+                _nextExecuteNodes.Enqueue(nodeId);
+                _inExecuteNodes.Add(node);
             }
         }
+
 
         private void OnProgressNode(string nodeId)
         {
@@ -283,6 +283,7 @@ namespace AIScripting
             _parentNodeMap.Clear();
             _subNodeMap.Clear();
             _inExecuteNodes.Clear();
+            _nextExecuteNodes.Clear();
             _variableProvider = new VariableProvider();
             _eventProvider = new EventProvider();
         }
@@ -300,6 +301,16 @@ namespace AIScripting
                         _coroutines.RemoveAt(i);
                     }
                 }
+            }
+
+            if(_nextExecuteNodes.Count > 0)
+            {
+                var nodeId = _nextExecuteNodes.Dequeue();
+                var node = _nodeMap[nodeId];
+                var operate = node.Run();
+                operate.Id = nodeId;
+                operate.RegistProgress(OnProgressNode);
+                operate.RegistComplete(OnFinishNode);
             }
         }
 
