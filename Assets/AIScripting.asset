@@ -63,11 +63,11 @@ MonoBehaviour:
   m_allNodes:
   - m_name: VariableSetNode
     m_id: 6492ee8e-ce13-4d80-8c65-1948dee23766
-    m_x: 1589
-    m_y: 683
+    m_x: 1356
+    m_y: 588
     m_node: {fileID: 3095785392959422684}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":0}}'
+      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":21380}}'
     m_inputPoints:
     - id: 1f523e45-0026-43f8-a66f-a3acafd33872
       label: i
@@ -76,7 +76,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -88,8 +88,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 138
-        y: 22.5
+        x: 138.41
+        y: 22.029999
         width: 10
         height: 23
       max: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_y: 252
     m_node: {fileID: 3413884934938012406}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"VariableSetNode","_title":"xxx","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":17490}}'
+      PublicKeyToken=null","_type":"VariableSetNode","_title":"xxx","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":21380}}'
     m_inputPoints:
     - id: 0850391d-66d6-48b1-a1fe-92d1ff74ed5a
       label: i
@@ -109,7 +109,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -121,8 +121,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 138
-        y: 22.5
+        x: 138.41
+        y: 22.029999
         width: 10
         height: 23
       max: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -155,7 +155,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -175,7 +175,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -188,7 +188,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -208,7 +208,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -221,7 +221,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -244,7 +244,7 @@ MonoBehaviour:
     m_type: ->
     m_connection: {fileID: 7546560540390337208}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"","priority":0,"disable":false}'
+      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"123","priority":0,"disable":false}'
   m_lastModified: 133601680340195019
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
@@ -283,7 +283,7 @@ MonoBehaviour:
     _key: ollama_url
     _default: http://localhost:8081/api/chat
     _autoCreate: 1
-  target: {fileID: 0}
+  target: {fileID: 7606598061895238641, guid: 4405586dfad5b784abbc6faf9dcae5ff, type: 3}
 --- !u!114 &3413884934938012406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
-  _title: 
+  _title: 123
   priority: 0
   disable: 0

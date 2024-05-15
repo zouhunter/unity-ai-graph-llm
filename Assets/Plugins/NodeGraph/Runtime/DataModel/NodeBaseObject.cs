@@ -22,6 +22,7 @@ namespace UFrame.NodeGraph.DataModel
         public string _assembly;
         [HideInInspector, SerializeField]
         public string _type;
+        public virtual string Title => name;
 
         internal NodeBaseObject Instantiate()
         {

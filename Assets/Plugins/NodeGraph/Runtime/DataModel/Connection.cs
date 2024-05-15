@@ -12,7 +12,6 @@ namespace UFrame.NodeGraph.DataModel
 {
     public class Connection : NodeBaseObject
     {
-        public virtual string Title => name;
         public string type { get; set; }
     }
 }

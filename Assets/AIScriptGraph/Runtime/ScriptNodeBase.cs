@@ -8,8 +8,6 @@ namespace AIScripting
 {
     public abstract class ScriptNodeBase : Node, IScriptGraphNode
     {
-        [SerializeField]
-        private string _title;
         protected AIScriptGraph Owner { get; private set; }
         protected virtual int InCount => int.MaxValue;
         protected virtual int OutCount => int.MaxValue;
@@ -18,6 +16,9 @@ namespace AIScripting
         protected AsyncOp _asyncOp;
         public float progress => _asyncOp != null ? _asyncOp.progress : 0;
         public Status status { get; protected set; }
+        [SerializeField]
+        protected string _title;
+
         public override string Title
         {
             get

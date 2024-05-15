@@ -7,7 +7,8 @@ namespace AIScripting
     public class PortConnection : Connection
     {
         [SerializeField]
-        private string _title;
+        protected string _title;
+
         public override string Title => string.IsNullOrEmpty(_title)? base.Title:_title;
 
         [Tooltip("сеох╪╤")]

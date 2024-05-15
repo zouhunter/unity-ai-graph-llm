@@ -13,8 +13,6 @@ namespace UFrame.NodeGraph.DataModel
 {
 	public abstract class Node : NodeBaseObject
     {
-        public virtual string Title => name;
-
         public virtual void Initialize(NodeData data)
         {
             InitInputPoints(data);
