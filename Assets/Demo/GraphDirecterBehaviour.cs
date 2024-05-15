@@ -25,6 +25,7 @@ public class GraphDirecterBehaviour : MonoBehaviour
         graphDirector.Binding(bindings);
         sendBtn.onClick.AddListener(OnSendClick);
         graph.RegistEvent("ollama_receive_message", OnRecvMessage);
+        graph.RegistEvent("wekoi_receive_message", OnRecvMessage);
     }
 
     public void OnSendClick()
@@ -39,10 +40,16 @@ public class GraphDirecterBehaviour : MonoBehaviour
     {
         if (!resultText)
             return;
-
-        var recvData = obj as ReceiveData;
-        //Debug.Log("ollama_receive_message:" + recvData.message.content);
-        resultText.text += recvData.message.content;
+        if(obj is ReceiveData)
+        {
+            var recvData = obj as ReceiveData;
+            //Debug.Log("ollama_receive_message:" + recvData.message.content);
+            resultText.text += recvData.message.content;
+        }
+        else
+        {
+            resultText.text += obj.ToString();
+        }
     }
 
     private void OnFinish(IScriptGraphNode obj)

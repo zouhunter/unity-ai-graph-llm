@@ -1,37 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5708646254719076876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Ollama.OllamaNode
-  _title: OllamaNode
-  m_SystemSetting: 
-  m_GptModel: llama3
-  m_HistoryKeepCount: 15
-  eventReceiveKey: ollama_receive_message
-  input:
-    _key: input_text
-    _default: 
-    _autoCreate: 1
-  output:
-    _key: output_text
-    _default: 
-    _autoCreate: 1
-  url:
-    _key: ollama_url
-    _default: http://localhost:8081/api/chat
-    _autoCreate: 1
---- !u!114 &-5228876296611522910
+--- !u!114 &-9004991405203336938
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
-  _title: 123
+  _title: 
   priority: 0
   disable: 0
+--- !u!114 &-3940362175098691215
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0f47f4c8f8034da1d65e3b7c747ac, type: 3}
+  m_Name: AIScripting.Ollama.WekoiCCNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.WekoiCCNode
+  _title: WekoiCCNode
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+--- !u!114 &-1532148855397654957
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
+  m_Name: AIScripting.BeginNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.BeginNode
+  _title: BeginNode
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,11 +70,11 @@ MonoBehaviour:
   m_allNodes:
   - m_name: VariableSetNode
     m_id: 6492ee8e-ce13-4d80-8c65-1948dee23766
-    m_x: 1356
-    m_y: 588
+    m_x: 1308
+    m_y: 576
     m_node: {fileID: 3095785392959422684}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":21380}}'
+      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"input_text":{"_key":"input_text","_default":"hi","_autoCreate":true},"target":{"instanceID":21390}}'
     m_inputPoints:
     - id: 1f523e45-0026-43f8-a66f-a3acafd33872
       label: i
@@ -94,17 +101,17 @@ MonoBehaviour:
         height: 23
       max: 1
       type: ->
-  - m_name: VariableSetNode
-    m_id: 66acd61c-b9f4-4926-b23f-bf0cd44ca908
-    m_x: 252
-    m_y: 252
-    m_node: {fileID: 3413884934938012406}
+  - m_name: WekoiCC
+    m_id: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
+    m_x: 1548
+    m_y: 648
+    m_node: {fileID: -3940362175098691215}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"VariableSetNode","_title":"xxx","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"target":{"instanceID":21380}}'
+      PublicKeyToken=null","_type":"AIScripting.WekoiCCNode","_title":"WekoiCCNode","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true}}'
     m_inputPoints:
-    - id: 0850391d-66d6-48b1-a1fe-92d1ff74ed5a
+    - id: f86984f4-3514-41ff-a894-94fe2af8db85
       label: i
-      parentId: 66acd61c-b9f4-4926-b23f-bf0cd44ca908
+      parentId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -115,75 +122,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: 77ca2490-6686-430d-aaf4-32517c4d4144
+    - id: 7e445ca2-d57a-414f-ab3e-7e287f7fb895
       label: o
-      parentId: 66acd61c-b9f4-4926-b23f-bf0cd44ca908
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 138.41
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 1
-      type: ->
-  - m_name: Ollama
-    m_id: bac68316-1caa-4b06-b8b8-ba22fa0e75fe
-    m_x: 504
-    m_y: 396
-    m_node: {fileID: -5708646254719076876}
-    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_title":"OllamaNode","m_SystemSetting":"","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
-    m_inputPoints:
-    - id: f8cc2320-bf7d-42f8-b5cb-ca6e07a53ec7
-      label: i
-      parentId: bac68316-1caa-4b06-b8b8-ba22fa0e75fe
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: ca65d12a-b3b6-47ff-b9c4-e218c34aa1e2
-      label: o
-      parentId: bac68316-1caa-4b06-b8b8-ba22fa0e75fe
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 111
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: Debug
-    m_id: bfec83fc-46ec-4be7-99f2-0dbfb9130b04
-    m_x: 216
-    m_y: 360
-    m_node: {fileID: 3461722542509024345}
-    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.DebugNode","_title":"DebugNode","info":{"_key":"","_default":"","_autoCreate":true},"format":"","logType":0}'
-    m_inputPoints:
-    - id: 353eba4a-502d-49c3-8417-5d70896f09c1
-      label: i
-      parentId: bfec83fc-46ec-4be7-99f2-0dbfb9130b04
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: 59a4e2e4-e3fb-482d-980d-f103079725c7
-      label: o
-      parentId: bfec83fc-46ec-4be7-99f2-0dbfb9130b04
+      parentId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -194,16 +135,16 @@ MonoBehaviour:
       max: 2147483647
       type: ->
   - m_name: Begin
-    m_id: 794c7132-0c97-41e6-9be4-14ff05f87eaf
-    m_x: 251
-    m_y: 456
-    m_node: {fileID: 734836852316026784}
+    m_id: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_x: 1320
+    m_y: 708
+    m_node: {fileID: -1532148855397654957}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.BeginNode","_title":"BeginNode"}'
     m_inputPoints:
-    - id: 0dfe2668-229c-46e5-ada5-86209a66f27d
+    - id: 09f2f6f4-ce59-4e07-ae2a-5af3a5f16932
       label: i
-      parentId: 794c7132-0c97-41e6-9be4-14ff05f87eaf
+      parentId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -214,9 +155,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: 899ff046-c58f-4110-b7c3-80db33a37365
+    - id: 77f3dbcd-f938-4729-829d-3f469ec96b17
       label: o
-      parentId: 794c7132-0c97-41e6-9be4-14ff05f87eaf
+      parentId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -227,28 +168,28 @@ MonoBehaviour:
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: f3f652e0-5903-4100-be5d-ab000ccd4f2f
-    m_fromNodeId: 66acd61c-b9f4-4926-b23f-bf0cd44ca908
-    m_fromNodeConnectionPointId: 77ca2490-6686-430d-aaf4-32517c4d4144
-    m_toNodeId: bac68316-1caa-4b06-b8b8-ba22fa0e75fe
-    m_toNodeConnectionPoiontId: f8cc2320-bf7d-42f8-b5cb-ca6e07a53ec7
+  - m_id: 740babc6-f3fa-475c-baf5-b67f5e0766df
+    m_fromNodeId: 6492ee8e-ce13-4d80-8c65-1948dee23766
+    m_fromNodeConnectionPointId: feb70fd8-4c42-4c44-8c37-57c6dcf9c81f
+    m_toNodeId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
+    m_toNodeConnectionPoiontId: f86984f4-3514-41ff-a894-94fe2af8db85
     m_type: ->
-    m_connection: {fileID: -5228876296611522910}
+    m_connection: {fileID: -9004991405203336938}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"123","priority":0,"disable":false}'
-  - m_id: dc31a9a5-7035-4757-9b06-3da01c3b51b5
-    m_fromNodeId: 794c7132-0c97-41e6-9be4-14ff05f87eaf
-    m_fromNodeConnectionPointId: 899ff046-c58f-4110-b7c3-80db33a37365
-    m_toNodeId: bac68316-1caa-4b06-b8b8-ba22fa0e75fe
-    m_toNodeConnectionPoiontId: f8cc2320-bf7d-42f8-b5cb-ca6e07a53ec7
+      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"","priority":0,"disable":false}'
+  - m_id: 100ea8a4-ff1a-4701-9528-5c75f338e07c
+    m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_fromNodeConnectionPointId: 77f3dbcd-f938-4729-829d-3f469ec96b17
+    m_toNodeId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
+    m_toNodeConnectionPoiontId: f86984f4-3514-41ff-a894-94fe2af8db85
     m_type: ->
-    m_connection: {fileID: 7546560540390337208}
+    m_connection: {fileID: 4341550529324809056}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"123","priority":0,"disable":false}'
-  m_lastModified: 133601680340195019
+      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"","priority":0,"disable":false}'
+  m_lastModified: 133602416124088476
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
---- !u!114 &734836852316026784
+--- !u!114 &833349962259762433
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,12 +198,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
-  m_Name: 
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.BeginNode
-  _title: BeginNode
+  _type: AIScripting.PortConnection
+  _title: 
+  priority: 0
+  disable: 0
 --- !u!114 &3095785392959422684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,50 +226,12 @@ MonoBehaviour:
     _key: ollama_url
     _default: http://localhost:8081/api/chat
     _autoCreate: 1
-  target: {fileID: 7606598061895238641, guid: 4405586dfad5b784abbc6faf9dcae5ff, type: 3}
---- !u!114 &3413884934938012406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2985e1c8de6424fb0ed6f6779f3b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: VariableSetNode
-  _title: xxx
-  executeInEditOnly: 0
-  ollama_url:
-    _key: ollama_url
-    _default: http://localhost:8081/api/chat
+  input_text:
+    _key: input_text
+    _default: hi
     _autoCreate: 1
   target: {fileID: 7606598061895238641, guid: 4405586dfad5b784abbc6faf9dcae5ff, type: 3}
---- !u!114 &3461722542509024345
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.DebugNode
-  _title: DebugNode
-  info:
-    _key: 
-    _default: 
-    _autoCreate: 1
-  format: 
-  logType: 0
---- !u!114 &7546560540390337208
+--- !u!114 &4341550529324809056
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,6 +245,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
-  _title: 123
+  _title: 
+  priority: 0
+  disable: 0
+--- !u!114 &5292426651846173284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  _title: 
   priority: 0
   disable: 0
