@@ -697,7 +697,7 @@ namespace UFrame.NodeGraph
             }
             catch (Exception e)
             {
-                LogUtility.Logger.LogError(LogUtility.kTag, e);
+                LogUtility.Logger.LogException(e);
             }
             finally
             {

@@ -14,9 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
+  <type>k__BackingField: 
   _title: 
   priority: 0
   disable: 0
+  conditions: []
+--- !u!114 &-5720960645706306451
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0f47f4c8f8034da1d65e3b7c747ac, type: 3}
+  m_Name: AIScripting.Ollama.WekoiCCNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.WekoiCCNode
+  _title: WekoiCCNode
+  conversation_id: 295948
+  model: gpt-4-1106-preview
+  Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  eventReceiveKey: wekoi_receive_message
 --- !u!114 &-3940362175098691215
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32,6 +61,9 @@ MonoBehaviour:
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.WekoiCCNode
   _title: WekoiCCNode
+  conversation_id: 295948
+  model: gpt-4-1106-preview
+  Authorization: cb-dabd1913552249b3b14670b3ada4227c
   input:
     _key: input_text
     _default: 
@@ -40,6 +72,63 @@ MonoBehaviour:
     _key: output_text
     _default: 
     _autoCreate: 1
+  eventReceiveKey: wekoi_receive_message
+--- !u!114 &-3470012606271220198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: ->
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &-2502685241082666670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: ->
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &-2410923245524006075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
 --- !u!114 &-1532148855397654957
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,11 +159,11 @@ MonoBehaviour:
   m_allNodes:
   - m_name: VariableSetNode
     m_id: 6492ee8e-ce13-4d80-8c65-1948dee23766
-    m_x: 1308
-    m_y: 576
+    m_x: 1380
+    m_y: 552
     m_node: {fileID: 3095785392959422684}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"input_text":{"_key":"input_text","_default":"hi","_autoCreate":true},"target":{"instanceID":21390}}'
+      PublicKeyToken=null","_type":"VariableSetNode","_title":"VariableSetNode","executeInEditOnly":false,"ollama_url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true},"input_text":{"_key":"input_text","_default":"hi","_autoCreate":true},"target":{"instanceID":17660}}'
     m_inputPoints:
     - id: 1f523e45-0026-43f8-a66f-a3acafd33872
       label: i
@@ -83,7 +172,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 18.896175
         width: 21
         height: 29
       max: 2147483647
@@ -95,19 +184,19 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 138.41
-        y: 22.029999
+        x: 141.37387
+        y: 21.896175
         width: 10
         height: 23
       max: 1
       type: ->
   - m_name: WekoiCC
     m_id: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
-    m_x: 1548
-    m_y: 648
+    m_x: 1560
+    m_y: 624
     m_node: {fileID: -3940362175098691215}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.WekoiCCNode","_title":"WekoiCCNode","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true}}'
+      PublicKeyToken=null","_type":"AIScripting.WekoiCCNode","_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: f86984f4-3514-41ff-a894-94fe2af8db85
       label: i
@@ -116,7 +205,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 18.896175
         width: 21
         height: 29
       max: 2147483647
@@ -129,7 +218,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 21.896175
         width: 10
         height: 23
       max: 2147483647
@@ -137,7 +226,7 @@ MonoBehaviour:
   - m_name: Begin
     m_id: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
     m_x: 1320
-    m_y: 708
+    m_y: 696
     m_node: {fileID: -1532148855397654957}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.BeginNode","_title":"BeginNode"}'
@@ -149,7 +238,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 18.896175
         width: 21
         height: 29
       max: 2147483647
@@ -162,33 +251,183 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 21.896175
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: WekoiCC
+    m_id: 0ca4fa3e-01fe-43aa-8109-e58e2e195a07
+    m_x: 1560
+    m_y: 744
+    m_node: {fileID: -5720960645706306451}
+    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.WekoiCCNode","_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
+    m_inputPoints:
+    - id: 41503c60-9df0-4b1b-9dfe-7a671979beb1
+      label: i
+      parentId: 0ca4fa3e-01fe-43aa-8109-e58e2e195a07
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 18.896175
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 7aa1567a-7c00-490b-9933-19da178b1524
+      label: o
+      parentId: 0ca4fa3e-01fe-43aa-8109-e58e2e195a07
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 21.896175
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: DingTalk
+    m_id: -1446265974
+    m_x: 1658
+    m_y: 561
+    m_node: {fileID: 8797765351996417075}
+    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.DingTalkNode","_title":"DingTalkNode","talk_url":{"_key":"talk_url","_default":"https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382","_autoCreate":true},"talk_text":{"_key":"","_default":"","_autoCreate":true}}'
+    m_inputPoints:
+    - id: 2074147488
+      label: i
+      parentId: -1446265974
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 18.896175
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1024067848
+      label: o
+      parentId: -1446265974
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 21.896175
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Ollama
+    m_id: -610338144
+    m_x: 1860
+    m_y: 660
+    m_node: {fileID: 4188024216630790940}
+    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_title":"OllamaNode","m_SystemSetting":"good","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_inputPoints:
+    - id: -1384891978
+      label: i
+      parentId: -610338144
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 18.896175
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 2135521484
+      label: o
+      parentId: -610338144
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 21.896175
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Ollama
+    m_id: -693443864
+    m_x: 1860
+    m_y: 792
+    m_node: {fileID: 5554413183293730826}
+    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_title":"OllamaNode","m_SystemSetting":"bad","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_inputPoints:
+    - id: 2052415764
+      label: i
+      parentId: -693443864
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 18.896175
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 503308096
+      label: o
+      parentId: -693443864
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 21.896175
         width: 10
         height: 23
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: 740babc6-f3fa-475c-baf5-b67f5e0766df
-    m_fromNodeId: 6492ee8e-ce13-4d80-8c65-1948dee23766
-    m_fromNodeConnectionPointId: feb70fd8-4c42-4c44-8c37-57c6dcf9c81f
-    m_toNodeId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
-    m_toNodeConnectionPoiontId: f86984f4-3514-41ff-a894-94fe2af8db85
-    m_type: ->
-    m_connection: {fileID: -9004991405203336938}
-    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"","priority":0,"disable":false}'
-  - m_id: 100ea8a4-ff1a-4701-9528-5c75f338e07c
+  - m_id: 577158684
     m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
     m_fromNodeConnectionPointId: 77f3dbcd-f938-4729-829d-3f469ec96b17
-    m_toNodeId: d16dfa7e-a686-4f79-bdcc-78ac29318dc6
-    m_toNodeConnectionPoiontId: f86984f4-3514-41ff-a894-94fe2af8db85
+    m_toNodeId: -610338144
+    m_toNodeConnectionPoiontId: -1384891978
     m_type: ->
-    m_connection: {fileID: 4341550529324809056}
+    m_connection: {fileID: 34504068195703349}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.PortConnection","_title":"","priority":0,"disable":false}'
-  m_lastModified: 133602416124088476
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[]}'
+  - m_id: 668907504
+    m_fromNodeId: 6492ee8e-ce13-4d80-8c65-1948dee23766
+    m_fromNodeConnectionPointId: feb70fd8-4c42-4c44-8c37-57c6dcf9c81f
+    m_toNodeId: -610338144
+    m_toNodeConnectionPoiontId: -1384891978
+    m_type: ->
+    m_connection: {fileID: -2410923245524006075}
+    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[]}'
+  m_lastModified: 133602564102401660
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
+--- !u!114 &34504068195703349
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
 --- !u!114 &833349962259762433
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,9 +442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
+  <type>k__BackingField: 
   _title: 
   priority: 0
   disable: 0
+  conditions: []
 --- !u!114 &3095785392959422684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,6 +472,37 @@ MonoBehaviour:
     _default: hi
     _autoCreate: 1
   target: {fileID: 7606598061895238641, guid: 4405586dfad5b784abbc6faf9dcae5ff, type: 3}
+--- !u!114 &4188024216630790940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.Ollama.OllamaNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Ollama.OllamaNode
+  _title: OllamaNode
+  m_SystemSetting: good
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
 --- !u!114 &4341550529324809056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,9 +517,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
+  <type>k__BackingField: 
   _title: 
   priority: 0
   disable: 0
+  conditions: []
 --- !u!114 &5292426651846173284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,6 +536,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.PortConnection
+  <type>k__BackingField: 
   _title: 
   priority: 0
   disable: 0
+  conditions: []
+--- !u!114 &5554413183293730826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.Ollama.OllamaNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Ollama.OllamaNode
+  _title: OllamaNode
+  m_SystemSetting: bad
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
+--- !u!114 &8797765351996417075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161163f6654bcdf469dc5f96b9cbed20, type: 3}
+  m_Name: AIScripting.DingTalkNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.DingTalkNode
+  _title: DingTalkNode
+  talk_url:
+    _key: talk_url
+    _default: https://oapi.dingtalk.com/robot/send?access_token=0d5881be6ebc0ce565481930584fd579ae7ccfa076ab6cddd05432f2bb615382
+    _autoCreate: 1
+  talk_text:
+    _key: 
+    _default: 
+    _autoCreate: 1

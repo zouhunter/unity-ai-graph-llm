@@ -52,7 +52,7 @@ public class GraphDirecterBehaviour : MonoBehaviour
         }
     }
 
-    private void OnFinish(IScriptGraphNode obj)
+    private void OnFinish(string obj)
     {
         if (!resultText)
             return;

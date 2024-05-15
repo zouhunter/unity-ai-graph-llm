@@ -40,7 +40,7 @@ namespace AIScripting
 
         public override ConnectionGUI CreateConnection(string type, ConnectionPointData output, ConnectionPointData input)
         {
-            var connection = new PortConnection();
+            var connection = new NodeConnection();
             connection.type = type;
             connection.name = type;
             return new ConnectionGUI(

@@ -33,7 +33,7 @@ namespace UFrame.NodeGraph.DataModel
 
         public ConnectionPointData(string label, string type, int max, NodeData parent, bool isInput)
         {
-            this.id = Guid.NewGuid().ToString();
+            this.id = GuidUtil.NewGuid(this);
             this.label = label;
             this.parentId = parent.Id;
             this.isInput = isInput ? 1 : 0;

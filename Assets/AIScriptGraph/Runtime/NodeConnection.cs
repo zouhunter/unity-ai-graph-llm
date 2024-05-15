@@ -1,10 +1,10 @@
+using System.Collections.Generic;
 using UFrame.NodeGraph.DataModel;
-
 using UnityEngine;
 
 namespace AIScripting
 {
-    public class PortConnection : Connection
+    public class NodeConnection : Connection
     {
         [SerializeField]
         protected string _title;
@@ -16,5 +16,16 @@ namespace AIScripting
 
         [Tooltip("½ûÓÃ")]
         public bool disable;
+
+        [Tooltip("Ìõ¼þ")]
+        public List<Condition> conditions;
+
+        public bool Pass()
+        {
+            if (disable)
+                return false;
+            //TODO check conditions
+            return false;
+        }
     }
 }

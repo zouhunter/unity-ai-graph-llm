@@ -53,7 +53,9 @@ namespace UFrame.NodeGraph
             CreateScrollView(position);
             CreateZoomManipulator(position);
             root.Add(scrollView);
-            scrollView.scrollOffset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
+            var offset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
+            scrollView.scrollOffset = offset;
+            EditorApplication.delayCall += () =>scrollView.scrollOffset = offset;
         }
 
         public void UpdateScale(Rect position)

@@ -10,14 +10,14 @@ using UnityEngine;
 
 namespace AIScripting
 {
-    [CustomView(typeof(PortConnection))]
-    public class PortConnectionView : ConnectionView
+    [CustomView(typeof(NodeConnection))]
+    public class NodeConnectionView : ConnectionView
     {
         public override Color LineColor
         {
             get
             {
-                if (target is PortConnection portConnection)
+                if (target is NodeConnection portConnection)
                 {
                     if (portConnection.disable)
                     {

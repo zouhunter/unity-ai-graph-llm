@@ -11,7 +11,7 @@ namespace AIScripting
         protected AIScriptGraph Owner { get; private set; }
         protected virtual int InCount => int.MaxValue;
         protected virtual int OutCount => int.MaxValue;
-        public virtual int Style => 0;
+        public virtual int Style => 1;
 
         protected AsyncOp _asyncOp;
         public float progress => _asyncOp != null ? _asyncOp.progress : 0;
@@ -99,7 +99,7 @@ namespace AIScripting
         public virtual AsyncOp Run()
         {
             BindingRefVars();
-            _asyncOp = new AsyncOp(this);
+            _asyncOp = new AsyncOp();
             status = Status.Running;
             UnityEngine.Debug.Log("node start process:" + Title);
             OnProcess();

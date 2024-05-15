@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 using static System.Net.WebRequestMethods;
-using static UnityEngine.Analytics.IAnalytic;
 
 namespace AIScripting
 {

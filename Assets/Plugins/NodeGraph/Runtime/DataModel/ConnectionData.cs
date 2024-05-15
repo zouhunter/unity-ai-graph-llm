@@ -38,7 +38,7 @@ namespace UFrame.NodeGraph.DataModel {
         #endregion
 
         public ConnectionData(string type, Connection connection, ConnectionPointData output, ConnectionPointData input) {
-            m_id = Guid.NewGuid().ToString();
+            m_id = GuidUtil.NewGuid(this);
             m_type = type;
             m_fromNodeId = output.ParentId;
 			m_fromNodeConnectionPointId = output.Id;
@@ -97,7 +97,7 @@ namespace UFrame.NodeGraph.DataModel {
 
         public void Serialize()
         {
-            m_connectionJson = m_connection.ToJson();
+            m_connectionJson = m_connection?.ToJson();
         }
 
     }

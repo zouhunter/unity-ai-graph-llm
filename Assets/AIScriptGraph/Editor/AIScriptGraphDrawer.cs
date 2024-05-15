@@ -104,7 +104,7 @@ namespace AIScripting
             GUIStyle centeredStyle = new GUIStyle(EditorStyles.boldLabel);
             centeredStyle.alignment = TextAnchor.MiddleCenter;
             centeredStyle.fontSize = 18; // 设置字体大小
-            GUILayout.Label("AI流程图 v1.0.0", centeredStyle);
+            GUILayout.Label("AI状态机 v1.0", centeredStyle);
 
             var lastRect = GUILayoutUtility.GetLastRect();
             var readMeRect = new Rect(lastRect.x + lastRect.width - 60, lastRect.max.y - 20, 60, EditorGUIUtility.singleLineHeight);

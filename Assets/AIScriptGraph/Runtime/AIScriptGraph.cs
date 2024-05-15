@@ -10,8 +10,10 @@ namespace AIScripting
     {
         private AsyncOp _operate;
         private Status _status;
-        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _parentNodeMap = new();
-        private Dictionary<IScriptGraphNode, List<IScriptGraphNode>> _subNodeMap = new();
+        private Dictionary<string, List<string>> _parentNodeMap = new();
+        private Dictionary<string, List<string>> _subNodeMap = new();
+        private Dictionary<string, IScriptGraphNode> _nodeMap = new();
+        private Dictionary<string, Dictionary<string, NodeConnection>> _connectionMap = new();
         private HashSet<IScriptGraphNode> _inExecuteNodes = new();
         public Dictionary<Type, FieldInfo[]> fieldMap = new();
         public string Title => name;
@@ -42,7 +44,7 @@ namespace AIScripting
         {
             return _variableProvider.GetVariableValue<T>(name);
         }
-        public void SetVariableValue<T>(string name,T data)
+        public void SetVariableValue<T>(string name, T data)
         {
             _variableProvider.SetVariableValue(name, data);
         }
@@ -67,7 +69,7 @@ namespace AIScripting
         {
             if (_status == Status.Running && _operate != null)
                 return _operate;
-            _operate = new AsyncOp(this);
+            _operate = new AsyncOp();
             _status = Status.Running;
             StartUp();
             return _operate;
@@ -77,43 +79,51 @@ namespace AIScripting
         private void StartUp()
         {
 #if UNITY_EDITOR
-            if(!UnityEditor.EditorApplication.isPlaying)
+            if (!UnityEditor.EditorApplication.isPlaying)
                 UnityEditor.EditorApplication.update += this.Update;
 #endif
+            _parentNodeMap.Clear();
+            _subNodeMap.Clear();
+            _connectionMap.Clear();
             foreach (var node in Nodes)
             {
                 if (node.Object is ScriptNodeBase aiNode)
                 {
                     aiNode.ResetGraph(_runingGraph ?? this);
-                    if(node.OutputPoints.Count > 0)
+                    _nodeMap[node.Id] = aiNode;
+                    if (node.OutputPoints.Count > 0)
                     {
-                        node.OutputPoints.ForEach(p => {
+                        node.OutputPoints.ForEach(p =>
+                        {
                             var connections = Connections.FindAll(x => x.FromNodeId == node.Id);
-                            connections.Sort((x, y) => {
-                                return - (x.Object is PortConnection portConnection ? portConnection.priority : 0)
-                                 + (y.Object is PortConnection portConnection2 ? portConnection2.priority : 0);
+                            connections.Sort((x, y) =>
+                            {
+                                return -(x.Object is NodeConnection portConnection ? portConnection.priority : 0)
+                                 + (y.Object is NodeConnection portConnection2 ? portConnection2.priority : 0);
                             });
 
                             connections.ForEach(c =>
                             {
-                                if (c.Object is PortConnection portConnection && portConnection.disable)
+                                if (c.Object is NodeConnection portConnection && portConnection.disable)
                                     return;
 
                                 var toNodeInfo = Nodes.Find(x => x.Id == c.ToNodeId);
                                 if (toNodeInfo.Object is IScriptGraphNode toNode)
                                 {
-                                    if (!_parentNodeMap.TryGetValue(toNode, out var parentNodes))
+                                    _nodeMap[toNodeInfo.Id] = toNode;
+                                    if (!_parentNodeMap.TryGetValue(toNodeInfo.Id, out var parentNodes))
                                     {
-                                        parentNodes = new List<IScriptGraphNode>();
-                                        _parentNodeMap[toNode] = parentNodes;
+                                        parentNodes = new List<string>();
+                                        _parentNodeMap[toNodeInfo.Id] = parentNodes;
                                     }
-                                    parentNodes.Add(aiNode);
-                                    if (!_subNodeMap.TryGetValue(aiNode, out var subNodes))
+                                    parentNodes.Add(node.Id);
+                                    if (!_subNodeMap.TryGetValue(node.Id, out var subNodes))
                                     {
-                                        subNodes = new List<IScriptGraphNode>();
-                                        _subNodeMap[aiNode] = subNodes;
+                                        subNodes = new List<string>();
+                                        _subNodeMap[node.Id] = subNodes;
                                     }
-                                    subNodes.Add(toNode);
+                                    subNodes.Add(toNodeInfo.Id);
+                                    SetConnection(node.Id, toNodeInfo.Id, c.Object as NodeConnection);
                                 }
                             });
                         });
@@ -125,7 +135,7 @@ namespace AIScripting
             {
                 foreach (var beginNode in beginNodes)
                 {
-                    TryRunNode(beginNode.Object as ScriptNodeBase);
+                    TryRunNode(beginNode.Id);
                 }
             }
             else
@@ -135,49 +145,106 @@ namespace AIScripting
             }
         }
 
-        protected void TryRunNode(IScriptGraphNode node)
+        private void SetConnection(string parentId, string childId, NodeConnection connection)
+        {
+            if (!_connectionMap.TryGetValue(parentId, out var childMap))
+                childMap = _connectionMap[parentId] = new Dictionary<string, NodeConnection>();
+            childMap[childId] = connection;
+        }
+
+        private NodeConnection GetConnection(string parentId, string childId)
+        {
+            if (_connectionMap.TryGetValue(parentId, out var childMap) && childMap.TryGetValue(childId, out var connection))
+                return connection;
+            return null;
+        }
+
+        /// <summary>
+        /// 检查是否有循环引用
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        protected bool CheckStackOverFlow(string nodeId, string parentId)
+        {
+            if (_parentNodeMap.TryGetValue(nodeId, out var childIds))
+            {
+                foreach (var childId in childIds)
+                {
+                    if (childId == parentId)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        var match = CheckStackOverFlow(childId, parentId);
+                        if (match)
+                            return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        protected void TryRunNode(string nodeId)
         {
             bool parentFinished = true;
-            if (_parentNodeMap.TryGetValue(node, out var parentNodes) && parentNodes.Count > 0)
+            if (_parentNodeMap.TryGetValue(nodeId, out var parentNodes) && parentNodes.Count > 0)
             {
-                foreach (var parentNode in parentNodes)
+                foreach (var parentNodeId in parentNodes)
                 {
+                    var connection = GetConnection(parentNodeId, nodeId);
+                    if (CheckStackOverFlow(nodeId, parentNodeId))
+                    {
+                        UnityEngine.Debug.Log("StackOverFlow:" + parentNodeId+"," + nodeId);
+                        continue;
+                    }
+
+                    if (!connection.Pass())
+                        continue;
+
+                    var parentNode = _nodeMap[parentNodeId];
                     if (parentNode.status == Status.None || parentNode.status == Status.Running)
                     {
                         parentFinished = false;
-                        TryRunNode(parentNode);
+                        TryRunNode(parentNodeId);
                     }
                 }
             }
 
-            if (parentFinished && node.status == Status.None)
+            if (parentFinished)
             {
-                _inExecuteNodes.Add(node);
-                var operate = node.Run();
-                operate.RegistProgress(OnProgressNode);
-                operate.RegistComplete(OnFinishNode);
+                var node = _nodeMap[nodeId];
+                if (node.status == Status.None)
+                {
+                    _inExecuteNodes.Add(node);
+                    var operate = node.Run();
+                    operate.Id = nodeId;
+                    operate.RegistProgress(OnProgressNode);
+                    operate.RegistComplete(OnFinishNode);
+                }
             }
         }
 
-        private void OnProgressNode(IScriptGraphNode node)
+        private void OnProgressNode(string nodeId)
         {
+            var node = _nodeMap[nodeId];
             UnityEngine.Debug.Log("node progress:" + node.Title + "," + node.progress);
         }
 
-        protected void OnFinishNode(IScriptGraphNode node)
+        protected void OnFinishNode(string nodeId)
         {
             if (_status != Status.Running)
                 return;
-
+            var node = _nodeMap[nodeId];
             _inExecuteNodes.Remove(node);
-            if (_subNodeMap.TryGetValue(node, out var subNodes))
+            if (_subNodeMap.TryGetValue(nodeId, out var subNodes))
             {
                 foreach (var subNode in subNodes)
                 {
                     TryRunNode(subNode);
                 }
             }
-
             if (_inExecuteNodes.Count == 0)
             {
                 _status = Status.Success;
@@ -238,7 +305,7 @@ namespace AIScripting
 
         public LitCoroutine StartCoroutine(IEnumerator enumerator)
         {
-            var litCoroutine = new LitCoroutine(enumerator,this);
+            var litCoroutine = new LitCoroutine(enumerator, this);
             _coroutines.Add(litCoroutine);
             return litCoroutine;
         }

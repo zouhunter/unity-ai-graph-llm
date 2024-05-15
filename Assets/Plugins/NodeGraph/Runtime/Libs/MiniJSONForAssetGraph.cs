@@ -726,7 +726,7 @@ return LoadFromCompressedStream(stream);
                     m_Dict.Add(aKey, aItem);
             }
             else
-                m_Dict.Add(Guid.NewGuid().ToString(), aItem);
+                m_Dict.Add(GuidUtil.NewGuid(), aItem);
         }
 
         public override JSONNode Remove(string aKey)

@@ -11,6 +11,7 @@ namespace AIScripting
     {
         protected override int InCount => int.MaxValue;
         protected override int OutCount => int.MaxValue;
+        public override int Style => 0;
         protected override void OnProcess()
         {
             DoFinish(true);

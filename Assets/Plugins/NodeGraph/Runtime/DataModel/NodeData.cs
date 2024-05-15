@@ -47,7 +47,7 @@ namespace UFrame.NodeGraph.DataModel
 
         public NodeData(string name, Node node, float x, float y)
         {
-            m_id = Guid.NewGuid().ToString();
+            m_id = GuidUtil.NewGuid(this);
             m_name = name;
             m_x = x;
             m_y = y;
@@ -75,7 +75,7 @@ namespace UFrame.NodeGraph.DataModel
             }
             else
             {
-                m_id = Guid.NewGuid().ToString();
+                m_id = GuidUtil.NewGuid(this);
             }
             if (!node.Validate())
             {
