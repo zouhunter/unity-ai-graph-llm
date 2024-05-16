@@ -1,0 +1,16 @@
+{
+    "name": "AIScriptGraph",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8773a8a2638e7c245b9333aaa28c9665"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

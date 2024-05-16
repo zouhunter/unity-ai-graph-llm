@@ -9,11 +9,8 @@ namespace AIScripting
 
         private Action<string> _onFinishNode;
         private Action<string> _onProgressNode;
-
-        public AsyncOp()
-        {
-            progress = 0;
-        }
+        private static AsyncOp _empty = new AsyncOp() { progress = 1};
+        public static AsyncOp CompletedOp =>_empty;
 
         public void RegistComplete(Action<string> onFinishNode)
         {

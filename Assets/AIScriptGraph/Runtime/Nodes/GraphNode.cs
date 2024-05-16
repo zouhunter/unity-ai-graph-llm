@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace AIScripting
 {
-    [CustomNode("Graph", group: "AIScripting")]
+    [CustomNode("Graph", group: Define.GROUP)]
     public class GraphNode : ScriptNodeBase
     {
         public AIScriptGraph graph;

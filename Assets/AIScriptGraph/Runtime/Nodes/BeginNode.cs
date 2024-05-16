@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AIScripting
 {
-    [CustomNode("Begin",group:"AIScripting")]
+    [CustomNode("Begin",group:Define.GROUP)]
     public class BeginNode : ScriptNodeBase
     {
         public override int Style => 0;

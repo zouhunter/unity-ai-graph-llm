@@ -10,7 +10,7 @@ namespace AIScripting
 {
     public class AIScriptingController : NodeGraphController
     {
-        public override string Group => "AIScripting";
+        public override string Group => Define.GROUP;
 
         public override NodeGraphObj CreateNodeGraphObject()
         {

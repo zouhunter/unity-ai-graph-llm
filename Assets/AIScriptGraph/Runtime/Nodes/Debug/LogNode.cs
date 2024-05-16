@@ -1,10 +1,10 @@
 using UnityEngine;
 using UFrame.NodeGraph;
 
-namespace AIScripting
+namespace AIScripting.Debugger
 {
-    [CustomNode("Debug",group:"AIScripting")]
-    public class DebugNode : ScriptNodeBase
+    [CustomNode("Log",group:Define.GROUP)]
+    public class LogNode : ScriptNodeBase
     {
         public Ref<string> info;
         public string format;

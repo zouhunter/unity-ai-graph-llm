@@ -28,8 +28,7 @@ namespace AIScripting
             Float,
             String,
             Bool,
-            Enum,
-            Object,
+            ArraySize,
         }
 
         public string param;
@@ -38,7 +37,7 @@ namespace AIScripting
         public string compareValue;
 
         /// <summary>
-        /// ¼ì²éÌõ¼şÊÇ·ñÂú×ã
+        /// æ£€æŸ¥æ¡ä»¶æ˜¯å¦æ»¡è¶³
         /// </summary>
         /// <param name="provider"></param>
         /// <returns></returns>
@@ -60,7 +59,8 @@ namespace AIScripting
                     return CompareString(variable, compareValue);
                 case ValueType.Bool:
                     return CompareBool(variable, compareValue);
-                // Omitting Enum and Object because their comparison would require more context.
+                case ValueType.ArraySize:
+                    return CompareArrayLength(variable, compareValue);
                 default:
                     return CompareString(variable.ToString(), compareValue);
             }
@@ -74,6 +74,17 @@ namespace AIScripting
             int variableIntValue = Convert.ToInt32(variable); // assuming variable is convertible to int
 
             return CompareValues(variableIntValue, compareIntValue);
+        }
+
+        private bool CompareArrayLength(object variable,string compareValue)
+        {
+            if (!int.TryParse(compareValue, out int compareIntValue))
+                return false; // or throw an exception
+
+            if (!(variable is IList list))
+                return false; // or throw an exception
+
+            return CompareValues(list.Count, compareIntValue);
         }
 
         private bool CompareFloat(object variable, string compareValue)

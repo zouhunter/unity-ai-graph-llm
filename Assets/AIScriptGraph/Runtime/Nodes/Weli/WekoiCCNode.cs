@@ -12,9 +12,9 @@ using UnityEngine.Networking;
 
 using static System.Net.WebRequestMethods;
 
-namespace AIScripting
+namespace AIScripting.MateAI
 {
-    [CustomNode("WekoiCC", 0, "AIScripting")]
+    [CustomNode("WekoiCC", 0, Define.GROUP)]
     public class WekoiCCNode : ScriptNodeBase
     {
         public string conversation_id = "295948";
@@ -24,7 +24,7 @@ namespace AIScripting
         public Ref<string> output = new Ref<string>("output_text");
         private LitCoroutine _litCoroutine;
 
-        [Header("ÏûÏ¢½ÓÊÜkey")]
+        [Header("æ¶ˆæ¯æ¥å—key")]
         [SerializeField] protected string eventReceiveKey = "wekoi_receive_message";
 
         protected override void OnProcess()
@@ -36,7 +36,7 @@ namespace AIScripting
             });
         }
         /// <summary>
-        /// ·¢ËÍÏûÏ¢
+        /// å‘é€æ¶ˆæ¯
         /// </summary>
         public virtual void PostMsg(string _msg, Action<string> _callback)
         {
@@ -55,6 +55,7 @@ namespace AIScripting
                     return false;
 
                 var text = Encoding.UTF8.GetString(data, 0, dataLength);
+               
                 var lines = text.Split('\n');
                 for (int i = 0; i < lines.Length; i++)
                 {
@@ -64,12 +65,12 @@ namespace AIScripting
                         if(line.Length > 6)
                         {
                             var textData = line.Substring(6,line.Length-7);
-                            if(textData != "Á¬½Ó³É¹¦")
+                            if(textData != "è¿æ¥æˆåŠŸ")
                             {
-                                allText.AppendLine(textData);
+                                allText.Append(textData);
                                 onReceive?.Invoke(textData);
                             }
-                            Finished = textData == "[DONE]";
+                            Finished = textData == "[DONE]" || textData == "èŠå¤©æ¶ˆæ¯ä¸èƒ½ä¸ºç©º";
                             if(Finished)
                             {
                                 break;
@@ -81,7 +82,7 @@ namespace AIScripting
             }
         }
         /// <summary>
-        /// µ÷ÓÃ½Ó¿Ú
+        /// è°ƒç”¨æ¥å£
         /// </summary>
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
@@ -120,11 +121,11 @@ namespace AIScripting
                     Debug.LogError(request.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",OllamaºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Ollamaè€—æ—¶ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
         /// <summary>
-        /// ÊÕµ½»Ø¸´
+        /// æ”¶åˆ°å›å¤
         /// </summary>
         /// <param name="data"></param>
         private void OnReceive(string data)
@@ -180,7 +181,7 @@ namespace AIScripting
                     Debug.LogError(request.downloadHandler.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",OllamaºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Ollamaè€—æ—¶ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
     }

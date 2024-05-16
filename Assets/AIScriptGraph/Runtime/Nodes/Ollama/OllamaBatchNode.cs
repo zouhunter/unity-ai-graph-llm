@@ -9,31 +9,31 @@ using UnityEngine.Networking;
 
 namespace AIScripting.Ollama
 {
-    [CustomNode("OllamaBatch", 0, "AIScripting")]
+    [CustomNode("OllamaBatch", 0, Define.GROUP)]
     public class OllamaBatchNode : ScriptNodeBase
     {
         /// <summary>
-        /// AIÉè¶¨
+        /// AIè®¾å®š
         /// </summary>
         [Multiline(3)]
         public string m_SystemSetting = string.Empty;
 
         /// <summary>
-        /// ÉèÖÃÄ£ĞÍ,Ä£ĞÍÀàĞÍ×ÔĞĞÌí¼Ó
+        /// è®¾ç½®æ¨¡å‹,æ¨¡å‹ç±»å‹è‡ªè¡Œæ·»åŠ 
         /// </summary>
         public string m_GptModel = "llama3";
         /// <summary>
-        /// ÉÏÏÂÎÄ±£ÁôÌõÊı
+        /// ä¸Šä¸‹æ–‡ä¿ç•™æ¡æ•°
         /// </summary>
-        [Header("ÉÏÏÂÎÄ±£ÁôÌõÊı")]
+        [Header("ä¸Šä¸‹æ–‡ä¿ç•™æ¡æ•°")]
         [SerializeField] protected int m_HistoryKeepCount = 15;
 
-        [Header("ÏûÏ¢½ÓÊÜkey")]
+        [Header("æ¶ˆæ¯æ¥å—key")]
         [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
         /// <summary>
-        /// »º´æ¶Ô»°
+        /// ç¼“å­˜å¯¹è¯
         /// </summary>
-        [NonSerialized] public List<SendData> m_DataList = new List<SendData>();
+        public Ref<List<SendData>> m_DataList;
 
         public Ref<string[]> input = new Ref<string[]>("input_text");
         public Ref<string> output = new Ref<string>("output_text");
@@ -56,12 +56,6 @@ namespace AIScripting.Ollama
             }
         }
 
-        public override void ResetGraph(AIScriptGraph graph)
-        {
-            base.ResetGraph(graph);
-            m_DataList.Clear();
-        }
-
         private void OnFinishOnce(string result)
         {
             _resultSb.AppendLine();
@@ -79,32 +73,32 @@ namespace AIScripting.Ollama
         }
 
         /// <summary>
-        /// ·¢ËÍÏûÏ¢
+        /// å‘é€æ¶ˆæ¯
         /// </summary>
         public virtual void PostMsg(string _msg, Action<string> _callback)
         {
-            //ÉÏÏÂÎÄÌõÊıÉèÖÃ
+            //ä¸Šä¸‹æ–‡æ¡æ•°è®¾ç½®
             CheckHistory();
 
-            //»º´æ·¢ËÍµÄĞÅÏ¢ÁĞ±í
-            m_DataList.Add(new SendData("user", _msg));
+            //ç¼“å­˜å‘é€çš„ä¿¡æ¯åˆ—è¡¨
+            m_DataList.Value.Add(new SendData("user", _msg));
             _litCoroutine = Owner.StartCoroutine(Request(_callback));
         }
 
         /// <summary>
-        /// ÉèÖÃ±£ÁôµÄÉÏÏÂÎÄÌõÊı£¬·ÀÖ¹Ì«³¤
+        /// è®¾ç½®ä¿ç•™çš„ä¸Šä¸‹æ–‡æ¡æ•°ï¼Œé˜²æ­¢å¤ªé•¿
         /// </summary>
         public virtual void CheckHistory()
         {
-            if (m_DataList.Count > m_HistoryKeepCount)
+            if (m_DataList.Value.Count > m_HistoryKeepCount)
             {
-                m_DataList.RemoveAt(0);
+                m_DataList.Value.RemoveAt(0);
             }
         }
 
 
         /// <summary>
-        /// ÊÕµ½»Ø¸´
+        /// æ”¶åˆ°å›å¤
         /// </summary>
         /// <param name="data"></param>
         private void OnReceive(ReceiveData data)
@@ -114,7 +108,7 @@ namespace AIScripting.Ollama
         }
 
         /// <summary>
-        /// µ÷ÓÃ½Ó¿Ú
+        /// è°ƒç”¨æ¥å£
         /// </summary>
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
@@ -125,7 +119,7 @@ namespace AIScripting.Ollama
             Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
             UnityWebRequest request = new UnityWebRequest(url, "POST");
             {
-                var sendList = new List<SendData>(m_DataList);
+                var sendList = new List<SendData>(m_DataList.Value);
                 sendList.Insert(0, new SendData("system", m_SystemSetting));
                 PostData _postData = new PostData
                 {
@@ -156,8 +150,8 @@ namespace AIScripting.Ollama
                     string _msgBack = downloadHandler.allText.ToString();
                     if (!string.IsNullOrEmpty(_msgBack))
                     {
-                        //Ìí¼Ó¼ÇÂ¼
-                        m_DataList.Add(new SendData("assistant", _msgBack));
+                        //æ·»åŠ è®°å½•
+                        m_DataList.Value.Add(new SendData("assistant", _msgBack));
                         _callback(_msgBack);
                     }
                     else
@@ -171,7 +165,7 @@ namespace AIScripting.Ollama
                     Debug.LogError(request.downloadHandler.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",OllamaºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Ollamaè€—æ—¶ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
     }

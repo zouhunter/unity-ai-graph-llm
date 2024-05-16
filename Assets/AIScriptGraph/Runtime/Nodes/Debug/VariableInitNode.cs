@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UFrame.NodeGraph;
 using UnityEngine;
 
-namespace AIScripting
+namespace AIScripting.Debugger
 {
-    //[CustomNode("VariableInit", group: "AIScripting")]
+    //[CustomNode("VariableInit", group: Define.GROUP)]
     public abstract class VariableInitNode : ScriptNodeBase
     {
         public bool executeInEditOnly = false;

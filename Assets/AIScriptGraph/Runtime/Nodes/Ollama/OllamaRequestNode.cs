@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace AIScripting.Ollama
 {
-    [CustomNode("OllamaRequest", 0, "AIScripting")]
+    [CustomNode("OllamaRequest", 0, Define.GROUP)]
     public class OllamaRequestNode : ScriptNodeBase
     {
         [SerializeField,Header("消息接受key")]

@@ -1,5 +1,3 @@
-using NUnit.Framework.Interfaces;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -103,8 +101,8 @@ namespace AIScripting
             GUILayout.Space(25);
             GUIStyle centeredStyle = new GUIStyle(EditorStyles.boldLabel);
             centeredStyle.alignment = TextAnchor.MiddleCenter;
-            centeredStyle.fontSize = 18; // ÉèÖÃ×ÖÌå´óĞ¡
-            GUILayout.Label("AI×´Ì¬»ú v1.0", centeredStyle);
+            centeredStyle.fontSize = 18; // è®¾ç½®å­—ä½“å¤§å°
+            GUILayout.Label("AIçŠ¶æ€æœº v1.0", centeredStyle);
 
             var lastRect = GUILayoutUtility.GetLastRect();
             var readMeRect = new Rect(lastRect.x + lastRect.width - 60, lastRect.max.y - 20, 60, EditorGUIUtility.singleLineHeight);
@@ -112,7 +110,7 @@ namespace AIScripting
             {
                 Application.OpenURL("https://alidocs.dingtalk.com/i/nodes/");
             }
-            // Ìí¼Ó·Ö¸îÏß
+            // æ·»åŠ åˆ†å‰²çº¿
             GUILayout.Box("", GUILayout.Height(3), GUILayout.ExpandWidth(true));
         }
     }

@@ -13,16 +13,16 @@ namespace AIScripting
 
         public override string Title => string.IsNullOrEmpty(_title) ? base.Title : _title;
 
-        [Tooltip("ÓÅÏÈ¼¶")]
+        [Tooltip("ä¼˜å…ˆçº§")]
         public int priority;
 
-        [Tooltip("½ûÓÃ")]
+        [Tooltip("ç¦ç”¨")]
         public bool disable;
 
-        [Tooltip("Ìõ¼ş")]
+        [Tooltip("æ¡ä»¶")]
         public List<Condition> conditions;
 
-        [Tooltip("Ìõ¼şÀàĞÍ")]
+        [Tooltip("æ¡ä»¶ç±»å‹")]
         public ConditionType conditionType;
         public enum ConditionType
         {

@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
   m_Name: AIScripting.BeginNode
   m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.BeginNode
   _inportNum: 1
   _outportNum: 1
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
   m_Name: AIScripting.DebugNode
   m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.DebugNode
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.LogNode
   _inportNum: 1
   _outportNum: 1
   _title: DebugNode
@@ -172,8 +172,7 @@ MonoBehaviour:
     m_x: 1203.5974
     m_y: 846.8678
     m_node: {fileID: -6952531789606267040}
-    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"_title":"BeginNode"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"_title":"BeginNode"}'
     m_inputPoints:
     - id: 211434772
       label: i
@@ -205,8 +204,7 @@ MonoBehaviour:
     m_x: 1428
     m_y: 876
     m_node: {fileID: -4215397818272670187}
-    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.DebugNode","_inportNum":1,"_outportNum":1,"_title":"DebugNode","info":{"_key":"","_default":"Graph2,Execute
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"_title":"DebugNode","info":{"_key":"","_default":"Graph2,Execute
       ok","_autoCreate":true},"format":"","logType":0}'
     m_inputPoints:
     - id: 101174578
@@ -242,7 +240,7 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: 101174578
     m_type: ->
     m_connection: {fileID: 7119385024603701169}
-    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
   m_lastModified: 133603122023716131
   m_graphDescription: 
@@ -373,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
   m_Name: ->
   m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.NodeConnection
   _title: 
   priority: 0
