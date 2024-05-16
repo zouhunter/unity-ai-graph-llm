@@ -3,14 +3,20 @@ using System.Linq;
 using UFrame.NodeGraph.DataModel;
 using System.Reflection;
 using UnityEngine;
+using System;
 
 namespace AIScripting
 {
     public abstract class ScriptNodeBase : Node, IScriptGraphNode
     {
         protected AIScriptGraph Owner { get; private set; }
-        protected virtual int InCount => int.MaxValue;
-        protected virtual int OutCount => int.MaxValue;
+        [SerializeField, HideInInspector]
+        protected int _inportNum = 1;
+        [SerializeField, HideInInspector]
+        protected int _outportNum = 1;
+        protected NodeData _data;
+        public int InPortNum => _inportNum;
+        public int OutPortNum => _outportNum;
         public virtual int Style => 1;
 
         protected AsyncOp _asyncOp;
@@ -23,31 +29,73 @@ namespace AIScripting
         {
             get
             {
-                if(string.IsNullOrEmpty(_title))
+                if (string.IsNullOrEmpty(_title))
                     _title = GetType().Name;
                 return _title;
             }
         }
 
+        protected virtual int GetInCount(int nodeIndex) => int.MaxValue;
+        protected virtual int GetOutCount(int nodeIndex) => int.MaxValue;
+
         public override void Initialize(NodeData data)
         {
             base.Initialize(data);
-            if (InCount > 0 && data.InputPoints.Count == 0)
+            this._data = data;
+            while (data.InputPoints.Count < InPortNum)
             {
-                data.AddInputPoint("i", "->", InCount);
+                var num = data.InputPoints.Count + 1;
+                data.AddInputPoint("i", "->", GetInCount(num -1));
             }
-            else if(data.InputPoints.Count > 0)
+            while (data.InputPoints.Count > InPortNum)
             {
-                data.InputPoints[0].RefreshInfo("i", "->", InCount);
+                data.InputPoints.RemoveAt(data.InputPoints.Count - 1);
             }
-            if (OutCount > 0 && data.OutputPoints.Count == 0)
+            for (int i = 0; i < data.InputPoints.Count; i++)
             {
-                data.AddOutputPoint("o", "->", OutCount);
+                data.InputPoints[i].RefreshInfo("i", "->", GetInCount(i));
             }
-            else if (data.OutputPoints.Count > 0)
+            while (data.OutputPoints.Count < OutPortNum)
             {
-                data.OutputPoints[0].RefreshInfo("o", "->", OutCount);
+                var num = data.OutputPoints.Count + 1;
+                data.AddOutputPoint("o", "->", GetOutCount(num-1));
             }
+            while (data.OutputPoints.Count > OutPortNum)
+            {
+                data.OutputPoints.RemoveAt(data.OutputPoints.Count - 1);
+            }
+            for (int i = 0; i < data.OutputPoints.Count; i++)
+            {
+                data.OutputPoints[i].RefreshInfo("o", "->", GetOutCount(i));
+            }
+        }
+
+        [ContextMenu("Add In Port")]
+        public virtual void AddInPort()
+        {
+            _inportNum++;
+            Initialize(_data);
+        }
+
+        [ContextMenu("Del In Port")]
+        public virtual void DelInPort()
+        {
+            _inportNum--;
+            Initialize(_data);
+        }
+
+        [ContextMenu("Add Out Port")]
+        public virtual void AddOutPort()
+        {
+            _outportNum++;
+            Initialize(_data);
+        }
+
+        [ContextMenu("Del Out Port")]
+        public virtual void DelOutPort()
+        {
+            _outportNum--;
+            Initialize(_data);
         }
 
         public virtual void ResetGraph(AIScriptGraph graph)
@@ -91,15 +139,16 @@ namespace AIScripting
 
         protected virtual void DoFinish(bool success = true)
         {
-            Debug.Log("node finish:" + Title + "," +success);
+            Debug.Log("node finish:" + Title + "," + success);
             status = success ? Status.Success : Status.Failure;
             _asyncOp?.SetFinish();
         }
 
-        public virtual AsyncOp Run()
+        public virtual AsyncOp Run(string id = default)
         {
             BindingRefVars();
             _asyncOp = new AsyncOp();
+            _asyncOp.Id = id;
             status = Status.Running;
             UnityEngine.Debug.Log("node start process:" + Title);
             OnProcess();
@@ -110,7 +159,7 @@ namespace AIScripting
 
         public void Cancel()
         {
-            if(status == Status.Running)
+            if (status == Status.Running)
             {
                 status = Status.Failure;
                 OnCancel();

@@ -10,8 +10,6 @@ namespace AIScripting
     public abstract class VariableInitNode : ScriptNodeBase
     {
         public bool executeInEditOnly = false;
-        protected override int OutCount => 1;
-
         protected override IEnumerable<IRef> GetRefVars()
         {
             if(executeInEditOnly)

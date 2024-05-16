@@ -1,8 +1,3 @@
-using AIScripting;
-
-using System.Collections;
-using System.Collections.Generic;
-
 using UFrame.NodeGraph;
 using UFrame.NodeGraph.DataModel;
 
@@ -35,12 +30,12 @@ namespace AIScripting
             base.BuildFromGraph(graph);
             var graphDirector = new GraphDirector(graph as AIScriptGraph);
             var op = graphDirector.Run();
-            op.RegistComplete((x)=> { Debug.Log("graph finished!"); });
+            op.RegistComplete((x) => { Debug.Log("graph finished!"); });
         }
 
         public override ConnectionGUI CreateConnection(string type, ConnectionPointData output, ConnectionPointData input)
         {
-            var connection = new NodeConnection();
+            var connection = ScriptableObject.CreateInstance<NodeConnection>();
             connection.type = type;
             connection.name = type;
             return new ConnectionGUI(

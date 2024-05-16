@@ -10,8 +10,6 @@ namespace AIScripting
         public string format;
         public LogType logType;
 
-        protected override int InCount => int.MaxValue;
-
         protected override void OnProcess()
         {
             if(string.IsNullOrEmpty(format))

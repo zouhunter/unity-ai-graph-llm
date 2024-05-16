@@ -19,7 +19,26 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &-6154224009939415639
+--- !u!114 &-8821644517072805749
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-6457685485262852561
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +56,26 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+  conditionType: 0
+--- !u!114 &-6154224009939415639
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
 --- !u!114 &-3470012606271220198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,6 +95,29 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-2602265828442688958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions:
+  - param: ollama_url
+    type: 2
+    compareType: 1
+    compareValue: 
+  conditionType: 0
 --- !u!114 &-2502685241082666670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,27 +155,7 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &-1606725298377129635
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
-  m_Name: AIScripting.DebugNode
-  m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.DebugNode
-  _title: DebugNode
-  info:
-    _key: 
-    _default: 234
-    _autoCreate: 1
-  format: 
-  logType: 2
+  conditionType: 0
 --- !u!114 &-1532148855397654957
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.BeginNode
+  _inportNum: 1
+  _outportNum: 2
   _title: BeginNode
 --- !u!114 &-447765112318959291
 MonoBehaviour:
@@ -147,6 +191,26 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+  conditionType: 0
+--- !u!114 &-287654613250171142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +226,11 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
-    m_x: 1320
-    m_y: 696
+    m_x: 1404
+    m_y: 612
     m_node: {fileID: -1532148855397654957}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.BeginNode","_title":"BeginNode"}'
+      PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":2,"_title":"BeginNode"}'
     m_inputPoints:
     - id: 09f2f6f4-ce59-4e07-ae2a-5af3a5f16932
       label: i
@@ -175,7 +239,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.022488
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -188,106 +252,235 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.022488
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  - m_name: Debug
-    m_id: -1772166466
-    m_x: 1656
-    m_y: 612
-    m_node: {fileID: 512026587323514419}
+    - id: 34392502
+      label: o
+      parentId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 54.03
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: WekoiCC
+    m_id: 1307474490
+    m_x: 1620
+    m_y: 636
+    m_node: {fileID: 6708891405296786242}
     m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.DebugNode","_title":"DebugNode","info":{"_key":"","_default":"123","_autoCreate":true},"format":"","logType":3}'
+      PublicKeyToken=null","_type":"AIScripting.WekoiCCNode","_inportNum":2,"_outportNum":2,"_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
-    - id: 1748246996
+    - id: 532920656
       label: i
-      parentId: -1772166466
+      parentId: 1307474490
       isInput: 1
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.022488
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    - id: 1249779578
+      label: i
+      parentId: 1307474490
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 51.03
         width: 21
         height: 29
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: 973693162
+    - id: -241633178
       label: o
-      parentId: -1772166466
+      parentId: 1307474490
       isInput: 0
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.022488
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  - m_name: Debug
-    m_id: 1654472716
-    m_x: 1656
-    m_y: 732
-    m_node: {fileID: -1606725298377129635}
-    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.DebugNode","_title":"DebugNode","info":{"_key":"","_default":"234","_autoCreate":true},"format":"","logType":2}'
+    - id: -1852457036
+      label: o
+      parentId: 1307474490
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 54.03
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: VariableSetNode
+    m_id: 1019511808
+    m_x: 1212
+    m_y: 552
+    m_node: {fileID: 3447720437640227514}
+    m_nodeJson: "{\"_assembly\":\"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"VariableSetNode\",\"_inportNum\":1,\"_outportNum\":1,\"_title\":\"VariableSetNode\",\"executeInEditOnly\":false,\"ollama_url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"input_text\",\"_default\":\"\u4F60\u597D\",\"_autoCreate\":true},\"target\":{\"instanceID\":0}}"
     m_inputPoints:
-    - id: 2076670842
+    - id: 2122120160
       label: i
-      parentId: 1654472716
+      parentId: 1019511808
       isInput: 1
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.022488
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: 1302117008
+    - id: 1347566326
       label: o
-      parentId: 1654472716
+      parentId: 1019511808
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 138.41
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Debug
+    m_id: 945960066
+    m_x: 1800
+    m_y: 684
+    m_node: {fileID: 8532992226695510518}
+    m_nodeJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.DebugNode","_inportNum":1,"_outportNum":1,"_title":"DebugNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
+    m_inputPoints:
+    - id: 171406232
+      label: i
+      parentId: 945960066
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -603147602
+      label: o
+      parentId: 945960066
       isInput: 0
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.022488
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Graph
+    m_id: -1334350512
+    m_x: 1620
+    m_y: 816
+    m_node: {fileID: 7926071674010925046}
+    m_nodeJson: "{\"_assembly\":\"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.GraphNode\",\"_inportNum\":1,\"_outportNum\":1,\"_title\":\"\u5B50\u56FE\",\"graph\":{\"instanceID\":21276}}"
+    m_inputPoints:
+    - id: -2108904346
+      label: i
+      parentId: -1334350512
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1411509116
+      label: o
+      parentId: -1334350512
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: -995316768
+  - m_id: -729811004
     m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
     m_fromNodeConnectionPointId: 77f3dbcd-f938-4729-829d-3f469ec96b17
-    m_toNodeId: -1772166466
-    m_toNodeConnectionPoiontId: 1748246996
+    m_toNodeId: 1307474490
+    m_toNodeConnectionPoiontId: 532920656
     m_type: ->
-    m_connection: {fileID: -447765112318959291}
+    m_connection: {fileID: -2602265828442688958}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[]}'
-  - m_id: 1638015530
-    m_fromNodeId: -1772166466
-    m_fromNodeConnectionPointId: 973693162
-    m_toNodeId: 1654472716
-    m_toNodeConnectionPoiontId: 2076670842
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":true,"conditions":[{"param":"ollama_url","type":2,"compareType":1,"compareValue":""}],"conditionType":0}'
+  - m_id: 770611096
+    m_fromNodeId: 1019511808
+    m_fromNodeConnectionPointId: 1347566326
+    m_toNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_toNodeConnectionPoiontId: 09f2f6f4-ce59-4e07-ae2a-5af3a5f16932
     m_type: ->
-    m_connection: {fileID: 1383750705029059516}
+    m_connection: {fileID: 6524552334036037725}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[]}'
-  - m_id: 1432559016
-    m_fromNodeId: 1654472716
-    m_fromNodeConnectionPointId: 1302117008
-    m_toNodeId: -1772166466
-    m_toNodeConnectionPoiontId: 1748246996
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -2086255750
+    m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_fromNodeConnectionPointId: 34392502
+    m_toNodeId: 1307474490
+    m_toNodeConnectionPoiontId: 1249779578
     m_type: ->
-    m_connection: {fileID: -6154224009939415639}
+    m_connection: {fileID: -8821644517072805749}
     m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[]}'
-  m_lastModified: 133602575468458000
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":true,"conditions":[],"conditionType":0}'
+  - m_id: 1523135604
+    m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_fromNodeConnectionPointId: 77f3dbcd-f938-4729-829d-3f469ec96b17
+    m_toNodeId: 1307474490
+    m_toNodeConnectionPoiontId: 1249779578
+    m_type: ->
+    m_connection: {fileID: 3990859929127180371}
+    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":true,"conditions":[],"conditionType":0}'
+  - m_id: -217475454
+    m_fromNodeId: 1307474490
+    m_fromNodeConnectionPointId: -1852457036
+    m_toNodeId: 945960066
+    m_toNodeConnectionPoiontId: 171406232
+    m_type: ->
+    m_connection: {fileID: -287654613250171142}
+    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 1493645692
+    m_fromNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
+    m_fromNodeConnectionPointId: 34392502
+    m_toNodeId: -1334350512
+    m_toNodeConnectionPoiontId: -2108904346
+    m_type: ->
+    m_connection: {fileID: -6457685485262852561}
+    m_connectionJson: '{"_assembly":"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  m_lastModified: 133603122257917678
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -308,27 +501,7 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &512026587323514419
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
-  m_Name: AIScripting.DebugNode
-  m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.DebugNode
-  _title: DebugNode
-  info:
-    _key: 
-    _default: 123
-    _autoCreate: 1
-  format: 
-  logType: 3
+  conditionType: 0
 --- !u!114 &833349962259762433
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,8 +537,74 @@ MonoBehaviour:
   _type: AIScripting.NodeConnection
   _title: 
   priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &3447720437640227514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2985e1c8de6424fb0ed6f6779f3b8e, type: 3}
+  m_Name: VariableSetNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: VariableSetNode
+  _inportNum: 1
+  _outportNum: 1
+  _title: VariableSetNode
+  executeInEditOnly: 0
+  ollama_url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
+  input_text:
+    _key: input_text
+    _default: "\u4F60\u597D"
+    _autoCreate: 1
+  target: {fileID: 0}
+--- !u!114 &3829005760195084966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
   disable: 0
   conditions: []
+  conditionType: 0
+--- !u!114 &3990859929127180371
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
 --- !u!114 &4341550529324809056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,3 +643,92 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &6524552334036037725
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &6708891405296786242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0f47f4c8f8034da1d65e3b7c747ac, type: 3}
+  m_Name: AIScripting.WekoiCCNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.WekoiCCNode
+  _inportNum: 2
+  _outportNum: 2
+  _title: WekoiCCNode
+  conversation_id: 295948
+  model: gpt-4-1106-preview
+  Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  eventReceiveKey: wekoi_receive_message
+--- !u!114 &7926071674010925046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a904787edc0a5074e969abf15f28ba57, type: 3}
+  m_Name: AIScripting.GraphNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.GraphNode
+  _inportNum: 1
+  _outportNum: 1
+  _title: "\u5B50\u56FE"
+  graph: {fileID: 11400000, guid: da5b05aa5e9e83149b281579244d3141, type: 2}
+--- !u!114 &8532992226695510518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.DebugNode
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.DebugNode
+  _inportNum: 1
+  _outportNum: 1
+  _title: DebugNode
+  info:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 0

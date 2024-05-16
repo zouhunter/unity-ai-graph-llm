@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using UFrame.NodeGraph.DataModel;
 
+using UnityEditor;
+
 namespace AIScripting
 {
     public class AIScriptGraph : NodeGraphObj, IScriptGraphNode, IVariableProvider
@@ -13,7 +15,7 @@ namespace AIScripting
         private Dictionary<string, List<string>> _parentNodeMap = new();
         private Dictionary<string, List<string>> _subNodeMap = new();
         private Dictionary<string, IScriptGraphNode> _nodeMap = new();
-        private Dictionary<string, Dictionary<string, NodeConnection>> _connectionMap = new();
+        private Dictionary<string, Dictionary<string, List<NodeConnection>>> _connectionMap = new();
         private HashSet<IScriptGraphNode> _inExecuteNodes = new();
         private Queue<string> _nextExecuteNodes = new();
         public Dictionary<Type, FieldInfo[]> fieldMap = new();
@@ -24,12 +26,14 @@ namespace AIScripting
         private VariableProvider _variableProvider = new VariableProvider();
         private List<LitCoroutine> _coroutines = new List<LitCoroutine>();
         private EventProvider _eventProvider = new EventProvider();
+        private List<AIScriptGraph> _subGraphs = new List<AIScriptGraph>();
 
         public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;
             _variableProvider = graph._variableProvider;
             _eventProvider = graph._eventProvider;
+            _coroutines = graph._coroutines;
         }
 
         #region Variables
@@ -40,6 +44,10 @@ namespace AIScripting
         public Variable<T> GetVariable<T>(string name, bool crateIfNotExits)
         {
             return _variableProvider.GetVariable<T>(name, crateIfNotExits);
+        }
+        public Variable GetVariable(string name)
+        {
+            return _variableProvider.GetVariable(name);
         }
         public T GetVariableValue<T>(string name)
         {
@@ -66,7 +74,7 @@ namespace AIScripting
         }
         #endregion
 
-        public AsyncOp Run()
+        public AsyncOp Run(string id = default)
         {
             if (_status == Status.Running && _operate != null)
                 return _operate;
@@ -80,9 +88,10 @@ namespace AIScripting
         private void StartUp()
         {
 #if UNITY_EDITOR
-            if (!UnityEditor.EditorApplication.isPlaying)
+            if (!UnityEditor.EditorApplication.isPlaying && _runingGraph == null)
                 UnityEditor.EditorApplication.update += this.Update;
 #endif
+            _subGraphs.Clear();
             _parentNodeMap.Clear();
             _subNodeMap.Clear();
             _connectionMap.Clear();
@@ -117,14 +126,20 @@ namespace AIScripting
                                         parentNodes = new List<string>();
                                         _parentNodeMap[toNodeInfo.Id] = parentNodes;
                                     }
-                                    parentNodes.Add(node.Id);
+                                    if(!parentNodes.Contains(node.Id))
+                                    {
+                                        parentNodes.Add(node.Id);
+                                    }
                                     if (!_subNodeMap.TryGetValue(node.Id, out var subNodes))
                                     {
                                         subNodes = new List<string>();
                                         _subNodeMap[node.Id] = subNodes;
                                     }
-                                    subNodes.Add(toNodeInfo.Id);
-                                    SetConnection(node.Id, toNodeInfo.Id, c.Object as NodeConnection);
+                                    if(!subNodes.Contains(toNodeInfo.Id))
+                                    {
+                                        subNodes.Add(toNodeInfo.Id);
+                                    }
+                                    AddConnection(node.Id, toNodeInfo.Id, c.Object as NodeConnection);
                                 }
                             });
                         });
@@ -146,18 +161,33 @@ namespace AIScripting
             }
         }
 
-        private void SetConnection(string parentId, string childId, NodeConnection connection)
+        private void AddConnection(string parentId, string childId, NodeConnection connection)
         {
             if (!_connectionMap.TryGetValue(parentId, out var childMap))
-                childMap = _connectionMap[parentId] = new Dictionary<string, NodeConnection>();
-            childMap[childId] = connection;
+            {
+                childMap = _connectionMap[parentId] = new Dictionary<string, List<NodeConnection>>();
+            }
+            if(!childMap.TryGetValue(childId,out var connections))
+            {
+                connections = childMap[childId] = new List<NodeConnection>();
+            }
+            if(!connections.Contains(connection))
+            {
+                connections.Add(connection);
+            }
         }
 
-        private NodeConnection GetConnection(string parentId, string childId)
+        private bool GetConnectionPass(string parentId, string childId)
         {
             if (_connectionMap.TryGetValue(parentId, out var childMap) && childMap.TryGetValue(childId, out var connection))
-                return connection;
-            return null;
+            {
+                foreach (var item in connection)
+                {
+                    if (item.Pass(this))
+                        return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -203,9 +233,9 @@ namespace AIScripting
                     if (CheckStackOverFlow(nodeId, parentNodeId))
                         continue;
 
-                    var connection = GetConnection(parentNodeId, nodeId);
+                    var connectionPass = GetConnectionPass(parentNodeId, nodeId);
 
-                    if (!connection.Pass())
+                    if (!connectionPass)
                         continue;
 
                     var parentNode = _nodeMap[parentNodeId];
@@ -220,8 +250,11 @@ namespace AIScripting
             if (parentFinished)
             {
                 var node = _nodeMap[nodeId];
-                _nextExecuteNodes.Enqueue(nodeId);
-                _inExecuteNodes.Add(node);
+                if(node.status != Status.Running)
+                {
+                    _nextExecuteNodes.Enqueue(nodeId);
+                    _inExecuteNodes.Add(node);
+                }
             }
         }
 
@@ -229,19 +262,30 @@ namespace AIScripting
         private void OnProgressNode(string nodeId)
         {
             var node = _nodeMap[nodeId];
-            UnityEngine.Debug.Log("node progress:" + node.Title + "," + node.progress);
+            UnityEngine.Debug.Log(node.Title + ", progress" + node.progress);
         }
 
+        /// <summary>
+        /// 节点执行结束
+        /// </summary>
+        /// <param name="nodeId"></param>
         protected void OnFinishNode(string nodeId)
         {
             if (_status != Status.Running)
                 return;
+
             var node = _nodeMap[nodeId];
             _inExecuteNodes.Remove(node);
+            if (node is GraphNode graphNode && graphNode.graph)
+                _subGraphs.Remove(graphNode.graph);
             if (_subNodeMap.TryGetValue(nodeId, out var subNodes))
             {
                 foreach (var subNode in subNodes)
                 {
+                    var pass = GetConnectionPass(nodeId,subNode);
+                    if (!pass)
+                        continue;
+
                     TryRunNode(subNode);
                 }
             }
@@ -264,9 +308,9 @@ namespace AIScripting
 
         protected void OnFinished()
         {
-            UnityEngine.Debug.Log("graph finished!");
+            UnityEngine.Debug.Log(name + " graph finished!");
 #if UNITY_EDITOR
-            if (!UnityEditor.EditorApplication.isPlaying)
+            if (!UnityEditor.EditorApplication.isPlaying && _runingGraph == null)
                 UnityEditor.EditorApplication.update -= this.Update;
 #endif
         }
@@ -276,14 +320,16 @@ namespace AIScripting
             Cancel();
         }
 
-        public void Clean()
+        public void ResetGraph()
         {
             _operate = null;
+            _runingGraph = null;
+            progress = 0;
             _status = Status.None;
-            _parentNodeMap.Clear();
-            _subNodeMap.Clear();
-            _inExecuteNodes.Clear();
-            _nextExecuteNodes.Clear();
+            _parentNodeMap = new Dictionary<string, List<string>>();
+            _subNodeMap = new Dictionary<string, List<string>>();
+            _inExecuteNodes = new HashSet<IScriptGraphNode>();
+            _nextExecuteNodes = new Queue<string>();
             _variableProvider = new VariableProvider();
             _eventProvider = new EventProvider();
         }
@@ -307,10 +353,16 @@ namespace AIScripting
             {
                 var nodeId = _nextExecuteNodes.Dequeue();
                 var node = _nodeMap[nodeId];
-                var operate = node.Run();
-                operate.Id = nodeId;
+                var operate = node.Run(nodeId);
                 operate.RegistProgress(OnProgressNode);
                 operate.RegistComplete(OnFinishNode);
+                if(node is GraphNode graphNode && graphNode.graph)
+                    _subGraphs.Add(graphNode.graph);
+            }
+
+            foreach (var subGraph in _subGraphs)
+            {
+                subGraph?.Update();
             }
         }
 

@@ -117,7 +117,7 @@ namespace AIScripting
                 else
                 {
                     _callback?.Invoke(null);
-                    Debug.LogError(request.downloadHandler.error);
+                    Debug.LogError(request.error);
                 }
                 request.Dispose();
                 Debug.Log(System.DateTime.Now.Ticks + ",OllamaºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);

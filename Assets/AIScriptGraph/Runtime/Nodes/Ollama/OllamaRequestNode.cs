@@ -18,10 +18,6 @@ namespace AIScripting.Ollama
         public Ref<List<SendData>> input = new ("send_data_list");
         public Ref<string> output = new ("output_text");
 
-        protected override int InCount => int.MaxValue;
-
-        protected override int OutCount => int.MaxValue;
-
         public override int Style => 1;
 
         private LitCoroutine _litCoroutine;

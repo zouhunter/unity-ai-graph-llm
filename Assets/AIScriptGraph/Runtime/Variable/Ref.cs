@@ -69,9 +69,13 @@ namespace AIScripting
                     _variable.Value = _default;
                     _variablePrivider.SetVariable(_key, _variable);
                 }
-                if (_variable == null)
-                    _value = _default;
             }
+            else
+            {
+                _variable = null;
+            }
+            if (_variable == null)
+                _value = _default;
         }
 
         public void SetValue(T value)

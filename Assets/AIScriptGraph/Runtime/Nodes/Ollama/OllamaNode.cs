@@ -37,10 +37,6 @@ namespace AIScripting.Ollama
         public Ref<string> output = new Ref<string>("output_text");
         public Ref<string> url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
 
-        protected override int InCount => int.MaxValue;
-
-        protected override int OutCount => int.MaxValue;
-
         public override int Style => 1;
         private LitCoroutine _litCoroutine;
 
