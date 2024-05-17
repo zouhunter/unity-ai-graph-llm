@@ -14,14 +14,19 @@ namespace AIScripting
         protected int _inportNum = 1;
         [SerializeField, HideInInspector]
         protected int _outportNum = 1;
+        [SerializeField]
+        public bool enable = true;
+
         protected NodeData _data;
         public int InPortNum => _inportNum;
         public int OutPortNum => _outportNum;
-        public virtual int Style => 1;
+        public virtual int Style => enable?1:0;
 
         protected AsyncOp _asyncOp;
+        public bool Enable { get => enable; set => enable = value; }
         public float progress => _asyncOp != null ? _asyncOp.progress : 0;
         public Status status { get; protected set; }
+
         [SerializeField]
         protected string _title;
 
@@ -105,7 +110,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 反射获取所有的引用变量
+        /// 鍙嶅皠鑾峰彇鎵�鏈夌殑寮曠敤鍙橀噺
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>

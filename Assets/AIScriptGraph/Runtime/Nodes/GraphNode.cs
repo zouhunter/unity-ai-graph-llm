@@ -14,7 +14,7 @@ namespace AIScripting
     public class GraphNode : ScriptNodeBase
     {
         public AIScriptGraph graph;
-        public override int Style => 2;
+        public override int Style => enable?2:0;
 
         public override void ResetGraph(AIScriptGraph graph)
         {

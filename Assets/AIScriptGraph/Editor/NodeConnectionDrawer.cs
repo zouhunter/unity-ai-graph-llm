@@ -19,6 +19,9 @@ namespace AIScripting
 
         private void OnEnable()
         {
+            if(target == null)
+                return;
+
             titleProp = serializedObject.FindProperty("_title");
             priorityProp = serializedObject.FindProperty("priority");
             disableProp = serializedObject.FindProperty("disable");

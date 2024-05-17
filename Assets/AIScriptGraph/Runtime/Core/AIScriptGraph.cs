@@ -99,6 +99,8 @@ namespace AIScripting
             {
                 if (node.Object is ScriptNodeBase aiNode)
                 {
+                    if (!aiNode.enable)
+                        continue;
                     aiNode.ResetGraph(_runingGraph ?? this);
                     _nodeMap[node.Id] = aiNode;
                     if (node.OutputPoints.Count > 0)
@@ -118,8 +120,11 @@ namespace AIScripting
                                     return;
 
                                 var toNodeInfo = Nodes.Find(x => x.Id == c.ToNodeId);
-                                if (toNodeInfo.Object is IScriptGraphNode toNode)
+                                if (toNodeInfo.Object is ScriptNodeBase toNode)
                                 {
+                                    if (!toNode.Enable)
+                                        return;
+
                                     _nodeMap[toNodeInfo.Id] = toNode;
                                     if (!_parentNodeMap.TryGetValue(toNodeInfo.Id, out var parentNodes))
                                     {
@@ -151,6 +156,8 @@ namespace AIScripting
             {
                 foreach (var beginNode in beginNodes)
                 {
+                    if (!(beginNode.Object as BeginNode).enable)
+                        continue;
                     TryRunNode(beginNode.Id);
                 }
             }
@@ -191,7 +198,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 检查是否有循环引用
+        /// 妫�鏌ユ槸鍚︽湁寰幆寮曠敤
         /// </summary>
         /// <param name="nodeId"></param>
         /// <param name="parentId"></param>
@@ -266,7 +273,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 节点执行结束
+        /// 鑺傜偣鎵ц缁撴潫
         /// </summary>
         /// <param name="nodeId"></param>
         protected void OnFinishNode(string nodeId)

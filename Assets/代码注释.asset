@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
-  m_Name: AIScripting2
+  m_Name: "\u4EE3\u7801\u6CE8\u91CA"
   m_EditorClassIdentifier: 
   m_allNodes:
   - m_name: Begin
@@ -181,7 +181,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -194,7 +194,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -214,7 +214,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -227,7 +227,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647

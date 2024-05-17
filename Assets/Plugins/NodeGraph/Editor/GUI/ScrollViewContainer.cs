@@ -6,6 +6,8 @@
 *   - 设置窗口                                                                        *
 *//************************************************************************************/
 
+using NPOI.SS.Formula.Functions;
+
 using System;
 
 using UnityEditor;
@@ -25,6 +27,7 @@ namespace UFrame.NodeGraph
         public readonly float minZoomSize = 0.3f;
         public readonly float maxZoomSize = 1.3f;
         private ZoomManipulator zoomMa;
+        private int resetOffsetCount;
         public Action onGUI { get; set; }
         public float ZoomSize
         {
@@ -53,9 +56,18 @@ namespace UFrame.NodeGraph
             CreateScrollView(position);
             CreateZoomManipulator(position);
             root.Add(scrollView);
-            var offset = (zoomSize * position.size / minZoomSize - position.size) * 0.5f;
+            EditorApplication.update += ResetOffset;
+        }
+
+        private void ResetOffset()
+        {
+            var offset = (zoomSize * currentPosition.size / minZoomSize - currentPosition.size) * 0.5f;
             scrollView.scrollOffset = offset;
-            EditorApplication.delayCall += () =>scrollView.scrollOffset = offset;
+            if(resetOffsetCount++ > 5)
+            {
+                resetOffsetCount = 0;
+                EditorApplication.update -= ResetOffset;
+            }
         }
 
         public void UpdateScale(Rect position)

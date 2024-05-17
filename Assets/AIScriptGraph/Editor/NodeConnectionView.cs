@@ -23,6 +23,11 @@ namespace AIScripting
                     {
                         return Color.red;
                     }
+                    if(portConnection.conditions != null && portConnection.conditions.Count > 0)
+                    {
+                        return Color.yellow;
+                    }
+                    return Color.white;
                 }
                 return base.LineColor;
             }

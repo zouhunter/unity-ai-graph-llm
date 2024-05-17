@@ -32,7 +32,6 @@ namespace AIScripting.Ollama
         public Ref<string> output = new Ref<string>("output_text");
         public Ref<string> url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
 
-        public override int Style => 1;
         private LitCoroutine _litCoroutine;
 
         protected override void OnProcess()
@@ -112,7 +111,8 @@ namespace AIScripting.Ollama
                 while (!operation.isDone)
                 {
                     yield return null;
-                    _asyncOp.SetProgress(operation.progress);
+                    var progress = (request.uploadProgress + request.downloadProgress) * 0.5f;
+                    _asyncOp.SetProgress(progress);
                 }
 
                 if (request.responseCode == 200)

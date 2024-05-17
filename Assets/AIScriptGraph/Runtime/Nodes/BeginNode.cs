@@ -9,7 +9,7 @@ namespace AIScripting
     [CustomNode("Begin",group:Define.GROUP)]
     public class BeginNode : ScriptNodeBase
     {
-        public override int Style => 0;
+        public override int Style => enable ? 7 : 0;
         protected override void OnProcess()
         {
             DoFinish(true);
