@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7fbd6dc2998685648a118116a2b964a1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - GPTUIE: {fileID: 9197481963319205126, guid: 779206920433e65429ef350b5a200d9f, type: 3}
+  - messageUser: {fileID: 9197481963319205126, guid: ddd76225f99704043ab17003854a7760, type: 3}
+  - messageAssistant: {fileID: 9197481963319205126, guid: 0eb332cd95c8a5a47b91f1c5b5c28af0, type: 3}
+  - lblChatMessageAssistant: {fileID: 9197481963319205126, guid: 860857311bd588a4494b4513a1168a21, type: 3}
+  - veCodeBlock: {fileID: 9197481963319205126, guid: d59576b34914ec042981ee6494f2af8d, type: 3}
+  - veConversationButton: {fileID: 9197481963319205126, guid: fea24daf2a11273438006c907089094c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
