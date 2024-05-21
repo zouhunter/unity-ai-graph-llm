@@ -11,6 +11,7 @@ using UnityEditor.MemoryProfiler;
 using UnityEditorInternal;
 
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace AIScripting
 {
@@ -20,6 +21,8 @@ namespace AIScripting
         private ReorderableList _nodeList;
         private ReorderableList _connectionList;
         private Dictionary<UnityEngine.Object, NodeBaseInfoDrawer> _nodesDrawers;
+        private Vector2 offset;
+
         private void OnEnable()
         {
             _nodeList = new ReorderableList(serializedObject, serializedObject.FindProperty("m_allNodes"), true, true, true, true);
@@ -75,7 +78,14 @@ namespace AIScripting
         {
             var element = _nodeList.serializedProperty.GetArrayElementAtIndex(index);
             var drawer = GetDrawer(element, "m_node");
+            
             drawer.OnGUI(rect);
+            if (drawer.expand)
+            {
+                //rect.height -= EditorGUIUtility.singleLineHeight + 4;
+                DrawGridBox(rect);
+            }
+
         }
 
         private float OnNodeElementHeight(int index)
@@ -96,6 +106,12 @@ namespace AIScripting
             _connectionList.DoLayoutList();
         }
 
+        private void DrawGridBox(Rect rect)
+        {
+            DrawGrid(rect, 20, 0.2f, Color.gray);
+            DrawGrid(rect, 100, 0.4f, Color.gray);
+        }
+
         private void DrawTitleContent()
         {
             GUILayout.Space(25);
@@ -113,5 +129,37 @@ namespace AIScripting
             // 添加分割线
             GUILayout.Box("", GUILayout.Height(3), GUILayout.ExpandWidth(true));
         }
+
+        private void DrawGrid(Rect rect,float gridSpacing, float gridOpacity, Color gridColor)
+        {
+            int widthDivs = Mathf.CeilToInt(rect.width / gridSpacing);
+            int heightDivs = Mathf.CeilToInt(rect.height / gridSpacing);
+
+            Handles.BeginGUI();
+            Handles.color = new Color(gridColor.r, gridColor.g, gridColor.b, gridOpacity);
+
+            Vector3 offset = rect.position;
+            Vector3 start = new Vector3(rect.x, rect.y, 0);
+            Vector3 end = new Vector3(rect.x + rect.width, rect.y + rect.height, 0);
+            var yMin = Mathf.Clamp(-gridSpacing + offset.y, start.y, end.y);
+            var yMax = Mathf.Clamp(rect.height + offset.y, start.y, end.y);
+            var xMin = Mathf.Clamp(-gridSpacing + offset.x, start.x, end.x);
+            var xMax = Mathf.Clamp(rect.width + offset.x, start.x, end.x);
+
+            for (int i = 0; i < widthDivs; i++)
+            {
+                var x = gridSpacing * i + offset.x;
+                Handles.DrawLine(new Vector3(x, yMin),new Vector3(x, yMax));
+            }
+
+            for (int j = 0; j < heightDivs; j++)
+            {
+                var y = gridSpacing * j;
+                Handles.DrawLine(new Vector3(xMin,y),new Vector3(xMax,y));
+            }
+            Handles.color = Color.white;
+            Handles.EndGUI();
+        }
+
     }
 }
