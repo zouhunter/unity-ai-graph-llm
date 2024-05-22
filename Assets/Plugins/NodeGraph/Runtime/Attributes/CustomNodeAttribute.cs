@@ -13,7 +13,7 @@ namespace UFrame.NodeGraph
     [AttributeUsage(AttributeTargets.Class)]
     public class CustomNodeAttribute : Attribute
     {
-        public const int kDEFAULT_PRIORITY = 1000;
+        public const int kDEFAULT_PRIORITY = 2000;
         public const string kDEFAULT_GROUP = "Empty";
 
         private string m_name;

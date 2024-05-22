@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("FileText", 0, Define.GROUP)]
-    public class FileTextNode : DescribeBaseNode
+    [CustomNode("FileText", 1, Define.GROUP)]
+    public class FileTextNode : DescribePrefixNode
     {
         public Ref<string> file_path;
 
@@ -18,9 +18,9 @@ namespace AIScripting.Describe
 
             var fileName = System.IO.Path.GetFileName(file_path);
             var fileInfo = System.IO.File.ReadAllText(file_path);
-            sb.AppendLine("ÎÄ¼şÃû:");
+            sb.AppendLine("æ–‡ä»¶å:");
             sb.AppendLine(fileName);
-            sb.AppendLine("ÎÄ¼şÄÚÈİ:");
+            sb.AppendLine("æ–‡ä»¶å†…å®¹:");
             sb.AppendLine(fileInfo);
             return AsyncOp.CompletedOp;
         }

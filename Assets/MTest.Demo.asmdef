@@ -1,10 +1,9 @@
 {
-    "name": "AIScriptGraph.Editors",
+    "name": "MTest.Demo",
     "rootNamespace": "",
     "references": [
         "GUID:2b32b077a147d9444a582db61ed0caf8",
-        "GUID:8773a8a2638e7c245b9333aaa28c9665",
-        "GUID:3388c53f5a90e5c4dbe94bcdd6ad4ae4"
+        "GUID:8773a8a2638e7c245b9333aaa28c9665"
     ],
     "includePlatforms": [
         "Editor"

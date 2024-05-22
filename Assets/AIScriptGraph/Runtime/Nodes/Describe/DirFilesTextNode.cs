@@ -5,13 +5,13 @@ using System.Text;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("DirFilesText", 0, Define.GROUP)]
-    public class DirFilesTextNode : DescribeBaseNode
+    [CustomNode("DirFilesText", 1, Define.GROUP)]
+    public class DirFilesTextNode : DescribePrefixNode
     {
         public string fileExt = "*.cs";
-        [Tooltip("ÎÄ¼ş¼Ğ")]
+        [Tooltip("æ–‡ä»¶å¤¹")]
         public Ref<string> dir_path;
-        [Tooltip("±éÀú")]
+        [Tooltip("éå†")]
         public bool recursive;
 
         protected override AsyncOp WriteContent(StringBuilder sb)

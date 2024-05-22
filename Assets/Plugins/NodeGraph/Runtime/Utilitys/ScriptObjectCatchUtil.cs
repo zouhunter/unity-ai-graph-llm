@@ -8,7 +8,6 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor;
 using UFrame.NodeGraph.DataModel;
 
 namespace UFrame.NodeGraph
@@ -23,7 +22,9 @@ namespace UFrame.NodeGraph
             if (data != null)
             {
                 Catch(id, data.GetType(), data.ToJson());
-                AssetDatabase.RemoveObjectFromAsset(data);
+#if UNITY_EDITOR
+                UnityEditor.AssetDatabase.RemoveObjectFromAsset(data);
+#endif
             }
         }
 

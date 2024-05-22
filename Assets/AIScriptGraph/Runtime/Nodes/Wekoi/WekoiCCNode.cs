@@ -60,22 +60,29 @@ namespace AIScripting.MateAI
                 for (int i = 0; i < lines.Length; i++)
                 {
                     var line = lines[i];
-                    if(line.StartsWith("data:"))
+                    System.IO.File.AppendAllText("D:/WeKoiCC.txt", line,Encoding.UTF8);
+                    System.IO.File.AppendAllText("D:/WeKoiCC.txt", "\n");
+                    if (line.StartsWith("data:"))
                     {
+                        Debug.Log(line);
                         if(line.Length > 6)
                         {
-                            var textData = line.Substring(6,line.Length-7);
-                            if(textData != "连接成功")
+                            var textData = line.Substring(6,line.Length-7).Replace("\\n","\n").Replace("\\\"", "\"");
+                            Finished = textData == "[DONE]" || textData == "聊天消息不能为空";
+                            if (Finished)
+                            {
+                                break;
+                            }
+                            if (textData != "连接成功")
                             {
                                 allText.Append(textData);
                                 onReceive?.Invoke(textData);
                             }
-                            Finished = textData == "[DONE]" || textData == "聊天消息不能为空";
-                            if(Finished)
-                            {
-                                break;
-                            }
                         }
+                    }
+                    else
+                    {
+                        Debug.Log("ignore:" + line);
                     }
                 }
                 return base.ReceiveData(data, dataLength);

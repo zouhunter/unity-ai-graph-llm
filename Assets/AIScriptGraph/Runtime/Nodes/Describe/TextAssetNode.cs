@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("TextAsset", 0, Define.GROUP)]
-    public class TextAssetNode : DescribeBaseNode
+    [CustomNode("TextAsset", 1, Define.GROUP)]
+    public class TextAssetNode : DescribePrefixNode
     {
         public Ref<TextAsset> textfile;
 

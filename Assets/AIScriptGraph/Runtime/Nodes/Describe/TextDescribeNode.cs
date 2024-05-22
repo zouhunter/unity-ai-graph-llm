@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("TextDescribe", group: Define.GROUP)]
-    public class TextDescribeNode : DescribeBaseNode
+    [CustomNode("Text",orderPriority:1, group: Define.GROUP)]
+    public class TextDescribeNode : DescribePrefixNode
     {
         [Tooltip("文本说明")]
         public Ref<string> input_text;

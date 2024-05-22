@@ -10,10 +10,10 @@ using System.Text;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("TypesAPI", 0, Define.GROUP)]
-    public class TypesAPINode : DescribeBaseNode
+    [CustomNode("TypesAPI", 2, Define.GROUP)]
+    public class TypesAPINode : DescribePrefixNode
     {
-        [Tooltip("ÀàĞÍÁĞ±í")]
+        [Tooltip("ç±»å‹åˆ—è¡¨")]
         public Ref<List<string>> types;
         public BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
         private Dictionary<string, Type> _typeDict = new Dictionary<string, Type>();
@@ -38,38 +38,38 @@ namespace AIScripting.Describe
         }
 
         /// <summary>
-        /// »ñÈ¡ÀàĞÍµÄÀàĞÅÏ¢
+        /// è·å–ç±»å‹çš„ç±»ä¿¡æ¯
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         public static void WriteTypeClass(Type type,BindingFlags bindingFlags, StringBuilder sb)
         {
-            // ¼ì²éÊÇ·ñÊÇÃ¶¾Ù
+            // æ£€æŸ¥æ˜¯å¦æ˜¯æšä¸¾
             bool isEnum = type.IsEnum;
 
-            // ¼ì²éÊÇ·ñÊÇÖµÀàĞÍ£¨½á¹¹ÌåÊÇÖµÀàĞÍ£¬µ«²»ÊÇËùÓĞÖµÀàĞÍ¶¼ÊÇ½á¹¹Ìå£©
+            // æ£€æŸ¥æ˜¯å¦æ˜¯å€¼ç±»å‹ï¼ˆç»“æ„ä½“æ˜¯å€¼ç±»å‹ï¼Œä½†ä¸æ˜¯æ‰€æœ‰å€¼ç±»å‹éƒ½æ˜¯ç»“æ„ä½“ï¼‰
             bool isValueType = type.IsValueType;
 
-            // ¸ü×¼È·µØ£¬¼ì²éÊÇ·ñÊÇ½á¹¹Ìå
-            // ½á¹¹ÌåÊÇÖµÀàĞÍ²¢ÇÒ²»ÊÇÃ¶¾Ù£¬Ò²²»ÊÇ»ùÔªÀàĞÍ£¨Èçint, floatµÈ£©£¬Ò²²»ÊÇ System.ValueType ±¾Éí
+            // æ›´å‡†ç¡®åœ°ï¼Œæ£€æŸ¥æ˜¯å¦æ˜¯ç»“æ„ä½“
+            // ç»“æ„ä½“æ˜¯å€¼ç±»å‹å¹¶ä¸”ä¸æ˜¯æšä¸¾ï¼Œä¹Ÿä¸æ˜¯åŸºå…ƒç±»å‹ï¼ˆå¦‚int, floatç­‰ï¼‰ï¼Œä¹Ÿä¸æ˜¯ System.ValueType æœ¬èº«
             bool isStruct = type.IsValueType && !type.IsEnum && !type.IsPrimitive && type != typeof(ValueType);
 
-            // »ñÈ¡ËùÓĞ¹«¹²ÊôĞÔ
+            // è·å–æ‰€æœ‰å…¬å…±å±æ€§
             PropertyInfo[] properties = type.GetProperties(bindingFlags);
 
-            // »ñÈ¡ËùÓĞ·½·¨
+            // è·å–æ‰€æœ‰æ–¹æ³•
             MethodInfo[] methods = type.GetMethods(bindingFlags);
 
-            // »ñÈ¡ËùÓĞ¹«¹²×Ö¶Î
+            // è·å–æ‰€æœ‰å…¬å…±å­—æ®µ
             FieldInfo[] fields = type.GetFields(bindingFlags);
 
-            // »ñÈ¡ËùÓĞ¹¹Ôìº¯Êı
+            // è·å–æ‰€æœ‰æ„é€ å‡½æ•°
             ConstructorInfo[] constructors = type.GetConstructors(bindingFlags);
 
-            // »ñÈ¡ÀàµÄÃû³Æ
+            // è·å–ç±»çš„åç§°
             string className = type.Name;
 
-            // »ñÈ¡»ùÀàÀàĞÍ
+            // è·å–åŸºç±»ç±»å‹
             Type baseType = type.BaseType;
 
             if (isEnum)
@@ -162,7 +162,7 @@ namespace AIScripting.Describe
         }
 
         /// <summary>
-        /// ÅĞ¶ÏÊÇ·ñ¹ıÊ±
+        /// åˆ¤æ–­æ˜¯å¦è¿‡æ—¶
         /// </summary>
         /// <param name="member"></param>
         /// <returns></returns>
@@ -174,7 +174,7 @@ namespace AIScripting.Describe
         }
 
         /// <summary>
-        /// //»ñÈ¡ÀàĞÍ
+        /// //è·å–ç±»å‹
         /// </summary>
         /// <param name="typeFullName"></param>
         /// <returns></returns>

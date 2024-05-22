@@ -7,10 +7,10 @@ using System.Text;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("AssemblyAPI", group:Define.GROUP)]
-    public class AssembleAPINode : DescribeBaseNode
+    [CustomNode("AssemblyAPI",orderPriority:2, group:Define.GROUP)]
+    public class AssembleAPINode : DescribePrefixNode
     {
-        [Tooltip("类型列表")]
+        [Tooltip("绫诲瀷鍒楄〃")]
         public Ref<List<string>> assemblys;
         public BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
         private Dictionary<string, Type> _typeDict = new Dictionary<string, Type>();

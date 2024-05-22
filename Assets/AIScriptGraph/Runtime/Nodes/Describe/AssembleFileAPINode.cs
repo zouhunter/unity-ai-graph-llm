@@ -7,10 +7,10 @@ using System.Text;
 
 namespace AIScripting.Describe
 {
-    [CustomNode("AssemblyFileAPI", group: Define.GROUP)]
-    public class AssembleFileAPINode : DescribeBaseNode
+    [CustomNode("AssemblyFileAPI",orderPriority:2, group: Define.GROUP)]
+    public class AssembleFileAPINode : DescribePrefixNode
     {
-        [Tooltip("类型列表")]
+        [Tooltip("绫诲瀷鍒楄〃")]
         public Ref<List<string>> assemblyFiles;
         public List<string> supportAssemblePaths;
         public BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static|BindingFlags.DeclaredOnly;

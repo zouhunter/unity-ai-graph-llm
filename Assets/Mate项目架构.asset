@@ -35,7 +35,45 @@ MonoBehaviour:
   _type: AIScripting.BeginNode
   _inportNum: 1
   _outportNum: 1
+  enable: 1
   _title: BeginNode
+--- !u!114 &-6233834786502866357
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.Ollama.OllamaNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Ollama.OllamaNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: OllamaNode
+  m_GptModel: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  m_DataList:
+    _key: 
+    _default: []
+    _autoCreate: 1
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
 --- !u!114 &-6154224009939415639
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +93,7 @@ MonoBehaviour:
   disable: 1
   conditions: []
   conditionType: 0
---- !u!114 &-4215397818272670187
+--- !u!114 &-5854755422952106955
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,20 +102,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
-  m_Name: AIScripting.DebugNode
+  m_Script: {fileID: 11500000, guid: c7606263e1695a74f88a6d0f3c1f4853, type: 3}
+  m_Name: AIScripting.Ollama.OllamaDataNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Debugger.LogNode
+  _type: AIScripting.Ollama.OllamaDataNode
   _inportNum: 1
   _outportNum: 1
-  _title: DebugNode
-  info:
+  enable: 1
+  _title: OllamaDataNode
+  fromData:
     _key: 
-    _default: Graph2,Execute ok
+    _default:
+      role: 
+      content: 
     _autoCreate: 1
-  format: 
-  logType: 0
+  targetSendList:
+    _key: 
+    _default: []
+    _autoCreate: 1
+  append: 0
 --- !u!114 &-3470012606271220198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,15 +208,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
-  m_Name: "\u4EE3\u7801\u6CE8\u91CA"
+  m_Name: "Mate\u9879\u76EE\u67B6\u6784"
   m_EditorClassIdentifier: 
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1203.5974
-    m_y: 846.8678
+    m_x: 1044
+    m_y: 720
     m_node: {fileID: -6952531789606267040}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"_title":"BeginNode"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
     - id: 211434772
       label: i
@@ -181,7 +225,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.115385
+        y: 19.36832
         width: 21
         height: 29
       max: 2147483647
@@ -194,55 +238,109 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.115385
+        y: 22.36832
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  - m_name: Debug
-    m_id: 875728412
-    m_x: 1428
-    m_y: 876
-    m_node: {fileID: -4215397818272670187}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"_title":"DebugNode","info":{"_key":"","_default":"Graph2,Execute
-      ok","_autoCreate":true},"format":"","logType":0}'
+  - m_name: Ollama
+    m_id: -276029662
+    m_x: 1296
+    m_y: 828
+    m_node: {fileID: -6233834786502866357}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
-    - id: 101174578
+    - id: -1050583496
       label: i
-      parentId: 875728412
+      parentId: -276029662
       isInput: 1
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.115385
+        y: 19.36832
         width: 21
         height: 29
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -673379256
+    - id: -1825137330
       label: o
-      parentId: 875728412
+      parentId: -276029662
       isInput: 0
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.115385
+        y: 22.36832
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  m_allConnections:
-  - m_id: -432791874
-    m_fromNodeId: 985988606
-    m_fromNodeConnectionPointId: -563119062
-    m_toNodeId: 875728412
-    m_toNodeConnectionPoiontId: 101174578
-    m_type: ->
-    m_connection: {fileID: 7119385024603701169}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133603122023716131
+  - m_name: AssemblyFileAPI
+    m_id: 1930694612
+    m_x: 1297.9165
+    m_y: 689.8376
+    m_node: {fileID: 4538339291255567838}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.AssembleFileAPINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AssembleFileAPINode","prefix":"","export_text":{"_key":"","_default":"","_autoCreate":true},"append":false,"assemblyFiles":{"_key":"","_default":[],"_autoCreate":true},"supportAssemblePaths":[],"bindingFlags":30}'
+    m_inputPoints:
+    - id: 1156140778
+      label: i
+      parentId: 1930694612
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.36832
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 381586944
+      label: o
+      parentId: 1930694612
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 135.1836
+        y: 22.36832
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: OllamaData
+    m_id: 677327886
+    m_x: 1404
+    m_y: 744
+    m_node: {fileID: -5854755422952106955}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaDataNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaDataNode","m_DataList":{"_key":"","_default":[{"role":"","content":""}],"_autoCreate":true},"data":{"_key":"","_default":{"role":"","content":""},"_autoCreate":true},"append":false}'
+    m_inputPoints:
+    - id: -97225948
+      label: i
+      parentId: 677327886
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.36832
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1646333616
+      label: o
+      parentId: 677327886
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.36832
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  m_allConnections: []
+  m_lastModified: 133607607594882680
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -321,6 +419,25 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &4193288237063675097
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &4341550529324809056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +457,36 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &4538339291255567838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314ae708c57655e499884a9d31d2863f, type: 3}
+  m_Name: AIScripting.Describe.AssembleFileAPINode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.AssembleFileAPINode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: AssembleFileAPINode
+  prefix: 
+  export_text:
+    _key: 
+    _default: 
+    _autoCreate: 1
+  append: 0
+  assemblyFiles:
+    _key: 
+    _default: []
+    _autoCreate: 1
+  supportAssemblePaths: []
+  bindingFlags: 30
 --- !u!114 &5292426651846173284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,22 +506,3 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &7119385024603701169
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
