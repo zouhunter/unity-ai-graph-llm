@@ -1,8 +1,11 @@
 using AIScripting.Ollama;
 
+using NUnit.Framework.Interfaces;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 using UFrame.NodeGraph;
@@ -80,9 +83,14 @@ namespace AIScripting.MateAI
                             }
                         }
                     }
-                    else
+                    else if(line.StartsWith("id:") || (line.StartsWith("retry:")))
                     {
                         Debug.Log("ignore:" + line);
+                    }else
+                    {
+                        var textData = line.Replace("\\n", "\n").Replace("\\\"", "\"").Trim('\"');
+                        allText.Append(textData);
+                        onReceive?.Invoke(textData);
                     }
                 }
                 return base.ReceiveData(data, dataLength);
@@ -96,6 +104,7 @@ namespace AIScripting.MateAI
         /// <returns></returns>
         public IEnumerator Request(string msg,System.Action<string> _callback)
         {
+            msg = UnityWebRequest.EscapeURL($"{msg}");
             var url = $"https://api-chatbot.wekoi.co/chatbot/api/v1/chat/stream?content={msg}&conversation_id={conversation_id}&" +
                 $"from_user=zouhangte%40wekoi.cn&model={model}&max_tokens=1024&" +
                 "temperature=1&presence_penalty=0.6&add_context=true&use_context=true";

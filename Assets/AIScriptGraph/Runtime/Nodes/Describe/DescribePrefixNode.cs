@@ -9,20 +9,27 @@ using UnityEngine;
 
 namespace AIScripting.Describe
 {
-    //[CustomNode("DescribeBase", group: Define.GROUP)]
+    public enum TextAppendType
+    {
+        Overwrite,
+        Append,
+        InsetBegin
+    }
+
     public abstract class DescribePrefixNode : ScriptNodeBase
     {
         [TextArea,Tooltip("前缀信息")]
         public string prefix;
         [Tooltip("导出文本")]
         public Ref<string> export_text;
-        public bool append;
+        public TextAppendType append;
         private StringBuilder _sb;
 
         protected override void OnProcess()
         {
             _sb = new StringBuilder();
-            _sb.AppendLine(prefix);
+            if(!string.IsNullOrEmpty(prefix))
+                _sb.AppendLine(prefix);
             var op = WriteContent(_sb);
             if(op == null)
             {
@@ -44,7 +51,16 @@ namespace AIScripting.Describe
         {
             if(success)
             {
-                if(append)
+                Debug.Log("DoFinish:" + name);
+                if(append == TextAppendType.Overwrite)
+                {
+                    export_text.SetValue(_sb.ToString());
+                }
+                else if(append == TextAppendType.InsetBegin)
+                {                     
+                    export_text.SetValue(_sb.ToString() + export_text.Value);
+                }
+                else if(append == TextAppendType.Append)
                 {
                     export_text.SetValue(export_text.Value + _sb.ToString());
                 }
@@ -65,13 +81,14 @@ namespace AIScripting.Describe
         public string suffix;
         [Tooltip("导出文本")]
         public Ref<string> export_text;
-        public bool append;
+        public TextAppendType append;
         private StringBuilder _sb;
 
         protected override void OnProcess()
         {
             _sb = new StringBuilder();
             var op = WriteContent(_sb);
+            _sb.AppendLine(suffix);
             if(op == null)
             {
                 DoFinish(false);
@@ -93,7 +110,15 @@ namespace AIScripting.Describe
         {
             if(success)
             {
-                if(append)
+                if (append == TextAppendType.Overwrite)
+                {
+                    export_text.SetValue(_sb.ToString());
+                }
+                else if (append == TextAppendType.InsetBegin)
+                {
+                    export_text.SetValue(_sb.ToString() + export_text.Value);
+                }
+                else if (append == TextAppendType.Append)
                 {
                     export_text.SetValue(export_text.Value + _sb.ToString());
                 }

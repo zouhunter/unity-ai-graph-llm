@@ -1053,7 +1053,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1066,7 +1066,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1076,8 +1076,7 @@ MonoBehaviour:
     m_x: 1080
     m_y: 516
     m_node: {fileID: 3447720437640227514}
-    m_nodeJson: "{\"_assembly\":\"Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"VariableSetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"VariableSetNode\",\"executeInEditOnly\":false,\"ollama_url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"input_text\",\"_default\":\"\u4F60\u597D\",\"_autoCreate\":true},\"target\":{\"instanceID\":0}}"
+    m_nodeJson: "{\"_assembly\":\"MTest.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\",\"_type\":\"VariableSetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"VariableSetNode\",\"executeInEditOnly\":false,\"ollama_url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"input_text\",\"_default\":\"\u4F60\u597D\",\"_autoCreate\":true},\"target\":{\"instanceID\":0}}"
     m_inputPoints:
     - id: 2122120160
       label: i
@@ -1086,7 +1085,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1098,8 +1097,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 133
-        y: 20.833332
+        x: 138.41
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1120,7 +1119,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1133,7 +1132,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1152,7 +1151,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1165,7 +1164,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1184,7 +1183,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1197,7 +1196,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1217,7 +1216,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1229,8 +1228,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116.33333
-        y: 20.833332
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1249,7 +1248,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1262,7 +1261,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1284,7 +1283,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1296,8 +1295,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 113
-        y: 20.833332
+        x: 116.16
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1318,7 +1317,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1330,8 +1329,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 113
-        y: 20.833332
+        x: 116.16
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1350,7 +1349,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1363,7 +1362,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1382,7 +1381,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1395,7 +1394,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1417,7 +1416,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1430,7 +1429,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1449,7 +1448,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1462,7 +1461,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1484,7 +1483,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1496,8 +1495,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 133
-        y: 20.833332
+        x: 136.69
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1517,7 +1516,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1530,7 +1529,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1552,7 +1551,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1565,7 +1564,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1584,7 +1583,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1596,8 +1595,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 113
-        y: 20.833332
+        x: 114.46
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1616,7 +1615,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1629,7 +1628,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1648,7 +1647,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1661,7 +1660,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1681,7 +1680,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1693,8 +1692,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116.33333
-        y: 20.833332
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1715,7 +1714,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1728,7 +1727,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1891,7 +1890,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1904,7 +1903,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1924,7 +1923,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1936,8 +1935,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116.33333
-        y: 20.833332
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1957,7 +1956,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1970,7 +1969,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1981,7 +1980,7 @@ MonoBehaviour:
     m_y: 1428
     m_node: {fileID: -7104034048615033656}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"prefix\":\"[\u4E0B\u9762\u662F\u4E00\u7BC7c#\u7F16\u7801\u89C4\u8303\u6587\u6863\uFF0C\u8BF7\u8BB0\u4F4F\uFF0C\u65E0\u9700\u56DE\u590D\u7EC6\u8282]\\n```\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":false,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":30122},\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"prefix\":\"[\u4E0B\u9762\u662F\u4E00\u7BC7c#\u7F16\u7801\u89C4\u8303\u6587\u6863\uFF0C\u8BF7\u8BB0\u4F4F\uFF0C\u65E0\u9700\u56DE\u590D\u7EC6\u8282]\\n```\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":false,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":21656},\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -977816886
       label: i
@@ -1990,7 +1989,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -2003,7 +2002,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -2722,7 +2721,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -2735,7 +2734,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -3203,7 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2985e1c8de6424fb0ed6f6779f3b8e, type: 3}
   m_Name: VariableSetNode
   m_EditorClassIdentifier: 
-  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _assembly: MTest.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: VariableSetNode
   _inportNum: 1
   _outportNum: 1

@@ -7,7 +7,6 @@
 
 using UnityEngine;
 using UFrame.NodeGraph;
-using AIScripting.Debugger;
 using System.Text;
 
 namespace AIScripting.Debugger
@@ -15,9 +14,12 @@ namespace AIScripting.Debugger
     [CustomNode("DiffShow", group: Define.GROUP)]
     public class DiffShowNode : ScriptNodeBase
     {
-        public string eventName = "wekoi_receive_message";
-        public string saveFilePath;
+        [Tooltip("源文本")]
         public Ref<string> sourceText;
+        [Tooltip("目标文本")]
+        public Ref<string> targetText;
+        public bool scriptOnly = true;
+        public string eventName = "wekoi_receive_message";
         public StringBuilder allText { get; private set; }
 
         public override void ResetGraph(AIScriptGraph graph)
@@ -25,7 +27,7 @@ namespace AIScripting.Debugger
             base.ResetGraph(graph);
             graph.RemoveEvent(eventName, OnRecvMessage);
             graph.RegistEvent(eventName, OnRecvMessage);
-            allText = allText?? new StringBuilder();
+            allText = allText ?? new StringBuilder();
             allText.Clear();
         }
 
@@ -37,6 +39,8 @@ namespace AIScripting.Debugger
 
         protected override void OnProcess()
         {
+            allText.Clear();
+            allText.Append(targetText.Value);
             DoFinish(true);
         }
     }
