@@ -34,10 +34,11 @@ namespace AIScripting.Debugger
         private IEnumerator SendRequest()
         {
             var sendData = new SendData() { 
-                text = new SendData.Text() { content = "����:" + talk_text.Value },
+                text = new SendData.Text() { content = "新闻:" + talk_text.Value },
                 msgtype = "text" 
            };
-            var req = UnityWebRequest.Post(talk_url, JsonUtility.ToJson(sendData));
+            var req = new UnityWebRequest(talk_url);
+            req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(JsonUtility.ToJson(sendData)));
             req.SetRequestHeader("Content-Type", "application/json");
             yield return req.SendWebRequest();
             if (req.result == UnityWebRequest.Result.Success)

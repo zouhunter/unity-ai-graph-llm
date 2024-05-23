@@ -78,7 +78,11 @@ namespace AIScripting
                 var way = ways[i];
                 sb.AppendLine(string.Format("type:{0} left:{1} right:{2}", way.type, way.left, way.right));
             }
+
             Debug.Log(sb);
+            var detail = Mayers_StateDetail(stateIDs);
+            Debug.Log("left:" + string.Join(',',detail.Key));
+            Debug.Log("right:" + string.Join(',', detail.Value));
         }
 #endif
 
@@ -110,8 +114,6 @@ namespace AIScripting
                         way.Key.Add(2);
                         break;
                     default:
-                        way.Key.Add(3);
-                        way.Value.Add(3);
                         break;
                 }
             }

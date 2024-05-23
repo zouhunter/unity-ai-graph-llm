@@ -50,7 +50,7 @@ namespace AIScripting.Debugger
 
             var trace = MyersUtil.Myers_FindTrace(src_array, des_array);
             var stateIDs = MyersUtil.Myers_FindStates(src_array.Length, des_array.Length, trace);
-            Debug.Log("stateId:" + string.Join(',',stateIDs));
+            //Debug.Log("stateId:" + string.Join(',',stateIDs));
             var way = MyersUtil.Mayers_StateDetail(stateIDs);
             _leftDetail = way.Key;
             _rightDetail = way.Value;
@@ -119,7 +119,7 @@ namespace AIScripting.Debugger
         }
 
         /// <summary>
-        /// ÖØĞÂ¹¹½¨Ä¿±ê½Å±¾
+        /// é‡æ–°æ„å»ºç›®æ ‡è„šæœ¬
         /// </summary>
         /// <param name="targetScript"></param>
         private void ModifyTargetScript(List<int> detail,ref string targetScript)
@@ -135,13 +135,13 @@ namespace AIScripting.Debugger
                     var state = detail[i];
                     switch (state)
                     {
-                        case 1://ĞÂÔö¼Ó
+                        case 1://æ–°å¢åŠ 
                             lines[i] = "<color=green>" + lines[i] + "</color>";
                             break;
-                        case 2://É¾³ı
+                        case 2://åˆ é™¤
                             lines[i] = "<color=red>" + lines[i] + "</color>";
                             break;
-                        case 3://ĞŞ¸Ä
+                        case 3://ä¿®æ”¹
                             lines[i] = "<color=yellow>" + lines[i] + "</color>";
                             break;
                         default:

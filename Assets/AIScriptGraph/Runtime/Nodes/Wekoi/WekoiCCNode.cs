@@ -62,7 +62,7 @@ namespace AIScripting.MateAI
                     System.IO.File.AppendAllText("D:/WeKoiCC.txt", "\n");
                     if (line.StartsWith("data:"))
                     {
-                        Debug.Log(line);
+                        //Debug.Log(line);
                         if(line.Length > 6)
                         {
                             var textData = GetText(line.Substring(6, line.Length - 7));
@@ -80,7 +80,7 @@ namespace AIScripting.MateAI
                     }
                     else if(line.StartsWith("id:") || (line.StartsWith("retry:")))
                     {
-                        Debug.Log("ignore:" + line);
+                        //Debug.Log("ignore:" + line);
                     }else
                     {
                         var textData = GetText(line).Trim('\"');

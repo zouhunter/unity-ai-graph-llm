@@ -46,3 +46,4 @@
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
 *.orig
+/Packages/packages-lock.json
