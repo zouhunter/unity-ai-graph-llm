@@ -16,6 +16,7 @@ namespace AIScripting.Debugger
     public class ResponceShowNode : ScriptNodeBase
     {
         public string eventName = "wekoi_receive_message";
+        public Ref<string> responceText;
         public string saveFilePath;
         public StringBuilder allText { get; private set; }
 
@@ -36,6 +37,11 @@ namespace AIScripting.Debugger
 
         protected override void OnProcess()
         {
+            if (responceText.Exists)
+            {
+                allText.Clear();
+                allText.Append(responceText);
+            }
             DoFinish(true);
         }
     }

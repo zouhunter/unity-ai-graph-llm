@@ -99,8 +99,7 @@ namespace AIScripting
 
         private bool CompareString(object variable, string compareValue)
         {
-            string variableStringValue = variable.ToString(); // assuming variable is convertible to string
-
+            string variableStringValue = variable?.ToString()??""; // assuming variable is convertible to string
             return CompareValues(variableStringValue, compareValue);
         }
 

@@ -38,6 +38,35 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-7961902742697337436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff41cac25c7cf040afb8385175c3131, type: 3}
+  m_Name: AIScripting.Describe.TextDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.TextDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u4EE3\u7801\u5206\u6790"
+  prefix: "\u5206\u6790\u4E00\u4E0B\u8FD9\u4E2A\u4EE3\u7801\uFF0C\u5E76\u63D0\u4F9B\u5EFA\u8BAE
+    [\u56DE\u4E2D\u6587]"
+  export_text:
+    _key: str_value
+    _default: 
+    _autoCreate: 1
+  append: 0
+  input_text:
+    _key: str_value
+    _default: 
+    _autoCreate: 1
 --- !u!114 &-7676092136225238100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,6 +86,29 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &-7272099524074572677
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions:
+  - param: str_key
+    type: 2
+    compareType: 1
+    compareValue: 
+  conditionType: 0
 --- !u!114 &-6952531789606267040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,6 +127,25 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: BeginNode
+--- !u!114 &-6228468177164040407
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-6154224009939415639
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +193,67 @@ MonoBehaviour:
     _autoCreate: 1
   scriptOnly: 1
   eventName: wekoi_receive_message
+--- !u!114 &-4787444064901338416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-4031753687787335317
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions:
+  - param: str_value
+    type: 2
+    compareType: 1
+    compareValue: 
+  conditionType: 0
+--- !u!114 &-3616211027175912487
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-3470012606271220198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +273,52 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-3359938866953695417
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fbdb67c00b5df46bf116f1d124de2f, type: 3}
+  m_Name: AIScripting.Describe.DirFilesDictNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.DirFilesDictNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: DirFilesDictNode
+  fileExt: '*.cs'
+  dir_path:
+    _key: 
+    _default: Assets\Plugins\NodeGraph\Runtime\Libs
+    _autoCreate: 1
+  recursive: 1
+  fileInfoDict:
+    _key: fileDict
+    _autoCreate: 1
+--- !u!114 &-2535904034446641704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-2502685241082666670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +338,25 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-2445717141492208233
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-2410923245524006075
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,35 +414,6 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &-658272163205269217
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c562d041f83d3c1419b84063a54d2a6a, type: 3}
-  m_Name: AIScripting.Describe.TextAssetNode
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Describe.TextAssetNode
-  _inportNum: 1
-  _outportNum: 1
-  enable: 1
-  _title: "\u8BFB\u53D6\u811A\u672C\u6587\u4EF6"
-  prefix: 
-  export_text:
-    _key: source_text
-    _default: 
-    _autoCreate: 1
-  append: 0
-  textfile:
-    _key: 
-    _default: {fileID: 11500000, guid: 97eb18271f313bb44af577fbbf5786fe, type: 3}
-    _autoCreate: 1
-  codeOnly: 1
 --- !u!114 &-447765112318959291
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,34 +433,6 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &-59685352990011666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac959d18151f4d498338398b28fc681, type: 3}
-  m_Name: AIScripting.Debugger.DiffShowNode
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Debugger.DiffShowNode
-  _inportNum: 1
-  _outportNum: 1
-  enable: 1
-  _title: DiffShowNode
-  sourceText:
-    _key: source_text
-    _default: 
-    _autoCreate: 1
-  targetText:
-    _key: target_text
-    _default: 
-    _autoCreate: 1
-  scriptOnly: 1
-  eventName: wekoi_receive_message
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,13 +443,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
-  m_Name: "\u4EE3\u7801\u4F18\u5316"
+  m_Name: "\u4EE3\u7801\u5206\u6790"
   m_EditorClassIdentifier: 
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1848
-    m_y: 972
+    m_x: 1416
+    m_y: 804
     m_node: {fileID: -6952531789606267040}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -340,10 +480,10 @@ MonoBehaviour:
       type: ->
   - m_name: WekoiCC
     m_id: 1982676024
-    m_x: 2220
+    m_x: 2076
     m_y: 864
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"str_value","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -370,17 +510,16 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
-  - m_name: TextDescribe
-    m_id: 33484302
-    m_x: 2040
-    m_y: 864
-    m_node: {fileID: 6499200013202867328}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4F18\u5316\u811A\u672C\",\"prefix\":\"\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA,\u5B8C\u5584\u6CE8\u91CA\u3002\\n\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+  - m_name: ResponceShow
+    m_id: -584791524
+    m_x: 2076
+    m_y: 960
+    m_node: {fileID: 988437019744704418}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":""}'
     m_inputPoints:
-    - id: -741069532
+    - id: 611960436
       label: i
-      parentId: 33484302
+      parentId: -584791524
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -391,29 +530,28 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -1515623366
+    - id: -162593398
       label: o
-      parentId: 33484302
+      parentId: -584791524
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 117.89
+        x: 130.48001
         y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
-  - m_name: TextAsset
-    m_id: -554887652
-    m_x: 1860
-    m_y: 864
-    m_node: {fileID: -658272163205269217}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"prefix\":\"\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":20064},\"_autoCreate\":true},\"codeOnly\":true}"
+  - m_name: FileWrite
+    m_id: 870152892
+    m_x: 2076
+    m_y: 756
+    m_node: {fileID: 4917874415691027760}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Export.FileWriteNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"FileWriteNode","fileName":{"_key":"str_key","_default":"","_autoCreate":true},"fileInfo":{"_key":"target_text","_default":"","_autoCreate":true},"append":false,"ext":".txt","exportDir":"Export"}'
     m_inputPoints:
-    - id: -1329441486
+    - id: 95599058
       label: i
-      parentId: -554887652
+      parentId: 870152892
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -424,9 +562,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -2103995320
+    - id: -678954776
       label: o
-      parentId: -554887652
+      parentId: 870152892
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -436,16 +574,16 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
-  - m_name: DiffShow
-    m_id: 1568795384
-    m_x: 2220
-    m_y: 972
-    m_node: {fileID: -59685352990011666}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.DiffShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DiffShowNode","sourceText":{"_key":"source_text","_default":"","_autoCreate":true},"targetText":{"_key":"target_text","_default":"","_autoCreate":true},"scriptOnly":true,"eventName":"wekoi_receive_message"}'
+  - m_name: DirFilesDict
+    m_id: -568918412
+    m_x: 1596
+    m_y: 804
+    m_node: {fileID: -3359938866953695417}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.DirFilesDictNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DirFilesDictNode","fileExt":"*.cs","dir_path":{"_key":"","_default":"Assets\\Plugins\\NodeGraph\\Runtime\\Libs","_autoCreate":true},"recursive":true,"fileInfoDict":{"_key":"fileDict","_autoCreate":true}}'
     m_inputPoints:
-    - id: 465751608
+    - id: -1343472246
       label: i
-      parentId: 1568795384
+      parentId: -568918412
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -456,9 +594,75 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -308802226
+    - id: -2118026080
       label: o
-      parentId: 1568795384
+      parentId: -568918412
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: StrDictBatch
+    m_id: 744998530
+    m_x: 1740
+    m_y: 804
+    m_node: {fileID: 6818927251656569855}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Batch.StrDictBatchNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"StrDictBatchNode","strDict":{"_key":"fileDict","_autoCreate":true},"exportKey":{"_key":"str_key","_default":"","_autoCreate":true},"exportValue":{"_key":"str_value","_default":"","_autoCreate":true}}'
+    m_inputPoints:
+    - id: -29555304
+      label: i
+      parentId: 744998530
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -804109138
+      label: o
+      parentId: 744998530
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 114.82
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Text
+    m_id: -124444468
+    m_x: 1920
+    m_y: 864
+    m_node: {fileID: -7961902742697337436}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4EE3\u7801\u5206\u6790\",\"prefix\":\"\u5206\u6790\u4E00\u4E0B\u8FD9\u4E2A\u4EE3\u7801\uFF0C\u5E76\u63D0\u4F9B\u5EFA\u8BAE
+      [\u56DE\u4E2D\u6587]\",\"export_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true}}"
+    m_inputPoints:
+    - id: -898998302
+      label: i
+      parentId: -124444468
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1251354010
+      label: o
+      parentId: -124444468
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -469,43 +673,70 @@ MonoBehaviour:
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: 479036852
-    m_fromNodeId: 33484302
-    m_fromNodeConnectionPointId: -1515623366
+  - m_id: -357322784
+    m_fromNodeId: 1982676024
+    m_fromNodeConnectionPointId: 433568356
+    m_toNodeId: -584791524
+    m_toNodeConnectionPoiontId: 611960436
+    m_type: ->
+    m_connection: {fileID: -2535904034446641704}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1946096950
+    m_fromNodeId: 1982676024
+    m_fromNodeConnectionPointId: 433568356
+    m_toNodeId: 870152892
+    m_toNodeConnectionPoiontId: 95599058
+    m_type: ->
+    m_connection: {fileID: -2445717141492208233}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 30885990
+    m_fromNodeId: -568918412
+    m_fromNodeConnectionPointId: -2118026080
+    m_toNodeId: 744998530
+    m_toNodeConnectionPoiontId: -29555304
+    m_type: ->
+    m_connection: {fileID: -3616211027175912487}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 498086736
+    m_fromNodeId: 985988606
+    m_fromNodeConnectionPointId: -563119062
+    m_toNodeId: -568918412
+    m_toNodeConnectionPoiontId: -1343472246
+    m_type: ->
+    m_connection: {fileID: 451103896042845434}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 1590031504
+    m_fromNodeId: 870152892
+    m_fromNodeConnectionPointId: -678954776
+    m_toNodeId: 744998530
+    m_toNodeConnectionPoiontId: -29555304
+    m_type: ->
+    m_connection: {fileID: -4787444064901338416}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 329255846
+    m_fromNodeId: 744998530
+    m_fromNodeConnectionPointId: -804109138
+    m_toNodeId: -124444468
+    m_toNodeConnectionPoiontId: -898998302
+    m_type: ->
+    m_connection: {fileID: -4031753687787335317}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[{"param":"str_value","type":2,"compareType":1,"compareValue":""}],"conditionType":0}'
+  - m_id: 832231452
+    m_fromNodeId: -124444468
+    m_fromNodeConnectionPointId: -1251354010
     m_toNodeId: 1982676024
     m_toNodeConnectionPoiontId: 1208122190
     m_type: ->
-    m_connection: {fileID: -9022217781262583252}
+    m_connection: {fileID: 8593408383898307744}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -1626951214
-    m_fromNodeId: -554887652
-    m_fromNodeConnectionPointId: -2103995320
-    m_toNodeId: 33484302
-    m_toNodeConnectionPoiontId: -741069532
-    m_type: ->
-    m_connection: {fileID: 1917278411229549818}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -145547674
-    m_fromNodeId: 985988606
-    m_fromNodeConnectionPointId: -563119062
-    m_toNodeId: -554887652
-    m_toNodeConnectionPoiontId: -1329441486
-    m_type: ->
-    m_connection: {fileID: 3133309968758002094}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -2071711320
-    m_fromNodeId: 33484302
-    m_fromNodeConnectionPointId: -1515623366
-    m_toNodeId: 1568795384
-    m_toNodeConnectionPoiontId: 465751608
-    m_type: ->
-    m_connection: {fileID: -1589830524533933069}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133608498460123711
+  m_lastModified: 133609351915388314
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -521,6 +752,25 @@ MonoBehaviour:
   m_Name: ->
   m_EditorClassIdentifier: 
   _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &451103896042845434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.NodeConnection
   _title: 
   priority: 0
@@ -546,6 +796,30 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &988437019744704418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca1037f4e2dcd41985f275eaaf3d98, type: 3}
+  m_Name: AIScripting.Debugger.ResponceShowNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.ResponceShowNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: ResponceShowNode
+  eventName: wekoi_receive_message
+  responceText:
+    _key: 
+    _default: 
+    _autoCreate: 1
+  saveFilePath: 
 --- !u!114 &1383750705029059516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -604,25 +878,6 @@ MonoBehaviour:
   conditions: []
   conditionType: 0
 --- !u!114 &2569855166958556725
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
---- !u!114 &3133309968758002094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -717,6 +972,35 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &4917874415691027760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73323de3316608479a4862c78532e9c, type: 3}
+  m_Name: AIScripting.Export.FileWriteNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Export.FileWriteNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: FileWriteNode
+  fileName:
+    _key: str_key
+    _default: 
+    _autoCreate: 1
+  fileInfo:
+    _key: target_text
+    _default: 
+    _autoCreate: 1
+  append: 0
+  ext: .txt
+  exportDir: Export
 --- !u!114 &5292426651846173284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,6 +1020,25 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &5553367391468095141
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &5980199017757651012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -755,7 +1058,7 @@ MonoBehaviour:
   disable: 1
   conditions: []
   conditionType: 0
---- !u!114 &6499200013202867328
+--- !u!114 &6818927251656569855
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -764,23 +1067,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff41cac25c7cf040afb8385175c3131, type: 3}
-  m_Name: AIScripting.Describe.TextDescribeNode
+  m_Script: {fileID: 11500000, guid: b3462a821a9791845b11b5ff2d5fb05c, type: 3}
+  m_Name: AIScripting.Batch.StrDictBatchNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Describe.TextDescribeNode
+  _type: AIScripting.Batch.StrDictBatchNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
-  _title: "\u4F18\u5316\u811A\u672C"
-  prefix: "\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA,\u5B8C\u5584\u6CE8\u91CA\u3002\n"
-  export_text:
-    _key: input_text
+  _title: StrDictBatchNode
+  strDict:
+    _key: fileDict
+    _autoCreate: 1
+  exportKey:
+    _key: str_key
     _default: 
     _autoCreate: 1
-  append: 0
-  input_text:
-    _key: source_text
+  exportValue:
+    _key: str_value
     _default: 
     _autoCreate: 1
 --- !u!114 &6838277287135595348
@@ -805,7 +1109,7 @@ MonoBehaviour:
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
   input:
-    _key: input_text
+    _key: str_value
     _default: 
     _autoCreate: 1
   output:
@@ -813,3 +1117,22 @@ MonoBehaviour:
     _default: 
     _autoCreate: 1
   eventReceiveKey: wekoi_receive_message
+--- !u!114 &8593408383898307744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0

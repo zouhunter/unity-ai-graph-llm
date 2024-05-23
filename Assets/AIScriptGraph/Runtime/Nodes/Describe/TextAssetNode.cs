@@ -10,11 +10,13 @@ namespace AIScripting.Describe
     public class TextAssetNode : DescribePrefixNode
     {
         public Ref<TextAsset> textfile;
+        public Ref<string> exportfileName;
         public bool codeOnly;
         protected override AsyncOp WriteContent(StringBuilder sb)
         {
             if (!textfile.Value)
                 return null;
+            exportfileName.SetValue(textfile.Value.name);
             var fileInfo = textfile.Value.text;
             if (!codeOnly)
             {

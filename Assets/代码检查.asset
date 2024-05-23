@@ -1981,7 +1981,7 @@ MonoBehaviour:
     m_y: 1428
     m_node: {fileID: -7104034048615033656}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"prefix\":\"[\u4E0B\u9762\u662F\u4E00\u7BC7c#\u7F16\u7801\u89C4\u8303\u6587\u6863\uFF0C\u8BF7\u8BB0\u4F4F\uFF0C\u65E0\u9700\u56DE\u590D\u7EC6\u8282]\\n```\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":22020},\"_autoCreate\":true},\"codeOnly\":false}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"prefix\":\"[\u4E0B\u9762\u662F\u4E00\u7BC7c#\u7F16\u7801\u89C4\u8303\u6587\u6863\uFF0C\u8BF7\u8BB0\u4F4F\uFF0C\u65E0\u9700\u56DE\u590D\u7EC6\u8282]\\n```\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":22532},\"_autoCreate\":true},\"codeOnly\":false}"
     m_inputPoints:
     - id: -977816886
       label: i

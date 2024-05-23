@@ -78,7 +78,7 @@ namespace AIScripting.MateAI
                             }
                         }
                     }
-                    else if(line.StartsWith("id:") || (line.StartsWith("retry:")))
+                    else if(line.StartsWith("id:") || (line.StartsWith("retry:") || (line.StartsWith("event:"))))
                     {
                         //Debug.Log("ignore:" + line);
                     }else

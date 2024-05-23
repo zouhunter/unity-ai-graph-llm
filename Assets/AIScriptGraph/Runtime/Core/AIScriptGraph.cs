@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UFrame.NodeGraph.DataModel;
 
 using UnityEditor;
+using UnityEditor.VersionControl;
 
 namespace AIScripting
 {
@@ -203,8 +205,12 @@ namespace AIScripting
         /// <param name="nodeId"></param>
         /// <param name="parentId"></param>
         /// <returns></returns>
-        protected bool CheckStackOverFlow(string nodeId, string parentId)
+        protected bool CheckStackOverFlow(string nodeId, string parentId, HashSet<string> content)
         {
+            if (content.Contains(nodeId))
+                return true;
+            content.Add(nodeId);
+
             if (_subNodeMap.TryGetValue(nodeId, out var childIds))
             {
                 foreach (var childId in childIds)
@@ -215,15 +221,9 @@ namespace AIScripting
                     }
                     else
                     {
-                        var match = CheckStackOverFlow(childId, nodeId);
+                        var match = CheckStackOverFlow(childId, parentId, content);
                         if (match)
                             return true;
-                        else
-                        {
-                            match = CheckStackOverFlow(childId, parentId);
-                            if (match)
-                                return true;
-                        }
                     }
                 }
             }
@@ -237,7 +237,7 @@ namespace AIScripting
             {
                 foreach (var parentNodeId in parentNodes)
                 {
-                    if (CheckStackOverFlow(nodeId, parentNodeId))
+                    if (CheckStackOverFlow(nodeId, parentNodeId,new HashSet<string>()))
                         continue;
 
                     var connectionPass = GetConnectionPass(parentNodeId, nodeId);

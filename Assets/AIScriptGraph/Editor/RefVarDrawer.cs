@@ -64,7 +64,6 @@ namespace AIScripting
             SelectIndex(property);
 
             var textRect = new Rect(position.x, position.y, position.width - 180, EditorGUIUtility.singleLineHeight);
-
             if(defaultProp != null)
             {
                 if (GUI.Button(textRect, new GUIContent($"{_index}.{label.text} ({defaultProp.type})", "isExpanded able"), property.isExpanded ? EditorStyles.label : EditorStyles.boldLabel))
@@ -74,7 +73,7 @@ namespace AIScripting
             }
             else
             {
-                GUI.Label(textRect, new GUIContent($"{_index}.{label.text} ({_valueType.FullName})", "isExpanded unable"), EditorStyles.boldLabel);
+                GUI.Label(textRect, new GUIContent($"{_index}.{label.text} ({_valueType.Name})", "isExpanded unable"), EditorStyles.boldLabel);
             }
 
             var keyRect = new Rect(position.x + position.width - 160, position.y, 80, EditorGUIUtility.singleLineHeight);
