@@ -308,8 +308,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1203.5974
-    m_y: 846.8678
+    m_x: 1464
+    m_y: 588
     m_node: {fileID: -6952531789606267040}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -320,7 +320,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -333,15 +333,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: 1982676024
-    m_x: 1572
-    m_y: 732
+    m_x: 1836
+    m_y: 480
     m_node: {fileID: 6838277287135595348}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
@@ -352,7 +352,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -365,15 +365,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: 33484302
-    m_x: 1392
-    m_y: 732
+    m_x: 1656
+    m_y: 480
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4F18\u5316\u811A\u672C\",\"prefix\":\"\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA\u3002-
@@ -386,7 +386,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -398,19 +398,19 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 117.89
-        y: 22.029999
+        x: 118
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextAsset
     m_id: -554887652
-    m_x: 1212
-    m_y: 732
+    m_x: 1476
+    m_y: 480
     m_node: {fileID: -658272163205269217}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"prefix\":\"\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":20302},\"_autoCreate\":true},\"codeOnly\":true}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"prefix\":\"\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":17834},\"_autoCreate\":true},\"codeOnly\":true}"
     m_inputPoints:
     - id: -1329441486
       label: i
@@ -419,7 +419,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -432,15 +432,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: DiffShow
     m_id: 1568795384
-    m_x: 1572
-    m_y: 840
+    m_x: 1836
+    m_y: 588
     m_node: {fileID: -59685352990011666}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.DiffShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DiffShowNode","sourceText":{"_key":"source_text","_default":"","_autoCreate":true},"targetText":{"_key":"target_text","_default":"","_autoCreate":true},"scriptOnly":true,"eventName":"wekoi_receive_message"}'
     m_inputPoints:
@@ -451,7 +451,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -464,7 +464,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647

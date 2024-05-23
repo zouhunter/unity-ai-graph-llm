@@ -1,7 +1,4 @@
 using AIScripting.Ollama;
-
-using NUnit.Framework.Interfaces;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
