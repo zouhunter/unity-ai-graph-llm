@@ -331,7 +331,7 @@ MonoBehaviour:
     m_y: 816
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"prefix\":\"\u57FA\u4E8EMate\u9879\u76EE\uFF0C\u57FA\u4E8ESFXManager\u64AD\u653E\u97F3\u6548\uFF0C\u8C03\u7528\u4EC0\u4E48\u65B9\u6CD5\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":false,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"prefix\":\"\u57FA\u4E8EMate\u9879\u76EE\uFF0C\u57FA\u4E8ESFXManager\u64AD\u653E\u97F3\u6548\uFF0C\u8C03\u7528\u4EC0\u4E48\u65B9\u6CD5\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -741069532
       label: i
@@ -397,7 +397,7 @@ MonoBehaviour:
     m_node: {fileID: -9032867594864441822}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u6E10\u53D8shader\",\"prefix\":\"\u5199\u4E00\u4E2AImage\u7528\u7684shader\uFF0C\u4ECE\u4E0A\u5230\u4E0B\u9010\u6E10\u53D8\u900F\u660E\u3002-
-      Code Only\u3002\",\"export_text\":{\"_key\":\"input_text1\",\"_default\":\"\",\"_autoCreate\":true},\"append\":false,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
+      Code Only\u3002\",\"export_text\":{\"_key\":\"input_text1\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -1696260976
       label: i

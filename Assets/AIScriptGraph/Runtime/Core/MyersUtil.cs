@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 using UnityEngine;
 
@@ -34,6 +35,12 @@ namespace AIScripting
             return _innerDic.GetEnumerator();
         }
     }
+    public class WayInfo
+    {
+        public int type;
+        public int left;
+        public int right;
+    }
     public class MyersUtil
     {
 #if UNITY_EDITOR
@@ -41,33 +48,37 @@ namespace AIScripting
         {
             //string[] src_array = System.IO.File.ReadAllLines("a.txt");
             //string[] des_array = System.IO.File.ReadAllLines("b.txt");
-            string[] src_array = "A B C A B B A".Split(' ');
-            string[] des_array = "C B A B A C".Split(' ');
+            string[] src_array = "x A B C A B B A".Split(' ');
+            string[] des_array = "y C B A B A C".Split(' ');
             var trace = Myers_FindTrace(src_array, des_array);
 
+            var sb0 = new StringBuilder();
             for (int id = 0; id < trace.Count; id++)
             {
                 var dic = trace[id];
-                Debug.Log(string.Format(id + ".【当d=={0}时】", id));
+                sb0.Append(string.Format(id + ".【当d=={0}时】", id));
                 using (var k_enumerator = dic.GetEnumerator())
                 {
                     while (k_enumerator.MoveNext())
                     {
                         var k = k_enumerator.Current.Key;
                         var x = k_enumerator.Current.Value;
-                        Debug.Log(string.Format("当k=={0}时:", k));
-                        Debug.Log("x:" + x + " y:" + (x - k));
+                        sb0.Append(string.Format("当k=={0}时:", k));
+                        sb0.AppendLine("x:" + x + " y:" + (x - k));
                     }
                 }
             }
+            Debug.Log(sb0);
             var stateIDs = Myers_FindStates(src_array.Length, des_array.Length, trace);
 
-            var way = Mayers_FindWays(stateIDs);
-
-            for (int i = 0; i < way.Count; i++)
+            var ways = Mayers_FindWays(stateIDs);
+            var sb = new StringBuilder();
+            for (int i = 0; i < ways.Count; i++)
             {
-                Debug.Log(i + ":" + " x=" + way[i].Key + " y=" + way[i].Value);
+                var way = ways[i];
+                sb.AppendLine(string.Format("type:{0} left:{1} right:{2}", way.type, way.left, way.right));
             }
+            Debug.Log(sb);
         }
 #endif
 
@@ -113,10 +124,10 @@ namespace AIScripting
         /// </summary>
         /// <param name="stateID"></param>
         /// <returns></returns>
-        public static List<KeyValuePair<int, int>> Mayers_FindWays(List<int> stateID)
+        public static List<WayInfo> Mayers_FindWays(List<int> stateID)
         {
             // 初始化路径列表
-            List<KeyValuePair<int, int>> way = new List<KeyValuePair<int, int>>();
+            List<WayInfo> way = new List<WayInfo>();
             int srcIndex = 0; // 源索引初始化
             int dstIndex = 0; // 目标索引初始化
 
@@ -127,18 +138,18 @@ namespace AIScripting
                 {
                     case 0:
                         // 状态0表示匹配，增加匹配路径
-                        way.Add(new KeyValuePair<int, int>(srcIndex, dstIndex));
+                        way.Add(new WayInfo() { type = 0, left = srcIndex, right = dstIndex });
                         srcIndex++; // 源索引和目标索引均增加
                         dstIndex++;
                         break;
                     case 1:
                         // 状态1表示插入，增加插入路径
-                        way.Add(new KeyValuePair<int, int>(srcIndex, dstIndex));
+                        way.Add(new WayInfo() { type = 1, left = srcIndex, right = dstIndex });
                         dstIndex++; // 仅目标索引增加
                         break;
                     case 2:
                         // 状态2表示删除，增加删除路径
-                        way.Add(new KeyValuePair<int, int>(srcIndex, dstIndex));
+                        way.Add(new WayInfo() { type = 2, left = srcIndex, right = dstIndex });
                         srcIndex++; // 仅源索引增加
                         break;
                     default:
@@ -150,7 +161,7 @@ namespace AIScripting
             // 返回路径列表
             return way;
         }
-     
+
         /// <summary>
         /// 根据给定的m、n值和追踪列表（trace），生成状态列表（stateID），表示匹配、插入或删除操作。
         /// </summary>
