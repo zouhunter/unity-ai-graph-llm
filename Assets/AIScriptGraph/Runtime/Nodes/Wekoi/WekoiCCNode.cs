@@ -1,7 +1,4 @@
 using AIScripting.Ollama;
-
-using NUnit.Framework.Interfaces;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,8 +9,6 @@ using UFrame.NodeGraph;
 
 using UnityEngine;
 using UnityEngine.Networking;
-
-using static System.Net.WebRequestMethods;
 
 namespace AIScripting.MateAI
 {
@@ -70,7 +65,7 @@ namespace AIScripting.MateAI
                         Debug.Log(line);
                         if(line.Length > 6)
                         {
-                            var textData = line.Substring(6,line.Length-7).Replace("\\n","\n").Replace("\\\"", "\"");
+                            var textData = GetText(line.Substring(6, line.Length - 7));
                             Finished = textData == "[DONE]" || textData == "聊天消息不能为空";
                             if (Finished)
                             {
@@ -88,12 +83,16 @@ namespace AIScripting.MateAI
                         Debug.Log("ignore:" + line);
                     }else
                     {
-                        var textData = line.Replace("\\n", "\n").Replace("\\\"", "\"").Trim('\"');
+                        var textData = GetText(line).Trim('\"');
                         allText.Append(textData);
                         onReceive?.Invoke(textData);
                     }
                 }
                 return base.ReceiveData(data, dataLength);
+            }
+            private string GetText(string textData)
+            {
+                return textData.Replace("\\n", "\n").Replace("\\t", "\t").Replace("\\\"", "\"");
             }
         }
         /// <summary>

@@ -50,12 +50,12 @@ namespace AIScripting.Debugger
 
             var trace = MyersUtil.Myers_FindTrace(src_array, des_array);
             var stateIDs = MyersUtil.Myers_FindStates(src_array.Length, des_array.Length, trace);
-            stateIDs.RemoveAt(0);
-            stateIDs.RemoveAt(0);
             Debug.Log("stateId:" + string.Join(',',stateIDs));
             var way = MyersUtil.Mayers_StateDetail(stateIDs);
             _leftDetail = way.Key;
             _rightDetail = way.Value;
+            _leftDetail.RemoveAt(0);
+            _rightDetail.RemoveAt(0);
         }
 
         public override void OnInspectorGUI()

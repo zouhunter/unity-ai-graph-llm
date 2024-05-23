@@ -243,7 +243,7 @@ MonoBehaviour:
   append: 0
   textfile:
     _key: 
-    _default: {fileID: 11500000, guid: 7f1ef1de6ad15ca4f87a46bc777d815e, type: 3}
+    _default: {fileID: 11500000, guid: 70e51f206cfc74147ba7c3039fe3f8fe, type: 3}
     _autoCreate: 1
   codeOnly: 1
 --- !u!114 &-447765112318959291
@@ -376,8 +376,7 @@ MonoBehaviour:
     m_y: 732
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4F18\u5316\u811A\u672C\",\"prefix\":\"\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA\u3002-
-      Code Only\u3002- Chinese Words\u3002\\n\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4F18\u5316\u811A\u672C\",\"prefix\":\"\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA,\u5B8C\u5584\u6CE8\u91CA\u3002\\n\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -741069532
       label: i
@@ -410,7 +409,7 @@ MonoBehaviour:
     m_y: 732
     m_node: {fileID: -658272163205269217}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"prefix\":\"\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":20302},\"_autoCreate\":true},\"codeOnly\":true}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"prefix\":\"\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":20880},\"_autoCreate\":true},\"codeOnly\":true}"
     m_inputPoints:
     - id: -1329441486
       label: i
@@ -774,8 +773,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u4F18\u5316\u811A\u672C"
-  prefix: "\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA\u3002-
-    Code Only\u3002- Chinese Words\u3002\n"
+  prefix: "\u82F1\u6587\u6CE8\u91CA\u4FEE\u6539\u4E3A\u4E2D\u6587,\u5E76\u5B8C\u6574\u8F93\u51FA,\u5B8C\u5584\u6CE8\u91CA\u3002\n"
   export_text:
     _key: input_text
     _default: 

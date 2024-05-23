@@ -91,24 +91,10 @@ namespace AIScripting
                         way.Value.Add(0);
                         break;
                     case 1:
-                        if (i + 1 < stateID.Count && stateID[i + 1] == 2)
-                        {
-                            way.Key.Add(3);
-                            way.Value.Add(3);
-                            i++;
-                            break;
-                        }
                         // 状态1表示插入，增加插入路径
                         way.Value.Add(1);
                         break;
                     case 2:
-                        if (i + 1 < stateID.Count && stateID[i + 1] == 1)
-                        {
-                            way.Key.Add(3);
-                            way.Value.Add(3);
-                            i++;
-                            break;
-                        }
                         // 状态2表示删除，增加删除路径
                         way.Key.Add(2);
                         break;
