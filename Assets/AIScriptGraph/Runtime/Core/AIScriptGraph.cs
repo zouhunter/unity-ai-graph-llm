@@ -29,7 +29,7 @@ namespace AIScripting
         private List<LitCoroutine> _coroutines = new List<LitCoroutine>();
         private EventProvider _eventProvider = new EventProvider();
         private List<AIScriptGraph> _subGraphs = new List<AIScriptGraph>();
-
+        private HashSet<string> _overflowSet = new HashSet<string>();
         public void ResetGraph(AIScriptGraph graph)
         {
             _runingGraph = graph;
@@ -237,7 +237,8 @@ namespace AIScripting
             {
                 foreach (var parentNodeId in parentNodes)
                 {
-                    if (CheckStackOverFlow(nodeId, parentNodeId,new HashSet<string>()))
+                    _overflowSet.Clear();
+                    if (CheckStackOverFlow(nodeId, parentNodeId, _overflowSet))
                         continue;
 
                     var connectionPass = GetConnectionPass(parentNodeId, nodeId);
@@ -343,33 +344,41 @@ namespace AIScripting
 
         public void Update()
         {
-            if (_coroutines != null && _coroutines.Count > 0)
+            try
             {
-                for (int i = _coroutines.Count - 1; i >= 0; i--)
+                if (_coroutines != null && _coroutines.Count > 0)
                 {
-                    var coroutine = _coroutines[i];
-                    coroutine.Update();
-                    if (coroutine.IsDone)
+                    for (int i = _coroutines.Count - 1; i >= 0; i--)
                     {
-                        _coroutines.RemoveAt(i);
+                        var coroutine = _coroutines[i];
+                        coroutine.Update();
+                        if (coroutine.IsDone)
+                        {
+                            _coroutines.RemoveAt(i);
+                        }
                     }
                 }
-            }
 
-            if(_nextExecuteNodes.Count > 0)
-            {
-                var nodeId = _nextExecuteNodes.Dequeue();
-                var node = _nodeMap[nodeId];
-                var operate = node.Run(nodeId);
-                operate.RegistProgress(OnProgressNode);
-                operate.RegistComplete(OnFinishNode);
-                if(node is GraphNode graphNode && graphNode.graph)
-                    _subGraphs.Add(graphNode.graph);
-            }
+                if (_nextExecuteNodes.Count > 0)
+                {
+                    var nodeId = _nextExecuteNodes.Dequeue();
+                    var node = _nodeMap[nodeId];
+                    var operate = node.Run(nodeId);
+                    operate.RegistProgress(OnProgressNode);
+                    operate.RegistComplete(OnFinishNode);
+                    if (node is GraphNode graphNode && graphNode.graph)
+                        _subGraphs.Add(graphNode.graph);
+                }
 
-            foreach (var subGraph in _subGraphs)
+                foreach (var subGraph in _subGraphs)
+                {
+                    subGraph?.Update();
+                }
+
+            }
+            catch (Exception ex)
             {
-                subGraph?.Update();
+                UnityEngine.Debug.LogError($"Update error in AIScriptGraph: {ex.Message}\n{ex.StackTrace}");
             }
         }
 

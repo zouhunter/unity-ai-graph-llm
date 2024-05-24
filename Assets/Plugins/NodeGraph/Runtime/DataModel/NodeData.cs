@@ -156,8 +156,10 @@ namespace UFrame.NodeGraph.DataModel
             {
                 var item = JSONClass.Parse(m_nodeJson);
                 var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
+                if(nodeType == null)
+                    Debug.LogError("Node type not found: " + item["_type"]);
                 m_node = Node.CreateInstance(nodeType) as Node;
-                m_node.DeSeraizlize(m_nodeJson);
+                m_node?.DeSeraizlize(m_nodeJson);
             }
             return Object != null;
         }

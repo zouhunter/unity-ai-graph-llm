@@ -47,6 +47,9 @@ namespace AIScripting
         private NodeBaseInfoDrawer GetDrawer(SerializedProperty prop,string name)
         {
             var targetProp = prop?.FindPropertyRelative(name);
+            if (targetProp.objectReferenceValue == null)
+                return null;
+
             if (!_nodesDrawers.TryGetValue(targetProp.objectReferenceValue, out var drawer))
             {
                 drawer = _nodesDrawers[targetProp.objectReferenceValue] = new NodeBaseInfoDrawer(targetProp.objectReferenceValue as NodeBaseObject);
@@ -58,15 +61,14 @@ namespace AIScripting
         {
             var element = _connectionList.serializedProperty.GetArrayElementAtIndex(index);
             var drawer = GetDrawer(element, "m_connection");
-            return drawer.GetHeight();
+            return drawer?.GetHeight() ?? 0;
         }
 
         private void OnConnectionListElement(Rect rect, int index, bool isActive, bool isFocused)
         {
             var element = _connectionList.serializedProperty.GetArrayElementAtIndex(index);
             var drawer = GetDrawer(element, "m_connection");
-
-            drawer.OnGUI(rect);
+            drawer?.OnGUI(rect);
         }
 
         private void OnNodeListHead(Rect rect)
@@ -79,8 +81,8 @@ namespace AIScripting
             var element = _nodeList.serializedProperty.GetArrayElementAtIndex(index);
             var drawer = GetDrawer(element, "m_node");
             
-            drawer.OnGUI(rect);
-            if (drawer.expand)
+            drawer?.OnGUI(rect);
+            if (drawer != null && drawer.expand)
             {
                 //rect.height -= EditorGUIUtility.singleLineHeight + 4;
                 DrawGridBox(rect);
@@ -92,7 +94,7 @@ namespace AIScripting
         {
             var element = _nodeList.serializedProperty.GetArrayElementAtIndex(index);
             var drawer = GetDrawer(element, "m_node");
-            return drawer.GetHeight();
+            return drawer?.GetHeight()??0;
         }
 
         protected override void OnHeaderGUI()
