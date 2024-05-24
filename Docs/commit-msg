@@ -1,0 +1,11 @@
+#!/bin/sh
+MSG=`awk '{printf("%s",$0)}' $1`
+if [[ $MSG =~ ^(\[new\]|[\fix\]|\[opt\]|\[res\]|\[meg\]).*$ ]]
+then
+	echo -e "\033[32m commit success! \033[0m"
+else
+    echo -e "\033[31m Error: the commit message is irregular \033[m"
+	echo -e "\033[31m Error: type must be one of [new] [fix] [opt] [res] [meg] \033[m"
+    echo -e "\033[31m eg: [new] npc logic supported \033[m"
+	exit 1
+fi
