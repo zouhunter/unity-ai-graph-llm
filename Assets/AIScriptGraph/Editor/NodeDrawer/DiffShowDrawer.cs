@@ -69,10 +69,10 @@ namespace AIScripting.Debugger
                 _textStyle.richText = true;
             }
 
-            var width = EditorGUIUtility.currentViewWidth - 6;
+            var width = EditorGUIUtility.currentViewWidth - 20;
             bool val = EditorStyles.textField.wordWrap;
             EditorStyles.textField.wordWrap = true;
-            var targetScript = node.allText?.ToString();
+            var targetScript = node.targetText.Value?.ToString();
             if (!string.IsNullOrEmpty(targetScript) && node.scriptOnly)
             {
                 var contents = CodeResponceUtil.SplitContents(targetScript);

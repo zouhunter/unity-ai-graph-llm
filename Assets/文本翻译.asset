@@ -159,7 +159,6 @@ MonoBehaviour:
     _default: 
     _autoCreate: 1
   scriptOnly: 1
-  eventName: wekoi_receive_message
 --- !u!114 &-3470012606271220198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,6 +316,10 @@ MonoBehaviour:
   enable: 1
   _title: ResponceShowNode
   eventName: wekoi_receive_message
+  responceText:
+    _key: 
+    _default: 
+    _autoCreate: 1
   saveFilePath: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -368,7 +371,7 @@ MonoBehaviour:
     m_x: 1800
     m_y: 588
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -401,7 +404,7 @@ MonoBehaviour:
     m_y: 588
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7FFB\u8BD1\",\"prefix\":\"\u8BF7\u5C06\u4EE5\u4E0B\u6587\u672C\u7FFB\u8BD1\u4E3A\u82F1\u6587\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\u4F60\u597D\u4E16\u754C\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7FFB\u8BD1\",\"textfix\":\"\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\u4F60\u597D\u4E16\u754C\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -741069532
       label: i
@@ -465,7 +468,7 @@ MonoBehaviour:
     m_x: 1980
     m_y: 696
     m_node: {fileID: -115332833597249439}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","saveFilePath":""}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":""}'
     m_inputPoints:
     - id: -1055026120
       label: i
@@ -797,12 +800,13 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u7FFB\u8BD1"
-  prefix: "\u8BF7\u5C06\u4EE5\u4E0B\u6587\u672C\u7FFB\u8BD1\u4E3A\u82F1\u6587"
+  textfix: 
   export_text:
     _key: input_text
     _default: 
     _autoCreate: 1
-  append: 0
+  attachType: 0
+  modifyType: 0
   input_text:
     _key: 
     _default: "\u4F60\u597D\u4E16\u754C"
@@ -836,6 +840,7 @@ MonoBehaviour:
     _key: target_text
     _default: 
     _autoCreate: 1
+  saveFilePath: 
   eventReceiveKey: wekoi_receive_message
 --- !u!114 &8493206778027538543
 MonoBehaviour:

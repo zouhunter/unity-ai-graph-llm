@@ -8,33 +8,42 @@ using UnityEngine;
 using System.Reflection;
 using System.Text;
 
-namespace AIScripting.Describe
+namespace AIScripting.Import
 {
     [CustomNode("TypesAPI", 2, Define.GROUP)]
-    public class TypesAPINode : DescribePrefixNode
+    public class TypesAPINode : ScriptNodeBase
     {
         [Tooltip("类型列表")]
         public Ref<List<string>> types;
         public BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
+        [Tooltip("类型api")]
+        public Ref<Dictionary<Type, string>> typeApis;
         private Dictionary<string, Type> _typeDict = new Dictionary<string, Type>();
 
-        protected override AsyncOp WriteContent(StringBuilder sb)
+        protected override void OnProcess()
         {
-            bool exists = false;
-            foreach (var typeName in types.Value)
+            if(typeApis.Value != null)
             {
-                var type = GetType(typeName);
-                if (type != null)
+                bool exists = false;
+                var sb = new StringBuilder();
+                foreach (var typeName in types.Value)
                 {
-                    exists = true;
-                    WriteTypeClass(type,bindingFlags, sb);
+                    var type = GetType(typeName);
+                    if (type != null)
+                    {
+                        exists = true;
+                        sb.Clear();
+                        WriteTypeClass(type, bindingFlags, sb);
+                        typeApis.Value[type] = sb.ToString();
+                    }
+                }
+                if(exists)
+                {
+                    DoFinish(true);
+                    return;
                 }
             }
-            if (exists)
-            {
-                return AsyncOp.CompletedOp;
-            }
-            return null;
+            DoFinish(false);
         }
 
         /// <summary>

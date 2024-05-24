@@ -56,13 +56,13 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u4EE3\u7801\u5206\u6790"
-  prefix: "\u5206\u6790\u4E00\u4E0B\u8FD9\u4E2A\u4EE3\u7801\uFF0C\u5E76\u63D0\u4F9B\u5EFA\u8BAE
-    [\u56DE\u4E2D\u6587]"
+  textfix: 
   export_text:
     _key: str_value
     _default: 
     _autoCreate: 1
-  append: 0
+  attachType: 0
+  modifyType: 0
   input_text:
     _key: str_value
     _default: 
@@ -192,7 +192,6 @@ MonoBehaviour:
     _default: 
     _autoCreate: 1
   scriptOnly: 1
-  eventName: wekoi_receive_message
 --- !u!114 &-4787444064901338416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _type: AIScripting.NodeConnection
-  _title: 
+  _title: "key\u4E0D\u4E3A\u7A7A\u5224\u65AD"
   priority: 0
   disable: 0
   conditions:
@@ -286,7 +285,7 @@ MonoBehaviour:
   m_Name: AIScripting.Describe.DirFilesDictNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Describe.DirFilesDictNode
+  _type: AIScripting.Import.DirFilesDictNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
@@ -483,7 +482,7 @@ MonoBehaviour:
     m_x: 2076
     m_y: 864
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"str_value","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"str_value","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -579,7 +578,7 @@ MonoBehaviour:
     m_x: 1596
     m_y: 804
     m_node: {fileID: -3359938866953695417}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.DirFilesDictNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DirFilesDictNode","fileExt":"*.cs","dir_path":{"_key":"","_default":"Assets\\Plugins\\NodeGraph\\Runtime\\Libs","_autoCreate":true},"recursive":true,"fileInfoDict":{"_key":"fileDict","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.DirFilesDictNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DirFilesDictNode","fileExt":"*.cs","dir_path":{"_key":"","_default":"Assets\\Plugins\\NodeGraph\\Runtime\\Libs","_autoCreate":true},"recursive":true,"fileInfoDict":{"_key":"fileDict","_autoCreate":true}}'
     m_inputPoints:
     - id: -1343472246
       label: i
@@ -644,8 +643,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -7961902742697337436}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4EE3\u7801\u5206\u6790\",\"prefix\":\"\u5206\u6790\u4E00\u4E0B\u8FD9\u4E2A\u4EE3\u7801\uFF0C\u5E76\u63D0\u4F9B\u5EFA\u8BAE
-      [\u56DE\u4E2D\u6587]\",\"export_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4EE3\u7801\u5206\u6790\",\"textfix\":\"\",\"export_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -898998302
       label: i
@@ -725,8 +723,8 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: -898998302
     m_type: ->
     m_connection: {fileID: -4031753687787335317}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[{"param":"str_value","type":2,"compareType":1,"compareValue":""}],"conditionType":0}'
+    m_connectionJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.NodeConnection\",\"_title\":\"key\u4E0D\u4E3A\u7A7A\u5224\u65AD\",\"priority\":0,\"disable\":false,\"conditions\":[{\"param\":\"str_value\",\"type\":2,\"compareType\":1,\"compareValue\":\"\"}],\"conditionType\":0}"
   - m_id: 832231452
     m_fromNodeId: -124444468
     m_fromNodeConnectionPointId: -1251354010
@@ -1116,6 +1114,7 @@ MonoBehaviour:
     _key: target_text
     _default: 
     _autoCreate: 1
+  saveFilePath: 
   eventReceiveKey: wekoi_receive_message
 --- !u!114 &8593408383898307744
 MonoBehaviour:

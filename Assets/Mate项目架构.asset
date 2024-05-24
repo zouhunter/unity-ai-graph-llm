@@ -280,7 +280,7 @@ MonoBehaviour:
     m_x: 1297.9165
     m_y: 689.8376
     m_node: {fileID: 4538339291255567838}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.AssembleFileAPINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AssembleFileAPINode","prefix":"","export_text":{"_key":"","_default":"","_autoCreate":true},"append":0,"assemblyFiles":{"_key":"","_default":[],"_autoCreate":true},"supportAssemblePaths":[],"bindingFlags":30}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.AssembleFileAPINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AssembleFileAPINode","assemblyFiles":{"_key":"","_default":[],"_autoCreate":true},"supportAssemblePaths":[],"typeApis":{"_key":"","_autoCreate":true},"bindingFlags":30}'
     m_inputPoints:
     - id: 1156140778
       label: i
@@ -470,22 +470,19 @@ MonoBehaviour:
   m_Name: AIScripting.Describe.AssembleFileAPINode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Describe.AssembleFileAPINode
+  _type: AIScripting.Import.AssembleFileAPINode
   _inportNum: 1
   _outportNum: 1
   enable: 1
   _title: AssembleFileAPINode
-  prefix: 
-  export_text:
-    _key: 
-    _default: 
-    _autoCreate: 1
-  append: 0
   assemblyFiles:
     _key: 
     _default: []
     _autoCreate: 1
   supportAssemblePaths: []
+  typeApis:
+    _key: 
+    _autoCreate: 1
   bindingFlags: 30
 --- !u!114 &5292426651846173284
 MonoBehaviour:

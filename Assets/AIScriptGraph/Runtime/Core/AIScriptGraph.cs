@@ -378,7 +378,7 @@ namespace AIScripting
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogError($"Update error in AIScriptGraph: {ex.Message}\n{ex.StackTrace}");
+                UnityEngine.Debug.LogException(ex);
             }
         }
 

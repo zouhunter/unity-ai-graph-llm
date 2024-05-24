@@ -2,7 +2,8 @@
     "name": "AIScriptGraph",
     "rootNamespace": "",
     "references": [
-        "GUID:8773a8a2638e7c245b9333aaa28c9665"
+        "GUID:8773a8a2638e7c245b9333aaa28c9665",
+        "GUID:7ade0e16923fe4f4b865d7705c9fa35d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

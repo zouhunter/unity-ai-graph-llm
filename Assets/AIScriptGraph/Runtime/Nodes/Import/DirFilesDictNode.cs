@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 
-namespace AIScripting.Describe
+namespace AIScripting.Import
 {
     [CustomNode("DirFilesDict", 1, Define.GROUP)]
     public class DirFilesDictNode : ScriptNodeBase

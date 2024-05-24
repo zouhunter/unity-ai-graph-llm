@@ -11,7 +11,7 @@ using UnityEngine;
 namespace AIScripting.Describe
 {
     [CustomNode("Text",orderPriority:1, group: Define.GROUP)]
-    public class TextDescribeNode : DescribePrefixNode
+    public class TextDescribeNode : DescribeTextAttachNode
     {
         [Tooltip("文本说明")]
         public Ref<string> input_text;

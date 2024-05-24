@@ -65,6 +65,8 @@ namespace AIScripting
                 _variable = _variablePrivider.GetVariable<T>(_key, false);
                 if (_variable == null && _autoCreate)
                 {
+                    if (_default == null)
+                        _default = Activator.CreateInstance<T>();
                     _variable = new Variable<T>();
                     _variable.Value = _default;
                     _variablePrivider.SetVariable(_key, _variable);
@@ -99,6 +101,10 @@ namespace AIScripting
         public static implicit operator T(Ref<T> r)
         {
             return r.Value;
+        }
+        public override string ToString()
+        {
+            return Value?.ToString()??base.ToString();
         }
     }
 }

@@ -7,6 +7,10 @@
 
 using UnityEngine;
 using UnityEditor;
+using NUnit.Framework;
+using System.Reflection;
+using System.Collections.Generic;
+using System;
 
 namespace AIScripting
 {
@@ -28,12 +32,12 @@ namespace AIScripting
         private void SelectIndex(SerializedProperty property)
         {
             var subProps = property.serializedObject.targetObject.GetType().GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.FlattenHierarchy);
+            Array.Sort(subProps, (a, b) => a.DeclaringType == b.DeclaringType ? 0: a.DeclaringType.IsAssignableFrom(b.DeclaringType)?-1:1);   
             var index = 0;
             foreach (var item in subProps)
             {
                 if (!typeof(IRef).IsAssignableFrom(item.FieldType))
                     continue;
-
                 _valueType = item.FieldType.GetGenericArguments()[0];
 
                 index++;
@@ -59,12 +63,12 @@ namespace AIScripting
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             position = new Rect(position.x + 2, position.y + 2, position.width - 4, position.height - 4);
-            GUI.Box(position,GUIContent.none);
+            GUI.Box(position, GUIContent.none);
             FindProperties(property);
             SelectIndex(property);
 
             var textRect = new Rect(position.x, position.y, position.width - 180, EditorGUIUtility.singleLineHeight);
-            if(defaultProp != null)
+            if (defaultProp != null)
             {
                 if (GUI.Button(textRect, new GUIContent($"{_index}.{label.text} ({defaultProp.type})", "isExpanded able"), property.isExpanded ? EditorStyles.label : EditorStyles.boldLabel))
                 {

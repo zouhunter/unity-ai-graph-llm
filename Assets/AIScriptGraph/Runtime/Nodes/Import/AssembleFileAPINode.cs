@@ -5,39 +5,42 @@ using UnityEngine;
 using System.Reflection;
 using System.Text;
 
-namespace AIScripting.Describe
+namespace AIScripting.Import
 {
     [CustomNode("AssemblyFileAPI",orderPriority:2, group: Define.GROUP)]
-    public class AssembleFileAPINode : DescribePrefixNode
+    public class AssembleFileAPINode : ScriptNodeBase
     {
         [Tooltip("类型列表")]
         public Ref<List<string>> assemblyFiles;
         public List<string> supportAssemblePaths;
+        [Tooltip("类型api")]
+        public Ref<Dictionary<Type, string>> typeApis;
         public BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static|BindingFlags.DeclaredOnly;
-        private Dictionary<string, Type> _typeDict = new Dictionary<string, Type>();
 
-        protected override AsyncOp WriteContent(StringBuilder sb)
+        protected override void OnProcess()
         {
-            bool exists = false;
-            if (assemblyFiles.Value != null)
+            if (typeApis.Value != null)
             {
-                foreach (var assembleFile in assemblyFiles.Value)
+                if (assemblyFiles.Value != null)
                 {
-                    var assemble = Assembly.LoadFrom(assembleFile);
-                    LoadReferenceAssembles(assemble);
-                    var types = assemble?.GetTypes();
-                    foreach (var type in types)
+                    var sb = new StringBuilder();
+                    foreach (var assembleFile in assemblyFiles.Value)
                     {
-                        exists = true;
-                        TypesAPINode.WriteTypeClass(type, bindingFlags, sb);
+                        var assemble = Assembly.LoadFrom(assembleFile);
+                        LoadReferenceAssembles(assemble);
+                        var types = assemble?.GetTypes();
+                        foreach (var type in types)
+                        {
+                            sb.Clear();
+                            TypesAPINode.WriteTypeClass(type, bindingFlags, sb);
+                            typeApis.Value[type] = sb.ToString();
+                        }
                     }
+                    DoFinish(true);
+                    return;
                 }
             }
-            if (exists)
-            {
-                return AsyncOp.CompletedOp;
-            }
-            return null;
+            DoFinish(false);
         }
 
         private void LoadReferenceAssembles(Assembly assembly)

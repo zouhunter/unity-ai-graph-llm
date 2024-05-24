@@ -272,7 +272,7 @@ MonoBehaviour:
     m_y: 456
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"prefix\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"append\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"textfix\":\"\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -741069532
       label: i
@@ -304,7 +304,7 @@ MonoBehaviour:
     m_x: 2124
     m_y: 576
     m_node: {fileID: 3544307611051814443}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","saveFilePath":"Assets\\MTest\\AIGraph\\Demo"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":"Assets\\MTest\\AIGraph\\Demo"}'
     m_inputPoints:
     - id: -939630214
       label: i
@@ -359,7 +359,7 @@ MonoBehaviour:
     m_connection: {fileID: 2239953087946718410}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133609303419358179
+  m_lastModified: 133609955009990855
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -476,6 +476,10 @@ MonoBehaviour:
   enable: 1
   _title: ResponceShowNode
   eventName: wekoi_receive_message
+  responceText:
+    _key: 
+    _default: 
+    _autoCreate: 1
   saveFilePath: Assets\MTest\AIGraph\Demo
 --- !u!114 &3829005760195084966
 MonoBehaviour:
@@ -590,12 +594,13 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C"
-  prefix: "wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C"
+  textfix: 
   export_text:
     _key: input_text
     _default: 
     _autoCreate: 1
-  append: 0
+  attachType: 0
+  modifyType: 0
   input_text:
     _key: 
     _default: 

@@ -20,6 +20,7 @@ namespace AIScripting.MateAI
         public string Authorization = "cb-dabd1913552249b3b14670b3ada4227c";
         public Ref<string> input = new Ref<string>("input_text");
         public Ref<string> output = new Ref<string>("output_text");
+        public string saveFilePath;
         private LitCoroutine _litCoroutine;
 
         [Header("消息接受key")]
@@ -146,6 +147,7 @@ namespace AIScripting.MateAI
         private void OnReceive(string data)
         {
             Owner.SendEvent(eventReceiveKey, data);
+            output.SetValue(output.Value + data);
         }
 
         public IEnumerator Request2(string url,string msg, System.Action<string> _callback)
