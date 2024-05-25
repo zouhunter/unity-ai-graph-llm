@@ -28,11 +28,17 @@ namespace AIScripting.Diagram
         public Ref<TextAsset> textAsset = new Ref<TextAsset>("comfyui_workflow");
         public Ref<string> exportDir = new Ref<string>("comfyui_dir", "Build");
         public string _clientId;
-        private HttpClient client = new HttpClient();
+        public string promptPath = "6.widgets_values";
+        private HttpClient _httpClient = new HttpClient();
+        private string _wsUrl;
         protected override void OnProcess()
         {
             if(string.IsNullOrEmpty(_clientId))
                 _clientId = System.Guid.NewGuid().ToString();
+            if (url.Value.StartsWith("http:"))
+                _wsUrl = "ws:" + url.Value.Substring(4);
+            if (url.Value.StartsWith("https:"))
+                _wsUrl = "wss:" + url.Value.Substring(5);
             Owner.StartCoroutine(DoRequest((texture) =>
             {
                 Debug.LogError(texture);
@@ -64,12 +70,10 @@ namespace AIScripting.Diagram
         {
             foreach (var nodeId in images.Keys)
             {
-                var seed = Guid.NewGuid().ToString();
-                int id = 0;
                 foreach (var imageDic in images[nodeId])
                 {
                     var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    var path = $"{exportDir.Value}/{imageDic.Key}.png";
+                    var path = $"{exportDir.Value}/{imageDic.Key}_{timestamp}.png";
                     Debug.Log($"GIF_LOCATION:{path}");
                     File.WriteAllBytes(path, imageDic.Value);
                     Debug.Log($"{path} DONE!!!");
@@ -84,7 +88,22 @@ namespace AIScripting.Diagram
             UnityWebRequest request = new UnityWebRequest(url + "/prompt", "POST");
             {
                 var mapData = JsonMapper.ToObject(textAsset.Value.text);
-                mapData["6"]["widgets_values"] = this.prompt.Value;
+                if(!string.IsNullOrEmpty(promptPath))
+                {
+                    var paths = promptPath.Split('.');
+                    var jd = mapData;
+                    for (int i = 0; i < paths.Length; i++)
+                    {
+                        if(i == paths.Length - 1)
+                        {
+                            jd[paths[i]] = this.prompt.Value;
+                        }
+                        else
+                        {
+                            jd = jd[paths[i]];
+                        }
+                    }
+                }
                 var jsonData = new JsonData();
                 jsonData["client_id"] = _clientId;
                 jsonData["prompt"] = mapData;
@@ -152,7 +171,7 @@ namespace AIScripting.Diagram
         {
             try
             {
-                var response = await client.GetStringAsync($"{url.Value}/history/{promptId}");
+                var response = await _httpClient.GetStringAsync($"{url.Value}/history/{promptId}");
                 Debug.Log(response);
                 return JsonMapper.ToObject(response);
             }
@@ -172,7 +191,7 @@ namespace AIScripting.Diagram
             jsonData["prompt"] = mapData;
             var content = new StringContent(jsonData.ToJson(), Encoding.UTF8, "application/json");
             Debug.LogError($"{url.Value}/prompt");
-            var response = await client.PostAsync(new Uri($"{url.Value}/prompt").AbsoluteUri, content);
+            var response = await _httpClient.PostAsync(new Uri($"{url.Value}/prompt").AbsoluteUri, content);
             var responseBody = await response.Content.ReadAsStringAsync();
             return JsonMapper.ToObject(responseBody);
         }
@@ -188,7 +207,7 @@ namespace AIScripting.Diagram
                 new KeyValuePair<string, string>("type", folderType)
             });
             var urlBytes = $"{url.Value}/view?{await urlValues.ReadAsStringAsync()}";
-            return await client.GetByteArrayAsync(urlBytes);
+            return await _httpClient.GetByteArrayAsync(urlBytes);
         }
 
         // 获取图片，涉及到监听WebSocket消息
@@ -217,6 +236,7 @@ namespace AIScripting.Diagram
                     {
                         var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
                         Debug.Log(message);
+                        //TODO判断队列
                         break;
                     }
                     else
