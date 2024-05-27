@@ -208,6 +208,10 @@ MonoBehaviour:
     _key: 
     _default: {fileID: 4900000, guid: dd33ee85b00b4544482d130b2edaddb9, type: 3}
     _autoCreate: 1
+  exportDir:
+    _key: comfyui_dir
+    _default: Build
+    _autoCreate: 1
   _clientId: d0e3dba1-f37d-4858-b391-e1558dd4ffZ
 --- !u!114 &-658272163205269217
 MonoBehaviour:
@@ -342,7 +346,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -1799173771543672511}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"comfyui_prompt","_default":"beautiful
-      scenery nature glass bottle landscape, , purple galaxy bottle,","_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":21816},"_autoCreate":true},"_clientId":"d0e3dba1-f37d-4858-b391-e1558dd4ffZ"}'
+      scenery nature glass bottle landscape, , purple galaxy bottle,","_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":21816},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"_clientId":"d0e3dba1-f37d-4858-b391-e1558dd4ffZ"}'
     m_inputPoints:
     - id: 81249834
       label: i
