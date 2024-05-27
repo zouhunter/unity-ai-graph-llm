@@ -216,7 +216,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -229,7 +229,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -239,7 +239,7 @@ MonoBehaviour:
     m_x: 1956
     m_y: 576
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AI","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AI","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -248,7 +248,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -261,7 +261,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -281,7 +281,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -293,8 +293,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 117.89
-        y: 22.029999
+        x: 117.61539
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -313,7 +313,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -325,8 +325,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 130.48001
-        y: 22.029999
+        x: 129.92308
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -634,4 +634,5 @@ MonoBehaviour:
     _key: output_text
     _default: 
     _autoCreate: 1
+  saveFilePath: 
   eventReceiveKey: wekoi_receive_message

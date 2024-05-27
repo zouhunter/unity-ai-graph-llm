@@ -5,9 +5,6 @@ using System.Linq;
 using System.Reflection;
 using UFrame.NodeGraph.DataModel;
 
-using UnityEditor;
-using UnityEditor.VersionControl;
-
 namespace AIScripting
 {
     public class AIScriptGraph : NodeGraphObj, IScriptGraphNode, IVariableProvider

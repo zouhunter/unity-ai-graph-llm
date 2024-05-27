@@ -213,6 +213,7 @@ MonoBehaviour:
     _default: Build
     _autoCreate: 1
   _clientId: d0e3dba1-f37d-4858-b391-e1558dd4ffZ
+  promptPath: 6.widgets_values
 --- !u!114 &-658272163205269217
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +290,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -302,7 +303,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -313,7 +314,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -658272163205269217}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":19970},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":7904},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -1329441486
       label: i
@@ -322,7 +323,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -335,7 +336,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -346,7 +347,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -1799173771543672511}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"comfyui_prompt","_default":"beautiful
-      scenery nature glass bottle landscape, , purple galaxy bottle,","_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":21816},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"_clientId":"d0e3dba1-f37d-4858-b391-e1558dd4ffZ"}'
+      scenery nature glass bottle landscape, , purple galaxy bottle,","_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":225656},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"_clientId":"d0e3dba1-f37d-4858-b391-e1558dd4ffZ","promptPath":"6.widgets_values"}'
     m_inputPoints:
     - id: 81249834
       label: i
@@ -355,7 +356,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -368,7 +369,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647

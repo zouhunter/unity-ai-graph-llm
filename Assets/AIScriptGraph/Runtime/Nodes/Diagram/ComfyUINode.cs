@@ -15,7 +15,6 @@ using UFrame.NodeGraph;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Net.Http;
-using UnityEditor.PackageManager;
 using System.IO;
 
 namespace AIScripting.Diagram
@@ -47,7 +46,7 @@ namespace AIScripting.Diagram
         }
 
         /// <summary>
-        /// ¼ÓÔØÍ¼
+        /// åŠ è½½å›¾
         /// </summary>
         /// <param name="onLoad"></param>
         /// <returns></returns>
@@ -108,7 +107,6 @@ namespace AIScripting.Diagram
                 jsonData["client_id"] = _clientId;
                 jsonData["prompt"] = mapData;
                 string _jsonText = jsonData.ToJson();
-                Debug.LogError(_jsonText);
                 byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);
                 request.uploadHandler = new UploadHandlerRaw(data);
                 request.downloadHandler = new DownloadHandlerBuffer();
@@ -135,7 +133,7 @@ namespace AIScripting.Diagram
                     Debug.LogError(request.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",ComfyuiºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Comfyuiè€—æ—¶ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
 
@@ -162,11 +160,11 @@ namespace AIScripting.Diagram
                     Debug.LogError(request.error);
                 }
                 request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",ComfyuiºÄÊ±£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log(System.DateTime.Now.Ticks + ",Comfyuiè€—æ—¶ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
 
-        // »ñÈ¡ÀúÊ·¼ÇÂ¼
+        // è·å–å†å²è®°å½•
         private async Task<JsonData> GetHistory(string promptId)
         {
             try
@@ -182,7 +180,7 @@ namespace AIScripting.Diagram
             return null;
         }
 
-        // Ïò·şÎñÆ÷¶ÓÁĞ·¢ËÍÌáÊ¾ĞÅÏ¢
+        // å‘æœåŠ¡å™¨é˜Ÿåˆ—å‘é€æç¤ºä¿¡æ¯
         private async Task<JsonData> QueuePrompt(string prompt)
         {
             var mapData = JsonMapper.ToObject(prompt);
@@ -196,7 +194,7 @@ namespace AIScripting.Diagram
             return JsonMapper.ToObject(responseBody);
         }
 
-        // »ñÈ¡Í¼Æ¬
+        // è·å–å›¾ç‰‡
         private async Task<byte[]> GetImage(string filename, string subfolder, string folderType)
         {
             var data = new { filename = filename, subfolder = subfolder, type = folderType };
@@ -210,7 +208,7 @@ namespace AIScripting.Diagram
             return await _httpClient.GetByteArrayAsync(urlBytes);
         }
 
-        // »ñÈ¡Í¼Æ¬£¬Éæ¼°µ½¼àÌıWebSocketÏûÏ¢
+        // è·å–å›¾ç‰‡ï¼Œæ¶‰åŠåˆ°ç›‘å¬WebSocketæ¶ˆæ¯
         private async Task<Dictionary<string, Dictionary<string,byte[]>>> GetImages(string promptId)
         {
             Debug.Log($"prompt_id:{promptId}");
@@ -224,7 +222,7 @@ namespace AIScripting.Diagram
             }
             catch (Exception ex)
             {
-                // ´íÎó´¦Àí
+                // é”™è¯¯å¤„ç†
                 Debug.LogError("WebSocket Connect Exception: " + ex.ToString());
             }
             while (ws.State == WebSocketState.Open)
@@ -235,9 +233,17 @@ namespace AIScripting.Diagram
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
                         var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                        var jd = JsonMapper.ToObject(message);
                         Debug.Log(message);
-                        //TODOÅĞ¶Ï¶ÓÁĞ
-                        break;
+                        //TODOåˆ¤æ–­é˜Ÿåˆ—
+                        if ((int)jd["data"]["status"]["exec_info"]["queue_remaining"] == 0)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            //wait
+                        }
                     }
                     else
                     {
@@ -250,14 +256,14 @@ namespace AIScripting.Diagram
                 }
 
             }
-            Debug.Log("execute finish");
+            Debug.Log("socket execute finish");
             var history = await GetHistory(promptId);
             foreach (var output in history[promptId]["outputs"])
             {
                 foreach (string nodeId in history[promptId]["outputs"].Keys)
                 {
                     var nodeOutput = history[promptId]["outputs"][nodeId];
-                    // Í¼Æ¬·ÖÖ§
+                    // å›¾ç‰‡åˆ†æ”¯
                     if (nodeOutput.ContainsKey("images"))
                     {
                         outputImages[nodeId] = new Dictionary<string, byte[]>();
@@ -268,7 +274,7 @@ namespace AIScripting.Diagram
                             outputImages[nodeId][image["filename"].ToString()] = imageData;
                         }
                     }
-                    //// ÊÓÆµ·ÖÖ§
+                    //// è§†é¢‘åˆ†æ”¯
                     //if (nodeOutput.ContainsKey("videos"))
                     //{
                     //    var videosOutput = new List<byte[]>();
@@ -282,6 +288,32 @@ namespace AIScripting.Diagram
                 }
             }
             return outputImages;
+        }
+    }
+
+    [System.Serializable]
+    public class WebSocketResult
+    {
+        public string type;
+        public Data data;
+
+        [System.Serializable]
+        public class Data
+        {
+            public string sid;
+            public Status status;
+        }
+
+        [System.Serializable]
+        public class Status
+        {
+            public ExecInfo exec_info;
+        }
+
+        [System.Serializable]
+        public class ExecInfo
+        {
+            public string queue_remaining;
         }
     }
 }
