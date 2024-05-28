@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 
 
-namespace AIScripting.Ollama
+namespace AIScripting
 {
     [Serializable]
     public class PostData
     {
         public string model;
         public List<SendData> messages;
-        public bool stream;//¡˜ Ω
+        public bool stream;//ÊµÅÂºè
     }
 }

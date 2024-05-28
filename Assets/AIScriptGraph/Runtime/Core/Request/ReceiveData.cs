@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace AIScripting.Ollama
+namespace AIScripting
 {
     //{"model":"llama3","created_at":"2024-05-08T09:27:16.4077711Z","message":{"role":"assistant","content":" harmony"},"done":false}
     [Serializable]

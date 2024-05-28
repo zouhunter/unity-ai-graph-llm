@@ -25,14 +25,20 @@ namespace AIScripting.Debugger
             base.ResetGraph(graph);
             graph.RemoveEvent(eventName, OnRecvMessage);
             graph.RegistEvent(eventName, OnRecvMessage);
-            allText = allText?? new StringBuilder();
+            allText = allText ?? new StringBuilder();
             allText.Clear();
         }
 
         private void OnRecvMessage(object message)
         {
-            var text = message;
-            allText.Append(message);
+            if (message is string)
+            {
+                allText.Append(message);
+            }
+            else if (message is ReceiveData recv)
+            {
+                allText.Append(recv.message.content);
+            }
         }
 
         protected override void OnProcess()

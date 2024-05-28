@@ -22,6 +22,7 @@ namespace AIScripting.Ollama
 
         [Header("消息接受key")]
         [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
+        public bool modifyData = false;
         /// <summary>
         /// 缓存对话
         /// </summary>
@@ -33,9 +34,20 @@ namespace AIScripting.Ollama
         public Ref<string> url = new Ref<string>("ollama_url", "http://localhost:8081/api/chat");
 
         private LitCoroutine _litCoroutine;
+        private List<SendData> historyData;
 
         protected override void OnProcess()
         {
+            if(!modifyData)
+            {
+                historyData = new List<SendData>();
+                historyData.AddRange(m_DataList.Value);
+            }
+            else
+            {
+                historyData = m_DataList.Value;
+            }
+
             PostMsg(input, (result) =>
             {
                 output.SetValue(result);
@@ -52,7 +64,7 @@ namespace AIScripting.Ollama
             CheckHistory();
 
             //缓存发送的信息列表
-            m_DataList.Value.Add(new SendData("user", _msg));
+            historyData.Add(new SendData("user", _msg));
             _litCoroutine = Owner.StartCoroutine(Request(_callback));
         }
 
@@ -61,9 +73,12 @@ namespace AIScripting.Ollama
         /// </summary>
         public virtual void CheckHistory()
         {
-            if (m_DataList.Value.Count > m_HistoryKeepCount)
+            if(m_HistoryKeepCount >= 0)
             {
-                m_DataList.Value.RemoveAt(0);
+                while (historyData.Count > m_HistoryKeepCount)
+                {
+                    historyData.RemoveAt(0);
+                }
             }
         }
 
@@ -93,7 +108,7 @@ namespace AIScripting.Ollama
                 PostData _postData = new PostData
                 {
                     model = m_GptModel.ToString(),
-                    messages = m_DataList,
+                    messages = historyData,
                     stream = true
                 };
 
@@ -115,13 +130,13 @@ namespace AIScripting.Ollama
                     _asyncOp.SetProgress(progress);
                 }
 
-                if (request.responseCode == 200)
+                if (string.IsNullOrEmpty(request.error))
                 {
                     string _msgBack = downloadHandler.allText.ToString();
                     if (!string.IsNullOrEmpty(_msgBack))
                     {
                         //添加记录
-                        m_DataList.Value.Add(new SendData("assistant", _msgBack));
+                        historyData.Add(new SendData("assistant", _msgBack));
                         _callback(_msgBack);
                     }
                     else
@@ -132,7 +147,7 @@ namespace AIScripting.Ollama
                 else
                 {
                     _callback?.Invoke(null);
-                    Debug.LogError(request.downloadHandler.error);
+                    Debug.LogError(request.error);
                 }
                 request.Dispose();
                 Debug.Log(System.DateTime.Now.Ticks + ",Ollama耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);

@@ -74,7 +74,7 @@ namespace AIScripting.Ollama
 
         private void OnReceiveOne(string text)
         {
-            Debug.Log("OnReceiveOne:" + text);
+            //Debug.Log("OnReceiveOne:" + text);
             var receiveData = JsonUtility.FromJson<ReceiveData>(text);
             allText.Append(receiveData.message.content);
             _onReceive?.Invoke(receiveData);

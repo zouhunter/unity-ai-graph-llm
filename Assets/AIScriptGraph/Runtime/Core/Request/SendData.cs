@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AIScripting.Ollama
+namespace AIScripting
 {
     [Serializable]
     public class SendData

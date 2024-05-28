@@ -7,6 +7,14 @@ namespace AIScripting
 {
     public enum CodeType
     {
-        None, CSharp, Shader, Other
+        None, 
+        CSharp, 
+        Shader, 
+        Json, 
+        Yaml, 
+        Python, 
+        Shell, 
+        Cmd, 
+        Other
     }
 }

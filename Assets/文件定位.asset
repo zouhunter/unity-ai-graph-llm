@@ -1,0 +1,1714 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9004991405203336938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: 
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &-8390407360429534332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-8365014056076100421
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-7945017305879831112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-7676092136225238100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-6952531789606267040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
+  m_Name: AIScripting.BeginNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.BeginNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: BeginNode
+--- !u!114 &-6154224009939415639
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-6002162713327741544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-5446930935147833812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca1037f4e2dcd41985f275eaaf3d98, type: 3}
+  m_Name: AIScripting.Debugger.ResponceShowNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.ResponceShowNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: ResponceShowNode
+  eventName: ollama_receive_message
+  responceText:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  saveFilePath: 
+--- !u!114 &-4928592595442152686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-4923219340059654390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac959d18151f4d498338398b28fc681, type: 3}
+  m_Name: AIScripting.Debugger.DiffShowNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.DiffShowNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: DiffShowNode
+  sourceText:
+    _key: source_text
+    _default: 
+    _autoCreate: 1
+  targetText:
+    _key: target_text
+    _default: 
+    _autoCreate: 1
+  scriptOnly: 1
+--- !u!114 &-4783415332482803286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-4468445910281434414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.Ollama.OllamaNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Ollama.OllamaNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: OllamaNode
+  m_GptModel: llama3
+  m_HistoryKeepCount: 10
+  eventReceiveKey: ollama_receive_message
+  modifyData: 1
+  m_DataList:
+    _key: send_data_list
+    _default: []
+    _autoCreate: 0
+  input:
+    _key: question_text
+    _default: 
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
+--- !u!114 &-4279336012041109727
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-4200022527638749244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-4192473970711294693
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-3990286795141145749
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff41cac25c7cf040afb8385175c3131, type: 3}
+  m_Name: AIScripting.Describe.TextDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.TextDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u63CF\u8FF0"
+  textfix: 'This is my project hierarchy:'
+  export_text:
+    _key: source_text
+    _default: 
+    _autoCreate: 1
+  attachType: 0
+  modifyType: 0
+  input_text:
+    _key: source_text
+    _default: 
+    _autoCreate: 1
+--- !u!114 &-3949894375086476267
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-3470012606271220198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: ->
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &-3244180755604920922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-2502685241082666670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: ->
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &-2410923245524006075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-2116758347687151714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-1065494279686641394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-947678888257602543
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff41cac25c7cf040afb8385175c3131, type: 3}
+  m_Name: AIScripting.Describe.TextDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.TextDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: Question
+  textfix: "My question is: Based on the file structure of the project provided in
+    the last conversation, find {0}, analyze its full path, return a json structure
+    like ```json \n{{\"path\":\"Assets\"}}\n```, the key is' path ', the value is
+    the full path."
+  export_text:
+    _key: question_text
+    _default: 
+    _autoCreate: 1
+  attachType: 2
+  modifyType: 2
+  input_text:
+    _key: 
+    _default: "Home\u573A\u666F"
+    _autoCreate: 1
+--- !u!114 &-657987837560782081
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &-626670516285323765
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-503761440720780893
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6324ec7f2e111844bbab61d6906f5ea5, type: 3}
+  m_Name: AIScripting.Describe.SendDataDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.SendDataDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "System\u8BF4\u660E"
+  input_role:
+    _key: 
+    _default: system
+    _autoCreate: 1
+  input_text:
+    _key: 
+    _default: you are tools of my unity project
+    _autoCreate: 1
+  output_list:
+    _key: send_data_list
+    _default:
+    - role: system
+      content: you are tools of my unity project
+    - role: user
+      content: "-  project hierarchy:\r\n# directory descs:\r\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\r\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\r\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\r\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\r\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\r\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\r\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\r\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\r\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\r\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\r\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\r\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\r\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\r\n#
+        files of directorys:\r\nAssets/_Art/_animations/generic\u52A8\u753B:[\r\nanim_rename.csv,role_play_anims.csv]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate:[\r\n@f_stand.fbx,A_pose_f.anim,A_pose_f.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/ERP:[\r\n@f_livingroom_001_ERP.fbx,@f_piano_ERP.fbx,@f_yoga_ERP.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle:[\r\n@f_idle_002.fbx,@f_idle_004.fbx,@f_idle_005.fbx,@f_idle_006.fbx,@f_idle_007.fbx,@f_idle_008.fbx,@f_idle_010.fbx,@f_idle_011.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/IdleRandom:[\r\n@f_deepbreath.fbx,@f_pace.fbx,@f_scratchhead.fbx,@f_spaceout.fbx,@f_tiptoe.fbx,@f_yawn.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/Preset:[\r\n@f_display_001.fbx,@f_display_002.fbx,@f_display_003.fbx,@f_display_004.fbx,@f_display_005.fbx,@f_display_006.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/Shop:[\r\n@f_changeclothes_001.fbx,@f_changeclothes_002.fbx,@f_changeclothes_003.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction:[\r\n]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Book:[\r\n@f_lookBOOK_end.fbx,@f_lookBOOK_end_shu.fbx,@f_lookBOOK_loop.fbx,@f_lookBOOK_loop_shu.fbx,@f_lookBOOK_stard.fbx,@f_lookBOOK_stard_shu.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Piano:[\r\n@f_Piano
+        Playing_end.fbx,@f_Piano Playing_loop.fbx,@f_Piano Playing_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Sofa:[\r\n@f_lyingonside_end.fbx,@f_lyingonside_loop.fbx,@f_lyingonside_stard.fbx,@f_sitsleepy_end.fbx,@f_sitsleepy_loop.fbx,@f_sitsleepy_stard.fbx,@f_sitsofa_end.fbx,@f_sitsofa_loop.fbx,@f_sitsofa_loop_1.fbx,@f_sitsofa_stard.fbx,@f_sitsofa_to_sitsleepy.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Watering:[\r\n@f_watering_end.fbx,@f_watering_loop.fbx,@f_watering_start.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Yoga:[\r\n@f_yoga_01_end.fbx,@f_yoga_01_loop.fbx,@f_yoga_01_stard.fbx,@f_yoga_02_end.fbx,@f_yoga_02_loop.fbx,@f_yoga_02_stard.fbx,@f_yoga_03_end.fbx,@f_yoga_03_loop.fbx,@f_yoga_03_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Bathing:[\r\n@f_bathe.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Bed:[\r\n@f_bed_pose_01to02.fbx,@f_bed_pose_01to03.fbx,@f_bed_pose_02to01.fbx,@f_bed_pose_02to03.fbx,@f_bed_pose_03to01.fbx,@f_bed_pose_03to02.fbx,@f_on_bad01_end.fbx,@f_on_bad01_loop.fbx,@f_on_bad01_stard.fbx,@f_on_bad02_end.fbx,@f_on_bad02_loop.fbx,@f_on_bad02_stard.fbx,@f_on_bad03_end.fbx,@f_on_bad03_loop.fbx,@f_on_bad03_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Sofa:[\r\n@f_roomsofa_end.fbx,@f_roomsofa_loop.fbx,@f_roomsofa_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/RolePlay:[\r\n@f_angry_roleplay.fbx,@f_anxious_roleplay.fbx,@f_confused_roleplay.fbx,@f_disgusted_roleplay.fbx,@f_excited_roleplay.fbx,@f_fear_roleplay.fbx,@f_happy_roleplay.fbx,@f_hopeful_roleplay.fbx,@f_relaxed_roleplay.fbx,@f_sad_roleplay.fbx,@f_speechless_roleplay.fbx,@f_stressed_roleplay.fbx,@f_surprised_roleplay.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/RolePlay/3dTouch:[\r\n@f_leanin_01_roleplay.fbx,@f_leanin_02_roleplay.fbx,@f_leanin_03_roleplay.fbx,@f_touchabs_01_roleplay.fbx,@f_touchabs_02_roleplay.fbx,@f_touchabs_03_roleplay.fbx,@f_touchchest_01_roleplay.fbx,@f_touchchest_02_roleplay.fbx,@f_touchface_01_roleplay_s.fbx,@f_touchface_02_roleplay_s.fbx,@f_touchhead_01_roleplay.fbx,@f_touchpants_01_roleplay.fbx,@f_touchpants_02_roleplay.fbx,@f_touchpants_03_roleplay.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby:[\r\n@f_stand-happy_f.fbx,@f_standby_001.fbx,@f_standby_002.fbx,@f_standby_003.fbx,@f_standby_004.fbx,@f_standby_005.fbx,@f_standby_006.fbx,@f_standby_007.fbx,@f_standby_008.fbx,@f_stand_chatnotsure_f.fbx,@f_stand_generaltalk_f.fbx,@f_stand_idle_f.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Hello:[\r\n@f_idle_003_01.fbx,@f_idle_003_02.fbx,@f_idle_003_03.fbx,@f_wave_hands.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Listen:[\r\n@f_akimbo_standby.fbx,@f_nodwitharms_standby.fbx,@f_rubpalms_standby.fbx,@f_tapchin_standby.fbx,@f_touchneck_standby.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Speak:[\r\n@f_spreadhands_standby.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/TouchRandom:[\r\n@f_actsilly_01_3dt.fbx,@f_blowkisses_3dt.fbx,@f_bow_3dt.fbx,@f_makeheart_3dt.fbx,@f_roundkick_3dt.fbx,@f_Sexy
+        dance_3dt.fbx,@f_spinaround_3dt.fbx,@f_swag_3dt.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Walk:[\r\n@f_Left_Turn_180.fbx,@f_Left_Turn_90.fbx,@f_Right_Turn_180.fbx,@f_Right_Turn_90.fbx,@f_walk.fbx,@f_walk_X.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate:[\r\n@m_stand.fbx,A_pose_m.anim,A_pose_m.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle:[\r\n@m_idle_002.fbx,@m_idle_004.fbx,@m_idle_005.fbx,@m_idle_006.fbx,@m_idle_007.fbx,@m_idle_008.fbx,@m_idle_010.fbx,@m_idle_011.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/IdleRandom:[\r\n@m_deepbreath.fbx,@m_pace.fbx,@m_scratchhead.fbx,@m_spaceout.fbx,@m_tiptoe.fbx,@m_yawn.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/Preset:[\r\n@m_display_001.fbx,@m_display_002.FBX,@m_display_003.FBX,@m_display_004.FBX,@m_display_005.FBX,@m_display_006.FBX]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/Shop:[\r\n@m_changeclothes_001.fbx,@m_changeclothes_002.fbx,@m_changeclothes_003.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction:[\r\n]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Book:[\r\n@m_BOOK_end.fbx,@m_BOOK_loop.fbx,@m_BOOK_stard.fbx,@m_lookBOOK_end.fbx,@m_lookBOOK_loop.fbx,@m_lookBOOK_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Piano:[\r\n@m_Piano
+        Playing_end.fbx,@m_Piano Playing_loop.fbx,@m_Piano Playing_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Sofa:[\r\n@m_lyingonside_end.fbx,@m_lyingonside_loop.fbx,@m_lyingonside_stard.fbx,@m_sitsleepy_end.fbx,@m_sitsleepy_loop.fbx,@m_sitsleepy_stard.fbx,@m_sitsofa_end.fbx,@m_sitsofa_loop.fbx,@m_sitsofa_loop_1.fbx,@m_sitsofa_stard.fbx,@m_sitsofa_to_sitsleepy.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Watering:[\r\n@m_watering_end.fbx,@m_watering_loop.fbx,@m_watering_start.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Yoga:[\r\n@m_warmup_01_end.fbx,@m_warmup_01_loop.fbx,@m_warmup_01_stard.fbx,@m_warmup_02_end.fbx,@m_warmup_02_loop.fbx,@m_warmup_02_stard.fbx,@m_warmup_03_end.fbx,@m_warmup_03_loop.fbx,@m_warmup_03_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bathing:[\r\n@m_bathe.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bed:[\r\n@m_bed_pose_01to02.fbx,@m_bed_pose_02to01.fbx,@m_on_bad01_end.fbx,@m_on_bad01_loop.fbx,@m_on_bad01_stard.fbx,@m_on_bad02_end.fbx,@m_on_bad02_loop.fbx,@m_on_bad02_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Sofa:[\r\n@m_roomsofa_end.fbx,@m_roomsofa_loop.fbx,@m_roomsofa_stard.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay:[\r\n]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Emotion:[\r\n@m_angry_roleplay.fbx,@m_anxious_roleplay.fbx,@m_confused_roleplay.fbx,@m_disgusted_roleplay.fbx,@m_excited_roleplay.fbx,@m_fear_roleplay.fbx,@m_happy_roleplay.fbx,@m_hopeful_roleplay.fbx,@m_relaxed_roleplay.fbx,@m_sad_roleplay.fbx,@m_speechless_roleplay.fbx,@m_stressed_roleplay.fbx,@m_surprised_roleplay.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Touch:[\r\n@m_leanin_01_roleplay.fbx,@m_leanin_02_roleplay.fbx,@m_leanin_03_roleplay.fbx,@m_touchabs_01_roleplay.fbx,@m_touchabs_02_roleplay.fbx,@m_touchabs_03_roleplay.fbx,@m_touchchest_01_roleplay.fbx,@m_touchchest_02_roleplay.fbx,@m_touchface_01_roleplay_s.fbx,@m_touchface_02_roleplay_s.fbx,@m_touchhead_01_roleplay.fbx,@m_touchpants_01_roleplay.fbx,@m_touchpants_02_roleplay.fbx,@m_touchpants_03_roleplay.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby:[\r\n@m_standby_001.fbx,@m_standby_002.FBX,@m_standby_003.FBX,@m_standby_004.FBX,@m_standby_005.FBX,@m_standby_006.FBX,@m_standby_007.FBX,@m_standby_008.FBX,@m_Talking_m.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Hello:[\r\n@m_idle_003_01.fbx,@m_idle_003_02.fbx,@m_idle_003_03.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Listen:[\r\n@m_akimbo_standby.fbx,@m_nodwitharms_standby.fbx,@m_rubpalms_standby.fbx,@m_stand_listen_m.fbx,@m_tapchin_standby.fbx,@m_touchneck_standby.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Speak:[\r\n@m_spreadhands_standby.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/TouchRandom:[\r\n@m_actsilly_01_3dt.fbx,@m_blowkisses_3dt.fbx,@m_bow_3dt.fbx,@m_freestyle_3dt.fbx,@m_makeheart_3dt.fbx,@m_roundkick_3dt.fbx,@m_spinaround_3dt.fbx,@m_swag_3dt.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Walk:[\r\n@m_Left_Turn_180.fbx,@m_Left_Turn_90.fbx,@m_Right_Turn_180.fbx,@m_Right_Turn_90.fbx,@m_walk.fbx]\r\nAssets/_Art/_animations/generic\u52A8\u753B/Item:[\r\nMedalShow.anim]\r\nAssets/Scenes:[\r\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\r\nAssets/Scenes/HomeScene:[\r\nHomeObjs.prefab,NavMesh.asset,ReflectionProbe-0.exr,ReflectionProbe-10.exr,sfx-home.prefab]\r\nAssets/Scenes/HomeScene/DayLightmaps:[\r\nHomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr]\r\nAssets/Scenes/HomeScene/NightLightmaps:[\r\nHomeScene_371857150_probes.asset,HomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr,RoomScene_371857150_probes.asset]\r\nAssets/Scenes/PlayStudioScene:[\r\nNavMesh.asset,PlayStudioScene_371857150_probes.asset,PlayStudioScene_LM0_final.hdr,PlayStudioScene_LMA12_final.hdr,PlayStudioScene_LMA13_final.hdr,PlayStudioScene_LMA1_final.hdr,PlayStudioScene_LMA2_final.hdr,PlayStudioScene_LMA3_final.hdr,PlayStudioScene_LMA4_final.hdr,PlayStudioScene_LMA5_final.hdr,PlayStudioScene_LMA6_final.hdr,PlayStudioScene_LMA7_final.hdr,PlayStudioScene_LMA8_final.hdr,PlayStudioScene_LMA9_final.hdr,ReflectionProbe-10.exr]\r\nAssets/Scenes/RoomScene:[\r\nNavMesh.asset,OcclusionCullingData.asset,ReflectionProbe-10.exr,RoomObjs.prefab]\r\nAssets/Scenes/RoomScene/DayLightmaps:[\r\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\r\nAssets/Scenes/RoomScene/NightLightmaps:[\r\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\r\nAssets/Scenes/_backup:[\r\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreen.lighting,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\r\nAssets/Main:[\r\nAOTGenerics.cs,ConsoleToSceen.cs,LoadDll.cs,Main.asmdef,TestSuper.cs]\r\nAssets/Main/APPConfig:[\r\nAppConfigData.cs,AppConfigdata_Dev.asset,AppConfigdata_Prd.asset]\r\nAssets/Main/AssetsBundleManager:[\r\nAssetBundleManager.cs,AssetBundleSetting.cs,AsyncOperation.cs,FileBundleLoader.cs,ScriptableSingleton.cs,SimulateBundleLoader.cs]\r\nAssets/Main/Bridge:[\r\nBaseNativeBridge.cs,Bridge.cs]\r\nAssets/Main/Bridge/PlantformBridge:[\r\nAndroidPantformBridge.cs,EditorPlantformBridge.cs,IOSPantformBridge.cs]\r\nAssets/Main/FileCryion:[\r\nFileDryion.cs]\r\nAssets/Main/HotLoad:[\r\nHotConfig.cs,HotFileDown.cs,HotLoadManager.cs,HotLoadNetWork.cs]\r\nAssets/Main/LoadingUI:[\r\nLoadingABResPanel.cs,LoadingSpritePlayer.cs,RandomTextBehaviour.cs]\r\nAssets/Main/LoadSceneHotLoadCtr:[\r\nAppLifeStatus.cs,LoadSceneHotLoadCtr.cs]\r\nAssets/Main/Localization:[\r\nLanguageData.cs,LocalizationCtr.cs,LocalizationTextBinding.cs]\r\nAssets/Main/MagicaCloth2:[\r\nMagicaCloth2.asmdef,Readme.txt,Readme_jpn.txt]\r\nAssets/Main/MagicaCloth2/Res:[\r\n]\r\nAssets/Main/MagicaCloth2/Res/Icon:[\r\nicon-cloth.png,icon-collider.png,icon-settings.png,icon-wind.png]\r\nAssets/Main/MagicaCloth2/Res/Preset:[\r\nMC2_Preset_Accessory.json,MC2_Preset_Cape.json,MC2_Preset_FrontHair.json,MC2_Preset_HardSpring.json,MC2_Preset_LongHair.json,MC2_Preset_MiddleSpring.json,MC2_Preset_ShortHair.json,MC2_Preset_Skirt.json,MC2_Preset_SoftSpring.json,MC2_Preset_Tail.json]\r\nAssets/Main/MagicaCloth2/Scripts:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\r\nCheckSliderSerializeData.cs,ClothBehaviour.cs,ClothForceMode.cs,ClothNormalAxis.cs,ClothParameters.cs,ClothProcess.cs,ClothProcessData.cs,ClothProcessGeneration.cs,ClothSerializeData.cs,ClothSerializeData2.cs,ClothSerializeDataFunction.cs,ClothUpdateMode.cs,CullingSettings.cs,CurveSerializeData.cs,CustomSkinningSettings.cs,GizmoSerializeData.cs,MagicaCloth.cs,MagicaClothAnimationProperty.cs,MagicaClothAPI.cs,NormalAlignmentSettings.cs,SelectionData.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\r\nColliderComponent.cs,MagicaCapsuleCollider.cs,MagicaPlaneCollider.cs,MagicaSphereCollider.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\r\nAngleConstraint.cs,ColliderCollisionConstraint.cs,DistanceConstraint.cs,InertiaConstraint.cs,MotionConstraint.cs,SelfCollisionConstraint.cs,SpringConstraint.cs,TetherConstraint.cs,TriangleBendingConstraint.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\r\nMagicaWindZone.cs,WindParams.cs,WindSettings.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\r\nResultDefine.cs,SystemDefine.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\r\nICount.cs,IDataValidate.cs,ITransform.cs,IValid.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\r\nIManager.cs,MagicaManager.cs,MagicaManagerAPI.cs,MagicaSettings.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\r\nClothManager.cs,PreBuildManager.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\r\nRenderData.cs,RenderManager.cs,RenderSetupData.cs,RenderSetupDataSerialization.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\r\nColliderManager.cs,SimulationManager.cs,TimeManager.cs,WindManager.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\r\nTeamManager.cs,TeamWindData.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\r\nTransformData.cs,TransformDataSerialization.cs,TransformManager.cs,TransformRecord.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\r\nVirtualMeshManager.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\r\nPreBuildScriptableObject.cs,PreBuildSerializeData.cs,SharePreBuildData.cs,UniquePreBuildData.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\r\nReductionSettings.cs,ReductionWorkData.cs,SameDistanceReduction.cs,ShapeDistanceReduction.cs,SimpleDistanceReduction.cs,StepReductionBase.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\r\nClothDebugSettings.cs,VirtualMeshDebugSettings.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\r\nDataUtility.cs,MultiDataBuilder.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\r\nGridMap.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\r\nInterlockUtility.cs,JobUtility.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\r\nAABB.cs,IntAABB.cs,MathExtensions.cs,MathUtility.cs,MinimumData.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\r\nMeshUtility.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\r\nDevelop.cs,StaticStringBuilder.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\r\nDataChunk.cs,ExBitFlag16.cs,ExBitFlag8.cs,ExCostSortedList1.cs,ExCostSortedList4.cs,ExNativeArray.cs,ExProcessingList.cs,ExSimpleNativeArray.cs,ExTransformAccessArray.cs,FixedList128BytesExtensions.cs,FixedList32BytesExtensions.cs,FixedList4096BytesExtensions.cs,FixedList512BytesExtensions.cs,FixedList64BytesExtensions.cs,NativeArrayExtensions.cs,NativeMultiHashMapExtensions.cs,NativeReferenceExtensions.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\r\nException.cs,ResultCode.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\r\nTimeSpan.cs,UnityTimeSpan.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\r\nVertexAttribute.cs,VirtualMesh.cs,VirtualMeshBoneWeight.cs,VirtualMeshContainer.cs,VirtualMeshPrimitive.cs,VirtualMeshRaycastHit.cs,VirtualMeshTransform.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\r\nVirtualMeshInputOutput.cs,VirtualMeshMapping.cs,VirtualMeshOptimization.cs,VirtualMeshProxy.cs,VirtualMeshReduction.cs,VirtualMeshSerialization.cs,VirtualMeshWork.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor:[\r\nMagicaCloth2.Editor.asmdef]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\r\nClothAssetPostprocessor.cs,ClothEditorManager.cs,ClothEditorUtility.cs,ClothInspectorUtility.cs,ClothPainter.cs,ClothPresetUtility.cs,MagicaCapsuleColliderEditor.cs,MagicaClothEditor.cs,MagicaPlaneColliderEditor.cs,MagicaSettingsEditor.cs,MagicaSphereColliderEditor.cs,MagicaWindZoneEditor.cs,VirtualMeshEditorUtility.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\r\nAboutMenu.cs,CheckSliderSerializeDataDrawer.cs,CurveSerializeDataDrawer.cs,DrawIconInHierarchy.cs,MenuItemScript.cs,SharePreBuildDataDrawer.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\r\nGizmoUtility.cs,MagicaCapsuleColliderGizmoDrawer.cs,MagicaClothGizmoDrawer.cs,MagicaPlaneColliderGizmoDrawer.cs,MagicaSphereColliderGizmoDrawer.cs,MagicaWindZoneGizmoDrawer.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\r\nPreBuildDataCreation.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\r\nMagicaCloth2UPMImporterBurst.asmdef,UnityPackageImporter.cs]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\r\nMagicaCloth2UPMImporterCollections.asmdef,UnityPackageImporter.cs]\r\nAssets/Main/ParticleEffectForUGUI:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Editor:[\r\nAnimatablePropertyEditor.cs,Coffee.UIParticle.Editor.asmdef,UIParticleEditor.cs,UIParticleMenu.cs]\r\nAssets/Main/ParticleEffectForUGUI/Icons:[\r\nUIParticleIcon.png]\r\nAssets/Main/ParticleEffectForUGUI/Runtime:[\r\nAnimatableProperty.cs,Coffee.UIParticle.asmdef,ModifiedMaterial.cs,UIParticle.cs,UIParticleAttractor.cs,UIParticleRenderer.cs,UIParticleUpdater.cs,Utils.cs]\r\nAssets/Main/ParticleEffectForUGUI/Samples~:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\r\nUIParticle_Demo.unity]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\r\nUIParticle_Demo_Animatable.controller,UIParticle_Demo_Pop.controller,UIParticle_Demo_Wave.controller]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\r\nUIParticle_Demo_Animatable.mat,UIParticle_Demo_Animatable.png,UIParticle_Demo_Dot.mat,UIParticle_Demo_Fire.mat,UIParticle_Demo_Fire_Atlas.png,UIParticle_Demo_Flame.mat,UIParticle_Demo_Flame_Atlas.tif,UIParticle_Demo_UIAdditive.mat]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\r\nUIParticle_Demo_Animatable.fbx,UIParticle_Demo_Animatable.prefab,UIParticle_Demo_EffectSample_Frame.prefab,UIParticle_Demo_EffectSample_Unity-chan.prefab]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\r\nCoffee.UIParticle.Demo.asmdef,CopyItemOnStart.cs,UIElementDragger.cs,UIParticle_Demo.cs,UIParticle_Demo_UIParticleController.cs]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\r\nUIParticle_Demo.spriteatlas,UIParticle_Demo_Light_Frame.png,UIParticle_Demo_Move.png,UIParticle_Demo_Star.png,UIParticle_Demo_Unity-chan.png]\r\nAssets/Main/ParticleEffectForUGUI/Shaders:[\r\nUIAdditive.mat,UIAdditive.shader]\r\nAssets/Main/Plugins:[\r\n]\r\nAssets/Main/Plugins/JSON:[\r\nJSONObject.cs,JSONTemplates.cs,readme.txt,VectorTemplates.cs]\r\nAssets/Main/Plugins/JSON/Editor:[\r\n]\r\nAssets/Main/Plugins/LJR:[\r\nreadme_en.txt,readme_jp.txt]\r\nAssets/Main/Plugins/LJR/Plugins:[\r\npackage.json]\r\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\r\nIJsonWrapper.cs,JsonData.cs,JsonException.cs,JsonMapper.cs,JsonMockWrapper.cs,JsonReader.cs,JsonWriter.cs,Lexer.cs,LitJson.asmdef,Netstandard15Polyfill.cs,ParserToken.cs]\r\nAssets/Main/Plugins/SimpleHTTP:[\r\nClient.cs,FormData.cs,LICENSE,README.html,README.pdf,Request.cs,RequestBody.cs,Response.cs]\r\nAssets/Main/Plugins/SimpleHTTP/Examples:[\r\nMain.cs,Post.cs,TestScene.unity]\r\nAssets/Main/UnityAndroidBridge:[\r\nUnityAndroidBridge.cs,UnityAppActivity.java]\r\nAssets/Main/UnityiOSBridge:[\r\nUnityiOSBridge.cs]\r\nAssets/Main/UnityLogUploadComponent:[\r\nUnityLogUploadComponent.cs]\r\nAssets/Main/Utils:[\r\nCopyUtil.cs,DictEx.cs,EngineEx.cs,ListEx.cs,ReflectUtils.cs,StringEx.cs,TextureEx.cs,TimeFormatEx.cs]\r\n\r\n"
+    - role: assistant
+      content: I remember that,file and directorys
+    - role: user
+      content: 'my question is:base on file paths of the project,please find full
+        path of "m_idle_003_03.fbx",analysis it full path,return a json string,key
+        is ''path'',value is the full path.
+
+'
+    - role: assistant
+      content: "I can help you with that.\n\nAssuming your Unity project has the
+        following file structure:\n```\nProject/\nAssets/\nModels/\nm_idle_003_03.fbx\n...\nscenes/\nMainScene.unity\n...\n...\nProjectSettings.asset\n...\n```\nThe
+        full path of \"m_idle_003_03.fbx\" would be: `Project/Assets/Models/m_idle_003_03.fbx`\n\nHere
+        is the JSON string you requested:\n```json\n{\n  \"path\": \"Project/Assets/Models/m_idle_003_03.fbx\"\n}\n```\nPlease
+        let me know if this is what you were looking for!"
+    _autoCreate: 1
+  modifyType: 0
+--- !u!114 &-447765112318959291
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
+  m_Name: "\u6587\u4EF6\u5B9A\u4F4D"
+  m_EditorClassIdentifier: 
+  m_allNodes:
+  - m_name: Begin
+    m_id: 985988606
+    m_x: 948
+    m_y: 684
+    m_node: {fileID: -6952531789606267040}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
+    m_inputPoints:
+    - id: 211434772
+      label: i
+      parentId: 985988606
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -563119062
+      label: o
+      parentId: 985988606
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Text
+    m_id: -1249047246
+    m_x: 1152
+    m_y: 804
+    m_node: {fileID: -3990286795141145749}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u63CF\u8FF0\",\"textfix\":\"This
+      is my project hierarchy:\",\"export_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+    m_inputPoints:
+    - id: -2023601080
+      label: i
+      parentId: -1249047246
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1496812382
+      label: o
+      parentId: -1249047246
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Text
+    m_id: 670280410
+    m_x: 1356
+    m_y: 816
+    m_node: {fileID: -947678888257602543}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"Question\",\"textfix\":\"My
+      question is: Based on the file structure of the project provided in the last
+      conversation, find {0}, analyze its full path, return a json structure like
+      ```json \\n{{\\\"path\\\":\\\"Assets\\\"}}\\n```, the key is' path ', the value
+      is the full path.\",\"export_text\":{\"_key\":\"question_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":2,\"modifyType\":2,\"input_text\":{\"_key\":\"\",\"_default\":\"Home\u573A\u666F\",\"_autoCreate\":true}}"
+    m_inputPoints:
+    - id: -104273424
+      label: i
+      parentId: 670280410
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -878827258
+      label: o
+      parentId: 670280410
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: ProjectDescript
+    m_id: 186394988
+    m_x: 1140
+    m_y: 684
+    m_node: {fileID: 6160114948892027702}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":219338},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\"]}"
+    m_inputPoints:
+    - id: -588158846
+      label: i
+      parentId: 186394988
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1362712680
+      label: o
+      parentId: 186394988
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 134.95291
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Ollama
+    m_id: 1317294620
+    m_x: 1356
+    m_y: 924
+    m_node: {fileID: -4468445910281434414}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":10,"eventReceiveKey":"ollama_receive_message","modifyData":true,"m_DataList":{"_key":"send_data_list","_default":[],"_autoCreate":false},"input":{"_key":"question_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_inputPoints:
+    - id: 542740786
+      label: i
+      parentId: 1317294620
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -231813048
+      label: o
+      parentId: 1317294620
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: ResponceShow
+    m_id: -1467838450
+    m_x: 1536
+    m_y: 924
+    m_node: {fileID: -5446930935147833812}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"ollama_receive_message","responceText":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":""}'
+    m_inputPoints:
+    - id: 2052575012
+      label: i
+      parentId: -1467838450
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1278021178
+      label: o
+      parentId: -1467838450
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 134.95291
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Log
+    m_id: 374182852
+    m_x: 1548
+    m_y: 804
+    m_node: {fileID: 144213347276356094}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"question_text","_default":"","_autoCreate":true},"format":"","logType":3}'
+    m_inputPoints:
+    - id: -400370982
+      label: i
+      parentId: 374182852
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1174924816
+      label: o
+      parentId: 374182852
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: SendData
+    m_id: 1145104996
+    m_x: 900
+    m_y: 924
+    m_node: {fileID: -503761440720780893}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.SendDataDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"System\u8BF4\u660E\",\"input_role\":{\"_key\":\"\",\"_default\":\"system\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"\",\"_default\":\"you
+      are tools of my unity project\",\"_autoCreate\":true},\"output_list\":{\"_key\":\"send_data_list\",\"_default\":[{\"role\":\"system\",\"content\":\"you
+      are tools of my unity project\"},{\"role\":\"user\",\"content\":\"-  project
+      hierarchy:\\r\\n# directory descs:\\r\\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\\r\\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\\r\\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\\r\\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\\r\\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\\r\\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\\r\\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\\r\\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\\r\\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\\r\\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\\r\\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\\r\\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\\r\\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\\r\\n#
+      files of directorys:\\r\\nAssets/_Art/_animations/generic\u52A8\u753B:[\\r\\nanim_rename.csv,role_play_anims.csv]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate:[\\r\\n@f_stand.fbx,A_pose_f.anim,A_pose_f.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/ERP:[\\r\\n@f_livingroom_001_ERP.fbx,@f_piano_ERP.fbx,@f_yoga_ERP.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle:[\\r\\n@f_idle_002.fbx,@f_idle_004.fbx,@f_idle_005.fbx,@f_idle_006.fbx,@f_idle_007.fbx,@f_idle_008.fbx,@f_idle_010.fbx,@f_idle_011.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/IdleRandom:[\\r\\n@f_deepbreath.fbx,@f_pace.fbx,@f_scratchhead.fbx,@f_spaceout.fbx,@f_tiptoe.fbx,@f_yawn.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/Preset:[\\r\\n@f_display_001.fbx,@f_display_002.fbx,@f_display_003.fbx,@f_display_004.fbx,@f_display_005.fbx,@f_display_006.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Idle/Shop:[\\r\\n@f_changeclothes_001.fbx,@f_changeclothes_002.fbx,@f_changeclothes_003.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction:[\\r\\n]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Book:[\\r\\n@f_lookBOOK_end.fbx,@f_lookBOOK_end_shu.fbx,@f_lookBOOK_loop.fbx,@f_lookBOOK_loop_shu.fbx,@f_lookBOOK_stard.fbx,@f_lookBOOK_stard_shu.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Piano:[\\r\\n@f_Piano
+      Playing_end.fbx,@f_Piano Playing_loop.fbx,@f_Piano Playing_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Sofa:[\\r\\n@f_lyingonside_end.fbx,@f_lyingonside_loop.fbx,@f_lyingonside_stard.fbx,@f_sitsleepy_end.fbx,@f_sitsleepy_loop.fbx,@f_sitsleepy_stard.fbx,@f_sitsofa_end.fbx,@f_sitsofa_loop.fbx,@f_sitsofa_loop_1.fbx,@f_sitsofa_stard.fbx,@f_sitsofa_to_sitsleepy.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Watering:[\\r\\n@f_watering_end.fbx,@f_watering_loop.fbx,@f_watering_start.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Home_Yoga:[\\r\\n@f_yoga_01_end.fbx,@f_yoga_01_loop.fbx,@f_yoga_01_stard.fbx,@f_yoga_02_end.fbx,@f_yoga_02_loop.fbx,@f_yoga_02_stard.fbx,@f_yoga_03_end.fbx,@f_yoga_03_loop.fbx,@f_yoga_03_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Bathing:[\\r\\n@f_bathe.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Bed:[\\r\\n@f_bed_pose_01to02.fbx,@f_bed_pose_01to03.fbx,@f_bed_pose_02to01.fbx,@f_bed_pose_02to03.fbx,@f_bed_pose_03to01.fbx,@f_bed_pose_03to02.fbx,@f_on_bad01_end.fbx,@f_on_bad01_loop.fbx,@f_on_bad01_stard.fbx,@f_on_bad02_end.fbx,@f_on_bad02_loop.fbx,@f_on_bad02_stard.fbx,@f_on_bad03_end.fbx,@f_on_bad03_loop.fbx,@f_on_bad03_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Interaction/Room_Sofa:[\\r\\n@f_roomsofa_end.fbx,@f_roomsofa_loop.fbx,@f_roomsofa_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/RolePlay:[\\r\\n@f_angry_roleplay.fbx,@f_anxious_roleplay.fbx,@f_confused_roleplay.fbx,@f_disgusted_roleplay.fbx,@f_excited_roleplay.fbx,@f_fear_roleplay.fbx,@f_happy_roleplay.fbx,@f_hopeful_roleplay.fbx,@f_relaxed_roleplay.fbx,@f_sad_roleplay.fbx,@f_speechless_roleplay.fbx,@f_stressed_roleplay.fbx,@f_surprised_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/RolePlay/3dTouch:[\\r\\n@f_leanin_01_roleplay.fbx,@f_leanin_02_roleplay.fbx,@f_leanin_03_roleplay.fbx,@f_touchabs_01_roleplay.fbx,@f_touchabs_02_roleplay.fbx,@f_touchabs_03_roleplay.fbx,@f_touchchest_01_roleplay.fbx,@f_touchchest_02_roleplay.fbx,@f_touchface_01_roleplay_s.fbx,@f_touchface_02_roleplay_s.fbx,@f_touchhead_01_roleplay.fbx,@f_touchpants_01_roleplay.fbx,@f_touchpants_02_roleplay.fbx,@f_touchpants_03_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby:[\\r\\n@f_stand-happy_f.fbx,@f_standby_001.fbx,@f_standby_002.fbx,@f_standby_003.fbx,@f_standby_004.fbx,@f_standby_005.fbx,@f_standby_006.fbx,@f_standby_007.fbx,@f_standby_008.fbx,@f_stand_chatnotsure_f.fbx,@f_stand_generaltalk_f.fbx,@f_stand_idle_f.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Hello:[\\r\\n@f_idle_003_01.fbx,@f_idle_003_02.fbx,@f_idle_003_03.fbx,@f_wave_hands.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Listen:[\\r\\n@f_akimbo_standby.fbx,@f_nodwitharms_standby.fbx,@f_rubpalms_standby.fbx,@f_tapchin_standby.fbx,@f_touchneck_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Standby/Speak:[\\r\\n@f_spreadhands_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/TouchRandom:[\\r\\n@f_actsilly_01_3dt.fbx,@f_blowkisses_3dt.fbx,@f_bow_3dt.fbx,@f_makeheart_3dt.fbx,@f_roundkick_3dt.fbx,@f_Sexy
+      dance_3dt.fbx,@f_spinaround_3dt.fbx,@f_swag_3dt.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@f_mate/Walk:[\\r\\n@f_Left_Turn_180.fbx,@f_Left_Turn_90.fbx,@f_Right_Turn_180.fbx,@f_Right_Turn_90.fbx,@f_walk.fbx,@f_walk_X.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate:[\\r\\n@m_stand.fbx,A_pose_m.anim,A_pose_m.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle:[\\r\\n@m_idle_002.fbx,@m_idle_004.fbx,@m_idle_005.fbx,@m_idle_006.fbx,@m_idle_007.fbx,@m_idle_008.fbx,@m_idle_010.fbx,@m_idle_011.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/IdleRandom:[\\r\\n@m_deepbreath.fbx,@m_pace.fbx,@m_scratchhead.fbx,@m_spaceout.fbx,@m_tiptoe.fbx,@m_yawn.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/Preset:[\\r\\n@m_display_001.fbx,@m_display_002.FBX,@m_display_003.FBX,@m_display_004.FBX,@m_display_005.FBX,@m_display_006.FBX]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Idle/Shop:[\\r\\n@m_changeclothes_001.fbx,@m_changeclothes_002.fbx,@m_changeclothes_003.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction:[\\r\\n]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Book:[\\r\\n@m_BOOK_end.fbx,@m_BOOK_loop.fbx,@m_BOOK_stard.fbx,@m_lookBOOK_end.fbx,@m_lookBOOK_loop.fbx,@m_lookBOOK_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Piano:[\\r\\n@m_Piano
+      Playing_end.fbx,@m_Piano Playing_loop.fbx,@m_Piano Playing_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Sofa:[\\r\\n@m_lyingonside_end.fbx,@m_lyingonside_loop.fbx,@m_lyingonside_stard.fbx,@m_sitsleepy_end.fbx,@m_sitsleepy_loop.fbx,@m_sitsleepy_stard.fbx,@m_sitsofa_end.fbx,@m_sitsofa_loop.fbx,@m_sitsofa_loop_1.fbx,@m_sitsofa_stard.fbx,@m_sitsofa_to_sitsleepy.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Watering:[\\r\\n@m_watering_end.fbx,@m_watering_loop.fbx,@m_watering_start.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Yoga:[\\r\\n@m_warmup_01_end.fbx,@m_warmup_01_loop.fbx,@m_warmup_01_stard.fbx,@m_warmup_02_end.fbx,@m_warmup_02_loop.fbx,@m_warmup_02_stard.fbx,@m_warmup_03_end.fbx,@m_warmup_03_loop.fbx,@m_warmup_03_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bathing:[\\r\\n@m_bathe.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bed:[\\r\\n@m_bed_pose_01to02.fbx,@m_bed_pose_02to01.fbx,@m_on_bad01_end.fbx,@m_on_bad01_loop.fbx,@m_on_bad01_stard.fbx,@m_on_bad02_end.fbx,@m_on_bad02_loop.fbx,@m_on_bad02_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Sofa:[\\r\\n@m_roomsofa_end.fbx,@m_roomsofa_loop.fbx,@m_roomsofa_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay:[\\r\\n]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Emotion:[\\r\\n@m_angry_roleplay.fbx,@m_anxious_roleplay.fbx,@m_confused_roleplay.fbx,@m_disgusted_roleplay.fbx,@m_excited_roleplay.fbx,@m_fear_roleplay.fbx,@m_happy_roleplay.fbx,@m_hopeful_roleplay.fbx,@m_relaxed_roleplay.fbx,@m_sad_roleplay.fbx,@m_speechless_roleplay.fbx,@m_stressed_roleplay.fbx,@m_surprised_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Touch:[\\r\\n@m_leanin_01_roleplay.fbx,@m_leanin_02_roleplay.fbx,@m_leanin_03_roleplay.fbx,@m_touchabs_01_roleplay.fbx,@m_touchabs_02_roleplay.fbx,@m_touchabs_03_roleplay.fbx,@m_touchchest_01_roleplay.fbx,@m_touchchest_02_roleplay.fbx,@m_touchface_01_roleplay_s.fbx,@m_touchface_02_roleplay_s.fbx,@m_touchhead_01_roleplay.fbx,@m_touchpants_01_roleplay.fbx,@m_touchpants_02_roleplay.fbx,@m_touchpants_03_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby:[\\r\\n@m_standby_001.fbx,@m_standby_002.FBX,@m_standby_003.FBX,@m_standby_004.FBX,@m_standby_005.FBX,@m_standby_006.FBX,@m_standby_007.FBX,@m_standby_008.FBX,@m_Talking_m.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Hello:[\\r\\n@m_idle_003_01.fbx,@m_idle_003_02.fbx,@m_idle_003_03.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Listen:[\\r\\n@m_akimbo_standby.fbx,@m_nodwitharms_standby.fbx,@m_rubpalms_standby.fbx,@m_stand_listen_m.fbx,@m_tapchin_standby.fbx,@m_touchneck_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Speak:[\\r\\n@m_spreadhands_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/TouchRandom:[\\r\\n@m_actsilly_01_3dt.fbx,@m_blowkisses_3dt.fbx,@m_bow_3dt.fbx,@m_freestyle_3dt.fbx,@m_makeheart_3dt.fbx,@m_roundkick_3dt.fbx,@m_spinaround_3dt.fbx,@m_swag_3dt.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Walk:[\\r\\n@m_Left_Turn_180.fbx,@m_Left_Turn_90.fbx,@m_Right_Turn_180.fbx,@m_Right_Turn_90.fbx,@m_walk.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/Item:[\\r\\nMedalShow.anim]\\r\\nAssets/Scenes:[\\r\\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\\r\\nAssets/Scenes/HomeScene:[\\r\\nHomeObjs.prefab,NavMesh.asset,ReflectionProbe-0.exr,ReflectionProbe-10.exr,sfx-home.prefab]\\r\\nAssets/Scenes/HomeScene/DayLightmaps:[\\r\\nHomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr]\\r\\nAssets/Scenes/HomeScene/NightLightmaps:[\\r\\nHomeScene_371857150_probes.asset,HomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr,RoomScene_371857150_probes.asset]\\r\\nAssets/Scenes/PlayStudioScene:[\\r\\nNavMesh.asset,PlayStudioScene_371857150_probes.asset,PlayStudioScene_LM0_final.hdr,PlayStudioScene_LMA12_final.hdr,PlayStudioScene_LMA13_final.hdr,PlayStudioScene_LMA1_final.hdr,PlayStudioScene_LMA2_final.hdr,PlayStudioScene_LMA3_final.hdr,PlayStudioScene_LMA4_final.hdr,PlayStudioScene_LMA5_final.hdr,PlayStudioScene_LMA6_final.hdr,PlayStudioScene_LMA7_final.hdr,PlayStudioScene_LMA8_final.hdr,PlayStudioScene_LMA9_final.hdr,ReflectionProbe-10.exr]\\r\\nAssets/Scenes/RoomScene:[\\r\\nNavMesh.asset,OcclusionCullingData.asset,ReflectionProbe-10.exr,RoomObjs.prefab]\\r\\nAssets/Scenes/RoomScene/DayLightmaps:[\\r\\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\\r\\nAssets/Scenes/RoomScene/NightLightmaps:[\\r\\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\\r\\nAssets/Scenes/_backup:[\\r\\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreen.lighting,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\\r\\nAssets/Main:[\\r\\nAOTGenerics.cs,ConsoleToSceen.cs,LoadDll.cs,Main.asmdef,TestSuper.cs]\\r\\nAssets/Main/APPConfig:[\\r\\nAppConfigData.cs,AppConfigdata_Dev.asset,AppConfigdata_Prd.asset]\\r\\nAssets/Main/AssetsBundleManager:[\\r\\nAssetBundleManager.cs,AssetBundleSetting.cs,AsyncOperation.cs,FileBundleLoader.cs,ScriptableSingleton.cs,SimulateBundleLoader.cs]\\r\\nAssets/Main/Bridge:[\\r\\nBaseNativeBridge.cs,Bridge.cs]\\r\\nAssets/Main/Bridge/PlantformBridge:[\\r\\nAndroidPantformBridge.cs,EditorPlantformBridge.cs,IOSPantformBridge.cs]\\r\\nAssets/Main/FileCryion:[\\r\\nFileDryion.cs]\\r\\nAssets/Main/HotLoad:[\\r\\nHotConfig.cs,HotFileDown.cs,HotLoadManager.cs,HotLoadNetWork.cs]\\r\\nAssets/Main/LoadingUI:[\\r\\nLoadingABResPanel.cs,LoadingSpritePlayer.cs,RandomTextBehaviour.cs]\\r\\nAssets/Main/LoadSceneHotLoadCtr:[\\r\\nAppLifeStatus.cs,LoadSceneHotLoadCtr.cs]\\r\\nAssets/Main/Localization:[\\r\\nLanguageData.cs,LocalizationCtr.cs,LocalizationTextBinding.cs]\\r\\nAssets/Main/MagicaCloth2:[\\r\\nMagicaCloth2.asmdef,Readme.txt,Readme_jpn.txt]\\r\\nAssets/Main/MagicaCloth2/Res:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Icon:[\\r\\nicon-cloth.png,icon-collider.png,icon-settings.png,icon-wind.png]\\r\\nAssets/Main/MagicaCloth2/Res/Preset:[\\r\\nMC2_Preset_Accessory.json,MC2_Preset_Cape.json,MC2_Preset_FrontHair.json,MC2_Preset_HardSpring.json,MC2_Preset_LongHair.json,MC2_Preset_MiddleSpring.json,MC2_Preset_ShortHair.json,MC2_Preset_Skirt.json,MC2_Preset_SoftSpring.json,MC2_Preset_Tail.json]\\r\\nAssets/Main/MagicaCloth2/Scripts:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\\r\\nCheckSliderSerializeData.cs,ClothBehaviour.cs,ClothForceMode.cs,ClothNormalAxis.cs,ClothParameters.cs,ClothProcess.cs,ClothProcessData.cs,ClothProcessGeneration.cs,ClothSerializeData.cs,ClothSerializeData2.cs,ClothSerializeDataFunction.cs,ClothUpdateMode.cs,CullingSettings.cs,CurveSerializeData.cs,CustomSkinningSettings.cs,GizmoSerializeData.cs,MagicaCloth.cs,MagicaClothAnimationProperty.cs,MagicaClothAPI.cs,NormalAlignmentSettings.cs,SelectionData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\\r\\nColliderComponent.cs,MagicaCapsuleCollider.cs,MagicaPlaneCollider.cs,MagicaSphereCollider.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\\r\\nAngleConstraint.cs,ColliderCollisionConstraint.cs,DistanceConstraint.cs,InertiaConstraint.cs,MotionConstraint.cs,SelfCollisionConstraint.cs,SpringConstraint.cs,TetherConstraint.cs,TriangleBendingConstraint.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\\r\\nMagicaWindZone.cs,WindParams.cs,WindSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\\r\\nResultDefine.cs,SystemDefine.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\\r\\nICount.cs,IDataValidate.cs,ITransform.cs,IValid.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\\r\\nIManager.cs,MagicaManager.cs,MagicaManagerAPI.cs,MagicaSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\\r\\nClothManager.cs,PreBuildManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\\r\\nRenderData.cs,RenderManager.cs,RenderSetupData.cs,RenderSetupDataSerialization.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\\r\\nColliderManager.cs,SimulationManager.cs,TimeManager.cs,WindManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\\r\\nTeamManager.cs,TeamWindData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\\r\\nTransformData.cs,TransformDataSerialization.cs,TransformManager.cs,TransformRecord.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\\r\\nVirtualMeshManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\\r\\nPreBuildScriptableObject.cs,PreBuildSerializeData.cs,SharePreBuildData.cs,UniquePreBuildData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\\r\\nReductionSettings.cs,ReductionWorkData.cs,SameDistanceReduction.cs,ShapeDistanceReduction.cs,SimpleDistanceReduction.cs,StepReductionBase.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\\r\\nClothDebugSettings.cs,VirtualMeshDebugSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\\r\\nDataUtility.cs,MultiDataBuilder.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\\r\\nGridMap.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\\r\\nInterlockUtility.cs,JobUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\\r\\nAABB.cs,IntAABB.cs,MathExtensions.cs,MathUtility.cs,MinimumData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\\r\\nMeshUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\\r\\nDevelop.cs,StaticStringBuilder.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\\r\\nDataChunk.cs,ExBitFlag16.cs,ExBitFlag8.cs,ExCostSortedList1.cs,ExCostSortedList4.cs,ExNativeArray.cs,ExProcessingList.cs,ExSimpleNativeArray.cs,ExTransformAccessArray.cs,FixedList128BytesExtensions.cs,FixedList32BytesExtensions.cs,FixedList4096BytesExtensions.cs,FixedList512BytesExtensions.cs,FixedList64BytesExtensions.cs,NativeArrayExtensions.cs,NativeMultiHashMapExtensions.cs,NativeReferenceExtensions.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\\r\\nException.cs,ResultCode.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\\r\\nTimeSpan.cs,UnityTimeSpan.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\\r\\nVertexAttribute.cs,VirtualMesh.cs,VirtualMeshBoneWeight.cs,VirtualMeshContainer.cs,VirtualMeshPrimitive.cs,VirtualMeshRaycastHit.cs,VirtualMeshTransform.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\\r\\nVirtualMeshInputOutput.cs,VirtualMeshMapping.cs,VirtualMeshOptimization.cs,VirtualMeshProxy.cs,VirtualMeshReduction.cs,VirtualMeshSerialization.cs,VirtualMeshWork.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor:[\\r\\nMagicaCloth2.Editor.asmdef]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\\r\\nClothAssetPostprocessor.cs,ClothEditorManager.cs,ClothEditorUtility.cs,ClothInspectorUtility.cs,ClothPainter.cs,ClothPresetUtility.cs,MagicaCapsuleColliderEditor.cs,MagicaClothEditor.cs,MagicaPlaneColliderEditor.cs,MagicaSettingsEditor.cs,MagicaSphereColliderEditor.cs,MagicaWindZoneEditor.cs,VirtualMeshEditorUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\\r\\nAboutMenu.cs,CheckSliderSerializeDataDrawer.cs,CurveSerializeDataDrawer.cs,DrawIconInHierarchy.cs,MenuItemScript.cs,SharePreBuildDataDrawer.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\\r\\nGizmoUtility.cs,MagicaCapsuleColliderGizmoDrawer.cs,MagicaClothGizmoDrawer.cs,MagicaPlaneColliderGizmoDrawer.cs,MagicaSphereColliderGizmoDrawer.cs,MagicaWindZoneGizmoDrawer.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\\r\\nPreBuildDataCreation.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\\r\\nMagicaCloth2UPMImporterBurst.asmdef,UnityPackageImporter.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\\r\\nMagicaCloth2UPMImporterCollections.asmdef,UnityPackageImporter.cs]\\r\\nAssets/Main/ParticleEffectForUGUI:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Editor:[\\r\\nAnimatablePropertyEditor.cs,Coffee.UIParticle.Editor.asmdef,UIParticleEditor.cs,UIParticleMenu.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Icons:[\\r\\nUIParticleIcon.png]\\r\\nAssets/Main/ParticleEffectForUGUI/Runtime:[\\r\\nAnimatableProperty.cs,Coffee.UIParticle.asmdef,ModifiedMaterial.cs,UIParticle.cs,UIParticleAttractor.cs,UIParticleRenderer.cs,UIParticleUpdater.cs,Utils.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\\r\\nUIParticle_Demo.unity]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\\r\\nUIParticle_Demo_Animatable.controller,UIParticle_Demo_Pop.controller,UIParticle_Demo_Wave.controller]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\\r\\nUIParticle_Demo_Animatable.mat,UIParticle_Demo_Animatable.png,UIParticle_Demo_Dot.mat,UIParticle_Demo_Fire.mat,UIParticle_Demo_Fire_Atlas.png,UIParticle_Demo_Flame.mat,UIParticle_Demo_Flame_Atlas.tif,UIParticle_Demo_UIAdditive.mat]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\\r\\nUIParticle_Demo_Animatable.fbx,UIParticle_Demo_Animatable.prefab,UIParticle_Demo_EffectSample_Frame.prefab,UIParticle_Demo_EffectSample_Unity-chan.prefab]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\\r\\nCoffee.UIParticle.Demo.asmdef,CopyItemOnStart.cs,UIElementDragger.cs,UIParticle_Demo.cs,UIParticle_Demo_UIParticleController.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\\r\\nUIParticle_Demo.spriteatlas,UIParticle_Demo_Light_Frame.png,UIParticle_Demo_Move.png,UIParticle_Demo_Star.png,UIParticle_Demo_Unity-chan.png]\\r\\nAssets/Main/ParticleEffectForUGUI/Shaders:[\\r\\nUIAdditive.mat,UIAdditive.shader]\\r\\nAssets/Main/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON:[\\r\\nJSONObject.cs,JSONTemplates.cs,readme.txt,VectorTemplates.cs]\\r\\nAssets/Main/Plugins/JSON/Editor:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR:[\\r\\nreadme_en.txt,readme_jp.txt]\\r\\nAssets/Main/Plugins/LJR/Plugins:[\\r\\npackage.json]\\r\\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\\r\\nIJsonWrapper.cs,JsonData.cs,JsonException.cs,JsonMapper.cs,JsonMockWrapper.cs,JsonReader.cs,JsonWriter.cs,Lexer.cs,LitJson.asmdef,Netstandard15Polyfill.cs,ParserToken.cs]\\r\\nAssets/Main/Plugins/SimpleHTTP:[\\r\\nClient.cs,FormData.cs,LICENSE,README.html,README.pdf,Request.cs,RequestBody.cs,Response.cs]\\r\\nAssets/Main/Plugins/SimpleHTTP/Examples:[\\r\\nMain.cs,Post.cs,TestScene.unity]\\r\\nAssets/Main/UnityAndroidBridge:[\\r\\nUnityAndroidBridge.cs,UnityAppActivity.java]\\r\\nAssets/Main/UnityiOSBridge:[\\r\\nUnityiOSBridge.cs]\\r\\nAssets/Main/UnityLogUploadComponent:[\\r\\nUnityLogUploadComponent.cs]\\r\\nAssets/Main/Utils:[\\r\\nCopyUtil.cs,DictEx.cs,EngineEx.cs,ListEx.cs,ReflectUtils.cs,StringEx.cs,TextureEx.cs,TimeFormatEx.cs]\\r\\n\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
+      remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"my question
+      is:base on file paths of the project,please find full path of \\\"m_idle_003_03.fbx\\\",analysis
+      it full path,return a json string,key is 'path',value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
+      can help you with that.\\n\\nAssuming your Unity project has the following
+      file structure:\\n```\\nProject/\\nAssets/\\nModels/\\nm_idle_003_03.fbx\\n...\\nscenes/\\nMainScene.unity\\n...\\n...\\nProjectSettings.asset\\n...\\n```\\nThe
+      full path of \\\"m_idle_003_03.fbx\\\" would be: `Project/Assets/Models/m_idle_003_03.fbx`\\n\\nHere
+      is the JSON string you requested:\\n```json\\n{\\n  \\\"path\\\": \\\"Project/Assets/Models/m_idle_003_03.fbx\\\"\\n}\\n```\\nPlease
+      let me know if this is what you were looking for!\"}],\"_autoCreate\":true},\"modifyType\":0}"
+    m_inputPoints:
+    - id: 370551162
+      label: i
+      parentId: 1145104996
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -404002672
+      label: o
+      parentId: 1145104996
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: SendData
+    m_id: 747214538
+    m_x: 1056
+    m_y: 924
+    m_node: {fileID: 6423738528169223433}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.SendDataDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u73AF\u5883\u8BF4\u660E\",\"input_role\":{\"_key\":\"\",\"_default\":\"user\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"source_text\",\"_default\":\"you
+      are tools of my unity project\",\"_autoCreate\":false},\"output_list\":{\"_key\":\"send_data_list\",\"_default\":[{\"role\":\"user\",\"content\":\"This
+      is my project hierarchy:\\r\\n# directory descs:\\r\\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\\r\\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\\r\\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\\r\\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\\r\\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\\r\\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\\r\\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\\r\\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\\r\\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\\r\\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\\r\\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\\r\\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\\r\\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\\r\\n#
+      files of directorys:\\r\\nAssets/Scenes:[\\r\\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\\r\\nAssets/Scenes/HomeScene:[\\r\\n]\\r\\nAssets/Scenes/HomeScene/DayLightmaps:[\\r\\n]\\r\\nAssets/Scenes/HomeScene/NightLightmaps:[\\r\\n]\\r\\nAssets/Scenes/PlayStudioScene:[\\r\\n]\\r\\nAssets/Scenes/RoomScene:[\\r\\n]\\r\\nAssets/Scenes/RoomScene/DayLightmaps:[\\r\\n]\\r\\nAssets/Scenes/RoomScene/NightLightmaps:[\\r\\n]\\r\\nAssets/Scenes/_backup:[\\r\\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\\r\\nAssets/Main:[\\r\\n]\\r\\nAssets/Main/APPConfig:[\\r\\n]\\r\\nAssets/Main/AssetsBundleManager:[\\r\\n]\\r\\nAssets/Main/Bridge:[\\r\\n]\\r\\nAssets/Main/Bridge/PlantformBridge:[\\r\\n]\\r\\nAssets/Main/FileCryion:[\\r\\n]\\r\\nAssets/Main/HotLoad:[\\r\\n]\\r\\nAssets/Main/LoadingUI:[\\r\\n]\\r\\nAssets/Main/LoadSceneHotLoadCtr:[\\r\\n]\\r\\nAssets/Main/Localization:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Icon:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Preset:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Editor:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Icons:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Runtime:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\\r\\nUIParticle_Demo.unity]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\\r\\nUIParticle_Demo_Animatable.fbx]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Shaders:[\\r\\n]\\r\\nAssets/Main/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON/Editor:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\\r\\n]\\r\\nAssets/Main/Plugins/SimpleHTTP:[\\r\\n]\\r\\nAssets/Main/Plugins/SimpleHTTP/Examples:[\\r\\nTestScene.unity]\\r\\nAssets/Main/UnityAndroidBridge:[\\r\\n]\\r\\nAssets/Main/UnityiOSBridge:[\\r\\n]\\r\\nAssets/Main/UnityLogUploadComponent:[\\r\\n]\\r\\nAssets/Main/Utils:[\\r\\n]\\r\\n\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
+      remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"My question
+      is: Based on the file structure of the project provided in the last conversation,
+      find Home\u573A\u666F, analyze its full path, return a json structure like
+      ```json \\n{\\\"path\\\":\\\"Assets\\\"}\\n```, the key is' path ', the value
+      is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"Based on the
+      file structure provided, I found the \\\"HomeScene\\\" file.\\n\\nThe full
+      path to the \\\"HomeScene\\\" file is:\\n\\n`Assets/Scenes/HomeScene.unity`\\n\\nHere's
+      the JSON structure you requested:\\n```json\\n{\\n  \\\"path\\\": \\\"Assets/Scenes/HomeScene.unity\\\"\\n}\\n```\\nLet
+      me know if you need anything else! \U0001F60A\"}],\"_autoCreate\":true},\"modifyType\":0}"
+    m_inputPoints:
+    - id: -27339296
+      label: i
+      parentId: 747214538
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -801893130
+      label: o
+      parentId: 747214538
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: SendData
+    m_id: 526934964
+    m_x: 1200
+    m_y: 924
+    m_node: {fileID: 2317316276927251012}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.SendDataDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u6A21\u62DF\u56DE\u590D\u8BB0\u4F4F\",\"input_role\":{\"_key\":\"\",\"_default\":\"assistant\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"\",\"_default\":\"I
+      remember that,file and directorys\",\"_autoCreate\":true},\"output_list\":{\"_key\":\"send_data_list\",\"_default\":[{\"role\":\"assistant\",\"content\":\"I
+      remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"my question
+      is:base on file paths of the project,please find full path of \\\"m_idle_003_03.fbx\\\",analysis
+      it full path,return a json string,key is 'path',value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I'll
+      help you with that!\\n\\nAfter analyzing the file paths in the project, I found
+      the full path of \\\"m__idle_003_03.fbx\\\" to be:\\n\\n`C:\\\\Users\\\\username\\\\Documents\\\\MyProject\\\\Assets\\\\Models\\\\m_idle_003_03.fbx`\\n\\nHere's
+      a JSON string representing this path:\\n\\n```json\\n{\\n  \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\username\\\\\\\\Documents\\\\\\\\MyProject\\\\\\\\Assets\\\\\\\\Models\\\\\\\\m_idle_003_03.fbx\\\"\\n}\\n```\\n\\nPlease
+      note that the `username` part is fictional and would be replaced with the actual
+      username on your system.\"}],\"_autoCreate\":true},\"modifyType\":1}"
+    m_inputPoints:
+    - id: -247618870
+      label: i
+      parentId: 526934964
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1022172704
+      label: o
+      parentId: 526934964
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: Log
+    m_id: -431460470
+    m_x: 1296
+    m_y: 744
+    m_node: {fileID: 7329692965541068490}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"source_text","_default":"","_autoCreate":true},"format":"","logType":0}'
+    m_inputPoints:
+    - id: -1206014304
+      label: i
+      parentId: -431460470
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.825485
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1980568138
+      label: o
+      parentId: -431460470
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.825485
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  m_allConnections:
+  - m_id: -1691480064
+    m_fromNodeId: 985988606
+    m_fromNodeConnectionPointId: -563119062
+    m_toNodeId: 186394988
+    m_toNodeConnectionPoiontId: -588158846
+    m_type: ->
+    m_connection: {fileID: -6002162713327741544}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -193945120
+    m_fromNodeId: 186394988
+    m_fromNodeConnectionPointId: -1362712680
+    m_toNodeId: -1249047246
+    m_toNodeConnectionPoiontId: -2023601080
+    m_type: ->
+    m_connection: {fileID: 7977535763365484801}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1168752962
+    m_fromNodeId: 1317294620
+    m_fromNodeConnectionPointId: -231813048
+    m_toNodeId: -1467838450
+    m_toNodeConnectionPoiontId: 2052575012
+    m_type: ->
+    m_connection: {fileID: -4200022527638749244}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 373915106
+    m_fromNodeId: 670280410
+    m_fromNodeConnectionPointId: -878827258
+    m_toNodeId: 374182852
+    m_toNodeConnectionPoiontId: -400370982
+    m_type: ->
+    m_connection: {fileID: 3136680110144893349}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 2089028152
+    m_fromNodeId: 670280410
+    m_fromNodeConnectionPointId: -878827258
+    m_toNodeId: 1317294620
+    m_toNodeConnectionPoiontId: 542740786
+    m_type: ->
+    m_connection: {fileID: -3949894375086476267}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 960564252
+    m_fromNodeId: 1145104996
+    m_fromNodeConnectionPointId: -404002672
+    m_toNodeId: 747214538
+    m_toNodeConnectionPoiontId: -27339296
+    m_type: ->
+    m_connection: {fileID: -4928592595442152686}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":true,"conditions":[],"conditionType":0}'
+  - m_id: -1227603076
+    m_fromNodeId: -1249047246
+    m_fromNodeConnectionPointId: 1496812382
+    m_toNodeId: 747214538
+    m_toNodeConnectionPoiontId: -27339296
+    m_type: ->
+    m_connection: {fileID: -8365014056076100421}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -2030216560
+    m_fromNodeId: 747214538
+    m_fromNodeConnectionPointId: -801893130
+    m_toNodeId: 526934964
+    m_toNodeConnectionPoiontId: -247618870
+    m_type: ->
+    m_connection: {fileID: 1962480192935424794}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1209441968
+    m_fromNodeId: 526934964
+    m_fromNodeConnectionPointId: -1022172704
+    m_toNodeId: 1317294620
+    m_toNodeConnectionPoiontId: 542740786
+    m_type: ->
+    m_connection: {fileID: 2615656042376737703}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1842803114
+    m_fromNodeId: -1249047246
+    m_fromNodeConnectionPointId: 1496812382
+    m_toNodeId: -431460470
+    m_toNodeConnectionPoiontId: -1206014304
+    m_type: ->
+    m_connection: {fileID: -3244180755604920922}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  m_lastModified: 133613637525404480
+  m_graphDescription: 
+  m_controllerType: AIScripting.AIScriptingController
+--- !u!114 &34504068195703349
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &144213347276356094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.Debugger.LogNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.LogNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: LogNode
+  info:
+    _key: question_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 3
+--- !u!114 &833349962259762433
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: 
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &1332129026570595194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &1383750705029059516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &1707841363679400511
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &1917278411229549818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &1962480192935424794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &2239953087946718410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &2317316276927251012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6324ec7f2e111844bbab61d6906f5ea5, type: 3}
+  m_Name: AIScripting.Describe.SendDataDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.SendDataDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u6A21\u62DF\u56DE\u590D\u8BB0\u4F4F"
+  input_role:
+    _key: 
+    _default: assistant
+    _autoCreate: 1
+  input_text:
+    _key: 
+    _default: I remember that,file and directorys
+    _autoCreate: 1
+  output_list:
+    _key: send_data_list
+    _default:
+    - role: assistant
+      content: I remember that,file and directorys
+    - role: user
+      content: 'my question is:base on file paths of the project,please find full
+        path of "m_idle_003_03.fbx",analysis it full path,return a json string,key
+        is ''path'',value is the full path.
+
+'
+    - role: assistant
+      content: "I'll help you with that!\n\nAfter analyzing the file paths in the
+        project, I found the full path of \"m__idle_003_03.fbx\" to be:\n\n`C:\\Users\\username\\Documents\\MyProject\\Assets\\Models\\m_idle_003_03.fbx`\n\nHere's
+        a JSON string representing this path:\n\n```json\n{\n  \"path\": \"C:\\\\Users\\\\username\\\\Documents\\\\MyProject\\\\Assets\\\\Models\\\\m_idle_003_03.fbx\"\n}\n```\n\nPlease
+        note that the `username` part is fictional and would be replaced with the
+        actual username on your system."
+    _autoCreate: 1
+  modifyType: 1
+--- !u!114 &2569855166958556725
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &2615656042376737703
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &2689849509060037287
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &3133309968758002094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &3136680110144893349
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &3829005760195084966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &3911416179004947033
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &4193288237063675097
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &4341550529324809056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: 
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &5292426651846173284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ad82161b8987f4a99a30ff6bc1128b, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.PortConnection
+  <type>k__BackingField: 
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+--- !u!114 &5766821658260790774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &5980199017757651012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &6160114948892027702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8784f24b2e824429904b24da44c8ae, type: 3}
+  m_Name: AIScripting.Import.ProjectDescriptNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Import.ProjectDescriptNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F"
+  descTextAsset:
+    _key: 
+    _default: {fileID: 4900000, guid: 39c445be23068be4db5ebd9cd81aad7c, type: 3}
+    _autoCreate: 1
+  outputText:
+    _key: source_text
+    _default: 
+    _autoCreate: 1
+  fileTracks:
+  - .fbx
+  - .unity
+--- !u!114 &6423738528169223433
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6324ec7f2e111844bbab61d6906f5ea5, type: 3}
+  m_Name: AIScripting.Describe.SendDataDescribeNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Describe.SendDataDescribeNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u73AF\u5883\u8BF4\u660E"
+  input_role:
+    _key: 
+    _default: user
+    _autoCreate: 1
+  input_text:
+    _key: source_text
+    _default: you are tools of my unity project
+    _autoCreate: 0
+  output_list:
+    _key: send_data_list
+    _default:
+    - role: user
+      content: "This is my project hierarchy:\r\n# directory descs:\r\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\r\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\r\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\r\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\r\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\r\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\r\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\r\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\r\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\r\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\r\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\r\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\r\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\r\n#
+        files of directorys:\r\nAssets/Scenes:[\r\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\r\nAssets/Scenes/HomeScene:[\r\n]\r\nAssets/Scenes/HomeScene/DayLightmaps:[\r\n]\r\nAssets/Scenes/HomeScene/NightLightmaps:[\r\n]\r\nAssets/Scenes/PlayStudioScene:[\r\n]\r\nAssets/Scenes/RoomScene:[\r\n]\r\nAssets/Scenes/RoomScene/DayLightmaps:[\r\n]\r\nAssets/Scenes/RoomScene/NightLightmaps:[\r\n]\r\nAssets/Scenes/_backup:[\r\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\r\nAssets/Main:[\r\n]\r\nAssets/Main/APPConfig:[\r\n]\r\nAssets/Main/AssetsBundleManager:[\r\n]\r\nAssets/Main/Bridge:[\r\n]\r\nAssets/Main/Bridge/PlantformBridge:[\r\n]\r\nAssets/Main/FileCryion:[\r\n]\r\nAssets/Main/HotLoad:[\r\n]\r\nAssets/Main/LoadingUI:[\r\n]\r\nAssets/Main/LoadSceneHotLoadCtr:[\r\n]\r\nAssets/Main/Localization:[\r\n]\r\nAssets/Main/MagicaCloth2:[\r\n]\r\nAssets/Main/MagicaCloth2/Res:[\r\n]\r\nAssets/Main/MagicaCloth2/Res/Icon:[\r\n]\r\nAssets/Main/MagicaCloth2/Res/Preset:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Editor:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Icons:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Runtime:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\r\nUIParticle_Demo.unity]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\r\nUIParticle_Demo_Animatable.fbx]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Shaders:[\r\n]\r\nAssets/Main/Plugins:[\r\n]\r\nAssets/Main/Plugins/JSON:[\r\n]\r\nAssets/Main/Plugins/JSON/Editor:[\r\n]\r\nAssets/Main/Plugins/LJR:[\r\n]\r\nAssets/Main/Plugins/LJR/Plugins:[\r\n]\r\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\r\n]\r\nAssets/Main/Plugins/SimpleHTTP:[\r\n]\r\nAssets/Main/Plugins/SimpleHTTP/Examples:[\r\nTestScene.unity]\r\nAssets/Main/UnityAndroidBridge:[\r\n]\r\nAssets/Main/UnityiOSBridge:[\r\n]\r\nAssets/Main/UnityLogUploadComponent:[\r\n]\r\nAssets/Main/Utils:[\r\n]\r\n\r\n"
+    - role: assistant
+      content: I remember that,file and directorys
+    - role: user
+      content: "My question is: Based on the file structure of the project provided
+        in the last conversation, find Home\u573A\u666F, analyze its full path, return
+        a json structure like ```json \n{\"path\":\"Assets\"}\n```, the key is' path
+        ', the value is the full path.\r\n"
+    - role: assistant
+      content: "Based on the file structure provided, I found the \"HomeScene\" file.\n\nThe
+        full path to the \"HomeScene\" file is:\n\n`Assets/Scenes/HomeScene.unity`\n\nHere's
+        the JSON structure you requested:\n```json\n{\n  \"path\": \"Assets/Scenes/HomeScene.unity\"\n}\n```\nLet
+        me know if you need anything else! \U0001F60A"
+    _autoCreate: 1
+  modifyType: 0
+--- !u!114 &7329692965541068490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.Debugger.LogNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.LogNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: LogNode
+  info:
+    _key: source_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 0
+--- !u!114 &7977535763365484801
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0

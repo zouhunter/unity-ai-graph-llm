@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using UFrame.NodeGraph.DataModel;
+
+using UnityEngine;
 
 namespace AIScripting
 {
@@ -100,7 +101,6 @@ namespace AIScripting
                 {
                     if (!aiNode.enable)
                         continue;
-                    aiNode.ResetGraph(_runingGraph ?? this);
                     _nodeMap[node.Id] = aiNode;
                     if (node.OutputPoints.Count > 0)
                     {
@@ -150,6 +150,7 @@ namespace AIScripting
                     }
                 }
             }
+
             var beginNodes = Nodes.FindAll(x => x.Object.GetType() == typeof(BeginNode));
             if (beginNodes != null && beginNodes.Count > 0)
             {
@@ -157,6 +158,8 @@ namespace AIScripting
                 {
                     if (!(beginNode.Object as BeginNode).enable)
                         continue;
+                    _overflowSet.Clear();
+                    ResetGraphs(beginNode.Id, _overflowSet);
                     TryRunNode(beginNode.Id);
                 }
             }
@@ -164,6 +167,32 @@ namespace AIScripting
             {
                 _status = Status.Failure;
                 _operate.SetFinish();
+            }
+        }
+
+        private void ResetGraphs(string nodeId,HashSet<string> overflowSet)
+        {
+            if (overflowSet.Contains(nodeId))
+                return;
+            overflowSet.Add(nodeId);
+            if (_parentNodeMap.TryGetValue(nodeId, out var parentNodes))
+            {
+                foreach (var parentNodeId in parentNodes)
+                {
+                    ResetGraphs(parentNodeId, overflowSet);
+                }
+            }
+            if (_nodeMap.TryGetValue(nodeId,out var node))
+            {
+                UnityEngine.Debug.Log("reset node graph:" + node.ToString());
+                node.ResetGraph(_runingGraph ?? this);
+            }
+            if (_subNodeMap.TryGetValue(nodeId,out var subNodes))
+            {
+                foreach (var subNodeId in subNodes)
+                {
+                    ResetGraphs(subNodeId,overflowSet);
+                }
             }
         }
 
@@ -204,9 +233,10 @@ namespace AIScripting
         /// <returns></returns>
         protected bool CheckStackOverFlow(string nodeId, string parentId, HashSet<string> content)
         {
-            if (content.Contains(nodeId))
+            if (content.Contains(nodeId + parentId))
                 return true;
-            content.Add(nodeId);
+
+            content.Add(nodeId + parentId);
 
             if (_subNodeMap.TryGetValue(nodeId, out var childIds))
             {
@@ -235,11 +265,13 @@ namespace AIScripting
                 foreach (var parentNodeId in parentNodes)
                 {
                     _overflowSet.Clear();
+
                     if (CheckStackOverFlow(nodeId, parentNodeId, _overflowSet))
+                    {
                         continue;
+                    }
 
                     var connectionPass = GetConnectionPass(parentNodeId, nodeId);
-
                     if (!connectionPass)
                         continue;
 

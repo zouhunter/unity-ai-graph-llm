@@ -14,9 +14,9 @@ namespace AIScripting.Debugger
     [CustomNode("DiffShow", group: Define.GROUP)]
     public class DiffShowNode : ScriptNodeBase
     {
-        [Tooltip("Ô´ÎÄ±¾")]
+        [Tooltip("æºæ–‡æœ¬")]
         public Ref<string> sourceText;
-        [Tooltip("Ä¿±êÎÄ±¾")]
+        [Tooltip("ç›®æ ‡æ–‡æœ¬")]
         public Ref<string> targetText;
         public bool scriptOnly = true;
 

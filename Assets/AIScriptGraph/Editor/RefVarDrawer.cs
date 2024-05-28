@@ -106,7 +106,7 @@ namespace AIScripting
                 position.x += 10;
                 position.width -= 20;
                 position.height -= EditorGUIUtility.singleLineHeight;
-                using (var disable = new EditorGUI.DisabledGroupScope(!string.IsNullOrEmpty(keyProp.stringValue)))
+                using (var disable = new EditorGUI.DisabledGroupScope(!autoCreateProp.boolValue))
                 {
                     float originalLabelWidth = EditorGUIUtility.labelWidth;
                     EditorGUIUtility.labelWidth = 60;

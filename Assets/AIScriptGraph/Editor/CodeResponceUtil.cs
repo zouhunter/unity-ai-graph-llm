@@ -9,7 +9,7 @@ namespace AIScripting
     public class CodeResponceUtil
     {
         /// <summary>
-        /// 获取代码内容
+        /// 鑾峰彇浠ｇ爜鍐呭
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
@@ -19,7 +19,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 拆解内容
+        /// 鎷嗚В鍐呭
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
@@ -64,7 +64,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 分析代码类型
+        /// 鍒嗘瀽浠ｇ爜绫诲瀷
         /// </summary>
         /// <param name="content"></param>
         /// <param name="scriptName"></param>
@@ -91,14 +91,24 @@ namespace AIScripting
                         fileExt = "shader";
                         scriptName = GetShaderScriptName(content);
                         return CodeType.Shader;
+                    case "py":
+                        return CodeType.Python;
+                    case "json":
+                        return CodeType.Json;
+                    case "shell":
+                    case "sh":
+                        return CodeType.Shell;
+                    case "bat":
+                    case "cmd":
+                        return CodeType.Cmd;
                     default:
-                        break;
+                        return CodeType.Other;
                 }
             }
             return CodeType.None;
         }
         /// <summary>
-        /// 获取csharp脚本名称
+        /// 鑾峰彇csharp鑴氭湰鍚嶇О
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
@@ -113,7 +123,7 @@ namespace AIScripting
         }
 
         /// <summary>
-        /// 获取shader脚本名称    
+        /// 鑾峰彇shader鑴氭湰鍚嶇О    
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>

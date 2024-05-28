@@ -122,7 +122,7 @@ namespace AIScripting
             centeredStyle.fontSize = 18; // 设置字体大小
             centeredStyle.richText = true;
             //GUILayout.Label("AI状态机 v1.0", centeredStyle);
-            GUIContent content = new GUIContent("AI状态机 <size=12><b><color=black>v1.0</color></b></size>");
+            GUIContent content = new GUIContent("Unity-AI技能图 <size=12><b><color=black>v1.0</color></b></size>");
             EditorGUILayout.LabelField(content, centeredStyle);
 
             var lastRect = GUILayoutUtility.GetLastRect();

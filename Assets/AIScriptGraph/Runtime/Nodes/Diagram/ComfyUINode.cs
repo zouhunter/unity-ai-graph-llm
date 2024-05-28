@@ -16,6 +16,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Net.Http;
 using System.IO;
+using UnityEngine.Networking.Types;
 
 namespace AIScripting.Diagram
 {
@@ -23,144 +24,78 @@ namespace AIScripting.Diagram
     public class ComfyUINode : ScriptNodeBase
     {
         public Ref<string> url = new Ref<string>("comfyui_url", "http://127.0.0.1:8188");
-        public Ref<string> prompt = new Ref<string>("comfyui_prompt", "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,");
-        public Ref<TextAsset> textAsset = new Ref<TextAsset>("comfyui_workflow");
-        public Ref<string> exportDir = new Ref<string>("comfyui_dir", "Build");
-        public string _clientId;
-        public string promptPath = "6.widgets_values";
+        [Tooltip("提示信息")]
+        public Ref<JsonStrModifyNode> prompt = new ("", new JsonStrModifyNode() {
+            path = "6.inputs.text",
+            value= "beautiful scenery nature glass bottle landscape, , purple galaxy bottle," 
+        });
+        [Tooltip("batch数量")]
+        public Ref<JsonIntModifyNode> batchCount = new("", new JsonIntModifyNode()
+        {
+            path = "5.inputs.batch_size",
+            value = 2
+        });
+        [Tooltip("宽度")]
+        public Ref<JsonIntModifyNode> picWidth = new("", new JsonIntModifyNode()
+        {
+            path = "5.inputs.width",
+            value = 512
+        });
+        [Tooltip("高度")]
+        public Ref<JsonIntModifyNode> picHeight = new("", new JsonIntModifyNode()
+        {
+            path = "5.inputs.height",
+            value = 512
+        });
+        public Ref<TextAsset> textAsset = new Ref<TextAsset>();
+        public Ref<string> exportDir = new Ref<string>("", "Build");
+        public Ref<List<string>> exportFiles = new("comfyui_files", new List<string>());
+        public string clientId;
+        public string picNodeId = "9";
         private HttpClient _httpClient = new HttpClient();
         private string _wsUrl;
+
         protected override void OnProcess()
         {
-            if(string.IsNullOrEmpty(_clientId))
-                _clientId = System.Guid.NewGuid().ToString();
+            if (string.IsNullOrEmpty(clientId))
+                clientId = System.Guid.NewGuid().ToString();
             if (url.Value.StartsWith("http:"))
-                _wsUrl = "ws:" + url.Value.Substring(4);
+                _wsUrl = "ws" + url.Value.Substring(4);
             if (url.Value.StartsWith("https:"))
-                _wsUrl = "wss:" + url.Value.Substring(5);
-            Owner.StartCoroutine(DoRequest((texture) =>
+                _wsUrl = "wss" + url.Value.Substring(5);
+            Debug.Log(_wsUrl);
+            DoRequest().ContinueWith(x =>
             {
-                Debug.LogError(texture);
-                DoFinish(texture != null);
-            }));
-        }
-
-        /// <summary>
-        /// 加载图
-        /// </summary>
-        /// <param name="onLoad"></param>
-        /// <returns></returns>
-        private IEnumerator DoRequest(Action<Texture> onLoad)
-        {
-            string promptId = null;
-            yield return QueuePrompt((pid) => { promptId = pid;});
-            if(promptId == null)
-            {
-                onLoad?.Invoke(null);
-                yield break;
-            }
-            GetImages(promptId).ContinueWith(x => {
-                var dic = x.Result;
-                WriteImage(dic);
-                onLoad?.Invoke(null);
+                DoFinish(x.Result);
             });
         }
-        private void WriteImage(Dictionary<string, Dictionary<string,byte[]>> images)
+
+        private async Task<bool> DoRequest()
         {
-            foreach (var nodeId in images.Keys)
-            {
-                foreach (var imageDic in images[nodeId])
-                {
-                    var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    var path = $"{exportDir.Value}/{imageDic.Key}_{timestamp}.png";
-                    Debug.Log($"GIF_LOCATION:{path}");
-                    File.WriteAllBytes(path, imageDic.Value);
-                    Debug.Log($"{path} DONE!!!");
-                }
-            }
+            var mapData = JsonMapper.ToObject(textAsset.Value.text);
+            mapData.Modify(prompt.Value);
+            mapData.Modify(batchCount.Value);
+            mapData.Modify(picWidth.Value);
+            mapData.Modify(picHeight.Value);
+            var promptId = await QueuePrompt(mapData);
+            if (string.IsNullOrEmpty(promptId))
+                return false;
+            var imageMap = await GetImages(promptId);
+            OnLoadImages(imageMap);
+            return imageMap.Count > 0;
         }
 
-        public IEnumerator QueuePrompt(System.Action<string> _callback)
+        private void OnLoadImages(Dictionary<string, byte[]> images)
         {
-            long startTime = System.DateTime.Now.Ticks;
-            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
-            UnityWebRequest request = new UnityWebRequest(url + "/prompt", "POST");
+            exportFiles.Value.Clear();
+            System.IO.Directory.CreateDirectory($"{exportDir.Value}");
+            foreach (var imageDic in images)
             {
-                var mapData = JsonMapper.ToObject(textAsset.Value.text);
-                if(!string.IsNullOrEmpty(promptPath))
-                {
-                    var paths = promptPath.Split('.');
-                    var jd = mapData;
-                    for (int i = 0; i < paths.Length; i++)
-                    {
-                        if(i == paths.Length - 1)
-                        {
-                            jd[paths[i]] = this.prompt.Value;
-                        }
-                        else
-                        {
-                            jd = jd[paths[i]];
-                        }
-                    }
-                }
-                var jsonData = new JsonData();
-                jsonData["client_id"] = _clientId;
-                jsonData["prompt"] = mapData;
-                string _jsonText = jsonData.ToJson();
-                byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);
-                request.uploadHandler = new UploadHandlerRaw(data);
-                request.downloadHandler = new DownloadHandlerBuffer();
-                request.SetRequestHeader("Content-Type", "application/json");
-                var operation = request.SendWebRequest();
-                while (!operation.isDone)
-                {
-                    yield return null;
-                    var progress = (request.uploadProgress + request.downloadProgress) * 0.5f;
-                    _asyncOp.SetProgress(progress);
-                }
-                if (string.IsNullOrEmpty(request.error))
-                {
-                    var json = JsonMapper.ToObject(request.downloadHandler.text);
-                    Debug.Log(request.downloadHandler.text);
-                    if (json.TryGetValue<string>("prompt_id", out var promptId))
-                    {
-                        _callback?.Invoke(promptId);
-                    }
-                }
-                else
-                {
-                    _callback?.Invoke(null);
-                    Debug.LogError(request.error);
-                }
-                request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",Comfyui耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
-            }
-        }
-
-        public IEnumerator GetHistory(string promptId,Action<string> _callback)
-        {
-            long startTime = System.DateTime.Now.Ticks;
-            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
-            UnityWebRequest request = new UnityWebRequest(url + $"/history/{promptId}", "GET");
-            {
-                var operation = request.SendWebRequest();
-                while (!operation.isDone)
-                {
-                    yield return null;
-                    var progress = (request.uploadProgress + request.downloadProgress) * 0.5f;
-                    _asyncOp.SetProgress(progress);
-                }
-                if (string.IsNullOrEmpty(request.error))
-                {
-                    _callback?.Invoke(request.downloadHandler.text);
-                }
-                else
-                {
-                    _callback?.Invoke(null);
-                    Debug.LogError(request.error);
-                }
-                request.Dispose();
-                Debug.Log(System.DateTime.Now.Ticks + ",Comfyui耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                var path = $"{exportDir.Value}/{imageDic.Key}";
+                exportFiles.Value.Add($"{imageDic.Key}");
+                Debug.Log($"GIF_LOCATION:{path}");
+                File.WriteAllBytes(path, imageDic.Value);
+                Debug.Log($"{path} DONE!!!");
             }
         }
 
@@ -170,7 +105,7 @@ namespace AIScripting.Diagram
             try
             {
                 var response = await _httpClient.GetStringAsync($"{url.Value}/history/{promptId}");
-                Debug.Log(response);
+                Debug.Log("history:" + response);
                 return JsonMapper.ToObject(response);
             }
             catch (Exception ex)
@@ -181,17 +116,22 @@ namespace AIScripting.Diagram
         }
 
         // 向服务器队列发送提示信息
-        private async Task<JsonData> QueuePrompt(string prompt)
+        private async Task<string> QueuePrompt(JsonData mapData)
         {
-            var mapData = JsonMapper.ToObject(prompt);
             var jsonData = new JsonData();
-            jsonData["client_id"] = _clientId;
+            jsonData["client_id"] = clientId;
             jsonData["prompt"] = mapData;
             var content = new StringContent(jsonData.ToJson(), Encoding.UTF8, "application/json");
-            Debug.LogError($"{url.Value}/prompt");
-            var response = await _httpClient.PostAsync(new Uri($"{url.Value}/prompt").AbsoluteUri, content);
+            //Debug.LogError($"{url.Value}/prompt");
+            var response = await _httpClient.PostAsync($"{url.Value}/prompt", content);
             var responseBody = await response.Content.ReadAsStringAsync();
-            return JsonMapper.ToObject(responseBody);
+            Debug.Log("QueuePrompt result:" + responseBody);
+            var json = JsonMapper.ToObject(responseBody);
+            if (json.TryGetValue<string>("prompt_id", out var promptId))
+            {
+                return promptId;
+            }
+            return null;
         }
 
         // 获取图片
@@ -205,25 +145,34 @@ namespace AIScripting.Diagram
                 new KeyValuePair<string, string>("type", folderType)
             });
             var urlBytes = $"{url.Value}/view?{await urlValues.ReadAsStringAsync()}";
-            return await _httpClient.GetByteArrayAsync(urlBytes);
+            try
+            {
+                return await _httpClient.GetByteArrayAsync(urlBytes);
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+                return null;
+            }
         }
 
         // 获取图片，涉及到监听WebSocket消息
-        private async Task<Dictionary<string, Dictionary<string,byte[]>>> GetImages(string promptId)
+        private async Task<Dictionary<string, byte[]>> GetImages(string promptId)
         {
             Debug.Log($"prompt_id:{promptId}");
-            var outputImages = new Dictionary<string, Dictionary<string, byte[]>>();
+            var outputImages = new Dictionary<string, byte[]>();
             var buffer = new byte[1024 * 4];
             ClientWebSocket ws = new ClientWebSocket();
 
             try
             {
-                await ws.ConnectAsync(new Uri($"ws://127.0.0.1:8188/ws?client_id={_clientId}"), CancellationToken.None);
+                await ws.ConnectAsync(new Uri($"{_wsUrl}/ws?client_id={clientId}"), CancellationToken.None);
             }
             catch (Exception ex)
             {
                 // 错误处理
                 Debug.LogError("WebSocket Connect Exception: " + ex.ToString());
+                return outputImages;
             }
             while (ws.State == WebSocketState.Open)
             {
@@ -235,14 +184,16 @@ namespace AIScripting.Diagram
                         var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
                         var jd = JsonMapper.ToObject(message);
                         Debug.Log(message);
+                        var queueRemaining = (int)jd["data"]["status"]["exec_info"]["queue_remaining"];
                         //TODO判断队列
-                        if ((int)jd["data"]["status"]["exec_info"]["queue_remaining"] == 0)
+                        if (queueRemaining == 0)
                         {
                             break;
                         }
                         else
                         {
                             //wait
+                            Debug.Log("wait queue:" + queueRemaining);
                         }
                     }
                     else
@@ -258,62 +209,140 @@ namespace AIScripting.Diagram
             }
             Debug.Log("socket execute finish");
             var history = await GetHistory(promptId);
-            foreach (var output in history[promptId]["outputs"])
+            try
             {
-                foreach (string nodeId in history[promptId]["outputs"].Keys)
+                if (history[promptId]["status"]["status_str"].ToString() == "success")
                 {
-                    var nodeOutput = history[promptId]["outputs"][nodeId];
                     // 图片分支
-                    if (nodeOutput.ContainsKey("images"))
+                    var images = history[promptId]["outputs"][picNodeId]["images"];
+                    foreach (JsonData image in images)
                     {
-                        outputImages[nodeId] = new Dictionary<string, byte[]>();
-                        foreach (JsonData image in nodeOutput["images"])
+                        var imageName = image["filename"].ToString();
+                        Debug.Log("start download:" + imageName);
+                        var imageData = await GetImage(imageName, image["subfolder"].ToString(), image["type"].ToString());
+                        if (imageData != null)
                         {
-                            Debug.LogError(image["filename"].ToString());
-                            var imageData = await GetImage(image["filename"].ToString(), image["subfolder"].ToString(), image["type"].ToString());
-                            outputImages[nodeId][image["filename"].ToString()] = imageData;
+                            outputImages[image["filename"].ToString()] = imageData;
+                            Debug.Log("download success:" + imageName);
                         }
                     }
-                    //// 视频分支
-                    //if (nodeOutput.ContainsKey("videos"))
-                    //{
-                    //    var videosOutput = new List<byte[]>();
-                    //    foreach (var video in nodeOutput["videos"])
-                    //    {
-                    //        var videoData = await GetImage(video["filename"].ToString(), video["subfolder"].ToString(), video["type"].ToString());
-                    //        videosOutput.Add(videoData);
-                    //    }
-                    //    outputImages[nodeId] = videosOutput;
-                    //}
                 }
+               
             }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+            }
+
+            Debug.Log("download image finished!");
             return outputImages;
         }
     }
-
-    [System.Serializable]
-    public class WebSocketResult
-    {
-        public string type;
-        public Data data;
-
-        [System.Serializable]
-        public class Data
-        {
-            public string sid;
-            public Status status;
-        }
-
-        [System.Serializable]
-        public class Status
-        {
-            public ExecInfo exec_info;
-        }
-
-        [System.Serializable]
-        public class ExecInfo
-        {
-            public string queue_remaining;
-        }
-    }
 }
+
+///// <summary>
+///// 加载图
+///// </summary>
+///// <param name="onLoad"></param>
+///// <returns></returns>
+//private IEnumerator DoRequest(Action<bool> onLoad)
+//{
+//    string promptId = null;
+//    yield return QueuePrompt((pid) => { promptId = pid; });
+//    if (promptId == null)
+//    {
+//        onLoad?.Invoke(false);
+//        yield break;
+//    }
+//    GetImages(promptId).ContinueWith(x =>
+//    {
+//        var dic = x.Result;
+//        OnLoadImages(dic);
+//        onLoad?.Invoke(dic.Count > 0);
+//    });
+//}
+
+
+//public IEnumerator QueuePrompt(System.Action<string> _callback)
+//{
+//    long startTime = System.DateTime.Now.Ticks;
+//    Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
+//    UnityWebRequest request = new UnityWebRequest(url + "/prompt", "POST");
+//    {
+//        var mapData = JsonMapper.ToObject(textAsset.Value.text);
+//        if (!string.IsNullOrEmpty(promptPath))
+//        {
+//            var paths = promptPath.Split('.');
+//            var jd = mapData;
+//            for (int i = 0; i < paths.Length; i++)
+//            {
+//                if (i == paths.Length - 1)
+//                {
+//                    jd[paths[i]] = this.prompt.Value;
+//                }
+//                else
+//                {
+//                    jd = jd[paths[i]];
+//                }
+//            }
+//        }
+//        var jsonData = new JsonData();
+//        jsonData["client_id"] = clientId;
+//        jsonData["prompt"] = mapData;
+//        string _jsonText = jsonData.ToJson();
+//        byte[] data = System.Text.Encoding.UTF8.GetBytes(_jsonText);
+//        request.uploadHandler = new UploadHandlerRaw(data);
+//        request.downloadHandler = new DownloadHandlerBuffer();
+//        request.SetRequestHeader("Content-Type", "application/json");
+//        var operation = request.SendWebRequest();
+//        while (!operation.isDone)
+//        {
+//            yield return null;
+//            var progress = (request.uploadProgress + request.downloadProgress) * 0.5f;
+//            _asyncOp.SetProgress(progress);
+//        }
+//        if (string.IsNullOrEmpty(request.error))
+//        {
+//            var json = JsonMapper.ToObject(request.downloadHandler.text);
+//            Debug.Log(request.downloadHandler.text);
+//            if (json.TryGetValue<string>("prompt_id", out var promptId))
+//            {
+//                _callback?.Invoke(promptId);
+//            }
+//        }
+//        else
+//        {
+//            _callback?.Invoke(null);
+//            Debug.LogError(request.error);
+//        }
+//        request.Dispose();
+//        Debug.Log(System.DateTime.Now.Ticks + ",Comfyui耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+//    }
+//}
+
+//public IEnumerator GetHistory(string promptId, Action<string> _callback)
+//{
+//    long startTime = System.DateTime.Now.Ticks;
+//    Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
+//    UnityWebRequest request = new UnityWebRequest(url + $"/history/{promptId}", "GET");
+//    {
+//        var operation = request.SendWebRequest();
+//        while (!operation.isDone)
+//        {
+//            yield return null;
+//            var progress = (request.uploadProgress + request.downloadProgress) * 0.5f;
+//            _asyncOp.SetProgress(progress);
+//        }
+//        if (string.IsNullOrEmpty(request.error))
+//        {
+//            _callback?.Invoke(request.downloadHandler.text);
+//        }
+//        else
+//        {
+//            _callback?.Invoke(null);
+//            Debug.LogError(request.error);
+//        }
+//        request.Dispose();
+//        Debug.Log(System.DateTime.Now.Ticks + ",Comfyui耗时：" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+//    }
+//}

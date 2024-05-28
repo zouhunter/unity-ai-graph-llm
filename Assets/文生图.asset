@@ -201,8 +201,28 @@ MonoBehaviour:
     _default: http://127.0.0.1:8188
     _autoCreate: 1
   prompt:
-    _key: comfyui_prompt
-    _default: beautiful scenery nature glass bottle landscape, , purple galaxy bottle,
+    _key: 
+    _default:
+      path: 6.inputs.text
+      value: super hero,real,dog
+    _autoCreate: 1
+  batchCount:
+    _key: 
+    _default:
+      path: 5.inputs.batch_size
+      value: 1
+    _autoCreate: 1
+  picWidth:
+    _key: comfyui_width
+    _default:
+      path: 5.inputs.width
+      value: 512
+    _autoCreate: 1
+  picHeight:
+    _key: comfyui_height
+    _default:
+      path: 5.inputs.height
+      value: 512
     _autoCreate: 1
   textAsset:
     _key: 
@@ -212,8 +232,13 @@ MonoBehaviour:
     _key: comfyui_dir
     _default: Build
     _autoCreate: 1
-  _clientId: d0e3dba1-f37d-4858-b391-e1558dd4ffZ
-  promptPath: 6.widgets_values
+  exportFiles:
+    _key: comfyui_files
+    _default:
+    - ComfyUI_00174_.png
+    _autoCreate: 1
+  clientId: a01
+  picNodeId: 9
 --- !u!114 &-658272163205269217
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,9 +257,9 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u8BFB\u53D6\u811A\u672C\u6587\u4EF6"
-  textfile:
+  inputTextfile:
     _key: 
-    _default: {fileID: 11500000, guid: 97eb18271f313bb44af577fbbf5786fe, type: 3}
+    _default: {fileID: 0}
     _autoCreate: 1
   exportfileName:
     _key: 
@@ -290,7 +315,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -303,7 +328,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -314,7 +339,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -658272163205269217}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":7904},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"inputTextfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":0},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -1329441486
       label: i
@@ -323,7 +348,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -336,7 +361,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647
@@ -346,8 +371,8 @@ MonoBehaviour:
     m_x: 2064
     m_y: 864
     m_node: {fileID: -1799173771543672511}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"comfyui_prompt","_default":"beautiful
-      scenery nature glass bottle landscape, , purple galaxy bottle,","_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":225656},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"_clientId":"d0e3dba1-f37d-4858-b391-e1558dd4ffZ","promptPath":"6.widgets_values"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"","_default":{"path":"6.inputs.text","value":"super
+      hero,real,dog"},"_autoCreate":true},"batchCount":{"_key":"","_default":{"path":"5.inputs.batch_size","value":1},"_autoCreate":true},"picWidth":{"_key":"comfyui_width","_default":{"path":"5.inputs.width","value":512},"_autoCreate":true},"picHeight":{"_key":"comfyui_height","_default":{"path":"5.inputs.height","value":512},"_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":203582},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"exportFiles":{"_key":"comfyui_files","_default":["ComfyUI_00174_.png"],"_autoCreate":true},"clientId":"a01","picNodeId":"9"}'
     m_inputPoints:
     - id: 81249834
       label: i
@@ -356,7 +381,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.115385
         width: 21
         height: 29
       max: 2147483647
@@ -369,7 +394,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.115385
         width: 10
         height: 23
       max: 2147483647

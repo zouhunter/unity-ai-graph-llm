@@ -3,6 +3,7 @@ namespace AIScripting.Describe
     public enum TextAttachType
     {
         Prefix,
-        Suffix
+        Suffix,
+        Format
     }
 }

@@ -51,6 +51,12 @@ namespace AIScripting.Describe
             {
                 _sb.AppendLine(textfix);
             }
+            else if (attachType == TextAttachType.Format)
+            {
+                var text = _sb.ToString().Trim();
+                _sb.Clear();
+                _sb.AppendLine(string.Format(textfix, text));
+            }
             if (success)
             {
                 Debug.Log("DoFinish:" + name);
