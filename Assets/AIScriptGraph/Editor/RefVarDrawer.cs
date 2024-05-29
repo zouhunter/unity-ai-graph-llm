@@ -22,6 +22,9 @@ namespace AIScripting
         private SerializedProperty defaultProp;
         private int _index = 0;
         private System.Type _valueType;
+        private HashSet<int> _autoHideProp = new();
+        private int _currentHash;
+
         private void FindProperties(SerializedProperty property)
         {
             keyProp = property.FindPropertyRelative("_key");
@@ -38,11 +41,11 @@ namespace AIScripting
             {
                 if (!typeof(IRef).IsAssignableFrom(item.FieldType))
                     continue;
-                _valueType = item.FieldType.GetGenericArguments()[0];
-
                 index++;
                 if (item.Name == property.propertyPath)
                 {
+                    _currentHash = item.GetValue(property.serializedObject.targetObject).GetHashCode();
+                    _valueType = item.FieldType.GetGenericArguments()[0];
                     this._index = index;
                     break;
                 }
@@ -86,6 +89,24 @@ namespace AIScripting
             if (string.IsNullOrEmpty(keyProp.stringValue))
             {
                 property.isExpanded = true;
+            }
+            else if(!_autoHideProp.Contains(_currentHash) && _valueType.IsValueType)
+            {
+                if(_valueType == typeof(Ref<string>) && string.IsNullOrEmpty(defaultProp.stringValue))
+                {
+                    _autoHideProp.Add(_currentHash);
+                    property.isExpanded = false;
+                }
+                else if (_valueType == typeof(Ref<int>) && defaultProp.intValue == 0)
+                {
+                    _autoHideProp.Add(_currentHash);
+                    property.isExpanded = false;
+                }
+                else if (_valueType == typeof(Ref<bool>) && defaultProp.boolValue == false)
+                {
+                    _autoHideProp.Add(_currentHash);
+                    property.isExpanded = false;
+                }
             }
 
             var idRect = new Rect(position.x + position.width - 180, position.y, 20, EditorGUIUtility.singleLineHeight);

@@ -6,7 +6,6 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System;
 using AIScripting.MateAI;
-using NPOI.SS.Formula.Functions;
 
 namespace AIScripting.Diagram
 {

@@ -258,7 +258,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 10
   eventReceiveKey: ollama_receive_message
   modifyData: 1
@@ -515,10 +515,9 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: Question
-  textfix: "My question is: Based on the file structure of the project provided in
-    the last conversation, find {0}, analyze its full path, return a json structure
-    like ```json \n{{\"path\":\"Assets\"}}\n```, the key is' path ', the value is
-    the full path."
+  textfix: 'My question is: Based on the file structure of the project provided in
+    the last conversation, find {0}, analyze its full path, return a json structure,
+    the key is'' path '', the value is the full path.'
   export_text:
     _key: question_text
     _default: 
@@ -527,7 +526,7 @@ MonoBehaviour:
   modifyType: 2
   input_text:
     _key: 
-    _default: "Home\u573A\u666F"
+    _default: Variable.cs
     _autoCreate: 1
 --- !u!114 &-657987837560782081
 MonoBehaviour:
@@ -666,7 +665,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -679,7 +678,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -700,7 +699,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -713,7 +712,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -723,12 +722,10 @@ MonoBehaviour:
     m_x: 1356
     m_y: 816
     m_node: {fileID: -947678888257602543}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"Question\",\"textfix\":\"My
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.TextDescribeNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"Question","textfix":"My
       question is: Based on the file structure of the project provided in the last
-      conversation, find {0}, analyze its full path, return a json structure like
-      ```json \\n{{\\\"path\\\":\\\"Assets\\\"}}\\n```, the key is' path ', the value
-      is the full path.\",\"export_text\":{\"_key\":\"question_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":2,\"modifyType\":2,\"input_text\":{\"_key\":\"\",\"_default\":\"Home\u573A\u666F\",\"_autoCreate\":true}}"
+      conversation, find {0}, analyze its full path, return a json structure, the
+      key is'' path '', the value is the full path.","export_text":{"_key":"question_text","_default":"","_autoCreate":true},"attachType":2,"modifyType":2,"input_text":{"_key":"","_default":"Variable.cs","_autoCreate":true}}'
     m_inputPoints:
     - id: -104273424
       label: i
@@ -737,7 +734,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -750,7 +747,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -761,7 +758,7 @@ MonoBehaviour:
     m_y: 684
     m_node: {fileID: 6160114948892027702}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":219338},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\"]}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":17852},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\",\".cs\"]}"
     m_inputPoints:
     - id: -588158846
       label: i
@@ -770,7 +767,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -782,8 +779,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 134.95291
-        y: 22.825485
+        x: 124.58798
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -793,7 +790,7 @@ MonoBehaviour:
     m_x: 1356
     m_y: 924
     m_node: {fileID: -4468445910281434414}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":10,"eventReceiveKey":"ollama_receive_message","modifyData":true,"m_DataList":{"_key":"send_data_list","_default":[],"_autoCreate":false},"input":{"_key":"question_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","model":"llama3","m_HistoryKeepCount":10,"eventReceiveKey":"ollama_receive_message","modifyData":true,"m_DataList":{"_key":"send_data_list","_default":[],"_autoCreate":false},"input":{"_key":"question_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
     - id: 542740786
       label: i
@@ -802,7 +799,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -815,7 +812,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -834,7 +831,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -846,8 +843,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 134.95291
-        y: 22.825485
+        x: 125.86279
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -866,7 +863,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -879,7 +876,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -900,7 +897,7 @@ MonoBehaviour:
       Playing_end.fbx,@m_Piano Playing_loop.fbx,@m_Piano Playing_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Sofa:[\\r\\n@m_lyingonside_end.fbx,@m_lyingonside_loop.fbx,@m_lyingonside_stard.fbx,@m_sitsleepy_end.fbx,@m_sitsleepy_loop.fbx,@m_sitsleepy_stard.fbx,@m_sitsofa_end.fbx,@m_sitsofa_loop.fbx,@m_sitsofa_loop_1.fbx,@m_sitsofa_stard.fbx,@m_sitsofa_to_sitsleepy.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Watering:[\\r\\n@m_watering_end.fbx,@m_watering_loop.fbx,@m_watering_start.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Home_Yoga:[\\r\\n@m_warmup_01_end.fbx,@m_warmup_01_loop.fbx,@m_warmup_01_stard.fbx,@m_warmup_02_end.fbx,@m_warmup_02_loop.fbx,@m_warmup_02_stard.fbx,@m_warmup_03_end.fbx,@m_warmup_03_loop.fbx,@m_warmup_03_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bathing:[\\r\\n@m_bathe.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Bed:[\\r\\n@m_bed_pose_01to02.fbx,@m_bed_pose_02to01.fbx,@m_on_bad01_end.fbx,@m_on_bad01_loop.fbx,@m_on_bad01_stard.fbx,@m_on_bad02_end.fbx,@m_on_bad02_loop.fbx,@m_on_bad02_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Interaction/Room_Sofa:[\\r\\n@m_roomsofa_end.fbx,@m_roomsofa_loop.fbx,@m_roomsofa_stard.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay:[\\r\\n]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Emotion:[\\r\\n@m_angry_roleplay.fbx,@m_anxious_roleplay.fbx,@m_confused_roleplay.fbx,@m_disgusted_roleplay.fbx,@m_excited_roleplay.fbx,@m_fear_roleplay.fbx,@m_happy_roleplay.fbx,@m_hopeful_roleplay.fbx,@m_relaxed_roleplay.fbx,@m_sad_roleplay.fbx,@m_speechless_roleplay.fbx,@m_stressed_roleplay.fbx,@m_surprised_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/RolePlay/Touch:[\\r\\n@m_leanin_01_roleplay.fbx,@m_leanin_02_roleplay.fbx,@m_leanin_03_roleplay.fbx,@m_touchabs_01_roleplay.fbx,@m_touchabs_02_roleplay.fbx,@m_touchabs_03_roleplay.fbx,@m_touchchest_01_roleplay.fbx,@m_touchchest_02_roleplay.fbx,@m_touchface_01_roleplay_s.fbx,@m_touchface_02_roleplay_s.fbx,@m_touchhead_01_roleplay.fbx,@m_touchpants_01_roleplay.fbx,@m_touchpants_02_roleplay.fbx,@m_touchpants_03_roleplay.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby:[\\r\\n@m_standby_001.fbx,@m_standby_002.FBX,@m_standby_003.FBX,@m_standby_004.FBX,@m_standby_005.FBX,@m_standby_006.FBX,@m_standby_007.FBX,@m_standby_008.FBX,@m_Talking_m.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Hello:[\\r\\n@m_idle_003_01.fbx,@m_idle_003_02.fbx,@m_idle_003_03.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Listen:[\\r\\n@m_akimbo_standby.fbx,@m_nodwitharms_standby.fbx,@m_rubpalms_standby.fbx,@m_stand_listen_m.fbx,@m_tapchin_standby.fbx,@m_touchneck_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Standby/Speak:[\\r\\n@m_spreadhands_standby.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/TouchRandom:[\\r\\n@m_actsilly_01_3dt.fbx,@m_blowkisses_3dt.fbx,@m_bow_3dt.fbx,@m_freestyle_3dt.fbx,@m_makeheart_3dt.fbx,@m_roundkick_3dt.fbx,@m_spinaround_3dt.fbx,@m_swag_3dt.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/@m_mate/Walk:[\\r\\n@m_Left_Turn_180.fbx,@m_Left_Turn_90.fbx,@m_Right_Turn_180.fbx,@m_Right_Turn_90.fbx,@m_walk.fbx]\\r\\nAssets/_Art/_animations/generic\u52A8\u753B/Item:[\\r\\nMedalShow.anim]\\r\\nAssets/Scenes:[\\r\\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\\r\\nAssets/Scenes/HomeScene:[\\r\\nHomeObjs.prefab,NavMesh.asset,ReflectionProbe-0.exr,ReflectionProbe-10.exr,sfx-home.prefab]\\r\\nAssets/Scenes/HomeScene/DayLightmaps:[\\r\\nHomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr]\\r\\nAssets/Scenes/HomeScene/NightLightmaps:[\\r\\nHomeScene_371857150_probes.asset,HomeScene_LM0_final.hdr,HomeScene_LMA1_final.hdr,HomeScene_LMA2_final.hdr,HomeScene_LMA3_final.hdr,HomeScene_LMA4_final.hdr,RoomScene_371857150_probes.asset]\\r\\nAssets/Scenes/PlayStudioScene:[\\r\\nNavMesh.asset,PlayStudioScene_371857150_probes.asset,PlayStudioScene_LM0_final.hdr,PlayStudioScene_LMA12_final.hdr,PlayStudioScene_LMA13_final.hdr,PlayStudioScene_LMA1_final.hdr,PlayStudioScene_LMA2_final.hdr,PlayStudioScene_LMA3_final.hdr,PlayStudioScene_LMA4_final.hdr,PlayStudioScene_LMA5_final.hdr,PlayStudioScene_LMA6_final.hdr,PlayStudioScene_LMA7_final.hdr,PlayStudioScene_LMA8_final.hdr,PlayStudioScene_LMA9_final.hdr,ReflectionProbe-10.exr]\\r\\nAssets/Scenes/RoomScene:[\\r\\nNavMesh.asset,OcclusionCullingData.asset,ReflectionProbe-10.exr,RoomObjs.prefab]\\r\\nAssets/Scenes/RoomScene/DayLightmaps:[\\r\\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\\r\\nAssets/Scenes/RoomScene/NightLightmaps:[\\r\\nRoomScene_LM0_final.hdr,RoomScene_LMA1_final.hdr,RoomScene_LMA2_final.hdr]\\r\\nAssets/Scenes/_backup:[\\r\\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreen.lighting,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\\r\\nAssets/Main:[\\r\\nAOTGenerics.cs,ConsoleToSceen.cs,LoadDll.cs,Main.asmdef,TestSuper.cs]\\r\\nAssets/Main/APPConfig:[\\r\\nAppConfigData.cs,AppConfigdata_Dev.asset,AppConfigdata_Prd.asset]\\r\\nAssets/Main/AssetsBundleManager:[\\r\\nAssetBundleManager.cs,AssetBundleSetting.cs,AsyncOperation.cs,FileBundleLoader.cs,ScriptableSingleton.cs,SimulateBundleLoader.cs]\\r\\nAssets/Main/Bridge:[\\r\\nBaseNativeBridge.cs,Bridge.cs]\\r\\nAssets/Main/Bridge/PlantformBridge:[\\r\\nAndroidPantformBridge.cs,EditorPlantformBridge.cs,IOSPantformBridge.cs]\\r\\nAssets/Main/FileCryion:[\\r\\nFileDryion.cs]\\r\\nAssets/Main/HotLoad:[\\r\\nHotConfig.cs,HotFileDown.cs,HotLoadManager.cs,HotLoadNetWork.cs]\\r\\nAssets/Main/LoadingUI:[\\r\\nLoadingABResPanel.cs,LoadingSpritePlayer.cs,RandomTextBehaviour.cs]\\r\\nAssets/Main/LoadSceneHotLoadCtr:[\\r\\nAppLifeStatus.cs,LoadSceneHotLoadCtr.cs]\\r\\nAssets/Main/Localization:[\\r\\nLanguageData.cs,LocalizationCtr.cs,LocalizationTextBinding.cs]\\r\\nAssets/Main/MagicaCloth2:[\\r\\nMagicaCloth2.asmdef,Readme.txt,Readme_jpn.txt]\\r\\nAssets/Main/MagicaCloth2/Res:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Icon:[\\r\\nicon-cloth.png,icon-collider.png,icon-settings.png,icon-wind.png]\\r\\nAssets/Main/MagicaCloth2/Res/Preset:[\\r\\nMC2_Preset_Accessory.json,MC2_Preset_Cape.json,MC2_Preset_FrontHair.json,MC2_Preset_HardSpring.json,MC2_Preset_LongHair.json,MC2_Preset_MiddleSpring.json,MC2_Preset_ShortHair.json,MC2_Preset_Skirt.json,MC2_Preset_SoftSpring.json,MC2_Preset_Tail.json]\\r\\nAssets/Main/MagicaCloth2/Scripts:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\\r\\nCheckSliderSerializeData.cs,ClothBehaviour.cs,ClothForceMode.cs,ClothNormalAxis.cs,ClothParameters.cs,ClothProcess.cs,ClothProcessData.cs,ClothProcessGeneration.cs,ClothSerializeData.cs,ClothSerializeData2.cs,ClothSerializeDataFunction.cs,ClothUpdateMode.cs,CullingSettings.cs,CurveSerializeData.cs,CustomSkinningSettings.cs,GizmoSerializeData.cs,MagicaCloth.cs,MagicaClothAnimationProperty.cs,MagicaClothAPI.cs,NormalAlignmentSettings.cs,SelectionData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\\r\\nColliderComponent.cs,MagicaCapsuleCollider.cs,MagicaPlaneCollider.cs,MagicaSphereCollider.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\\r\\nAngleConstraint.cs,ColliderCollisionConstraint.cs,DistanceConstraint.cs,InertiaConstraint.cs,MotionConstraint.cs,SelfCollisionConstraint.cs,SpringConstraint.cs,TetherConstraint.cs,TriangleBendingConstraint.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\\r\\nMagicaWindZone.cs,WindParams.cs,WindSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\\r\\nResultDefine.cs,SystemDefine.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\\r\\nICount.cs,IDataValidate.cs,ITransform.cs,IValid.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\\r\\nIManager.cs,MagicaManager.cs,MagicaManagerAPI.cs,MagicaSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\\r\\nClothManager.cs,PreBuildManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\\r\\nRenderData.cs,RenderManager.cs,RenderSetupData.cs,RenderSetupDataSerialization.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\\r\\nColliderManager.cs,SimulationManager.cs,TimeManager.cs,WindManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\\r\\nTeamManager.cs,TeamWindData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\\r\\nTransformData.cs,TransformDataSerialization.cs,TransformManager.cs,TransformRecord.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\\r\\nVirtualMeshManager.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\\r\\nPreBuildScriptableObject.cs,PreBuildSerializeData.cs,SharePreBuildData.cs,UniquePreBuildData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\\r\\nReductionSettings.cs,ReductionWorkData.cs,SameDistanceReduction.cs,ShapeDistanceReduction.cs,SimpleDistanceReduction.cs,StepReductionBase.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\\r\\nClothDebugSettings.cs,VirtualMeshDebugSettings.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\\r\\nDataUtility.cs,MultiDataBuilder.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\\r\\nGridMap.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\\r\\nInterlockUtility.cs,JobUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\\r\\nAABB.cs,IntAABB.cs,MathExtensions.cs,MathUtility.cs,MinimumData.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\\r\\nMeshUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\\r\\nDevelop.cs,StaticStringBuilder.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\\r\\nDataChunk.cs,ExBitFlag16.cs,ExBitFlag8.cs,ExCostSortedList1.cs,ExCostSortedList4.cs,ExNativeArray.cs,ExProcessingList.cs,ExSimpleNativeArray.cs,ExTransformAccessArray.cs,FixedList128BytesExtensions.cs,FixedList32BytesExtensions.cs,FixedList4096BytesExtensions.cs,FixedList512BytesExtensions.cs,FixedList64BytesExtensions.cs,NativeArrayExtensions.cs,NativeMultiHashMapExtensions.cs,NativeReferenceExtensions.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\\r\\nException.cs,ResultCode.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\\r\\nTimeSpan.cs,UnityTimeSpan.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\\r\\nVertexAttribute.cs,VirtualMesh.cs,VirtualMeshBoneWeight.cs,VirtualMeshContainer.cs,VirtualMeshPrimitive.cs,VirtualMeshRaycastHit.cs,VirtualMeshTransform.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\\r\\nVirtualMeshInputOutput.cs,VirtualMeshMapping.cs,VirtualMeshOptimization.cs,VirtualMeshProxy.cs,VirtualMeshReduction.cs,VirtualMeshSerialization.cs,VirtualMeshWork.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor:[\\r\\nMagicaCloth2.Editor.asmdef]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\\r\\nClothAssetPostprocessor.cs,ClothEditorManager.cs,ClothEditorUtility.cs,ClothInspectorUtility.cs,ClothPainter.cs,ClothPresetUtility.cs,MagicaCapsuleColliderEditor.cs,MagicaClothEditor.cs,MagicaPlaneColliderEditor.cs,MagicaSettingsEditor.cs,MagicaSphereColliderEditor.cs,MagicaWindZoneEditor.cs,VirtualMeshEditorUtility.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\\r\\nAboutMenu.cs,CheckSliderSerializeDataDrawer.cs,CurveSerializeDataDrawer.cs,DrawIconInHierarchy.cs,MenuItemScript.cs,SharePreBuildDataDrawer.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\\r\\nGizmoUtility.cs,MagicaCapsuleColliderGizmoDrawer.cs,MagicaClothGizmoDrawer.cs,MagicaPlaneColliderGizmoDrawer.cs,MagicaSphereColliderGizmoDrawer.cs,MagicaWindZoneGizmoDrawer.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\\r\\nPreBuildDataCreation.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\\r\\nMagicaCloth2UPMImporterBurst.asmdef,UnityPackageImporter.cs]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\\r\\nMagicaCloth2UPMImporterCollections.asmdef,UnityPackageImporter.cs]\\r\\nAssets/Main/ParticleEffectForUGUI:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Editor:[\\r\\nAnimatablePropertyEditor.cs,Coffee.UIParticle.Editor.asmdef,UIParticleEditor.cs,UIParticleMenu.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Icons:[\\r\\nUIParticleIcon.png]\\r\\nAssets/Main/ParticleEffectForUGUI/Runtime:[\\r\\nAnimatableProperty.cs,Coffee.UIParticle.asmdef,ModifiedMaterial.cs,UIParticle.cs,UIParticleAttractor.cs,UIParticleRenderer.cs,UIParticleUpdater.cs,Utils.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\\r\\nUIParticle_Demo.unity]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\\r\\nUIParticle_Demo_Animatable.controller,UIParticle_Demo_Pop.controller,UIParticle_Demo_Wave.controller]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\\r\\nUIParticle_Demo_Animatable.mat,UIParticle_Demo_Animatable.png,UIParticle_Demo_Dot.mat,UIParticle_Demo_Fire.mat,UIParticle_Demo_Fire_Atlas.png,UIParticle_Demo_Flame.mat,UIParticle_Demo_Flame_Atlas.tif,UIParticle_Demo_UIAdditive.mat]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\\r\\nUIParticle_Demo_Animatable.fbx,UIParticle_Demo_Animatable.prefab,UIParticle_Demo_EffectSample_Frame.prefab,UIParticle_Demo_EffectSample_Unity-chan.prefab]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\\r\\nCoffee.UIParticle.Demo.asmdef,CopyItemOnStart.cs,UIElementDragger.cs,UIParticle_Demo.cs,UIParticle_Demo_UIParticleController.cs]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\\r\\nUIParticle_Demo.spriteatlas,UIParticle_Demo_Light_Frame.png,UIParticle_Demo_Move.png,UIParticle_Demo_Star.png,UIParticle_Demo_Unity-chan.png]\\r\\nAssets/Main/ParticleEffectForUGUI/Shaders:[\\r\\nUIAdditive.mat,UIAdditive.shader]\\r\\nAssets/Main/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON:[\\r\\nJSONObject.cs,JSONTemplates.cs,readme.txt,VectorTemplates.cs]\\r\\nAssets/Main/Plugins/JSON/Editor:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR:[\\r\\nreadme_en.txt,readme_jp.txt]\\r\\nAssets/Main/Plugins/LJR/Plugins:[\\r\\npackage.json]\\r\\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\\r\\nIJsonWrapper.cs,JsonData.cs,JsonException.cs,JsonMapper.cs,JsonMockWrapper.cs,JsonReader.cs,JsonWriter.cs,Lexer.cs,LitJson.asmdef,Netstandard15Polyfill.cs,ParserToken.cs]\\r\\nAssets/Main/Plugins/SimpleHTTP:[\\r\\nClient.cs,FormData.cs,LICENSE,README.html,README.pdf,Request.cs,RequestBody.cs,Response.cs]\\r\\nAssets/Main/Plugins/SimpleHTTP/Examples:[\\r\\nMain.cs,Post.cs,TestScene.unity]\\r\\nAssets/Main/UnityAndroidBridge:[\\r\\nUnityAndroidBridge.cs,UnityAppActivity.java]\\r\\nAssets/Main/UnityiOSBridge:[\\r\\nUnityiOSBridge.cs]\\r\\nAssets/Main/UnityLogUploadComponent:[\\r\\nUnityLogUploadComponent.cs]\\r\\nAssets/Main/Utils:[\\r\\nCopyUtil.cs,DictEx.cs,EngineEx.cs,ListEx.cs,ReflectUtils.cs,StringEx.cs,TextureEx.cs,TimeFormatEx.cs]\\r\\n\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
       remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"my question
       is:base on file paths of the project,please find full path of \\\"m_idle_003_03.fbx\\\",analysis
-      it full path,return a json string,key is 'path',value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
+      it full path,return a json string,key is 'path',value is the full path.\\n\"},{\"role\":\"assistant\",\"content\":\"I
       can help you with that.\\n\\nAssuming your Unity project has the following
       file structure:\\n```\\nProject/\\nAssets/\\nModels/\\nm_idle_003_03.fbx\\n...\\nscenes/\\nMainScene.unity\\n...\\n...\\nProjectSettings.asset\\n...\\n```\\nThe
       full path of \\\"m_idle_003_03.fbx\\\" would be: `Project/Assets/Models/m_idle_003_03.fbx`\\n\\nHere
@@ -914,7 +911,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -927,7 +924,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -940,17 +937,15 @@ MonoBehaviour:
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.SendDataDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u73AF\u5883\u8BF4\u660E\",\"input_role\":{\"_key\":\"\",\"_default\":\"user\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"source_text\",\"_default\":\"you
       are tools of my unity project\",\"_autoCreate\":false},\"output_list\":{\"_key\":\"send_data_list\",\"_default\":[{\"role\":\"user\",\"content\":\"This
-      is my project hierarchy:\\r\\n# directory descs:\\r\\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\\r\\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\\r\\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\\r\\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\\r\\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\\r\\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\\r\\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\\r\\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\\r\\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\\r\\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\\r\\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\\r\\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\\r\\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\\r\\n#
-      files of directorys:\\r\\nAssets/Scenes:[\\r\\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\\r\\nAssets/Scenes/HomeScene:[\\r\\n]\\r\\nAssets/Scenes/HomeScene/DayLightmaps:[\\r\\n]\\r\\nAssets/Scenes/HomeScene/NightLightmaps:[\\r\\n]\\r\\nAssets/Scenes/PlayStudioScene:[\\r\\n]\\r\\nAssets/Scenes/RoomScene:[\\r\\n]\\r\\nAssets/Scenes/RoomScene/DayLightmaps:[\\r\\n]\\r\\nAssets/Scenes/RoomScene/NightLightmaps:[\\r\\n]\\r\\nAssets/Scenes/_backup:[\\r\\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\\r\\nAssets/Main:[\\r\\n]\\r\\nAssets/Main/APPConfig:[\\r\\n]\\r\\nAssets/Main/AssetsBundleManager:[\\r\\n]\\r\\nAssets/Main/Bridge:[\\r\\n]\\r\\nAssets/Main/Bridge/PlantformBridge:[\\r\\n]\\r\\nAssets/Main/FileCryion:[\\r\\n]\\r\\nAssets/Main/HotLoad:[\\r\\n]\\r\\nAssets/Main/LoadingUI:[\\r\\n]\\r\\nAssets/Main/LoadSceneHotLoadCtr:[\\r\\n]\\r\\nAssets/Main/Localization:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Icon:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Res/Preset:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\\r\\n]\\r\\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Editor:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Icons:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Runtime:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\\r\\nUIParticle_Demo.unity]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\\r\\nUIParticle_Demo_Animatable.fbx]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\\r\\n]\\r\\nAssets/Main/ParticleEffectForUGUI/Shaders:[\\r\\n]\\r\\nAssets/Main/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON:[\\r\\n]\\r\\nAssets/Main/Plugins/JSON/Editor:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR/Plugins:[\\r\\n]\\r\\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\\r\\n]\\r\\nAssets/Main/Plugins/SimpleHTTP:[\\r\\n]\\r\\nAssets/Main/Plugins/SimpleHTTP/Examples:[\\r\\nTestScene.unity]\\r\\nAssets/Main/UnityAndroidBridge:[\\r\\n]\\r\\nAssets/Main/UnityiOSBridge:[\\r\\n]\\r\\nAssets/Main/UnityLogUploadComponent:[\\r\\n]\\r\\nAssets/Main/Utils:[\\r\\n]\\r\\n\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
+      is my project hierarchy:\\r\\n# directory descs:\\r\\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\\r\\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\\r\\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\\r\\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\\r\\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\\r\\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\\r\\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\\r\\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\\r\\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\\r\\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\\r\\n11.ai\u6D41\u7A0B\u56FE\u811A\u672C:./Assets/AIScriptGraph\\r\\n12.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\\r\\n13.\u6253\u5305\u6587\u4EF6\u5939:./Build\\r\\n14.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\\r\\n#
+      files of directorys:\\r\\nAssets/AIScriptGraph:[\\r\\n]\\r\\nAssets/AIScriptGraph/Editor:[\\r\\nAIScriptGraphDrawer.cs,AIScriptingController.cs,AIScriptSettings.cs,BindingInfoDrawer.cs,CodeResponceUtil.cs,CodeType.cs,ConditionDrawer.cs,NodeBaseInfoDrawer.cs,NodeConnectionDrawer.cs,NodeConnectionView.cs,RefVarDrawer.cs,ScriptingNodeView.cs]\\r\\nAssets/AIScriptGraph/Editor/NodeDrawer:[\\r\\nComfyUIDrawer.cs,DiffShowDrawer.cs,ResponceShowDrawer.cs,WekoiCCDrawer.cs]\\r\\nAssets/AIScriptGraph/Runtime:[\\r\\n]\\r\\nAssets/AIScriptGraph/Runtime/Core:[\\r\\nAIScriptGraph.cs,AsyncOp.cs,BindingInfo.cs,Condition.cs,Define.cs,EventProvider.cs,GraphDirector.cs,IScriptGraphNode.cs,JsonDataModify.cs,LitCoroutine.cs,MyersUtil.cs,NodeConnection.cs,ScriptNodeBase.cs,Status.cs]\\r\\nAssets/AIScriptGraph/Runtime/Core/Request:[\\r\\nPostData.cs,ReceiveData.cs,SendData.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes:[\\r\\nBeginNode.cs,GraphNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Batch:[\\r\\nStrDictBatchNode.cs,StrListBatchNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Convert:[\\r\\nStrDic.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Debug:[\\r\\nDiffShowNode.cs,DingTalkNode.cs,LogNode.cs,ResponceShowNode.cs,VariableInitNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Describe:[\\r\\nDescribeTextAttachNode.cs,SendDataDescribeNode.cs,TextDescribeNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Describe/Enums:[\\r\\nTextAttachType.cs,TextModifyType.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Diagram:[\\r\\nComfyUINode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Execute:[\\r\\nFileLocatNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Export:[\\r\\nFileWriteNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Import:[\\r\\nAssembleAPINode.cs,AssembleFileAPINode.cs,DirFilesDictNode.cs,FileReadNode.cs,ProjectDescriptNode.cs,TextAssetNode.cs,TypesAPINode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Ollama:[\\r\\nDownloadHandlerMessageQueue.cs,OllamaBatchNode.cs,OllamaDataNode.cs,OllamaNode.cs,OllamaRequestNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Redact:[\\r\\n]\\r\\nAssets/AIScriptGraph/Runtime/Nodes/Wekoi:[\\r\\nWekoiCCNode.cs]\\r\\nAssets/AIScriptGraph/Runtime/Variable:[\\r\\nIVariableProvider.cs,Ref.cs,Variable.cs,VariableCollector.cs,VariableProvider.cs]\\r\\n\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I
       remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"My question
       is: Based on the file structure of the project provided in the last conversation,
-      find Home\u573A\u666F, analyze its full path, return a json structure like
-      ```json \\n{\\\"path\\\":\\\"Assets\\\"}\\n```, the key is' path ', the value
-      is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"Based on the
-      file structure provided, I found the \\\"HomeScene\\\" file.\\n\\nThe full
-      path to the \\\"HomeScene\\\" file is:\\n\\n`Assets/Scenes/HomeScene.unity`\\n\\nHere's
-      the JSON structure you requested:\\n```json\\n{\\n  \\\"path\\\": \\\"Assets/Scenes/HomeScene.unity\\\"\\n}\\n```\\nLet
-      me know if you need anything else! \U0001F60A\"}],\"_autoCreate\":true},\"modifyType\":0}"
+      find Variable.cs, analyze its full path, return a json structure, the key is'
+      path ', the value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"A
+      specific question!\\n\\nAfter analyzing the file structure, I found `Variable.cs`
+      in the directory:\\n```\\nAssets/Runtime/Core/Variable.cs\\n```\\nHere's the
+      JSON response:\\n```json\\n{\\n  \\\"path\\\": \\\"Assets/Runtime/Core/Variable.cs\\\"\\n}\\n```\"}],\"_autoCreate\":true},\"modifyType\":0}"
     m_inputPoints:
     - id: -27339296
       label: i
@@ -959,7 +954,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -972,7 +967,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -987,7 +982,7 @@ MonoBehaviour:
       remember that,file and directorys\",\"_autoCreate\":true},\"output_list\":{\"_key\":\"send_data_list\",\"_default\":[{\"role\":\"assistant\",\"content\":\"I
       remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"my question
       is:base on file paths of the project,please find full path of \\\"m_idle_003_03.fbx\\\",analysis
-      it full path,return a json string,key is 'path',value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"I'll
+      it full path,return a json string,key is 'path',value is the full path.\\n\"},{\"role\":\"assistant\",\"content\":\"I'll
       help you with that!\\n\\nAfter analyzing the file paths in the project, I found
       the full path of \\\"m__idle_003_03.fbx\\\" to be:\\n\\n`C:\\\\Users\\\\username\\\\Documents\\\\MyProject\\\\Assets\\\\Models\\\\m_idle_003_03.fbx`\\n\\nHere's
       a JSON string representing this path:\\n\\n```json\\n{\\n  \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\username\\\\\\\\Documents\\\\\\\\MyProject\\\\\\\\Assets\\\\\\\\Models\\\\\\\\m_idle_003_03.fbx\\\"\\n}\\n```\\n\\nPlease
@@ -1001,7 +996,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -1014,7 +1009,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -1033,7 +1028,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.825485
+        y: 18.522936
         width: 21
         height: 29
       max: 2147483647
@@ -1046,7 +1041,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.825485
+        y: 21.522936
         width: 10
         height: 23
       max: 2147483647
@@ -1623,6 +1618,7 @@ MonoBehaviour:
   fileTracks:
   - .fbx
   - .unity
+  - .cs
 --- !u!114 &6423738528169223433
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1653,20 +1649,20 @@ MonoBehaviour:
     _key: send_data_list
     _default:
     - role: user
-      content: "This is my project hierarchy:\r\n# directory descs:\r\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\r\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\r\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\r\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\r\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\r\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\r\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\r\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\r\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\r\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\r\n11.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\r\n12.\u6253\u5305\u6587\u4EF6\u5939:./Build\r\n13.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\r\n#
-        files of directorys:\r\nAssets/Scenes:[\r\nHomeScene.unity,LoadScene.unity,PlayStudioScene.unity,RoomScene.unity]\r\nAssets/Scenes/HomeScene:[\r\n]\r\nAssets/Scenes/HomeScene/DayLightmaps:[\r\n]\r\nAssets/Scenes/HomeScene/NightLightmaps:[\r\n]\r\nAssets/Scenes/PlayStudioScene:[\r\n]\r\nAssets/Scenes/RoomScene:[\r\n]\r\nAssets/Scenes/RoomScene/DayLightmaps:[\r\n]\r\nAssets/Scenes/RoomScene/NightLightmaps:[\r\n]\r\nAssets/Scenes/_backup:[\r\nHotUpdateScene.unity,LoginScene.unity,main.unity,PlayerScreenScene.unity,SampleScene.unity,WorldScene.unity]\r\nAssets/Main:[\r\n]\r\nAssets/Main/APPConfig:[\r\n]\r\nAssets/Main/AssetsBundleManager:[\r\n]\r\nAssets/Main/Bridge:[\r\n]\r\nAssets/Main/Bridge/PlantformBridge:[\r\n]\r\nAssets/Main/FileCryion:[\r\n]\r\nAssets/Main/HotLoad:[\r\n]\r\nAssets/Main/LoadingUI:[\r\n]\r\nAssets/Main/LoadSceneHotLoadCtr:[\r\n]\r\nAssets/Main/Localization:[\r\n]\r\nAssets/Main/MagicaCloth2:[\r\n]\r\nAssets/Main/MagicaCloth2/Res:[\r\n]\r\nAssets/Main/MagicaCloth2/Res/Icon:[\r\n]\r\nAssets/Main/MagicaCloth2/Res/Preset:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Collider:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Constraints:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Cloth/Wind:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Define:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Interface:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Render:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Simulation:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/Team:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/TransformManager:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Manager/VirtualMesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/PreBuild:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Reduction:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Settings:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Data:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Grid:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Jobs:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Math:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Mesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Misc:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/NativeCollection:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/ResultCode:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/Utility/Time:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Core/VirtualMesh/Function:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Cloth:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/EditorExtension:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/Gizmos:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/PreBuild:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Burst:[\r\n]\r\nAssets/Main/MagicaCloth2/Scripts/Editor/UnityPackageImporter/Collections:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Editor:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Icons:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Runtime:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo:[\r\nUIParticle_Demo.unity]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Animations:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Materials:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Prefabs:[\r\nUIParticle_Demo_Animatable.fbx]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Scripts:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Samples~/Demo/Sprites:[\r\n]\r\nAssets/Main/ParticleEffectForUGUI/Shaders:[\r\n]\r\nAssets/Main/Plugins:[\r\n]\r\nAssets/Main/Plugins/JSON:[\r\n]\r\nAssets/Main/Plugins/JSON/Editor:[\r\n]\r\nAssets/Main/Plugins/LJR:[\r\n]\r\nAssets/Main/Plugins/LJR/Plugins:[\r\n]\r\nAssets/Main/Plugins/LJR/Plugins/Runtime:[\r\n]\r\nAssets/Main/Plugins/SimpleHTTP:[\r\n]\r\nAssets/Main/Plugins/SimpleHTTP/Examples:[\r\nTestScene.unity]\r\nAssets/Main/UnityAndroidBridge:[\r\n]\r\nAssets/Main/UnityiOSBridge:[\r\n]\r\nAssets/Main/UnityLogUploadComponent:[\r\n]\r\nAssets/Main/Utils:[\r\n]\r\n\r\n"
+      content: "This is my project hierarchy:\r\n# directory descs:\r\n1.\u8D44\u6E90\u6839\u8DEF\u5F84:./Assets\r\n2.\u7F8E\u672F\u8D44\u6E90\u6839\u6587\u4EF6\u5939:./Assets/_Art\r\n3.\u52A8\u753B\u6587\u4EF6\u5939:./Assets/_Art/_animations/generic\u52A8\u753B\r\n4.\u573A\u666F\u76EE\u5F55:./Assets/Scenes\r\n5.\u9884\u5236\u4F53\u76EE\u5F55:./Assets/Prefabs\r\n6.\u70D8\u57F9\u63D2\u4EF6\u6587\u4EF6\u5939:./Assets/Bakery\r\n7.\u7F16\u8F91\u5668\u811A\u672C\u6587\u4EF6\u5939:./Assets/Editor\r\n8.\u4E3B\u7A0B\u5E8F\u96C6:./Assets/Main\r\n9.\u7279\u6548\u6587\u4EF6\u5939:./Assets/Effect\r\n10.\u57FA\u7840\u811A\u672C\u6846\u67B6\u76EE\u5F55:./Assets/Framework\r\n11.ai\u6D41\u7A0B\u56FE\u811A\u672C:./Assets/AIScriptGraph\r\n12.\u7B2C\u4E09\u65B9\u5305\u8DEF\u5F84:./Packages\r\n13.\u6253\u5305\u6587\u4EF6\u5939:./Build\r\n14.\u5DE5\u7A0B\u8BBE\u7F6E\u6587\u4EF6\u5939:./ProjectSettings\r\n#
+        files of directorys:\r\nAssets/AIScriptGraph:[\r\n]\r\nAssets/AIScriptGraph/Editor:[\r\nAIScriptGraphDrawer.cs,AIScriptingController.cs,AIScriptSettings.cs,BindingInfoDrawer.cs,CodeResponceUtil.cs,CodeType.cs,ConditionDrawer.cs,NodeBaseInfoDrawer.cs,NodeConnectionDrawer.cs,NodeConnectionView.cs,RefVarDrawer.cs,ScriptingNodeView.cs]\r\nAssets/AIScriptGraph/Editor/NodeDrawer:[\r\nComfyUIDrawer.cs,DiffShowDrawer.cs,ResponceShowDrawer.cs,WekoiCCDrawer.cs]\r\nAssets/AIScriptGraph/Runtime:[\r\n]\r\nAssets/AIScriptGraph/Runtime/Core:[\r\nAIScriptGraph.cs,AsyncOp.cs,BindingInfo.cs,Condition.cs,Define.cs,EventProvider.cs,GraphDirector.cs,IScriptGraphNode.cs,JsonDataModify.cs,LitCoroutine.cs,MyersUtil.cs,NodeConnection.cs,ScriptNodeBase.cs,Status.cs]\r\nAssets/AIScriptGraph/Runtime/Core/Request:[\r\nPostData.cs,ReceiveData.cs,SendData.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes:[\r\nBeginNode.cs,GraphNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Batch:[\r\nStrDictBatchNode.cs,StrListBatchNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Convert:[\r\nStrDic.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Debug:[\r\nDiffShowNode.cs,DingTalkNode.cs,LogNode.cs,ResponceShowNode.cs,VariableInitNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Describe:[\r\nDescribeTextAttachNode.cs,SendDataDescribeNode.cs,TextDescribeNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Describe/Enums:[\r\nTextAttachType.cs,TextModifyType.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Diagram:[\r\nComfyUINode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Execute:[\r\nFileLocatNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Export:[\r\nFileWriteNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Import:[\r\nAssembleAPINode.cs,AssembleFileAPINode.cs,DirFilesDictNode.cs,FileReadNode.cs,ProjectDescriptNode.cs,TextAssetNode.cs,TypesAPINode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Ollama:[\r\nDownloadHandlerMessageQueue.cs,OllamaBatchNode.cs,OllamaDataNode.cs,OllamaNode.cs,OllamaRequestNode.cs]\r\nAssets/AIScriptGraph/Runtime/Nodes/Redact:[\r\n]\r\nAssets/AIScriptGraph/Runtime/Nodes/Wekoi:[\r\nWekoiCCNode.cs]\r\nAssets/AIScriptGraph/Runtime/Variable:[\r\nIVariableProvider.cs,Ref.cs,Variable.cs,VariableCollector.cs,VariableProvider.cs]\r\n\r\n"
     - role: assistant
       content: I remember that,file and directorys
     - role: user
-      content: "My question is: Based on the file structure of the project provided
-        in the last conversation, find Home\u573A\u666F, analyze its full path, return
-        a json structure like ```json \n{\"path\":\"Assets\"}\n```, the key is' path
-        ', the value is the full path.\r\n"
+      content: 'My question is: Based on the file structure of the project provided
+        in the last conversation, find Variable.cs, analyze its full path, return
+        a json structure, the key is'' path '', the value is the full path.
+
+'
     - role: assistant
-      content: "Based on the file structure provided, I found the \"HomeScene\" file.\n\nThe
-        full path to the \"HomeScene\" file is:\n\n`Assets/Scenes/HomeScene.unity`\n\nHere's
-        the JSON structure you requested:\n```json\n{\n  \"path\": \"Assets/Scenes/HomeScene.unity\"\n}\n```\nLet
-        me know if you need anything else! \U0001F60A"
+      content: "A specific question!\n\nAfter analyzing the file structure, I found
+        `Variable.cs` in the directory:\n```\nAssets/Runtime/Core/Variable.cs\n```\nHere's
+        the JSON response:\n```json\n{\n  \"path\": \"Assets/Runtime/Core/Variable.cs\"\n}\n```"
     _autoCreate: 1
   modifyType: 0
 --- !u!114 &7329692965541068490

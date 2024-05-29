@@ -10,22 +10,16 @@ namespace AIScripting.Ollama
     [CustomNode("Ollama", 0, Define.GROUP)]
     public class OllamaNode : ScriptNodeBase
     {
-        /// <summary>
-        /// 设置模型,模型类型自行添加
-        /// </summary>
-        public string m_GptModel = "llama3";
-        /// <summary>
-        /// 上下文保留条数
-        /// </summary>
+        public string model = "llama3";
         [Header("上下文保留条数")]
         [SerializeField] protected int m_HistoryKeepCount = 15;
 
         [Header("消息接受key")]
         [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
+
+        [Tooltip("modify data list after request")]
         public bool modifyData = false;
-        /// <summary>
-        /// 缓存对话
-        /// </summary>
+  
         [Tooltip("会话记录")]
         public Ref<List<SendData>> m_DataList;
 
@@ -107,7 +101,7 @@ namespace AIScripting.Ollama
             {
                 PostData _postData = new PostData
                 {
-                    model = m_GptModel.ToString(),
+                    model = model.ToString(),
                     messages = historyData,
                     stream = true
                 };

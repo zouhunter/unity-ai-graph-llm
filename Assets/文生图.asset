@@ -372,7 +372,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -1799173771543672511}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"","_default":{"path":"6.inputs.text","value":"super
-      hero,real,dog"},"_autoCreate":true},"batchCount":{"_key":"","_default":{"path":"5.inputs.batch_size","value":1},"_autoCreate":true},"picWidth":{"_key":"comfyui_width","_default":{"path":"5.inputs.width","value":512},"_autoCreate":true},"picHeight":{"_key":"comfyui_height","_default":{"path":"5.inputs.height","value":512},"_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":203582},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"exportFiles":{"_key":"comfyui_files","_default":["ComfyUI_00174_.png"],"_autoCreate":true},"clientId":"a01","picNodeId":"9"}'
+      hero,real,dog"},"_autoCreate":true},"batchCount":{"_key":"","_default":{"path":"5.inputs.batch_size","value":1},"_autoCreate":true},"picWidth":{"_key":"comfyui_width","_default":{"path":"5.inputs.width","value":512},"_autoCreate":true},"picHeight":{"_key":"comfyui_height","_default":{"path":"5.inputs.height","value":512},"_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":18160},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"exportFiles":{"_key":"comfyui_files","_default":["ComfyUI_00174_.png"],"_autoCreate":true},"clientId":"a01","picNodeId":"9"}'
     m_inputPoints:
     - id: 81249834
       label: i

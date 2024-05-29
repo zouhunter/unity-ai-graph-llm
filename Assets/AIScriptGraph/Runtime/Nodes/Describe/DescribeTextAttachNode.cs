@@ -11,7 +11,7 @@ namespace AIScripting.Describe
 {
     public abstract class DescribeTextAttachNode : ScriptNodeBase
     {
-        [TextArea, Tooltip("前后缀信息")]
+        [TextArea(3,20), Tooltip("前后缀信息")]
         public string textfix;
         [Tooltip("导出文本")]
         public Ref<string> export_text;
