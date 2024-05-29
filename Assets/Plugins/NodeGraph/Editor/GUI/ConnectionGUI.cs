@@ -30,6 +30,7 @@ namespace UFrame.NodeGraph
         private ConnectionGUIInspectorHelper m_inspector;
         private NodeGraphController m_controller;
         private ConnectionView m_connectionDrawer;
+        private Vector2 m_guiOffset;
 
         private ConnectionView connectionDrawer
         {
@@ -205,9 +206,9 @@ namespace UFrame.NodeGraph
             }
 
 
-            var startPoint = m_outputPoint.GetGlobalPosition(startNode.Region);
+            var startPoint = m_outputPoint.GetGlobalPosition(startNode.Region) + m_guiOffset;
 
-            var endPoint = m_inputPoint.GetGlobalPosition(endNode.Region);
+            var endPoint = m_inputPoint.GetGlobalPosition(endNode.Region) + m_guiOffset;
 
             var centerPoint = startPoint + ((endPoint - startPoint) / 2);
 
@@ -322,7 +323,10 @@ namespace UFrame.NodeGraph
             ConnectionGUIUtility.ConnectionEventHandler(new ConnectionEvent(ConnectionEvent.EventType.EVENT_CONNECTION_DELETED, this));
         }
 
-
+        internal void SetOffset(Vector2 center)
+        {
+            m_guiOffset = center;
+        }
     }
 
     public static class NodeEditor_ConnectionListExtension

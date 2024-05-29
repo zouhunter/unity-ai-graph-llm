@@ -37,10 +37,13 @@ namespace AIScripting.Debugger
             {
                 filePath = System.IO.Path.GetRelativePath(System.Environment.CurrentDirectory, filePath);
                 UnityEditor.EditorUtility.RevealInFinder(filePath);
-            } else
+            }
+            else
 #endif
             {
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN ||UNITY_STANDALONE_OSX
                 OpenFolderAndSelectFile(filePath);
+#endif
             }
             DoFinish(true);
         }

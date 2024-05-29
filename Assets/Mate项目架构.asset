@@ -55,9 +55,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default: []
@@ -225,7 +226,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -238,7 +239,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -248,7 +249,7 @@ MonoBehaviour:
     m_x: 1296
     m_y: 828
     m_node: {fileID: -6233834786502866357}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OllamaNode","model":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","modifyData":false,"m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
     - id: -1050583496
       label: i
@@ -257,7 +258,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -270,7 +271,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -289,7 +290,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -301,8 +302,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 136.69
-        y: 22.029999
+        x: 136
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647
@@ -321,7 +322,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.029999
+        y: 19.5
         width: 21
         height: 29
       max: 2147483647
@@ -334,7 +335,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.029999
+        y: 22.5
         width: 10
         height: 23
       max: 2147483647

@@ -223,6 +223,7 @@ namespace UFrame.NodeGraph
 
         private string[] controllerTypes;
         private int selected;
+        private Rect contentRect;
         private GUIContent ReloadButtonTexture
         {
             get
@@ -925,7 +926,7 @@ namespace UFrame.NodeGraph
             if (connections == null)
                 Window.Close();
 
-            var contentRect = new Rect(Vector2.zero, graphRegion.size / scrollViewContainer.minZoomSize);
+            contentRect = new Rect(Vector2.zero, graphRegion.size / scrollViewContainer.minZoomSize);
 
             // draw node window x N.
             {
@@ -933,6 +934,7 @@ namespace UFrame.NodeGraph
 
                 nodes.ForEach(node => {
                     node.ClampRect(contentRect);
+                    node.SetOffset(contentRect.center);
                     node.DrawNode();
                 });
 
@@ -946,6 +948,7 @@ namespace UFrame.NodeGraph
             // draw connections.
             foreach (var con in connections)
             {
+                con.SetOffset(contentRect.center);
                 con.DrawConnection(nodes);
             }
 
@@ -1102,11 +1105,11 @@ namespace UFrame.NodeGraph
                                     }
 
                                     var selectedRect = new Rect(x, y, width, height);
-
                                     foreach (var node in nodes)
                                     {
-                                        if (node.GetRect().Overlaps(selectedRect))
+                                        if (node.GetRect(true).Overlaps(selectedRect))
                                         {
+                                            Debug.LogError(selectedRect);
                                             activeSelection.Add(node);
                                         }
                                     }
@@ -1441,6 +1444,7 @@ namespace UFrame.NodeGraph
                 return;
             }
             var p = eventSource.point.GetGlobalPosition(eventSource.eventSourceNode.Region);
+            p += contentRect.center;
             Handles.DrawLine(new Vector3(p.x, p.y, 0f), new Vector3(to.x, to.y, 0f));
         }
 
@@ -1705,7 +1709,7 @@ namespace UFrame.NodeGraph
                                 bool mouseInSelectedNode = false;
                                 foreach (var n in activeSelection.nodes)
                                 {
-                                    if (n.GetRect().Contains(evt.mousePosition))
+                                    if (n.GetRect(true).Contains(evt.mousePosition))
                                     {
                                         mouseInSelectedNode = true;
                                         break;

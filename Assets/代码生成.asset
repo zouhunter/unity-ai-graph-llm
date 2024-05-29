@@ -204,8 +204,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1728
-    m_y: 492
+    m_x: 1224
+    m_y: 708
     m_node: {fileID: -6952531789606267040}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -216,7 +216,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.236044
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -229,15 +229,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.236044
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: 1982676024
-    m_x: 1956
-    m_y: 576
+    m_x: 1452
+    m_y: 792
     m_node: {fileID: 6838277287135595348}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AI","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
@@ -248,7 +248,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.236044
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -261,15 +261,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.236044
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: 33484302
-    m_x: 1956
-    m_y: 456
+    m_x: 1452
+    m_y: 672
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"textfix\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
@@ -281,7 +281,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.236044
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -293,16 +293,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 119.627426
-        y: 22.236044
+        x: 116.33333
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: ResponceShow
     m_id: -165076380
-    m_x: 2124
-    m_y: 576
+    m_x: 1620
+    m_y: 792
     m_node: {fileID: 3544307611051814443}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":"Assets\\MTest\\AIGraph\\Demo"}'
     m_inputPoints:
@@ -313,7 +313,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.236044
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -325,8 +325,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 132.88986
-        y: 22.236044
+        x: 126.33333
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647

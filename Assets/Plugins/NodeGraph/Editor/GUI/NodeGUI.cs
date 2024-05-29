@@ -57,6 +57,7 @@ namespace UFrame.NodeGraph
         [SerializeField]
         private NodeGUIInspectorHelper m_nodeInsp;
 
+        private Vector2 m_guiOffset;
         /*
 			show error on node functions.
 		*/
@@ -359,6 +360,7 @@ namespace UFrame.NodeGraph
                     GUI.color = (justConnecting) ? NGEditorSettings.GUI.COLOR_CAN_NOT_CONNECT : NGEditorSettings.GUI.COLOR_CONNECTED;
                 }
                 var rect = ConnectionPointDataUtility.GetGlobalPointRegion(point.IsInput, point.Region, this);
+                rect.center += m_guiOffset;
                 GUI.DrawTexture(rect, defaultPointTex);
                 GUI.color = lastColor;
             }
@@ -383,6 +385,7 @@ namespace UFrame.NodeGraph
             {
                 var pointRegion = ConnectionPointDataUtility.GetGlobalPointRegion(point.IsInput, point.Region, this);
                 //var pointRegion = point.GetGlobalPointRegion(this);
+                pointRegion.center += m_guiOffset;
 
                 if (shouldDrawWithEnabledColor && Controller.GetConnectType(eventSource.point, point) != null)
                 {
@@ -410,32 +413,24 @@ namespace UFrame.NodeGraph
             }
         }
 
+        public void SetOffset(Vector2 offset)
+        {
+            m_guiOffset = offset;
+        }
+
         public void DrawNode()
         {
-            GUI.Window(m_nodeWindowId, m_baseRect, DrawThisNode, string.Empty, m_nodeSyle);
+            var rect = m_baseRect;
+            rect.center = rect.center + m_guiOffset;
+            GUI.Window(m_nodeWindowId, rect, DrawThisNode, string.Empty, m_nodeSyle);
             if (Controller != null)
                 Controller.DrawNodeGUI(this);
         }
 
         public void ClampRect(Rect contentRect)
         {
-            if (m_baseRect.x < contentRect.x)
-            {
-                m_baseRect.x = contentRect.x;
-            }
-            if (m_baseRect.y < contentRect.y)
-            {
-                m_baseRect.y = contentRect.y;
-            }
-            if (m_baseRect.x > contentRect.xMax)
-            {
-                m_baseRect.x = contentRect.xMax - m_baseRect.width;
-            }
-            if (m_baseRect.y > contentRect.yMax)
-            {
-                m_baseRect.y = contentRect.yMax - m_baseRect.height;
-            }
-
+            m_baseRect.x = Mathf.Clamp(m_baseRect.x,contentRect.x - contentRect.center.x, contentRect.xMax - contentRect.center.x - m_baseRect.width);
+            m_baseRect.y = Mathf.Clamp(m_baseRect.y,contentRect.y - contentRect.center.y, contentRect.yMax - contentRect.center.y - m_baseRect.height);
         }
 
         private void DrawThisNode(int id)
@@ -599,8 +594,14 @@ namespace UFrame.NodeGraph
             return null;
         }
 
-        public Rect GetRect()
+        public Rect GetRect(bool offset)
         {
+            if(offset)
+            {
+                var rect = m_baseRect;
+                rect.center = rect.center + m_guiOffset;
+                return rect;
+            }
             return m_baseRect;
         }
 

@@ -665,7 +665,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -678,7 +678,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -699,7 +699,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -712,7 +712,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -734,7 +734,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -747,7 +747,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -758,7 +758,7 @@ MonoBehaviour:
     m_y: 684
     m_node: {fileID: 6160114948892027702}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":17852},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\",\".cs\"]}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":31952},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\",\".cs\"]}"
     m_inputPoints:
     - id: -588158846
       label: i
@@ -767,7 +767,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -779,8 +779,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 124.58798
-        y: 21.522936
+        x: 126.33333
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -799,7 +799,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -812,7 +812,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -831,7 +831,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -843,8 +843,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 125.86279
-        y: 21.522936
+        x: 126.33333
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -863,7 +863,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -876,7 +876,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -911,7 +911,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -924,7 +924,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -942,7 +942,7 @@ MonoBehaviour:
       remember that,file and directorys\"},{\"role\":\"user\",\"content\":\"My question
       is: Based on the file structure of the project provided in the last conversation,
       find Variable.cs, analyze its full path, return a json structure, the key is'
-      path ', the value is the full path.\\r\\n\"},{\"role\":\"assistant\",\"content\":\"A
+      path ', the value is the full path.\\n\"},{\"role\":\"assistant\",\"content\":\"A
       specific question!\\n\\nAfter analyzing the file structure, I found `Variable.cs`
       in the directory:\\n```\\nAssets/Runtime/Core/Variable.cs\\n```\\nHere's the
       JSON response:\\n```json\\n{\\n  \\\"path\\\": \\\"Assets/Runtime/Core/Variable.cs\\\"\\n}\\n```\"}],\"_autoCreate\":true},\"modifyType\":0}"
@@ -954,7 +954,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -967,7 +967,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -996,7 +996,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -1009,7 +1009,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
@@ -1028,7 +1028,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.522936
+        y: 17.833332
         width: 21
         height: 29
       max: 2147483647
@@ -1041,7 +1041,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.522936
+        y: 20.833332
         width: 10
         height: 23
       max: 2147483647
