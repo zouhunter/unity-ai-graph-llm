@@ -25,7 +25,7 @@ public class GraphDirecterBehaviour : MonoBehaviour
         graphDirector.Binding(bindings);
         sendBtn.onClick.AddListener(OnSendClick);
         graph.RegistEvent("ollama_receive_message", OnRecvMessage);
-        graph.RegistEvent("wekoi_receive_message", OnRecvMessage);
+        graph.RegistEvent("uframe_receive_message", OnRecvMessage);
     }
 
     public void OnSendClick()

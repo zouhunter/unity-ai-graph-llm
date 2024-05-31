@@ -7,7 +7,7 @@ using System;
 
 namespace AIScripting
 {
-    [FilePath("ProjectSettings/AIScripting.asset", FilePathAttribute.Location.ProjectFolder)]
+    [FilePath("Library/AIScripting.asset", FilePathAttribute.Location.ProjectFolder)]
     public class AIScriptSettings : ScriptableSingleton<AIScriptSettings>
     {
         [SettingsProvider]

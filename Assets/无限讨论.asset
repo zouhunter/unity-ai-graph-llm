@@ -479,7 +479,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -492,7 +492,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -512,7 +512,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -525,7 +525,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -545,7 +545,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -558,7 +558,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -578,7 +578,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -591,7 +591,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -611,7 +611,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -624,7 +624,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -644,7 +644,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -657,7 +657,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -677,7 +677,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -689,8 +689,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 132.64093
-        y: 22.195236
+        x: 127.52481
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -710,7 +710,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -722,8 +722,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 132.64093
-        y: 22.195236
+        x: 127.52481
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -743,7 +743,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -755,8 +755,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 112.06761
-        y: 22.195236
+        x: 111
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -776,7 +776,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -789,7 +789,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -809,7 +809,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -822,7 +822,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.195236
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647
@@ -842,7 +842,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.195236
+        y: 19.2583
         width: 21
         height: 29
       max: 2147483647
@@ -854,8 +854,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 112.06761
-        y: 22.195236
+        x: 111
+        y: 22.2583
         width: 10
         height: 23
       max: 2147483647

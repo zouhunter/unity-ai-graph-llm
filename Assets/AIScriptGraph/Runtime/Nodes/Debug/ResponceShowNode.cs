@@ -1,4 +1,4 @@
-/*-*-* Copyright (c) mateai@wekoi
+/*-*-* Copyright (c) Work@uframe
  * Author: 
  * Creation Date: 2024-05-21
  * Version: 1.0.0
@@ -15,7 +15,7 @@ namespace AIScripting.Debugger
     [CustomNode("ResponceShow", group: Define.GROUP)]
     public class ResponceShowNode : ScriptNodeBase
     {
-        public string eventName = "wekoi_receive_message";
+        public string eventName = "uframe_receive_message";
         public Ref<string> responceText;
         public string saveFilePath;
         public StringBuilder allText { get; private set; }

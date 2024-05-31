@@ -5,20 +5,20 @@ using UnityEditor;
 using System.IO;
 using System.Text.RegularExpressions;
 using System;
-using AIScripting.MateAI;
+using AIScripting.Work;
 
 namespace AIScripting.Debugger
 {
-    [CustomEditor(typeof(WekoiCCNode))]
+    [CustomEditor(typeof(OpenCCNode))]
     public class WekoiCCDrawer : Editor
     {
         private string apiResponse => node ? node.output.Value?.ToString() : null;
         private Vector2 ScrollPos;
-        private WekoiCCNode node;
+        private OpenCCNode node;
 
         private void OnEnable()
         {
-            node = target as WekoiCCNode;
+            node = target as OpenCCNode;
         }
 
         public override void OnInspectorGUI()

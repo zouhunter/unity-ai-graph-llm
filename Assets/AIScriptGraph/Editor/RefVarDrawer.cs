@@ -1,4 +1,4 @@
-/*-*-* Copyright (c) webxr@wekoi
+/*-*-* Copyright (c) webxr@uframe
  * Author: zouhunter
  * Creation Date: 2024-03-29
  * Version: 1.0.0
