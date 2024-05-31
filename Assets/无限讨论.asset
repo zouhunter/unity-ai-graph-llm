@@ -38,24 +38,6 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &-6952531789606267040
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
-  m_Name: AIScripting.BeginNode
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.BeginNode
-  _inportNum: 1
-  _outportNum: 1
-  enable: 1
-  _title: BeginNode
 --- !u!114 &-6154224009939415639
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +55,25 @@ MonoBehaviour:
   _title: 
   priority: 0
   disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &-5045954851862786309
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
   conditions: []
   conditionType: 0
 --- !u!114 &-4923219340059654390
@@ -178,7 +179,7 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &-1799173771543672511
+--- !u!114 &-802442928423300927
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,88 +188,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e37cbc305c3b75946b26de0835180b50, type: 3}
-  m_Name: AIScripting.Diagram.ComfyUINode
+  m_Script: {fileID: 11500000, guid: 0055152a0ec2ff44282d96cc8909e683, type: 3}
+  m_Name: AIScripting.BeginNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Diagram.ComfyUINode
+  _type: AIScripting.BeginNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
-  _title: ComfyUINode
-  url:
-    _key: 
-    _default: http://127.0.0.1:8188
-    _autoCreate: 1
-  prompt:
-    _key: 
-    _default:
-      path: 6.inputs.text
-      value: super hero,real,dog
-    _autoCreate: 1
-  batchCount:
-    _key: 
-    _default:
-      path: 5.inputs.batch_size
-      value: 1
-    _autoCreate: 1
-  picWidth:
-    _key: comfyui_width
-    _default:
-      path: 5.inputs.width
-      value: 512
-    _autoCreate: 1
-  picHeight:
-    _key: comfyui_height
-    _default:
-      path: 5.inputs.height
-      value: 512
-    _autoCreate: 1
-  textAsset:
-    _key: 
-    _default: {fileID: 4900000, guid: dd33ee85b00b4544482d130b2edaddb9, type: 3}
-    _autoCreate: 1
-  exportDir:
-    _key: comfyui_dir
-    _default: Build
-    _autoCreate: 1
-  exportFiles:
-    _key: comfyui_files
-    _default:
-    - ComfyUI_00174_.png
-    _autoCreate: 1
-  clientId: a01
-  picNodeId: 9
---- !u!114 &-658272163205269217
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c562d041f83d3c1419b84063a54d2a6a, type: 3}
-  m_Name: AIScripting.Describe.TextAssetNode
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Import.TextAssetNode
-  _inportNum: 1
-  _outportNum: 1
-  enable: 1
-  _title: "\u8BFB\u53D6\u811A\u672C\u6587\u4EF6"
-  inputTextfile:
-    _key: 
-    _default: {fileID: 0}
-    _autoCreate: 1
-  exportfileName:
-    _key: 
-    _default: 
-    _autoCreate: 1
-  exportfileInfo:
-    _key: source_text
-    _default: 
-    _autoCreate: 1
+  _title: BeginNode
 --- !u!114 &-447765112318959291
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,19 +226,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
-  m_Name: "\u6587\u751F\u56FE"
+  m_Name: "\u65E0\u9650\u8BA8\u8BBA"
   m_EditorClassIdentifier: 
   m_allNodes:
   - m_name: Begin
-    m_id: 985988606
-    m_x: 1848
-    m_y: 972
-    m_node: {fileID: -6952531789606267040}
+    m_id: 294573932
+    m_x: -132
+    m_y: 12
+    m_node: {fileID: -802442928423300927}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
-    - id: 211434772
+    - id: -479979902
       label: i
-      parentId: 985988606
+      parentId: 294573932
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -321,9 +249,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -563119062
+    - id: -1254533736
       label: o
-      parentId: 985988606
+      parentId: 294573932
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -333,17 +261,17 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
-  - m_name: TextAsset
-    m_id: -554887652
-    m_x: 1860
-    m_y: 864
-    m_node: {fileID: -658272163205269217}
+  - m_name: Ollama
+    m_id: -108369234
+    m_x: 156
+    m_y: 12
+    m_node: {fileID: 940940690403217447}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"inputTextfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":0},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"OllamaNode\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"\",\"_default\":[],\"_autoCreate\":true},\"input\":{\"_key\":\"input_text\",\"_default\":\"\u4EC0\u4E48\u662F\u7231\u60C5\",\"_autoCreate\":true},\"output\":{\"_key\":\"output_text\",\"_default\":\"\",\"_autoCreate\":true},\"url\":{\"_key\":\"ollama_url\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
-    - id: -1329441486
+    - id: -882923068
       label: i
-      parentId: -554887652
+      parentId: -108369234
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -354,9 +282,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -2103995320
+    - id: -1657476902
       label: o
-      parentId: -554887652
+      parentId: -108369234
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -366,17 +294,16 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
-  - m_name: ComfyUI
-    m_id: 855803668
-    m_x: 2064
-    m_y: 864
-    m_node: {fileID: -1799173771543672511}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Diagram.ComfyUINode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ComfyUINode","url":{"_key":"","_default":"http://127.0.0.1:8188","_autoCreate":true},"prompt":{"_key":"","_default":{"path":"6.inputs.text","value":"super
-      hero,real,dog"},"_autoCreate":true},"batchCount":{"_key":"","_default":{"path":"5.inputs.batch_size","value":1},"_autoCreate":true},"picWidth":{"_key":"comfyui_width","_default":{"path":"5.inputs.width","value":512},"_autoCreate":true},"picHeight":{"_key":"comfyui_height","_default":{"path":"5.inputs.height","value":512},"_autoCreate":true},"textAsset":{"_key":"","_default":{"instanceID":31942},"_autoCreate":true},"exportDir":{"_key":"comfyui_dir","_default":"Build","_autoCreate":true},"exportFiles":{"_key":"comfyui_files","_default":["ComfyUI_00174_.png"],"_autoCreate":true},"clientId":"a01","picNodeId":"9"}'
+  - m_name: Log
+    m_id: -1076547146
+    m_x: 132
+    m_y: 144
+    m_node: {fileID: 8848498536249033045}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
     m_inputPoints:
-    - id: 81249834
+    - id: -1851100980
       label: i
-      parentId: 855803668
+      parentId: -1076547146
       isInput: 1
       buttonRect:
         serializedVersion: 2
@@ -387,9 +314,9 @@ MonoBehaviour:
       max: 2147483647
       type: ->
     m_outputPoints:
-    - id: -693304000
+    - id: 1669312482
       label: o
-      parentId: 855803668
+      parentId: -1076547146
       isInput: 0
       buttonRect:
         serializedVersion: 2
@@ -400,25 +327,25 @@ MonoBehaviour:
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: -145547674
-    m_fromNodeId: 985988606
-    m_fromNodeConnectionPointId: -563119062
-    m_toNodeId: -554887652
-    m_toNodeConnectionPoiontId: -1329441486
+  - m_id: -69429834
+    m_fromNodeId: 294573932
+    m_fromNodeConnectionPointId: -1254533736
+    m_toNodeId: -108369234
+    m_toNodeConnectionPoiontId: -882923068
     m_type: ->
-    m_connection: {fileID: 3133309968758002094}
+    m_connection: {fileID: -5045954851862786309}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: 1651769108
-    m_fromNodeId: -554887652
-    m_fromNodeConnectionPointId: -2103995320
-    m_toNodeId: 855803668
-    m_toNodeConnectionPoiontId: 81249834
+  - m_id: -1935156840
+    m_fromNodeId: -108369234
+    m_fromNodeConnectionPointId: -1657476902
+    m_toNodeId: -1076547146
+    m_toNodeConnectionPoiontId: -1851100980
     m_type: ->
-    m_connection: {fileID: 1332129026570595194}
+    m_connection: {fileID: 5646023353925099048}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133610157083899792
+  m_lastModified: 133616077234618271
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -459,7 +386,7 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &1332129026570595194
+--- !u!114 &940940690403217447
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,16 +395,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
+  m_Script: {fileID: 11500000, guid: 94818a1002223514999649e4e3e3496d, type: 3}
+  m_Name: AIScripting.Ollama.OllamaNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
+  _type: AIScripting.Ollama.OllamaNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: OllamaNode
+  model: llama3
+  m_HistoryKeepCount: 15
+  eventReceiveKey: ollama_receive_message
+  modifyData: 0
+  m_DataList:
+    _key: 
+    _default: []
+    _autoCreate: 1
+  input:
+    _key: input_text
+    _default: "\u4EC0\u4E48\u662F\u7231\u60C5"
+    _autoCreate: 1
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  url:
+    _key: ollama_url
+    _default: 
+    _autoCreate: 1
 --- !u!114 &1383750705029059516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,7 +500,7 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &3133309968758002094
+--- !u!114 &3768957027873537402
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -563,16 +509,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
+  m_Script: {fileID: 11500000, guid: 1a2985e1c8de6424fb0ed6f6779f3b8e, type: 3}
+  m_Name: VariableSetNode
   m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
+  _assembly: MTest.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: VariableSetNode
+  <Owner>k__BackingField: {fileID: 0}
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _data:
+    m_name: Demo.VariableSetNode
+    m_id: -1761889208
+    m_x: 48
+    m_y: -36
+    m_node: {fileID: 3768957027873537402}
+    m_nodeJson: "{\"_assembly\":\"MTest.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\",\"_type\":\"VariableSetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"VariableSetNode\",\"executeInEditOnly\":false,\"ollama_url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"input_text\",\"_default\":\"\u4F60\u597D\",\"_autoCreate\":true},\"target\":{\"instanceID\":0}}"
+    m_inputPoints:
+    - id: 1758524254
+      label: i
+      parentId: -1761889208
+      isInput: 1
+      buttonRect:
+        x: 0
+        y: 19.115385
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 983970420
+      label: o
+      parentId: -1761889208
+      isInput: 0
+      buttonRect:
+        x: 173
+        y: 22.115385
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+    m_nodeNeedsRevisit: 0
+  <status>k__BackingField: 0
+  _title: VariableSetNode
+  executeInEditOnly: 0
+  ollama_url:
+    _key: ollama_url
+    _default: http://localhost:8081/api/chat
+    _autoCreate: 1
+    _value: 
+    _variable:
+      <Name>k__BackingField: 
+      _value: 
+  input_text:
+    _key: input_text
+    _default: "\u4F60\u597D"
+    _autoCreate: 1
+    _value: 
+    _variable:
+      <Name>k__BackingField: 
+      _value: 
+  target: {fileID: 0}
 --- !u!114 &3829005760195084966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,6 +665,25 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &5646023353925099048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &5980199017757651012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,3 +703,27 @@ MonoBehaviour:
   disable: 1
   conditions: []
   conditionType: 0
+--- !u!114 &8848498536249033045
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba99efd1667934f418310eec5ee307f6, type: 3}
+  m_Name: AIScripting.Debugger.LogNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.LogNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: LogNode
+  info:
+    _key: output_text
+    _default: 
+    _autoCreate: 1
+  format: 
+  logType: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AIScripting.Ollama
 {
     [CustomNode("OllamaData", 0, Define.GROUP)]
-    public class OllamaDataNode : ScriptNodeBase
+    public class OllamaEQueueDataNode : ScriptNodeBase
     {
         [Tooltip("会话来源")]
         public Ref<SendData> fromData;

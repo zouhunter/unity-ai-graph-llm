@@ -105,17 +105,32 @@ namespace AIScripting.MateAI
         public IEnumerator Request(string msg,System.Action<string> _callback)
         {
             msg = UnityWebRequest.EscapeURL($"{msg}");
-            var url = $"https://api-chatbot.wekoi.co/chatbot/api/v1/chat/stream?content={msg}&conversation_id={conversation_id}&" +
-                $"from_user=zouhangte%40wekoi.cn&model={model}&max_tokens=1024&" +
-                "temperature=1&presence_penalty=0.6&add_context=true&use_context=true";
+            var args = new System.Collections.Generic.Dictionary<string,string>();
+            args.Add("content", msg);
+            args.Add("conversation_id", conversation_id);
+            args.Add("from_user", "zouhangte%40wekoi.cn");
+            args.Add("model", model);
+            args.Add("max_tokens", "1024");
+            args.Add("temperature", "1");
+            args.Add("presence_penalty", "0.6");
+            args.Add("add_context", "true");
+            args.Add("use_context", "true");
+            var form = new WWWForm();
+            foreach (var item in args)
+                form.AddField(item.Key, item.Value);
+            var url = $"https://api-chatbot.wekoi.co/chatbot/api/v1/chat/stream";
+            /*?content={msg}&conversation_id={conversation_id}&" +
+            $"from_user=zouhangte%40wekoi.cn&model={model}&max_tokens=1024&" +
+            "temperature=1&presence_penalty=0.6&add_context=true&use_context=true*/
             url = new System.Uri(url).AbsoluteUri;
-            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
+            Debug.Log(System.DateTime.Now.Ticks + ",request1:" + url);
             long startTime = System.DateTime.Now.Ticks;
             UnityWebRequest request = new UnityWebRequest(url, "OPTIONS");
             {
                 request.SetRequestHeader("Content-Type", "text/event-stream;charset=UTF-8");
                 request.SetRequestHeader("Accept", "*/*");
                 request.SetRequestHeader("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
+                request.uploadHandler = new UploadHandlerRaw(form.data);
                 //request.SetRequestHeader("Access-Control-Request-Headers", "authorization,content-type");
                 //request.SetRequestHeader("Access-Control-Request-Method", "GET");
                 //request.SetRequestHeader("Origin", "https://wekit.wekoi.cc");
@@ -129,7 +144,7 @@ namespace AIScripting.MateAI
                 }
                 if (request.responseCode == 200)
                 {
-                    yield return Request2(url,msg, _callback);
+                    yield return Request2(url, args, _callback);
                 }
                 else
                 {
@@ -150,10 +165,19 @@ namespace AIScripting.MateAI
             output.SetValue(output.Value + data);
         }
 
-        public IEnumerator Request2(string url,string msg, System.Action<string> _callback)
+        public IEnumerator Request2(string url, Dictionary<string, string> args, System.Action<string> _callback)
         {
-            Debug.Log(System.DateTime.Now.Ticks + ",request:" + url);
+            var argsArr = new StringBuilder();
+            var index = 0;
+            foreach (var item in args)
+            {
+                if(index++ > 0)
+                    argsArr.Append("&");
+                argsArr.Append($"{item.Key}={item.Value}");
+            }
+            url = new System.Uri(url+"?" + argsArr.ToString()).AbsoluteUri;
             long startTime = System.DateTime.Now.Ticks;
+            Debug.Log(System.DateTime.Now.Ticks + ",request2:" + url);
             UnityWebRequest request = new UnityWebRequest(url, "GET");
             {
                 var downloadHandler = new DownloadHandlerMessageQueue();

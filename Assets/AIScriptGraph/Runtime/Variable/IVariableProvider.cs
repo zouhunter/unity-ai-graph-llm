@@ -4,6 +4,6 @@ namespace AIScripting
     {
         Variable GetVariable(string name);
         Variable<T> GetVariable<T>(string name, bool crateIfNotExits);
-        void SetVariable(string key, Variable variable);
+        void SetVariable(Variable variable);
     }
 }

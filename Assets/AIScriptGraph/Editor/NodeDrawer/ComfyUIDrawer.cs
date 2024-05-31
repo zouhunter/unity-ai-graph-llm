@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.IO;
-using System.Text.RegularExpressions;
-using System;
-using AIScripting.MateAI;
 
 namespace AIScripting.Diagram
 {
@@ -16,6 +12,7 @@ namespace AIScripting.Diagram
         private List<Texture2D> _textures = new();
         private List<string> _textureLast = new();
         private Dictionary<Texture2D, string> _texturePath = new();
+
         private void OnEnable()
         {
             node = target as ComfyUINode;
@@ -24,6 +21,9 @@ namespace AIScripting.Diagram
 
         private void ReloadTextures()
         {
+            if (node == null)
+                return;
+
             if (System.IO.Directory.Exists(node.exportDir.Value) && node.exportFiles.Value != null)
             {
                 _textures.Clear();

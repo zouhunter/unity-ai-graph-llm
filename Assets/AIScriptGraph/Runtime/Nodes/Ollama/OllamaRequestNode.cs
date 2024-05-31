@@ -10,11 +10,11 @@ namespace AIScripting.Ollama
     [CustomNode("OllamaRequest", 0, Define.GROUP)]
     public class OllamaRequestNode : ScriptNodeBase
     {
-        [SerializeField,Header("ÏûÏ¢½ÓÊÜkey")]
+        [SerializeField,Header("æ¶ˆæ¯æ¥å—key")]
         protected string eventReceiveKey = "ollama_receive_message";
+        public string ollama_model = "llama3";
    
         public Ref<string> url = new ("ollama_url", "http://localhost:8081/api/chat");
-        public Ref<string> ollama_model = new ("ollama_model","llama3");
         public Ref<List<SendData>> input = new ("send_data_list");
         public Ref<string> output = new ("output_text");
 
@@ -32,14 +32,14 @@ namespace AIScripting.Ollama
         }
 
         /// <summary>
-        /// ·¢ËÍÏûÏ¢
+        /// å‘é€æ¶ˆæ¯
         /// </summary>
         public virtual void PostMsg(List<SendData> _msg, Action<string> _callback)
         {
             _litCoroutine = Owner.StartCoroutine(Request(input, _callback));
         }
         /// <summary>
-        /// ÊÕµ½»Ø¸´
+        /// æ”¶åˆ°å›å¤
         /// </summary>
         /// <param name="data"></param>
         private void OnReceive(ReceiveData data)
@@ -49,7 +49,7 @@ namespace AIScripting.Ollama
         }
 
         /// <summary>
-        /// µ÷ÓÃ½Ó¿Ú
+        /// è°ƒç”¨æ¥å£
         /// </summary>
         /// <param name="_postWord"></param>
         /// <param name="_callback"></param>
@@ -61,7 +61,7 @@ namespace AIScripting.Ollama
             {
                 PostData _postData = new PostData
                 {
-                    model = ollama_model.Value,
+                    model = ollama_model,
                     messages = _msg,
                     stream = true
                 };
@@ -101,7 +101,7 @@ namespace AIScripting.Ollama
                     Debug.LogError(request.downloadHandler.error);
                 }
                 request.Dispose();
-                Debug.Log("OllamaºÄÊ±(s)£º" + (System.DateTime.Now.Ticks - startTime) / 10000000);
+                Debug.Log("Ollamaè€—æ—¶(s)ï¼š" + (System.DateTime.Now.Ticks - startTime) / 10000000);
             }
         }
     }

@@ -22,7 +22,7 @@ namespace AIScripting
         {
             foreach (var binding in _bindings)
             {
-                graph.SetVariable(binding.name, new Variable<UnityEngine.Object>() { Value = binding.target });
+                graph.SetVariable(new Variable<UnityEngine.Object>(binding.name, binding.target));
             }
         }
 

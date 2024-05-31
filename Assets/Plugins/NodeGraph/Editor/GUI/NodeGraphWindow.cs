@@ -1109,7 +1109,6 @@ namespace UFrame.NodeGraph
                                     {
                                         if (node.GetRect(true).Overlaps(selectedRect))
                                         {
-                                            Debug.LogError(selectedRect);
                                             activeSelection.Add(node);
                                         }
                                     }
@@ -1432,7 +1431,10 @@ namespace UFrame.NodeGraph
         private void AddNodeFromGUI(Node n, string guiName, float x, float y)
         {
             string nodeName = guiName;
+            x -= contentRect.center.x;
+            y -= contentRect.center.y;
             NodeGUI newNode = new NodeGUI(controller, new NodeData(nodeName, n, x, y));
+            newNode.SetOffset(contentRect.center);
             Undo.RecordObject(this, "Add " + guiName + " Node");
             AddNodeGUI(newNode);
         }

@@ -11,6 +11,7 @@ using NUnit.Framework;
 using System.Reflection;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace AIScripting
 {
@@ -35,9 +36,10 @@ namespace AIScripting
         private void SelectIndex(SerializedProperty property)
         {
             var subProps = property.serializedObject.targetObject.GetType().GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.FlattenHierarchy);
-            Array.Sort(subProps, (a, b) => a.DeclaringType == b.DeclaringType ? 0: a.DeclaringType.IsAssignableFrom(b.DeclaringType)?-1:1);   
+            Array.Sort(subProps, (a, b) => a.ReflectedType == b.ReflectedType ? 0: a.ReflectedType.IsAssignableFrom(b.ReflectedType) ? -1:1);
+            var sortedProps = subProps.Reverse();
             var index = 0;
-            foreach (var item in subProps)
+            foreach (var item in sortedProps)
             {
                 if (!typeof(IRef).IsAssignableFrom(item.FieldType))
                     continue;
@@ -124,8 +126,8 @@ namespace AIScripting
             if (property.isExpanded && defaultProp != null)
             {
                 position.y += EditorGUIUtility.singleLineHeight + 4;
-                position.x += 10;
-                position.width -= 20;
+                position.x += 30;
+                position.width -= 40;
                 position.height -= EditorGUIUtility.singleLineHeight;
                 using (var disable = new EditorGUI.DisabledGroupScope(!autoCreateProp.boolValue))
                 {

@@ -59,9 +59,9 @@ namespace AIScripting
         {
             return _variables.TryGetValue(name, out variable);
         }
-        public void SetVariable(string name, Variable variable)
+        public void SetVariable(Variable variable)
         {
-            _variables[name] = variable;
+            _variables[variable.Name] = variable;
         }
         public bool SetVariableValue(string name, object data)
         {
@@ -80,7 +80,7 @@ namespace AIScripting
         #endregion Variables
 
         /// <summary>
-        /// 反射获取所有的引用变量
+        /// 鍙嶅皠鑾峰彇鎵�鏈夌殑寮曠敤鍙橀噺
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>

@@ -21,15 +21,18 @@ namespace AIScripting.Ollama
         /// <summary>
         /// 设置模型,模型类型自行添加
         /// </summary>
-        public string m_GptModel = "llama3";
+        [OllamaModelName]
+        public string model = "llama3";
         /// <summary>
         /// 上下文保留条数
         /// </summary>
         [Header("上下文保留条数")]
-        [SerializeField] protected int m_HistoryKeepCount = 15;
+        [SerializeField] 
+        protected int m_HistoryKeepCount = 15;
 
         [Header("消息接受key")]
-        [SerializeField] protected string eventReceiveKey = "ollama_receive_message";
+        [SerializeField] 
+        protected string eventReceiveKey = "ollama_receive_message";
         /// <summary>
         /// 缓存对话
         /// </summary>
@@ -122,7 +125,7 @@ namespace AIScripting.Ollama
                 sendList.Insert(0, new SendData("system", m_SystemSetting));
                 PostData _postData = new PostData
                 {
-                    model = m_GptModel.ToString(),
+                    model = model.ToString(),
                     messages = sendList,
                     stream = true
                 };

@@ -31,7 +31,7 @@ public class GraphDirecterBehaviour : MonoBehaviour
     public void OnSendClick()
     {
         resultText.text = "";
-        graph.SetVariable("input_text", new Variable<string>() { Value = inputField.text });
+        graph.SetVariable(new Variable<string>("input_text", inputField.text));
         var op = graphDirector.Run();
         op.RegistComplete(OnFinish);
     }

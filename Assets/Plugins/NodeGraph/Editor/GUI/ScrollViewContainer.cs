@@ -69,6 +69,8 @@ namespace UFrame.NodeGraph
 
         public void UpdateScale(Rect position)
         {
+            var percent = scrollView.scrollOffset / currentPosition.size;
+
             currentPosition = position;
             scrollView.style.marginTop = position.y;
             scrollView.style.marginLeft = position.x;
@@ -82,6 +84,8 @@ namespace UFrame.NodeGraph
             scrollViewContent.style.height = position.height * zoomSize / minZoomSize;
 
             zoomMa.SetContentSize(position.size);
+
+            scrollView.scrollOffset = percent * position.size;
         }
 
         private void CreateScrollView(Rect position)

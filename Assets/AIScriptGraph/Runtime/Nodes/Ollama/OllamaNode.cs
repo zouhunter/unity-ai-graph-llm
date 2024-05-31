@@ -10,7 +10,9 @@ namespace AIScripting.Ollama
     [CustomNode("Ollama", 0, Define.GROUP)]
     public class OllamaNode : ScriptNodeBase
     {
+        [OllamaModelName]
         public string model = "llama3";
+
         [Header("上下文保留条数")]
         [SerializeField] protected int m_HistoryKeepCount = 15;
 

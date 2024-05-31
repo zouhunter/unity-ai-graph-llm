@@ -67,9 +67,8 @@ namespace AIScripting
                 {
                     if (_default == null)
                         _default = Activator.CreateInstance<T>();
-                    _variable = new Variable<T>();
-                    _variable.Value = _default;
-                    _variablePrivider.SetVariable(_key, _variable);
+                    _variable = new Variable<T>(_key,_default);
+                    _variablePrivider.SetVariable(_variable);
                 }
             }
             else

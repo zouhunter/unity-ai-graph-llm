@@ -37,9 +37,9 @@ namespace AIScripting
         }
 
         #region Variables
-        public void SetVariable(string name, Variable variable)
+        public void SetVariable(Variable variable)
         {
-            _variableProvider?.SetVariable(name, variable);
+            _variableProvider?.SetVariable(variable);
         }
         public Variable<T> GetVariable<T>(string name, bool crateIfNotExits)
         {
