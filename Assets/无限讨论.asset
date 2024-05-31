@@ -19,25 +19,6 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &-8493493600020915875
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b975587bb7559ae469d39d2f1dd12a32, type: 3}
-  m_Name: AIScripting.Waiting.WaitSecondNode
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.Waiting.WaitSecondNode
-  _inportNum: 1
-  _outportNum: 1
-  enable: 1
-  _title: "\u7B49\u5F851s"
-  second: 1
 --- !u!114 &-7695823182919353050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,39 +530,6 @@ MonoBehaviour:
         height: 23
       max: 2147483647
       type: ->
-  - m_name: WaitSecond
-    m_id: 1657242346
-    m_x: 156
-    m_y: -96
-    m_node: {fileID: -8493493600020915875}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Waiting.WaitSecondNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7B49\u5F851s\",\"second\":1.0}"
-    m_inputPoints:
-    - id: 882688512
-      label: i
-      parentId: 1657242346
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.195236
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: -1430529450
-      label: o
-      parentId: 1657242346
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 112.06761
-        y: 22.195236
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
   - m_name: Text
     m_id: -1263514890
     m_x: 24
@@ -1021,7 +969,7 @@ MonoBehaviour:
     m_connection: {fileID: -4718147772131858957}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133616351204375380
+  m_lastModified: 133616353590313543
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
