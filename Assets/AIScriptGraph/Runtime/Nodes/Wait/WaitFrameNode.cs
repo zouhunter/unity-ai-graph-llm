@@ -12,7 +12,7 @@ using UFrame.NodeGraph;
 
 namespace AIScripting.Waiting
 {
-    [CustomNode("Waiting/WaitFrame")]
+    [CustomNode("WaitFrame",group:Define.GROUP)]
     public class WaitFrameNode : WaitBaseNode
     {
         public int frameCount = 1;

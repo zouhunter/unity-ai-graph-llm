@@ -7,14 +7,11 @@
 
 using System;
 using System.Collections;
-
 using UFrame.NodeGraph;
-
-using UnityEngine;
 
 namespace AIScripting.Waiting
 {
-    [CustomNode("Waiting/WaitSecond")]
+    [CustomNode("WaitSecond", group: Define.GROUP)]
     public class WaitSecondNode : WaitBaseNode
     {
         public float second = 1;

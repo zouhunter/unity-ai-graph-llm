@@ -25,7 +25,7 @@ namespace AIScripting.Ollama
                 index = 0;
             }
             index = EditorGUI.Popup(position,label, index, allModels,EditorStyles.textField);
-            if(index >= 0)
+            if(index >= 0 && index < AIScriptSettings.instance.models.Count)
             {
                 property.stringValue = AIScriptSettings.instance.models[index];
             }

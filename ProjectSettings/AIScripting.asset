@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaa29667d2ce8449bcaf339918def8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prompts: []
+  models:
+  - llama3
+  envs: []

@@ -856,7 +856,7 @@ MonoBehaviour:
     m_y: -276
     m_node: {fileID: 6160114948892027702}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":212230},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\",\".cs\"]}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.ProjectDescriptNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u5DE5\u7A0B\u914D\u7F6E\u4FE1\u606F\",\"descTextAsset\":{\"_key\":\"\",\"_default\":{\"instanceID\":18146},\"_autoCreate\":true},\"outputText\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true},\"fileTracks\":[\".fbx\",\".unity\",\".cs\"]}"
     m_inputPoints:
     - id: -588158846
       label: i
