@@ -47,3 +47,7 @@
 sysinfo.txt
 *.orig
 /Packages/packages-lock.json
+/Assets/UAI/
+/Assets/UAI.meta
+/Assets/UAI.meta
+/Assets/UAI
