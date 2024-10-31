@@ -57,7 +57,7 @@ MonoBehaviour:
   disable: 1
   conditions: []
   conditionType: 0
---- !u!114 &-5045954851862786309
+--- !u!114 &-5036320082521226118
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,16 +66,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
+  m_Script: {fileID: 11500000, guid: 7ace16e56bcdebb439b2cbae16ce76d2, type: 3}
+  m_Name: AIScripting.Export.TextSpeakNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
+  _type: AIScripting.Export.TextSpeakNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u8BED\u97F3"
+  textInfo:
+    _key: output_text
+    _default: 12345
+    _autoCreate: 1
+  pythonFolder: Assets\AIScriptGraph\Runtime\Python
+  eventName: ollama_receive_message
 --- !u!114 &-4923219340059654390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +108,25 @@ MonoBehaviour:
     _default: 
     _autoCreate: 1
   scriptOnly: 1
+--- !u!114 &-4397579760651176918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-3470012606271220198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,8 +255,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 294573932
-    m_x: -132
-    m_y: 12
+    m_x: -168
+    m_y: 120
     m_node: {fileID: -802442928423300927}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -243,7 +267,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -256,18 +280,19 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: -108369234
-    m_x: 156
-    m_y: 72
+    m_x: 24
+    m_y: 168
     m_node: {fileID: 940940690403217447}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"OllamaNode\",\"model\":\"deepseek-coder:6.7b\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"\",\"_default\":[],\"_autoCreate\":true},\"input\":{\"_key\":\"input_text\",\"_default\":\"\u4EC0\u4E48\u662F\u7231\u60C5\",\"_autoCreate\":true},\"output\":{\"_key\":\"output_text\",\"_default\":\"\",\"_autoCreate\":true},\"url\":{\"_key\":\"ollama_url\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"OllamaNode\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"\",\"_default\":[],\"_autoCreate\":true},\"input\":{\"_key\":\"input_text\",\"_default\":\"\u4EC0\u4E48\u662F\u7231\u60C5
+      [\u4E2D\u6587\u7B54\u590D]\",\"_autoCreate\":true},\"output\":{\"_key\":\"output_text\",\"_default\":\"\",\"_autoCreate\":true},\"url\":{\"_key\":\"ollama_url\",\"_default\":\"\",\"_autoCreate\":false}}"
     m_inputPoints:
     - id: -882923068
       label: i
@@ -276,7 +301,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -289,7 +314,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -297,9 +322,9 @@ MonoBehaviour:
   - m_name: Log
     m_id: -1076547146
     m_x: 216
-    m_y: 163.66675
+    m_y: 120
     m_node: {fileID: 8848498536249033045}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":false},"format":"","logType":0}'
     m_inputPoints:
     - id: -1851100980
       label: i
@@ -308,7 +333,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -321,31 +346,114 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: TextSpeak
+    m_id: -2121540406
+    m_x: 216
+    m_y: 36
+    m_node: {fileID: -5036320082521226118}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Export.TextSpeakNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BED\u97F3\",\"textInfo\":{\"_key\":\"output_text\",\"_default\":\"12345\",\"_autoCreate\":true},\"pythonFolder\":\"Assets\\\\AIScriptGraph\\\\Runtime\\\\Python\",\"eventName\":\"ollama_receive_message\"}"
+    m_inputPoints:
+    - id: -362905484
+      label: i
+      parentId: -2121540406
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1137459318
+      label: o
+      parentId: -2121540406
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: ResponceShow
+    m_id: -1790584790
+    m_x: 216
+    m_y: 204
+    m_node: {fileID: 3860926413481265271}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"ollama_receive_message","responceText":{"_key":"output_text","_default":"","_autoCreate":false},"saveFilePath":""}'
+    m_inputPoints:
+    - id: 1729828672
+      label: i
+      parentId: -1790584790
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 180721004
+      label: o
+      parentId: -1790584790
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 130.48001
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: -69429834
+  - m_id: -124453890
     m_fromNodeId: 294573932
     m_fromNodeConnectionPointId: -1254533736
     m_toNodeId: -108369234
     m_toNodeConnectionPoiontId: -882923068
     m_type: ->
-    m_connection: {fileID: -5045954851862786309}
+    m_connection: {fileID: 6366774225223031412}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -1935156840
+  - m_id: -415593282
+    m_fromNodeId: -108369234
+    m_fromNodeConnectionPointId: -1657476902
+    m_toNodeId: -2121540406
+    m_toNodeConnectionPoiontId: -362905484
+    m_type: ->
+    m_connection: {fileID: 4875381949962456829}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 927278414
     m_fromNodeId: -108369234
     m_fromNodeConnectionPointId: -1657476902
     m_toNodeId: -1076547146
     m_toNodeConnectionPoiontId: -1851100980
     m_type: ->
-    m_connection: {fileID: 5646023353925099048}
+    m_connection: {fileID: -4397579760651176918}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133616077234618271
+  - m_id: -2123646640
+    m_fromNodeId: -108369234
+    m_fromNodeConnectionPointId: -1657476902
+    m_toNodeId: -1790584790
+    m_toNodeConnectionPoiontId: 1729828672
+    m_type: ->
+    m_connection: {fileID: 7710227842984030670}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  m_lastModified: 133625634417046016
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -404,7 +512,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: OllamaNode
-  model: deepseek-coder:6.7b
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
   modifyData: 0
@@ -414,7 +522,7 @@ MonoBehaviour:
     _autoCreate: 1
   input:
     _key: input_text
-    _default: "\u4EC0\u4E48\u662F\u7231\u60C5"
+    _default: "\u4EC0\u4E48\u662F\u7231\u60C5 [\u4E2D\u6587\u7B54\u590D]"
     _autoCreate: 1
   output:
     _key: output_text
@@ -423,7 +531,7 @@ MonoBehaviour:
   url:
     _key: ollama_url
     _default: 
-    _autoCreate: 1
+    _autoCreate: 0
 --- !u!114 &1383750705029059516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,6 +697,30 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &3860926413481265271
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca1037f4e2dcd41985f275eaaf3d98, type: 3}
+  m_Name: AIScripting.Debugger.ResponceShowNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Debugger.ResponceShowNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: ResponceShowNode
+  eventName: ollama_receive_message
+  responceText:
+    _key: output_text
+    _default: 
+    _autoCreate: 0
+  saveFilePath: 
 --- !u!114 &3911416179004947033
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,6 +778,25 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &4875381949962456829
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &5292426651846173284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,7 +816,26 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
---- !u!114 &5646023353925099048
+--- !u!114 &5980199017757651012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 1
+  conditions: []
+  conditionType: 0
+--- !u!114 &6366774225223031412
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -684,7 +854,7 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
---- !u!114 &5980199017757651012
+--- !u!114 &7710227842984030670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,7 +870,7 @@ MonoBehaviour:
   _type: AIScripting.NodeConnection
   _title: 
   priority: 0
-  disable: 1
+  disable: 0
   conditions: []
   conditionType: 0
 --- !u!114 &8848498536249033045
@@ -724,6 +894,6 @@ MonoBehaviour:
   info:
     _key: output_text
     _default: 
-    _autoCreate: 1
+    _autoCreate: 0
   format: 
   logType: 0

@@ -16,7 +16,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Net.Http;
 using System.IO;
-using UnityEngine.Networking.Types;
 
 namespace AIScripting.Diagram
 {

@@ -24,7 +24,7 @@ namespace AIScripting
         [SerializeField]
         private T _default;
         [SerializeField]
-        private bool _autoCreate = true;
+        private bool _autoCreate;
         private T _value;
 
         private IVariableProvider _variablePrivider;

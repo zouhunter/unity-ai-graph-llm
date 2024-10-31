@@ -1,0 +1,7 @@
+{
+    "name": "io.wekoi.scriptablebt",
+    "displayName": "ScriptableBT",
+    "author": { "name": "zouhunter" },
+    "version": "1.0.0",
+    "description": "Scriptable Behaviour Tree"
+}

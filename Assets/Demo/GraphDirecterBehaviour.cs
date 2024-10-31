@@ -28,6 +28,11 @@ public class GraphDirecterBehaviour : MonoBehaviour
         graph.RegistEvent("uframe_receive_message", OnRecvMessage);
     }
 
+    private void Start()
+    {
+        OnSendClick();
+    }
+
     public void OnSendClick()
     {
         resultText.text = "";
@@ -40,7 +45,7 @@ public class GraphDirecterBehaviour : MonoBehaviour
     {
         if (!resultText)
             return;
-        if(obj is ReceiveData)
+        if (obj is ReceiveData)
         {
             var recvData = obj as ReceiveData;
             //Debug.Log("ollama_receive_message:" + recvData.message.content);

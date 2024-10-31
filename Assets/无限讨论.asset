@@ -57,6 +57,30 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &-7231567784491595509
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace16e56bcdebb439b2cbae16ce76d2, type: 3}
+  m_Name: AIScripting.Export.TextSpeakNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Export.TextSpeakNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u5C0F\u84DD\u8BF4\u8BDD"
+  textInfo:
+    _key: output_red_text
+    _default: 
+    _autoCreate: 0
+  pythonFolder: Assets\AIScriptGraph\Runtime\Python
+  eventName: blue_message
 --- !u!114 &-6725461418447219501
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,7 +105,7 @@ MonoBehaviour:
     _default: 
     _autoCreate: 0
   saveFilePath: 
---- !u!114 &-6479096631128353331
+--- !u!114 &-6441341809597547721
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +321,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u8D77\u59CB\u6587\u672C"
-  textfix: "\u5C0F\u7EA2\u4F60\u597D\uFF0C\u8BF7\u4F60\u548C\u5C0F\u84DD\u8FDB\u884C\u5BF9\u8BDD\uFF0C\u5C0F\u84DD\u662F\u4E00\u540D\u4F18\u79C0\u7684\u5F00\u53D1\u4EBA\u5458\u3002"
+  textfix: "\u5C0F\u7EA2\u4F60\u597D\uFF0C\u8BF7\u4F60\u548C\u5C0F\u84DD\u8FDB\u884C\u5BF9\u8BDD\uFF0C\u5C0F\u84DD\u662F\u4E00\u540D\u4F18\u79C0\u7684\u5F00\u53D1\u4EBA\u5458\u3002[\u4E2D\u6587\u7B54\u590D]"
   export_text:
     _key: input_text
     _default: 
@@ -327,6 +351,25 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-2471124486201897053
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &-2410923245524006075
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,8 +510,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 294573932
-    m_x: 24
-    m_y: 24
+    m_x: 48
+    m_y: 72
     m_node: {fileID: -802442928423300927}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -479,7 +522,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -492,18 +535,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: -108369234
-    m_x: 24
+    m_x: 36
     m_y: 240
     m_node: {fileID: 940940690403217447}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u5C0F\u7EA2\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"red_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"output_red_list\",\"_default\":[],\"_autoCreate\":true},\"input\":{\"_key\":\"input_text\",\"_default\":\"\u4EC0\u4E48\u662F\u7231\u60C5\",\"_autoCreate\":true},\"output\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":true},\"url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u5C0F\u7EA2\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"red_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"output_red_list\",\"_default\":[],\"_autoCreate\":true},\"input\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":false},\"output\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":true},\"url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -882923068
       label: i
@@ -512,7 +555,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -525,18 +568,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Text
     m_id: -1263514890
-    m_x: 24
-    m_y: 144
+    m_x: 36
+    m_y: 168
     m_node: {fileID: -2711142163757003640}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8D77\u59CB\u6587\u672C\",\"textfix\":\"\u5C0F\u7EA2\u4F60\u597D\uFF0C\u8BF7\u4F60\u548C\u5C0F\u84DD\u8FDB\u884C\u5BF9\u8BDD\uFF0C\u5C0F\u84DD\u662F\u4E00\u540D\u4F18\u79C0\u7684\u5F00\u53D1\u4EBA\u5458\u3002\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\u4F60\u9700\u8981\u4E0D\u65AD\u7684\u7ED9\u5C0F\u84DD\u63D0\u4F9B\u7B56\u5212\u6848\u3002\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8D77\u59CB\u6587\u672C\",\"textfix\":\"\u5C0F\u7EA2\u4F60\u597D\uFF0C\u8BF7\u4F60\u548C\u5C0F\u84DD\u8FDB\u884C\u5BF9\u8BDD\uFF0C\u5C0F\u84DD\u662F\u4E00\u540D\u4F18\u79C0\u7684\u5F00\u53D1\u4EBA\u5458\u3002[\u4E2D\u6587\u7B54\u590D]\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\u4F60\u9700\u8981\u4E0D\u65AD\u7684\u7ED9\u5C0F\u84DD\u63D0\u4F9B\u7B56\u5212\u6848\u3002\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -2038068724
       label: i
@@ -545,7 +588,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -558,7 +601,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -578,7 +621,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -591,7 +634,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -611,7 +654,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -624,7 +667,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -644,7 +687,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -657,7 +700,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -677,7 +720,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -689,8 +732,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 127.52481
-        y: 22.2583
+        x: 130.48001
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -710,7 +753,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -722,16 +765,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 127.52481
-        y: 22.2583
+        x: 130.48001
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WaitSecond
     m_id: -249281186
-    m_x: 24
-    m_y: 432
+    m_x: 36
+    m_y: 456
     m_node: {fileID: 951720534747129365}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Waiting.WaitSecondNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7B49\u4E00\u79D2\",\"second\":1.0}"
@@ -743,7 +786,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -756,18 +799,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Text
     m_id: -1832856914
-    m_x: 24
-    m_y: 348
+    m_x: 36
+    m_y: 384
     m_node: {fileID: 8356633639645248958}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8F6C\u6362\u6210\u63D0\u95EE\",\"textfix\":\"\u6211\u662F\u7B56\u5212\u5C0F\u7EA2\uFF0C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":false},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":false}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8F6C\u6362\u6210\u63D0\u95EE\",\"textfix\":\"\u6211\u662F\u7B56\u5212\u5C0F\u7EA2\uFF0C\u8BF7\u7528\u4E2D\u6587\u6C9F\u901A\uFF0C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":false},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":false}}"
     m_inputPoints:
     - id: 1687556548
       label: i
@@ -776,7 +819,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -789,7 +832,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -797,10 +840,10 @@ MonoBehaviour:
   - m_name: Text
     m_id: -1749208826
     m_x: 24
-    m_y: 612
+    m_y: 684
     m_node: {fileID: 2582973079060081786}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8F6C\u6362\u6210\u63D0\u95EE\",\"textfix\":\"\u6211\u662F\u5F00\u53D1\u5C0F\u84DD\uFF0C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":false},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"output_blue_text\",\"_default\":\"\",\"_autoCreate\":false}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8F6C\u6362\u6210\u63D0\u95EE\",\"textfix\":\"\u6211\u662F\u5F00\u53D1\u5C0F\u84DD\uFF0C\u8BF7\u7528\u4E2D\u6587\u6C9F\u901A\uFF0C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":false},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"output_blue_text\",\"_default\":\"\",\"_autoCreate\":false}}"
     m_inputPoints:
     - id: 1771204636
       label: i
@@ -809,7 +852,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -822,7 +865,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -830,7 +873,7 @@ MonoBehaviour:
   - m_name: WaitSecond
     m_id: 877312204
     m_x: 24
-    m_y: 684
+    m_y: 768
     m_node: {fileID: 7705176476893839021}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Waiting.WaitSecondNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7B49\u4E00\u79D2\",\"second\":1.0}"
@@ -842,7 +885,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.2583
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -855,7 +898,73 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.2583
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: TextSpeak
+    m_id: 1541821964
+    m_x: 36
+    m_y: 312
+    m_node: {fileID: 1121653779413447187}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Export.TextSpeakNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u5C0F\u7EA2\u8BF4\u8BDD\",\"textInfo\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":false},\"pythonFolder\":\"Assets\\\\AIScriptGraph\\\\Runtime\\\\Python\",\"eventName\":\"red_message\"}"
+    m_inputPoints:
+    - id: -1556393372
+      label: i
+      parentId: 1541821964
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: 1964020090
+      label: o
+      parentId: 1541821964
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: TextSpeak
+    m_id: -58088492
+    m_x: 24
+    m_y: 600
+    m_node: {fileID: -7231567784491595509}
+    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Export.TextSpeakNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u5C0F\u84DD\u8BF4\u8BDD\",\"textInfo\":{\"_key\":\"output_red_text\",\"_default\":\"\",\"_autoCreate\":false},\"pythonFolder\":\"Assets\\\\AIScriptGraph\\\\Runtime\\\\Python\",\"eventName\":\"blue_message\"}"
+    m_inputPoints:
+    - id: -832642326
+      label: i
+      parentId: -58088492
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -1607196160
+      label: o
+      parentId: -58088492
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -924,15 +1033,6 @@ MonoBehaviour:
     m_connection: {fileID: -7695823182919353050}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: 646141964
-    m_fromNodeId: -108369234
-    m_fromNodeConnectionPointId: -1657476902
-    m_toNodeId: -1832856914
-    m_toNodeConnectionPoiontId: 1687556548
-    m_type: ->
-    m_connection: {fileID: 8940600705497385745}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
   - m_id: 790955956
     m_fromNodeId: -1832856914
     m_fromNodeConnectionPointId: 913002714
@@ -940,15 +1040,6 @@ MonoBehaviour:
     m_toNodeConnectionPoiontId: -1023835020
     m_type: ->
     m_connection: {fileID: 8494568107109924594}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: 1438146060
-    m_fromNodeId: 1027440052
-    m_fromNodeConnectionPointId: -521667616
-    m_toNodeId: -1749208826
-    m_toNodeConnectionPoiontId: 1771204636
-    m_type: ->
-    m_connection: {fileID: -6479096631128353331}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
   - m_id: -172197832
@@ -969,7 +1060,43 @@ MonoBehaviour:
     m_connection: {fileID: -4718147772131858957}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133616353590313543
+  - m_id: 1404584564
+    m_fromNodeId: -108369234
+    m_fromNodeConnectionPointId: -1657476902
+    m_toNodeId: 1541821964
+    m_toNodeConnectionPoiontId: -1556393372
+    m_type: ->
+    m_connection: {fileID: 1945249788772580215}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: 550319060
+    m_fromNodeId: 1027440052
+    m_fromNodeConnectionPointId: -521667616
+    m_toNodeId: -58088492
+    m_toNodeConnectionPoiontId: -832642326
+    m_type: ->
+    m_connection: {fileID: -2471124486201897053}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1211628092
+    m_fromNodeId: 1541821964
+    m_fromNodeConnectionPointId: 1964020090
+    m_toNodeId: -1832856914
+    m_toNodeConnectionPoiontId: 1687556548
+    m_type: ->
+    m_connection: {fileID: -6441341809597547721}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  - m_id: -1217113762
+    m_fromNodeId: -58088492
+    m_fromNodeConnectionPointId: -1607196160
+    m_toNodeId: -1749208826
+    m_toNodeConnectionPoiontId: 1771204636
+    m_type: ->
+    m_connection: {fileID: 7613508037411969265}
+    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
+  m_lastModified: 133625650623608914
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -1069,8 +1196,8 @@ MonoBehaviour:
     _autoCreate: 1
   input:
     _key: input_text
-    _default: "\u4EC0\u4E48\u662F\u7231\u60C5"
-    _autoCreate: 1
+    _default: 
+    _autoCreate: 0
   output:
     _key: output_red_text
     _default: 
@@ -1117,6 +1244,30 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &1121653779413447187
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace16e56bcdebb439b2cbae16ce76d2, type: 3}
+  m_Name: AIScripting.Export.TextSpeakNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Export.TextSpeakNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: "\u5C0F\u7EA2\u8BF4\u8BDD"
+  textInfo:
+    _key: output_red_text
+    _default: 
+    _autoCreate: 0
+  pythonFolder: Assets\AIScriptGraph\Runtime\Python
+  eventName: red_message
 --- !u!114 &1383750705029059516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1137,6 +1288,25 @@ MonoBehaviour:
   conditions: []
   conditionType: 0
 --- !u!114 &1917278411229549818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
+--- !u!114 &1945249788772580215
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1211,7 +1381,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u8F6C\u6362\u6210\u63D0\u95EE"
-  textfix: "\u6211\u662F\u5F00\u53D1\u5C0F\u84DD\uFF0C"
+  textfix: "\u6211\u662F\u5F00\u53D1\u5C0F\u84DD\uFF0C\u8BF7\u7528\u4E2D\u6587\u6C9F\u901A\uFF0C"
   export_text:
     _key: input_text
     _default: 
@@ -1463,6 +1633,25 @@ MonoBehaviour:
   disable: 0
   conditions: []
   conditionType: 0
+--- !u!114 &7613508037411969265
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
+  m_Name: ->
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.NodeConnection
+  _title: 
+  priority: 0
+  disable: 0
+  conditions: []
+  conditionType: 0
 --- !u!114 &7705176476893839021
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1524,7 +1713,7 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u8F6C\u6362\u6210\u63D0\u95EE"
-  textfix: "\u6211\u662F\u7B56\u5212\u5C0F\u7EA2\uFF0C"
+  textfix: "\u6211\u662F\u7B56\u5212\u5C0F\u7EA2\uFF0C\u8BF7\u7528\u4E2D\u6587\u6C9F\u901A\uFF0C"
   export_text:
     _key: input_text
     _default: 
@@ -1536,25 +1725,6 @@ MonoBehaviour:
     _default: 
     _autoCreate: 0
 --- !u!114 &8494568107109924594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311a514a614e4ef4896651fa5c466a82, type: 3}
-  m_Name: ->
-  m_EditorClassIdentifier: 
-  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.NodeConnection
-  _title: 
-  priority: 0
-  disable: 0
-  conditions: []
-  conditionType: 0
---- !u!114 &8940600705497385745
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

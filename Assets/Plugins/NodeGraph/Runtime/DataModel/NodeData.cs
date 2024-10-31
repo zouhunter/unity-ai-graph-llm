@@ -155,8 +155,19 @@ namespace UFrame.NodeGraph.DataModel
             if (m_node == null && !string.IsNullOrEmpty(m_nodeJson))
             {
                 var item = JSONClass.Parse(m_nodeJson);
-                var nodeType = System.Reflection.Assembly.Load(item["_assembly"]).GetType(item["_type"]);
-                if(nodeType == null)
+                System.Reflection.Assembly assembly = null;
+                try
+                {
+                    assembly = System.Reflection.Assembly.Load(item["_assembly"]);
+                }
+                catch (Exception exception)
+                {
+                    Debug.Log(exception);
+                }
+                Type nodeType = assembly?.GetType(item["_type"]);
+                if (nodeType == null)
+                    nodeType = Type.GetType(item["_type"]);
+                if (nodeType == null)
                     Debug.LogError("Node type not found: " + item["_type"]);
                 m_node = Node.CreateInstance(nodeType) as Node;
                 m_node?.DeSeraizlize(m_nodeJson);

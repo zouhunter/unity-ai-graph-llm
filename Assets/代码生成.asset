@@ -38,6 +38,41 @@ MonoBehaviour:
   priority: 0
   disable: 0
   conditions: []
+--- !u!114 &-8828884102581941430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0f47f4c8f8034da1d65e3b7c747ac, type: 3}
+  m_Name: AIScripting.Work.OpenCCNode
+  m_EditorClassIdentifier: 
+  _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _type: AIScripting.Work.OpenCCNode
+  _inportNum: 1
+  _outportNum: 1
+  enable: 1
+  _title: OpenCCNode
+  conversation_id: 295948
+  model: gpt-4-1106-preview
+  Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 0
+  input:
+    _key: input_text
+    _default: 
+    _autoCreate: 0
+  output:
+    _key: output_text
+    _default: 
+    _autoCreate: 0
+  saveFilePath: 
+  eventReceiveKey: uframe_receive_message
 --- !u!114 &-6952531789606267040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,8 +239,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1224
-    m_y: 708
+    m_x: -732
+    m_y: -204
     m_node: {fileID: -6952531789606267040}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -216,7 +251,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -229,17 +264,17 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: 1982676024
-    m_x: 1452
-    m_y: 792
+    m_x: -528
+    m_y: -132
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AI","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"AI","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -248,7 +283,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -261,15 +296,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: 33484302
-    m_x: 1452
-    m_y: 672
+    m_x: -528
+    m_y: -204
     m_node: {fileID: 6499200013202867328}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"textfix\":\"wasd\u89D2\u8272\u79FB\u52A8\u811A\u672C\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
@@ -281,7 +316,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -293,16 +328,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116.33333
-        y: 20.833332
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: ResponceShow
     m_id: -165076380
-    m_x: 1620
-    m_y: 792
+    m_x: -528
+    m_y: -36
     m_node: {fileID: 3544307611051814443}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":"Assets\\MTest\\AIGraph\\Demo"}'
     m_inputPoints:
@@ -313,7 +348,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -325,8 +360,40 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 126.33333
-        y: 20.833332
+        x: 130.48001
+        y: 22.029999
+        width: 10
+        height: 23
+      max: 2147483647
+      type: ->
+  - m_name: OpenCC
+    m_id: 1028594570
+    m_x: -528
+    m_y: 60
+    m_node: {fileID: -8828884102581941430}
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"OpenCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":false},"input":{"_key":"input_text","_default":"","_autoCreate":false},"output":{"_key":"output_text","_default":"","_autoCreate":false},"saveFilePath":"","eventReceiveKey":"uframe_receive_message"}'
+    m_inputPoints:
+    - id: 254040736
+      label: i
+      parentId: 1028594570
+      isInput: 1
+      buttonRect:
+        serializedVersion: 2
+        x: 0
+        y: 19.029999
+        width: 21
+        height: 29
+      max: 2147483647
+      type: ->
+    m_outputPoints:
+    - id: -520513098
+      label: o
+      parentId: 1028594570
+      isInput: 0
+      buttonRect:
+        serializedVersion: 2
+        x: 111
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -359,7 +426,7 @@ MonoBehaviour:
     m_connection: {fileID: 2239953087946718410}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133609955009990855
+  m_lastModified: 133631604630980722
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -618,7 +685,7 @@ MonoBehaviour:
   m_Name: AIScripting.MateAI.WekoiCCNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.MateAI.WekoiCCNode
+  _type: AIScripting.Work.OpenCCNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
@@ -626,6 +693,10 @@ MonoBehaviour:
   conversation_id: 39441
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 1
   input:
     _key: input_text
     _default: 

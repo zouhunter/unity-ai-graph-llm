@@ -214,10 +214,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u7F16\u7801\u89C4\u8303"
-  textfile:
+  inputTextfile:
     _key: 
-    _default: {fileID: 4900000, guid: bf0f56a7af5c9b34e9e228ccbff19503, type: 3}
-    _autoCreate: 1
+    _default: {fileID: 0}
+    _autoCreate: 0
   exportfileName:
     _key: 
     _default: 
@@ -244,9 +244,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 0
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default:
@@ -767,7 +768,7 @@ MonoBehaviour:
   enable: 0
   _title: OllamaBatchNode
   m_SystemSetting: 
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
   m_DataList:
@@ -1046,8 +1047,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
-    m_x: 1272
-    m_y: 588
+    m_x: -612
+    m_y: -228
     m_node: {fileID: -1532148855397654957}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"BeginNode"}'
     m_inputPoints:
@@ -1058,7 +1059,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1071,47 +1072,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: VariableSetNode
-    m_id: 1019511808
-    m_x: 1080
-    m_y: 516
-    m_node: {fileID: 3447720437640227514}
-    m_nodeJson: "{\"_assembly\":\"MTest.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\",\"_type\":\"VariableSetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"VariableSetNode\",\"executeInEditOnly\":false,\"ollama_url\":{\"_key\":\"ollama_url\",\"_default\":\"http://localhost:8081/api/chat\",\"_autoCreate\":true},\"input_text\":{\"_key\":\"input_text\",\"_default\":\"\u4F60\u597D\",\"_autoCreate\":true},\"target\":{\"instanceID\":0}}"
-    m_inputPoints:
-    - id: 2122120160
-      label: i
-      parentId: 1019511808
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.5
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: 1347566326
-      label: o
-      parentId: 1019511808
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 138
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TypesAPI
     m_id: 995688168
-    m_x: 972
-    m_y: 672
+    m_x: -984
+    m_y: -48
     m_node: {fileID: 5622990434918705914}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TypesAPINode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"\u7C7B\u578B\u6536\u96C6\",\"types\":{\"_key\":\"\",\"_default\":[\"GraphDirecterBehaviour\",\"VariableSetNode\"],\"_autoCreate\":true},\"bindingFlags\":28,\"typeApis\":{\"_key\":\"\",\"_autoCreate\":true}}"
@@ -1123,7 +1092,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1136,15 +1105,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Log
     m_id: 1001603436
-    m_x: 1488
-    m_y: 696
+    m_x: -192
+    m_y: -120
     m_node: {fileID: -5418289702472091115}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
     m_inputPoints:
@@ -1155,7 +1124,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1168,17 +1137,17 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: -1592159000
-    m_x: 1416
-    m_y: 456
+    m_x: -468
+    m_y: -360
     m_node: {fileID: 1729019414734635746}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"output_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":false},"input":{"_key":"output_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1928254462
       label: i
@@ -1187,7 +1156,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1200,15 +1169,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: -1932428026
-    m_x: 1560
-    m_y: 588
+    m_x: -372
+    m_y: -204
     m_node: {fileID: -5334547263980071337}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"TextDescribeNode\",\"textfix\":\"\",\"export_text\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"\",\"_default\":\"\u5206\u6790\u4E00\u4E0B\u4E0A\u9762\u4EE3\u7801\u7684\u529F\u80FD\uFF0C\u5927\u6982\u662F\u5E72\u4EC0\u4E48\u7684\",\"_autoCreate\":true}}"
@@ -1220,7 +1189,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1232,18 +1201,18 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 118
-        y: 22.5
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: 159374394
-    m_x: 1764
-    m_y: 564
+    m_x: -240
+    m_y: -252
     m_node: {fileID: 1966040605516177305}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"output_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaNode","model":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","modifyData":false,"m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"output_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
     - id: 2130680188
       label: i
@@ -1252,7 +1221,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1265,15 +1234,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: AssemblyAPI
     m_id: -638157812
-    m_x: 1452
-    m_y: 816
+    m_x: -432
+    m_y: 0
     m_node: {fileID: 5464411647018477675}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.AssembleAPINode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"AIScriptGraph","assemblys":{"_key":"","_default":["AIScriptGraph"],"_autoCreate":true},"typeApis":{"_key":"","_autoCreate":true},"bindingFlags":28}'
     m_inputPoints:
@@ -1284,7 +1253,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1296,16 +1265,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116
-        y: 22.5
+        x: 116.16
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: AssemblyAPI
     m_id: -776072120
-    m_x: 1272
-    m_y: 816
+    m_x: -612
+    m_y: 0
     m_node: {fileID: 8464799793479976578}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.AssembleAPINode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"NodeGraph","assemblys":{"_key":"","_default":["UFrame.NodeGraph"],"_autoCreate":true},"typeApis":{"_key":"","_autoCreate":true},"bindingFlags":28}'
     m_inputPoints:
@@ -1316,7 +1285,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1328,16 +1297,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116
-        y: 22.5
+        x: 116.16
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Begin
     m_id: 163180382
-    m_x: 888
-    m_y: 1152
+    m_x: -996
+    m_y: 60
     m_node: {fileID: -3680554250290347032}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -1348,7 +1317,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1361,17 +1330,17 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: 1037301568
-    m_x: 1440
-    m_y: 1032
+    m_x: -408
+    m_y: 216
     m_node: {fileID: 4727211168806575907}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaNode","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaNode","model":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","modifyData":false,"m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
     - id: -511806100
       label: i
@@ -1380,7 +1349,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1393,15 +1362,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: FileText
     m_id: -752275106
-    m_x: 1644
-    m_y: 792
+    m_x: -240
+    m_y: -24
     m_node: {fileID: -248666501375646819}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.FileReadNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"BirdFlyEntity","file_path":{"_key":"","_default":"C:\\WareHouse\\mate-unity\\mateurp\\Assets\\Scripts\\BirdFlySystem\\BirdFlyEntity.cs","_autoCreate":true},"exportfileName":{"_key":"","_default":"","_autoCreate":true},"exportfileInfo":{"_key":"","_default":"","_autoCreate":true}}'
     m_inputPoints:
@@ -1412,7 +1381,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1425,15 +1394,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Log
     m_id: 1136069732
-    m_x: 1644
-    m_y: 1032
+    m_x: -240
+    m_y: 60
     m_node: {fileID: -7601751636733091161}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
     m_inputPoints:
@@ -1444,7 +1413,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1457,15 +1426,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: AssemblyFileAPI
     m_id: 1664125000
-    m_x: 1272
-    m_y: 924
+    m_x: -612
+    m_y: 192
     m_node: {fileID: 5213979766422551221}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.AssembleFileAPINode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"Assembly-CSharp","assemblyFiles":{"_key":"","_default":["C:\\WareHouse\\mate-unity\\mateurp\\Library\\ScriptAssemblies\\Assembly-CSharp.dll"],"_autoCreate":true},"supportAssemblePaths":["C:\\WareHouse\\mate-unity\\mateurp\\Library\\ScriptAssemblies","C:\\WareHouse\\mate-unity\\mateurp\\Assets\\Plugins\\DOTween"],"typeApis":{"_key":"","_autoCreate":true},"bindingFlags":30}'
     m_inputPoints:
@@ -1476,7 +1445,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1488,16 +1457,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 136
-        y: 22.5
+        x: 136.69
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Log
     m_id: 334001808
-    m_x: 1644
-    m_y: 876
+    m_x: -240
+    m_y: 60
     m_node: {fileID: 4158758689628793973}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Debugger.LogNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"LogNode\",\"info\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"format\":\"\u8F93\u5165:\",\"logType\":0}"
@@ -1509,7 +1478,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1522,17 +1491,17 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: OllamaBatch
     m_id: 274285406
-    m_x: 1440
-    m_y: 1092
+    m_x: -420
+    m_y: 132
     m_node: {fileID: -1846198188683314030}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaBatchNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaBatchNode","m_SystemSetting":"","m_GptModel":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":[],"_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Ollama.OllamaBatchNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"OllamaBatchNode","m_SystemSetting":"","model":"llama3","m_HistoryKeepCount":15,"eventReceiveKey":"ollama_receive_message","m_DataList":{"_key":"","_default":[],"_autoCreate":true},"input":{"_key":"input_text","_default":[],"_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"url":{"_key":"ollama_url","_default":"http://localhost:8081/api/chat","_autoCreate":true}}'
     m_inputPoints:
     - id: -500268428
       label: i
@@ -1541,7 +1510,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1553,18 +1522,18 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 115
-        y: 22.5
+        x: 114.46
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: 1145067680
-    m_x: 1260
-    m_y: 1056
+    m_x: -768
+    m_y: 240
     m_node: {fileID: 1702374038737332092}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"WekoiCCNode","conversation_id":"295948","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":false},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"output_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 370513846
       label: i
@@ -1573,7 +1542,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1586,15 +1555,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Log
     m_id: 647869220
-    m_x: 1392
-    m_y: 1296
+    m_x: -492
+    m_y: 60
     m_node: {fileID: -1065585667832456927}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.LogNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"LogNode","info":{"_key":"output_text","_default":"","_autoCreate":true},"format":"","logType":0}'
     m_inputPoints:
@@ -1605,7 +1574,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1618,15 +1587,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: 2133859152
-    m_x: 1080
-    m_y: 1056
+    m_x: -972
+    m_y: 240
     m_node: {fileID: -9114315932840213496}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.TextDescribeNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"TextDescribeNode","textfix":"","export_text":{"_key":"input_text","_default":"","_autoCreate":true},"attachType":0,"modifyType":0,"input_text":{"_key":"","_default":"","_autoCreate":true}}'
     m_inputPoints:
@@ -1637,7 +1606,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1649,16 +1618,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 118
-        y: 22.5
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TypesAPI
     m_id: -1450910970
-    m_x: 1080
-    m_y: 1152
+    m_x: -828
+    m_y: -48
     m_node: {fileID: -1767619900996790983}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.TypesAPINode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"TypesAPINode","types":{"_key":"","_default":["AIScripting.NodeConnection","UFrame.NodeGraph.DataModel.Connection","AIScripting.Condition"],"_autoCreate":true},"bindingFlags":60,"typeApis":{"_key":"","_autoCreate":true}}'
     m_inputPoints:
@@ -1669,7 +1638,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1682,18 +1651,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: -912890500
-    m_x: 1248
-    m_y: 1296
+    m_x: -636
+    m_y: 132
     m_node: {fileID: -7050502844565426473}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"OllamaNode\",\"m_GptModel\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"m_DataList\":{\"_key\":\"\",\"_default\":[{\"role\":\"user\",\"content\":\"..
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"OllamaNode\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"\",\"_default\":[{\"role\":\"user\",\"content\":\"..
       \u5DF2\u77E5\u6709\u8FD9\u4E9B\u7C7B\u578B\uFF0C\u4EE5\u53CA\u5185\u90E8\u7684\u5C5E\u6027\\n```\\r\\npublic
       class NodeConnection\\r\\n{\\r\\n    public String Title { get; set; }\\r\\n   
       public String type { get; set; }\\r\\n    public String name { get; set; }\\r\\n   
@@ -1845,7 +1814,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1858,15 +1827,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextDescribe
     m_id: -1263550700
-    m_x: 1080
-    m_y: 1224
+    m_x: -828
+    m_y: 132
     m_node: {fileID: -7438152565534103808}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Describe.TextDescribeNode","_inportNum":1,"_outportNum":1,"enable":false,"_title":"TextDescribeNode","textfix":"","export_text":{"_key":"input_text","_default":"","_autoCreate":true},"attachType":0,"modifyType":0,"input_text":{"_key":"","_default":"","_autoCreate":true}}'
     m_inputPoints:
@@ -1877,7 +1846,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1889,16 +1858,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 118
-        y: 22.5
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: FileText
     m_id: -1208933686
-    m_x: 1080
-    m_y: 1368
+    m_x: -804
+    m_y: 60
     m_node: {fileID: -954198396911689611}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Import.FileReadNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":false,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"file_path\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
@@ -1910,7 +1879,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1923,18 +1892,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: TextAsset
     m_id: -203263052
-    m_x: 1080
-    m_y: 1428
+    m_x: -804
+    m_y: 60
     m_node: {fileID: -7104034048615033656}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":203568},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u7F16\u7801\u89C4\u8303\",\"inputTextfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":0},\"_autoCreate\":false},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -977816886
       label: i
@@ -1943,7 +1912,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -1956,18 +1925,18 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Ollama
     m_id: 797717898
-    m_x: 1236
-    m_y: 1428
+    m_x: -648
+    m_y: 60
     m_node: {fileID: 4699359445662125486}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"OllamaNode\",\"m_GptModel\":\"starcoder2:7b\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"m_DataList\":{\"_key\":\"\",\"_default\":[{\"role\":\"user\",\"content\":\"..
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Ollama.OllamaNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"OllamaNode\",\"model\":\"llama3\",\"m_HistoryKeepCount\":15,\"eventReceiveKey\":\"ollama_receive_message\",\"modifyData\":false,\"m_DataList\":{\"_key\":\"\",\"_default\":[{\"role\":\"user\",\"content\":\"..
       \u5DF2\u77E5\u6709\u8FD9\u4E9B\u7C7B\u578B\uFF0C\u4EE5\u53CA\u5185\u90E8\u7684\u5C5E\u6027\\n```\\r\\npublic
       class NodeConnection\\r\\n{\\r\\n    public String Title { get; set; }\\r\\n   
       public String type { get; set; }\\r\\n    public String name { get; set; }\\r\\n   
@@ -2675,7 +2644,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 19.5
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -2688,21 +2657,12 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 22.5
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   m_allConnections:
-  - m_id: 770611096
-    m_fromNodeId: 1019511808
-    m_fromNodeConnectionPointId: 1347566326
-    m_toNodeId: 9b38dd58-4560-4bdc-8fcd-1384b8ae1ae4
-    m_toNodeConnectionPoiontId: 09f2f6f4-ce59-4e07-ae2a-5af3a5f16932
-    m_type: ->
-    m_connection: {fileID: 6524552334036037725}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
   - m_id: -1168650694
     m_fromNodeId: -1932428026
     m_fromNodeConnectionPointId: 813431602
@@ -2874,7 +2834,7 @@ MonoBehaviour:
     m_connection: {fileID: 5153652647648907634}
     m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133613460030333309
+  m_lastModified: 133661039430888604
   m_graphDescription: 
   m_controllerType: AIScripting.AIScriptingController
 --- !u!114 &34504068195703349
@@ -3004,7 +2964,7 @@ MonoBehaviour:
   m_Name: AIScripting.MateAI.WekoiCCNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.MateAI.WekoiCCNode
+  _type: AIScripting.Work.OpenCCNode
   _inportNum: 1
   _outportNum: 1
   enable: 0
@@ -3012,6 +2972,10 @@ MonoBehaviour:
   conversation_id: 295948
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 0
   input:
     _key: input_text
     _default: 
@@ -3035,7 +2999,7 @@ MonoBehaviour:
   m_Name: AIScripting.WekoiCCNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.MateAI.WekoiCCNode
+  _type: AIScripting.Work.OpenCCNode
   _inportNum: 1
   _outportNum: 1
   enable: 0
@@ -3043,6 +3007,10 @@ MonoBehaviour:
   conversation_id: 295948
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 0
   input:
     _key: output_text
     _default: 
@@ -3071,9 +3039,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 0
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default: []
@@ -3274,9 +3243,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: OllamaNode
-  m_GptModel: starcoder2:7b
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default:
@@ -4022,9 +3992,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 0
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default: []
@@ -4196,9 +4167,10 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: OllamaNode
-  m_GptModel: llama3
+  model: llama3
   m_HistoryKeepCount: 15
   eventReceiveKey: ollama_receive_message
+  modifyData: 0
   m_DataList:
     _key: 
     _default: []

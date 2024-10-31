@@ -447,8 +447,8 @@ MonoBehaviour:
   m_allNodes:
   - m_name: Begin
     m_id: 985988606
-    m_x: 1416
-    m_y: 804
+    m_x: -1212
+    m_y: -420
     m_node: {fileID: -6952531789606267040}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
     m_inputPoints:
@@ -459,7 +459,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -472,17 +472,17 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.979637
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: WekoiCC
     m_id: 1982676024
-    m_x: 2076
-    m_y: 864
+    m_x: -864
+    m_y: -84
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"str_value","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":true},"input":{"_key":"str_value","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -491,7 +491,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -504,15 +504,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.979637
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: ResponceShow
     m_id: -584791524
-    m_x: 2076
-    m_y: 960
+    m_x: -396
+    m_y: 132
     m_node: {fileID: 988437019744704418}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.ResponceShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"ResponceShowNode","eventName":"wekoi_receive_message","responceText":{"_key":"","_default":"","_autoCreate":true},"saveFilePath":""}'
     m_inputPoints:
@@ -523,7 +523,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -535,16 +535,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 133.49774
-        y: 21.979637
+        x: 130.48001
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: FileWrite
     m_id: 870152892
-    m_x: 2076
-    m_y: 756
+    m_x: -600
+    m_y: -156
     m_node: {fileID: 4917874415691027760}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Export.FileWriteNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"FileWriteNode","fileName":{"_key":"str_key","_default":"","_autoCreate":true},"fileInfo":{"_key":"target_text","_default":"","_autoCreate":true},"append":false,"ext":".txt","exportDir":"Export"}'
     m_inputPoints:
@@ -555,7 +555,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -568,15 +568,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.979637
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: DirFilesDict
     m_id: -568918412
-    m_x: 1596
-    m_y: 804
+    m_x: -1020
+    m_y: -336
     m_node: {fileID: -3359938866953695417}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Import.DirFilesDictNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DirFilesDictNode","fileExt":"*.cs","dir_path":{"_key":"","_default":"Assets\\Plugins\\NodeGraph\\Runtime\\Libs","_autoCreate":true},"recursive":true,"fileInfoDict":{"_key":"fileDict","_autoCreate":true}}'
     m_inputPoints:
@@ -587,7 +587,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -600,15 +600,15 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.979637
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: StrDictBatch
     m_id: 744998530
-    m_x: 1740
-    m_y: 804
+    m_x: -900
+    m_y: -492
     m_node: {fileID: 6818927251656569855}
     m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Batch.StrDictBatchNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"StrDictBatchNode","strDict":{"_key":"fileDict","_autoCreate":true},"exportKey":{"_key":"str_key","_default":"","_autoCreate":true},"exportValue":{"_key":"str_value","_default":"","_autoCreate":true}}'
     m_inputPoints:
@@ -619,7 +619,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -631,16 +631,16 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 114.49321
-        y: 21.979637
+        x: 114.82
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
       type: ->
   - m_name: Text
     m_id: -124444468
-    m_x: 1920
-    m_y: 864
+    m_x: -612
+    m_y: -456
     m_node: {fileID: -7961902742697337436}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4EE3\u7801\u5206\u6790\",\"textfix\":\"\",\"export_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"str_value\",\"_default\":\"\",\"_autoCreate\":true}}"
@@ -652,7 +652,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 18.979637
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -665,7 +665,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 21.979637
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: AIScripting.MateAI.WekoiCCNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.MateAI.WekoiCCNode
+  _type: AIScripting.Work.OpenCCNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
@@ -1106,6 +1106,10 @@ MonoBehaviour:
   conversation_id: 39441
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 1
   input:
     _key: str_value
     _default: 

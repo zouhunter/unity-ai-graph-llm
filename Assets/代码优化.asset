@@ -234,9 +234,9 @@ MonoBehaviour:
   _outportNum: 1
   enable: 1
   _title: "\u8BFB\u53D6\u811A\u672C\u6587\u4EF6"
-  textfile:
+  inputTextfile:
     _key: 
-    _default: {fileID: 11500000, guid: 7f998f2624eeac241844cb383edc2b88, type: 3}
+    _default: {fileID: 0}
     _autoCreate: 1
   exportfileName:
     _key: 
@@ -319,7 +319,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -332,7 +332,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -342,7 +342,7 @@ MonoBehaviour:
     m_x: 2220
     m_y: 864
     m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.MateAI.WekoiCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"D:/","eventReceiveKey":"wekoi_receive_message"}'
+    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"D:/","eventReceiveKey":"wekoi_receive_message"}'
     m_inputPoints:
     - id: 1208122190
       label: i
@@ -351,7 +351,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -364,7 +364,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -385,7 +385,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -397,8 +397,8 @@ MonoBehaviour:
       isInput: 0
       buttonRect:
         serializedVersion: 2
-        x: 116.33333
-        y: 20.833332
+        x: 117.89
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_y: 864
     m_node: {fileID: -658272163205269217}
     m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"textfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":204150},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
+      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"inputTextfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":0},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
     m_inputPoints:
     - id: -1329441486
       label: i
@@ -418,7 +418,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -431,7 +431,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -450,7 +450,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 0
-        y: 17.833332
+        y: 19.029999
         width: 21
         height: 29
       max: 2147483647
@@ -463,7 +463,7 @@ MonoBehaviour:
       buttonRect:
         serializedVersion: 2
         x: 111
-        y: 20.833332
+        y: 22.029999
         width: 10
         height: 23
       max: 2147483647
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Name: AIScripting.MateAI.WekoiCCNode
   m_EditorClassIdentifier: 
   _assembly: AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _type: AIScripting.MateAI.WekoiCCNode
+  _type: AIScripting.Work.OpenCCNode
   _inportNum: 1
   _outportNum: 1
   enable: 1
@@ -805,6 +805,10 @@ MonoBehaviour:
   conversation_id: 39441
   model: gpt-4-1106-preview
   Authorization: cb-dabd1913552249b3b14670b3ada4227c
+  we_url:
+    _key: we_url
+    _default: 
+    _autoCreate: 1
   input:
     _key: input_text
     _default: 
