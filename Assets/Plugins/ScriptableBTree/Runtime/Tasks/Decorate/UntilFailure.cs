@@ -9,15 +9,17 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Decorates
 {
-    [AddComponentMenu("BehaviourTree/Decorate/UntilFailure")]
+    [NodePath("直到失败=>{returnStatus}")]
     public class UntilFailure : DecorateNode
     {
+        [PrimaryArg(Status.Success,Status.Failure)]
+        public Status returnStatus;
         protected override Status OnUpdate(TreeInfo info)
         {
             var childResult = base.ExecuteChild(info);
             if (childResult == Status.Failure)
             {
-                return Status.Failure;
+                return returnStatus;
             }
             return Status.Running;
         }

@@ -9,10 +9,9 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Decorates
 {
-    [AddComponentMenu("BehaviourTree/Decorate/Inverter")]
+    [NodePath("取反")]
     public class Inverter : DecorateNode
     {
-
         protected override Status OnUpdate(TreeInfo info)
         {
             var status = base.ExecuteChild(info);

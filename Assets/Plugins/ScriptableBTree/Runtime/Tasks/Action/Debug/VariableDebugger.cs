@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Actions
 {
-    [NodePath("变量日志")]
+    [NodePath("Debug/变量日志")]
     public class VariableDebugger : ActionNode
     {
         public LogType logType;

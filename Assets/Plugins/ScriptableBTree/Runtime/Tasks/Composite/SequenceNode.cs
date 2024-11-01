@@ -2,105 +2,49 @@
  * Author: zouhunter
  * Creation Date: 2024-03-18
  * Version: 1.0.0
- * Description: 循序执行节点,全部成功/失败
+ * Description: 顺序执行,全部成功/失败 => 成功
  *_*/
-
-using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Composite
 {
-    [Icon("d32f060aec2e5df4cb1a4af839e5a832")]
     public class SequenceNode : CompositeNode
     {
-        private MatchType _abortType;
-        public MatchType abortType => _abortType;
-
         protected override Status OnUpdate(TreeInfo info)
         {
-            if (GetChildCount(info) == 0)
-                return Status.Success;
+            if (info.subTrees == null || info.subTrees.Count == 0)
+                return Status.Inactive;
 
-            switch (abortType)
+            var status = Status.Inactive;
+            for (; info.subIndex < info.subTrees.Count; info.subIndex++)
             {
-                case MatchType.AllSuccess:
-                    return CheckAllSuccess(info);
-                case MatchType.AllFailure:
-                    return CheckAllFailure(info);
-                case MatchType.AnySuccess:
-                    return CheckAnySuccess(info);
-                case MatchType.AnyFailure:
-                    return CheckAnyFailure(info);
-            }
-            return Status.Failure;
-        }
+                var child = info.subTrees[info.subIndex];
+                if (!child.enable || child.node == null)
+                    continue;
 
-        /// <summary>
-        /// 检查全部成功
-        /// </summary>
-        /// <returns></returns>
-        private Status CheckAllSuccess(TreeInfo info)
-        {
-            for (int i = 0; i < GetChildCount(info); i++)
-            {
-                var child = GetChild(info, i);
-                var childStatus = child.node?.Execute(child) ?? Status.Inactive;
-                if (childStatus == Status.Running)
-                    return Status.Running;
-                if(childStatus == Status.Failure)
-                    return Status.Failure;
+                var childStatus = child.node.Execute(child);
+                switch (childStatus)
+                {
+                    case Status.Inactive:
+                        break;
+                    case Status.Running:
+                        return Status.Running;
+                    case Status.Failure:
+                        if (matchStatus == Status.Success)
+                            return Status.Failure;
+                        status = Status.Success;
+                        break;
+                    case Status.Success:
+                        if (matchStatus == Status.Failure)
+                            return Status.Failure;
+                        status = Status.Success;
+                        break;
+                    case Status.Interrupt:
+                        return Status.Interrupt;
+                    default:
+                        break;
+                }
             }
-            return Status.Success;
-        }
-        /// <summary>
-        /// 检查任意成功
-        /// </summary>
-        /// <returns></returns>
-        private Status CheckAnySuccess(TreeInfo info)
-        {
-            for (int i = 0; i < GetChildCount(info); i++)
-            {
-                var child = GetChild(info, i);
-                var childStatus = child.node?.Execute(child) ?? Status.Inactive;
-                if (childStatus == Status.Running)
-                    return Status.Running;
-                if (childStatus == Status.Success)
-                    return Status.Success;
-            }
-            return Status.Failure;
-        }
-        /// <summary>
-        /// 检查全部失败
-        /// </summary>
-        /// <returns></returns>
-        private Status CheckAllFailure(TreeInfo info)
-        {
-            for (int i = 0; i < GetChildCount(info); i++)
-            {
-                var child = GetChild(info, i);
-                var childStatus = child.node?.Execute(child) ?? Status.Inactive;
-                if (childStatus == Status.Running)
-                    return Status.Running;
-                if (childStatus == Status.Success)
-                    return Status.Failure;
-            }
-            return Status.Success;
-        }
-        /// <summary>
-        /// 检查任意失败
-        /// </summary>
-        /// <returns></returns>
-        private Status CheckAnyFailure(TreeInfo info)
-        {
-            for (int i = 0; i < GetChildCount(info); i++)
-            {
-                var child = GetChild(info, i);
-                var childStatus = child.node?.Execute(child) ?? Status.Inactive;
-                if (childStatus == Status.Running)
-                    return Status.Running;
-                if (childStatus == Status.Failure)
-                    return Status.Success;
-            }
-            return Status.Failure;
+            return status;
         }
 
     }

@@ -9,15 +9,18 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Decorates
 {
-    [AddComponentMenu("BehaviourTree/Decorate/UntilSuccess")]
+    [NodePath("直到成功=>{returnStatus}")]
     public class UntilSuccess : DecorateNode
     {
+        [PrimaryArg(Status.Success, Status.Failure)]
+        public Status returnStatus;
+
         protected override Status OnUpdate(TreeInfo info)
         {
             var childResult = base.ExecuteChild(info);
             if (childResult == Status.Success)
             {
-                return Status.Success;
+                return returnStatus;
             }
             return Status.Running;
         }

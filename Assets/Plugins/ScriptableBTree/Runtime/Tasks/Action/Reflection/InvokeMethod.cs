@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace MateAI.ScriptableBehaviourTree.Actions
 {
-    [NodePath("反射方法调用")]
+    [NodePath("反射/方法调用")]
     public class InvokeMethod : ActionNode
     {
         public Ref<object> target;

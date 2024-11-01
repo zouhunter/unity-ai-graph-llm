@@ -22,6 +22,9 @@ namespace MateAI.ScriptableBehaviourTree
                 case Status.Success:
                     color = Color.green;
                     break;
+                case Status.Interrupt:
+                    color = Color.blue;
+                    break;
                 default:
                     break;
             }

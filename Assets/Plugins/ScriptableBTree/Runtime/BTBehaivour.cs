@@ -17,8 +17,6 @@ namespace MateAI.ScriptableBehaviourTree
         [SerializeField]
         protected BTree _bt;
         [SerializeField]
-        protected bool _isRunning;
-        [SerializeField]
         protected bool _continueRunning;
         [SerializeField]
         protected bool _autoStartOnEnable;
@@ -30,6 +28,7 @@ namespace MateAI.ScriptableBehaviourTree
         [SerializeField]
         protected List<BindingInfo> _bindings;
         public UnityEvent<BTree> onCreateBTreeEvent;
+        protected bool _isRunning;
 
         protected virtual void OnEnable()
         {
@@ -62,22 +61,17 @@ namespace MateAI.ScriptableBehaviourTree
             if (!_isRunning)
                 return;
 
-            if (_interval > 0)
+            if (_interval > 0 && _intervalTimer < _interval)
             {
-                if (_intervalTimer < _interval)
-                {
-                    _intervalTimer += Time.deltaTime;
-                    return;
-                }
+                _intervalTimer += Time.deltaTime;
+                return;
             }
+            _intervalTimer = 0;
 
-            if (_isRunning)
+            var result = _btInstance.Tick();
+            if (result == Status.Success || result == Status.Failure)
             {
-                var result = _btInstance.Tick();
-                if (result == Status.Success || result == Status.Failure)
-                {
-                    _isRunning = _continueRunning;
-                }
+                _isRunning = _continueRunning;
             }
         }
     }

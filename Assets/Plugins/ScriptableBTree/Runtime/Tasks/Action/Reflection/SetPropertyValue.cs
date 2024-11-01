@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace MateAI.ScriptableBehaviourTree.Actions
 {
-    [NodePath("设置属性值")]
+    [NodePath("反射/设置属性值")]
     public class SetPropertyValue : ActionNode
     {
         public Ref<object> target;

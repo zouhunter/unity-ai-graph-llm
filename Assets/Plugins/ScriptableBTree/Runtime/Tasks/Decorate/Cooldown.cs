@@ -9,7 +9,6 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Decorates
 {
-    [AddComponentMenu("BehaviourTree/Decorate/Cooldown")]
     public class Cooldown : DecorateNode
     {
         [SerializeField, Tooltip("time cool run child!")]
@@ -18,7 +17,6 @@ namespace MateAI.ScriptableBehaviourTree.Decorates
         private bool _firstTimeCool = false;
 
         private float _coolTimer = 0;
-
 
         protected override Status OnUpdate(TreeInfo info)
         {

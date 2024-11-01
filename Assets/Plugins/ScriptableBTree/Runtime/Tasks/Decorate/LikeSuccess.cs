@@ -9,10 +9,9 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Decorates
 {
-    [AddComponentMenu("BehaviourTree/Decorate/LikeSuccess")]
+    [NodePath("纠正")]
     public class LikeSuccess : DecorateNode
     {
-
         protected override Status OnUpdate(TreeInfo info)
         {
             var status = base.ExecuteChild(info);

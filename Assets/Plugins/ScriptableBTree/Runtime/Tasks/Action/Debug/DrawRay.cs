@@ -1,30 +1,25 @@
-//using UnityEngine;
+/*-*-* Copyright (c) webxr@zht
+ * Author: zouhunter
+ * Creation Date: 2024-03-29
+ * Version: 1.0.0
+ * Description: ª≠…‰œﬂ
+ *_*/
+using UnityEngine;
 
-//namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityDebug
-//{
-//    [TaskCategory("Unity/Debug")]
-//    [TaskDescription("Draws a debug ray")]
-//    public class DrawRay : Action
-//    {
-//        [Tooltip("The position")]
-//        public SharedVector3 start;
-//        [Tooltip("The direction")]
-//        public SharedVector3 direction;
-//        [Tooltip("The color")]
-//        public SharedColor color = Color.white;
+namespace MateAI.ScriptableBehaviourTree.Actions
+{
+    [Tooltip("Debug/ª≠…‰œﬂ")]
+    public class DrawRay : ActionNode
+    {
+        public Ref<Vector3> start;
+        public Ref<Vector3> direction;
+        public Ref<Color> color;
 
-//        public override TaskStatus OnUpdate()
-//        {
-//            Debug.DrawRay(start.Value, direction.Value, color.Value);
+        protected override Status OnUpdate(TreeInfo info)
+        {
+            Debug.DrawRay(start.Value, direction.Value, color.Value);
+            return Status.Success;
+        }
+    }
+}
 
-//            return TaskStatus.Success;
-//        }
-
-//        public override void OnReset()
-//        {
-//            start = Vector3.zero;
-//            direction = Vector3.zero;
-//            color = Color.white;
-//        }
-//    }
-//}

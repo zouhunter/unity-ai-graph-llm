@@ -4,7 +4,6 @@
  * Version: 1.0.0
  * Description: Returns a Status of appoint.
  *_*/
-
 using MateAI.ScriptableBehaviourTree;
 using MateAI;
 

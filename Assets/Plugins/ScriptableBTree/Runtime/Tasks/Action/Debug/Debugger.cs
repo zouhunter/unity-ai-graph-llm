@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Actions
 {
-    [NodePath("文本日志:{logType}")]
+    [NodePath("Debug/文本日志:{logType}")]
     public class Debugger : ActionNode
     {
         public LogType logType;

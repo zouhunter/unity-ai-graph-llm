@@ -15,12 +15,16 @@ namespace MateAI.ScriptableBehaviourTree
 
         protected virtual Status ExecuteChild(TreeInfo info)
         {
-            var childNode = GetChild(info,0);
-            if (childNode != null)
+            if(info.subTrees != null && info.subTrees.Count > 0)
             {
-               return childNode.node.Execute(childNode);
+                var childNode = info.subTrees[0];
+                if (childNode != null && childNode.enable && childNode.node != null)
+                {
+                    return childNode.node.Execute(childNode);
+                }
             }
             return Status.Inactive;
+
         }
     }
 }

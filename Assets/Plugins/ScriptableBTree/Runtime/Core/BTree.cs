@@ -233,6 +233,7 @@ namespace MateAI.ScriptableBehaviourTree
             info.node?.SetOwner(owner);
             info.status = Status.Inactive;
             info.tickCount = 0;
+            info.subIndex = 0;
             if (info.condition.enable && info.condition.conditions != null && info.node == this)
             {
                 foreach (var condition in info.condition.conditions)
@@ -252,10 +253,7 @@ namespace MateAI.ScriptableBehaviourTree
             {
                 foreach (var subInfo in info.subTrees)
                 {
-                    if (subInfo.enable)
-                    {
-                        SetOwnerDeepth(subInfo, owner);
-                    }
+                    SetOwnerDeepth(subInfo, owner);
                 }
             }
         }

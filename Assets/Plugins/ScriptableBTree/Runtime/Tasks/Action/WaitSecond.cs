@@ -3,32 +3,19 @@
  * Creation Date: 2024-03-29
  * Description: wait for seconds
  *-*-*/
-
-using System.Collections.Generic;
-using MateAI.ScriptableBehaviourTree;
-using MateAI;
 using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Actions
 {
-    [NodePath("WaitSecond")]
+    [NodePath("µÈ´ý¼ÆÊ±(Ãë)")]
     public class WaitSecond : ActionNode
     {
-        public Ref<float> waitTime = new Ref<float> { Value = 1f };
-        public Ref<bool> randomWait = new Ref<bool> { Value = false };
-        public Ref<float> randomWaitMin = new Ref<float> { Value = 1f };
-        public Ref<float> randomWaitMax = new Ref<float> { Value = 3f };
-
-        private float nextTime;
-
-        protected override IEnumerable<IRef> GetRefVars()
-        {
-            return new IRef[] { waitTime, randomWait, randomWaitMin, randomWaitMax };
-        }
+        public Ref<float> waitSecond = new Ref<float> { Value = 1f };
+        private float _triggerTime;
 
         protected void ResetTime()
         {
-            nextTime = Time.time + (randomWait.Value ? Random.Range(randomWaitMin.Value, randomWaitMax.Value) : waitTime.Value);
+            _triggerTime = Time.time + waitSecond.Value;
         }
 
         protected override void OnStart()
@@ -38,7 +25,7 @@ namespace MateAI.ScriptableBehaviourTree.Actions
 
         protected override Status OnUpdate()
         {
-            if (nextTime <= Time.time)
+            if (_triggerTime < Time.time)
             {
                 ResetTime();
                 return Status.Success;

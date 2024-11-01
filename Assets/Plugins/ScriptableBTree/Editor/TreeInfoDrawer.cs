@@ -420,6 +420,13 @@ namespace MateAI.ScriptableBehaviourTree
                     if (node.tickCount != _tree.TickCount)
                         color = Color.gray;
                 }
+                else if (node.status == Status.Interrupt)
+                {
+                    show = true;
+                    color = Color.blue;
+                    if (node.tickCount != _tree.TickCount)
+                        color = Color.gray;
+                }
             }
             if (show)
             {
@@ -446,6 +453,8 @@ namespace MateAI.ScriptableBehaviourTree
                     color = Color.red;
                 else if (node.status == Status.Running)
                     color = Color.yellow;
+                else if (node.status == Status.Interrupt)
+                    color = Color.blue;
             }
 
             color.a = 0.5f;
@@ -474,6 +483,8 @@ namespace MateAI.ScriptableBehaviourTree
                     color = Color.red;
                 else if (node.status == Status.Running)
                     color = Color.yellow;
+                else if (node.status == Status.Running)
+                    color = Color.blue;
             }
             color.a = 0.5f;
             using (var colorScope = new ColorGUIScope(true, color))

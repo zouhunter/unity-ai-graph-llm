@@ -16,25 +16,25 @@ namespace MateAI.ScriptableBehaviourTree.Condition
         private bool _registed;
         private bool _triggger;
 
-        //protected override void OnReset()
-        //{
-        //    base.OnReset();
-        //    if (!_registed)
-        //    {
-        //        _registed = true;
-        //        Owner.RegistEvent(eventName.Value, OnEventTrigger);
-        //    }
-        //}
+        protected override void OnReset()
+        {
+            base.OnReset();
+            if (!_registed && !string.IsNullOrEmpty(eventName.Value))
+            {
+                _registed = true;
+                Owner.RegistEvent(eventName.Value, OnEventTrigger);
+            }
+        }
 
-        //public override void Dispose()
-        //{
-        //    base.Dispose();
-        //    if (_registed)
-        //    {
-        //        _registed = false;
-        //        Owner?.RemoveEvent(eventName.Value, OnEventTrigger);
-        //    }
-        //}
+        protected override void OnClear()
+        {
+            base.OnClear();
+            if (_registed)
+            {
+                _registed = false;
+                Owner?.RemoveEvent(eventName.Value, OnEventTrigger);
+            }
+        }
 
         private void OnEventTrigger(object obj)
         {
@@ -44,12 +44,7 @@ namespace MateAI.ScriptableBehaviourTree.Condition
 
         protected override bool CheckCondition()
         {
-            if (_triggger)
-            {
-                _triggger = false;
-                return true;
-            }
-            return false;
+            return _triggger;
         }
     }
 }

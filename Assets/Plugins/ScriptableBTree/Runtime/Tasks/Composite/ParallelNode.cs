@@ -2,64 +2,36 @@
  * Author: zouhunter
  * Creation Date: 2024-03-18
  * Version: 1.0.0
- * Description: 
+ * Description: 并行执行，任何匹配，返回成功
  *_*/
-
-using UnityEngine;
-
 namespace MateAI.ScriptableBehaviourTree.Composite
 {
+    /// <summary>
+    /// 并行节点
+    /// </summary>
     public class ParallelNode : CompositeNode
     {
-        [SerializeField]
-        private MatchType _abortType;
-        public MatchType abortType => _abortType;
-
         protected override Status OnUpdate(TreeInfo info)
         {
-            var childCount = GetChildCount(info);
-            if (childCount == 0)
-                return Status.Inactive;
-
-            var resultStatus = Status.Failure;
-            var successCount = 0;
-            var failureCount = 0;
-            for (int i = 0; i < childCount; i++)
+            var status = Status.Inactive;
+            if (info.subTrees == null || info.subTrees.Count == 0)
+                return status;
+            var complete = true;
+            for (int i = 0; i < info.subTrees.Count; i++)
             {
-                var child = GetChild(info, i);
-                var childStatus = child.node?.Execute(child);
-                if (childStatus == Status.Inactive)
+                var child = info.subTrees[i];
+                if (!child.enable || child.node == null)
                     continue;
 
-                switch (childStatus)
-                {
-                    case Status.Inactive:
-                        continue;
-                    case Status.Running:
-                        return Status.Running;
-                    case Status.Failure:
-                        if(abortType == MatchType.AnyFailure)
-                            resultStatus = Status.Success;
-                        else if(abortType == MatchType.AllSuccess)
-                            resultStatus = Status.Failure;
-                        failureCount++;
-                        break;
-                    case Status.Success:
-                        if(abortType == MatchType.AnySuccess)
-                            resultStatus = Status.Success;
-                        else if(abortType == MatchType.AllFailure)
-                            resultStatus = Status.Failure;
-                        successCount++;
-                        break;
-                    default:
-                        break;
-                }
+                var childStatus = child.node.Execute(child);
+                if (childStatus == Status.Running)
+                    complete = false;
+                else if (childStatus == matchStatus)
+                    status = Status.Success;
+                else if(childStatus == Status.Success || childStatus == Status.Failure)
+                    status = Status.Failure;
             }
-            if (abortType == MatchType.AllSuccess && successCount == GetChildCount(info))
-                resultStatus = Status.Success;
-            else if(abortType == MatchType.AllFailure && failureCount == GetChildCount(info))
-                resultStatus = Status.Success;
-            return resultStatus;
+            return complete ? status : Status.Running;
         }
     }
 }

@@ -75,16 +75,16 @@ namespace MateAI.ScriptableBehaviourTree
                             {
                                 createNodeAction?.Invoke(copyNode);
                             });
-                            tree.Add(new SearchTreeEntry(new GUIContent("Reference" + node.name)) { level = 4, userData = action });
+                            tree.Add(new SearchTreeEntry(new GUIContent($"Reference({node.name})")) { level = 4, userData = action });
 
                             var cloneNode = System.Activator.CreateInstance(node.GetType()) as BaseNode;
                             EditorJsonUtility.FromJsonOverwrite(EditorJsonUtility.ToJson(node), cloneNode);
-                            cloneNode.name = node.name + "(Clone)";
+                            cloneNode.name = node.name + "_" + node.GetHashCode();
                             var action2 = new Action(() =>
                             {
                                 createNodeAction?.Invoke(cloneNode);
                             });
-                            tree.Add(new SearchTreeEntry(new GUIContent("Clone" + node.name)) { level = 4, userData = action2 });
+                            tree.Add(new SearchTreeEntry(new GUIContent($"Clone({node.name})")) { level = 4, userData = action2 });
                         }
                     }
                 }
@@ -216,6 +216,11 @@ namespace MateAI.ScriptableBehaviourTree
                     }
                 }
 
+                if (defaluts == null && fieldType == typeof(bool) && (fieldType.IsNestedPublic || fieldType.IsPublic))
+                {
+                    defaluts = new object[2] {true,false};
+                }
+
                 if (defaluts != null)
                 {
                     Dictionary<string, KeyValuePair<MemberInfo, object>> memberInfo = new();
@@ -248,7 +253,7 @@ namespace MateAI.ScriptableBehaviourTree
                 foreach (var item in preloadArgDic)
                 {
                     var constratMembers = item.Value;
-                    tree.Add(new SearchTreeEntry(new GUIContent(item.Key))
+                    tree.Add(new SearchTreeEntry(new GUIContent(item.Key + $"({pathItem})"))
                     {
                         level = level + 1,
                         userData = new Action(() =>

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree
 {
-    public enum SelectType
+    public abstract class ParentNode : BaseNode
     {
-       Sequence,
-       Parallel,
+        public virtual int maxChildCount { get => int.MaxValue; }
     }
 }

@@ -5,14 +5,15 @@
  * Description: 复合节点
  *_*/
 
+using System;
+
 using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree
 {
-    [DisallowMultipleComponent]
     public abstract class CompositeNode : ParentNode
     {
-        [PrimaryArg(true,false)]
-        public bool inverse;
+        [PrimaryArg(Status.Success,Status.Failure)]
+        public Status matchStatus;
     }
 }

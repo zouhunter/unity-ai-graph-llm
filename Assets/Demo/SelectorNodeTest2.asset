@@ -301,213 +301,222 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bcd857e09f27b14ab7a872fa050aa49, type: 3}
-  m_Name: "\u4EE3\u7801\u4F18\u5316"
+  m_Script: {fileID: 11500000, guid: 9b8b4a8fb33125842bf32ad9f842f5d6, type: 3}
+  m_Name: SelectorNodeTest2
   m_EditorClassIdentifier: 
-  m_allNodes:
-  - m_name: Begin
-    m_id: 985988606
-    m_x: -816
-    m_y: -360
-    m_node: {fileID: -6952531789606267040}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.BeginNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"BeginNode"}'
-    m_inputPoints:
-    - id: 211434772
-      label: i
-      parentId: 985988606
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: -563119062
-      label: o
-      parentId: 985988606
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 111
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: WekoiCC
-    m_id: 1982676024
-    m_x: -540
-    m_y: -300
-    m_node: {fileID: 6838277287135595348}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Work.OpenCCNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"WekoiCCNode","conversation_id":"39441","model":"gpt-4-1106-preview","Authorization":"cb-dabd1913552249b3b14670b3ada4227c","we_url":{"_key":"we_url","_default":"","_autoCreate":true},"input":{"_key":"input_text","_default":"","_autoCreate":true},"output":{"_key":"target_text","_default":"","_autoCreate":true},"saveFilePath":"D:/","eventReceiveKey":"wekoi_receive_message"}'
-    m_inputPoints:
-    - id: 1208122190
-      label: i
-      parentId: 1982676024
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: 433568356
-      label: o
-      parentId: 1982676024
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 111
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: TextDescribe
-    m_id: 33484302
-    m_x: -588
-    m_y: -192
-    m_node: {fileID: 6499200013202867328}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Describe.TextDescribeNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u4F18\u5316\u811A\u672C\",\"textfix\":\"\u811A\u672C\u4F18\u5316\u3002-
-      Code Only\",\"export_text\":{\"_key\":\"input_text\",\"_default\":\"\",\"_autoCreate\":true},\"attachType\":0,\"modifyType\":0,\"input_text\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
-    m_inputPoints:
-    - id: -741069532
-      label: i
-      parentId: 33484302
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: -1515623366
-      label: o
-      parentId: 33484302
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 117.89
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: TextAsset
-    m_id: -554887652
-    m_x: -816
-    m_y: -228
-    m_node: {fileID: -658272163205269217}
-    m_nodeJson: "{\"_assembly\":\"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null\",\"_type\":\"AIScripting.Import.TextAssetNode\",\"_inportNum\":1,\"_outportNum\":1,\"enable\":true,\"_title\":\"\u8BFB\u53D6\u811A\u672C\u6587\u4EF6\",\"inputTextfile\":{\"_key\":\"\",\"_default\":{\"instanceID\":0},\"_autoCreate\":true},\"exportfileName\":{\"_key\":\"\",\"_default\":\"\",\"_autoCreate\":true},\"exportfileInfo\":{\"_key\":\"source_text\",\"_default\":\"\",\"_autoCreate\":true}}"
-    m_inputPoints:
-    - id: -1329441486
-      label: i
-      parentId: -554887652
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: -2103995320
-      label: o
-      parentId: -554887652
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 111
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  - m_name: DiffShow
-    m_id: 1568795384
-    m_x: -396
-    m_y: -192
-    m_node: {fileID: -59685352990011666}
-    m_nodeJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","_type":"AIScripting.Debugger.DiffShowNode","_inportNum":1,"_outportNum":1,"enable":true,"_title":"DiffShowNode","sourceText":{"_key":"source_text","_default":"","_autoCreate":true},"targetText":{"_key":"target_text","_default":"","_autoCreate":true},"scriptOnly":true}'
-    m_inputPoints:
-    - id: 465751608
-      label: i
-      parentId: 1568795384
-      isInput: 1
-      buttonRect:
-        serializedVersion: 2
-        x: 0
-        y: 19.029999
-        width: 21
-        height: 29
-      max: 2147483647
-      type: ->
-    m_outputPoints:
-    - id: -308802226
-      label: o
-      parentId: 1568795384
-      isInput: 0
-      buttonRect:
-        serializedVersion: 2
-        x: 111
-        y: 22.029999
-        width: 10
-        height: 23
-      max: 2147483647
-      type: ->
-  m_allConnections:
-  - m_id: 479036852
-    m_fromNodeId: 33484302
-    m_fromNodeConnectionPointId: -1515623366
-    m_toNodeId: 1982676024
-    m_toNodeConnectionPoiontId: 1208122190
-    m_type: ->
-    m_connection: {fileID: -9022217781262583252}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -1626951214
-    m_fromNodeId: -554887652
-    m_fromNodeConnectionPointId: -2103995320
-    m_toNodeId: 33484302
-    m_toNodeConnectionPoiontId: -741069532
-    m_type: ->
-    m_connection: {fileID: 1917278411229549818}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -145547674
-    m_fromNodeId: 985988606
-    m_fromNodeConnectionPointId: -563119062
-    m_toNodeId: -554887652
-    m_toNodeConnectionPoiontId: -1329441486
-    m_type: ->
-    m_connection: {fileID: 3133309968758002094}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  - m_id: -2071711320
-    m_fromNodeId: 33484302
-    m_fromNodeConnectionPointId: -1515623366
-    m_toNodeId: 1568795384
-    m_toNodeConnectionPoiontId: 465751608
-    m_type: ->
-    m_connection: {fileID: -1589830524533933069}
-    m_connectionJson: '{"_assembly":"AIScriptGraph, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null","_type":"AIScripting.NodeConnection","_title":"","priority":0,"disable":false,"conditions":[],"conditionType":0}'
-  m_lastModified: 133608498460123711
-  m_graphDescription: 
-  m_controllerType: AIScripting.AIScriptingController
+  _rootTree:
+    id: ed352393-89df-4c00-b67d-0bdab66abb0b
+    enable: 1
+    desc: 
+    node:
+      rid: 2064593693249634387
+    condition:
+      enable: 0
+      matchType: 0
+      conditions: []
+    subTrees:
+    - rid: 2064593693249634386
+    - rid: 2064593693249634388
+  LogInfo: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2064593693249634345
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: af953ef5-f0e0-4db0-a14a-15b4e1acbd14
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634346
+        condition:
+          enable: 1
+          matchType: 0
+          conditions:
+          - matchType: 0
+            node:
+              rid: 2064593693249634355
+            state: 0
+            subEnable: 0
+            subConditions: []
+        subTrees: []
+    - rid: 2064593693249634346
+      type: {class: Debugger, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: "\u6587\u672C\u65E5\u5FD7:Log (Debugger)1"
+        logType: 3
+        text: 1
+    - rid: 2064593693249634353
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: 13846b34-6acf-4ef5-83af-e57058e4944c
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634354
+        condition:
+          enable: 1
+          matchType: 0
+          conditions:
+          - matchType: 0
+            node:
+              rid: 2064593693249634355
+            state: 0
+            subEnable: 0
+            subConditions: []
+        subTrees: []
+    - rid: 2064593693249634354
+      type: {class: Debugger, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: "\u6587\u672C\u65E5\u5FD7:Log (Debugger)2"
+        logType: 3
+        text: 2
+    - rid: 2064593693249634355
+      type: {class: ChanceCondition, ns: MateAI.ScriptableBehaviourTree.Condition, asm: ScriptableBT}
+      data:
+        name: "\u6982\u7387\u6761\u4EF6 (ChanceCondition)"
+        percent:
+          _key: 
+          _default: 0.5
+          _autoCreate: 1
+        randomSeed:
+          _key: 
+          _default: 0
+          _autoCreate: 1
+    - rid: 2064593693249634362
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: 6a5b0e5a-cd12-4bf5-8d86-23d1f45302b2
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634363
+        condition:
+          enable: 1
+          matchType: 0
+          conditions:
+          - matchType: 0
+            node:
+              rid: 2064593693249634355
+            state: 0
+            subEnable: 0
+            subConditions: []
+        subTrees: []
+    - rid: 2064593693249634363
+      type: {class: Debugger, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: "\u6587\u672C\u65E5\u5FD7:Log (Debugger)3"
+        logType: 3
+        text: 3
+    - rid: 2064593693249634386
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: acb902dc-e3ca-496d-b66b-6ec91b5e4e02
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634439
+        condition:
+          enable: 0
+          matchType: 0
+          conditions: []
+        subTrees:
+        - rid: 2064593693249634345
+        - rid: 2064593693249634466
+        - rid: 2064593693249634353
+        - rid: 2064593693249634362
+        - rid: 2064593693249634464
+    - rid: 2064593693249634387
+      type: {class: SequenceNode, ns: MateAI.ScriptableBehaviourTree.Composite, asm: ScriptableBT}
+      data:
+        name: SequenceNode
+        matchFailure: 0
+    - rid: 2064593693249634388
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: 30fe6ac8-a5ab-44c8-aef6-2bfac0efb8cf
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634389
+        condition:
+          enable: 0
+          matchType: 0
+          conditions: []
+        subTrees: []
+    - rid: 2064593693249634389
+      type: {class: Debugger, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: "\u6587\u672C\u65E5\u5FD7:Log (Debugger) success"
+        logType: 3
+        text: success
+    - rid: 2064593693249634439
+      type: {class: SelectorNode, ns: MateAI.ScriptableBehaviourTree.Composite, asm: ScriptableBT}
+      data:
+        name: SelectorNode
+        matchFailure: 1
+    - rid: 2064593693249634464
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: cca40983-47a1-4f1d-874b-602cb4282acc
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634465
+        condition:
+          enable: 0
+          matchType: 0
+          conditions: []
+        subTrees:
+        - rid: 2064593693249634548
+    - rid: 2064593693249634465
+      type: {class: AppointStatus, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: Running
+        status:
+          _key: 
+          _default: 1
+          _autoCreate: 1
+    - rid: 2064593693249634466
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: e1ad2022-7ee6-4643-b332-a70a7db14d87
+        enable: 0
+        desc: 
+        node:
+          rid: 2064593693249634467
+        condition:
+          enable: 0
+          matchType: 0
+          conditions: []
+        subTrees: []
+    - rid: 2064593693249634467
+      type: {class: AppointStatus, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: Interapt
+        status:
+          _key: 
+          _default: 4
+          _autoCreate: 1
+    - rid: 2064593693249634548
+      type: {class: TreeInfo, ns: MateAI.ScriptableBehaviourTree, asm: ScriptableBT}
+      data:
+        id: eeb17c87-32df-4e8f-a15b-62d93e03be33
+        enable: 1
+        desc: 
+        node:
+          rid: 2064593693249634549
+        condition:
+          enable: 0
+          matchType: 0
+          conditions: []
+        subTrees: []
+    - rid: 2064593693249634549
+      type: {class: Debugger, ns: MateAI.ScriptableBehaviourTree.Actions, asm: ScriptableBT}
+      data:
+        name: "\u6587\u672C\u65E5\u5FD7:Log (Debugger)4"
+        logType: 3
+        text: 4
 --- !u!114 &34504068195703349
 MonoBehaviour:
   m_ObjectHideFlags: 1

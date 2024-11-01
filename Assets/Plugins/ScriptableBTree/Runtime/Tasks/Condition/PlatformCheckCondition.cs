@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Condition
 {
+    [NodePath("平台")]
     public class PlatformCheckCondition : ConditionNode
     {
         public RuntimePlatform platform;

@@ -9,14 +9,15 @@ using UnityEngine;
 
 namespace MateAI.ScriptableBehaviourTree.Condition
 {
-    [NodePath("概率条件")]
+    [NodePath("概率条件<")]
     public class ChanceCondition : ConditionNode
     {
         public Ref<float> percent;
         public Ref<int> randomSeed;
-        protected override void OnReset()
+        
+        protected override void OnStart()
         {
-            base.OnReset();
+            base.OnStart();
             if (randomSeed.Value != 0)
                 Random.InitState(randomSeed.Value);
         }

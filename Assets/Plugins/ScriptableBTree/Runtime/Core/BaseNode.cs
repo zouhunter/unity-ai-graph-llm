@@ -1,4 +1,9 @@
-using System;
+/*-*-* Copyright (c) webxr@wekoi
+ * Author: zouhunter
+ * Creation Date: 2024-03-18
+ * Version: 1.0.0
+ * Description: 节点基类
+ *_*/
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,16 +18,15 @@ namespace MateAI.ScriptableBehaviourTree
         public BTree Owner => _owner;
         public virtual int Priority => 0;
 
-        private bool _started;
-
-        protected bool _conditionFaliure;
-
         public static implicit operator bool(BaseNode instance) => instance != null;
 
         public virtual void SetOwner(BTree owner)
         {
-            _owner = owner;
-            BindingRefVars(GetRefVars());
+            if (_owner != owner)
+            {
+                _owner = owner;
+                BindingRefVars(GetRefVars());
+            }
             OnReset();
         }
 
@@ -33,53 +37,7 @@ namespace MateAI.ScriptableBehaviourTree
                 .Where(r => r != null);
         }
 
-        protected void BindingRefVars(IEnumerable<IRef> refVars)
-        {
-            if (refVars != null)
-            {
-                foreach (var refVar in refVars)
-                {
-                    refVar?.Binding(Owner);
-                }
-            }
-        }
-
-        protected virtual void OnStart()
-        {
-        }
-        protected virtual void OnReset()
-        {
-        }
-        protected virtual void OnEnd()
-        {
-        }
-
-        protected virtual void OnStart(TreeInfo info)
-        {
-            OnStart();
-        }
-      
-        protected virtual void OnEnd(TreeInfo info)
-        {
-            OnEnd();
-        }
-
-        protected virtual void OnClear()
-        {
-
-        }
-
-        protected virtual Status OnUpdate(TreeInfo info)
-        {
-            return OnUpdate();
-        }
-
-        protected virtual Status OnUpdate()
-        {
-            return Status.Inactive;
-        }
-
-        public virtual Status Execute(TreeInfo info)
+        public Status Execute(TreeInfo info)
         {
             if (info == null)
             {
@@ -91,17 +49,15 @@ namespace MateAI.ScriptableBehaviourTree
                 return Status.Inactive;
 
             info.tickCount = Owner.TickCount;
-            _conditionFaliure = false;
             if (info.node == this && info.condition != null && info.condition.enable)
             {
                 if (!Owner.CheckConditions(info))
                 {
                     info.status = Status.Failure;
 #if UNITY_EDITOR
-                    if(Owner.LogInfo)
+                    if (Owner.LogInfo)
                         Debug.Log("condition failed:" + info.node.name);
 #endif
-                    _conditionFaliure = true;
                     return info.status;
                 }
                 else
@@ -113,9 +69,8 @@ namespace MateAI.ScriptableBehaviourTree
                 }
             }
 
-            if (!_started)
+            if (info.status != Status.Running)
             {
-                _started = true;
                 OnStart(info);
             }
 
@@ -123,16 +78,41 @@ namespace MateAI.ScriptableBehaviourTree
 
             if (info.status != Status.Running)
             {
-                _started = false;
                 OnEnd(info);
             }
             return info.status;
         }
-
         public void Clean()
         {
-            _started = false;
             OnClear();
         }
+        protected void BindingRefVars(IEnumerable<IRef> refVars)
+        {
+            if (refVars != null)
+            {
+                foreach (var refVar in refVars)
+                {
+                    refVar?.Binding(Owner);
+                }
+            }
+        }
+        protected virtual void OnStart() { }
+        protected virtual void OnReset() { }
+        protected virtual void OnEnd() { }
+        protected virtual void OnStart(TreeInfo info)
+        {
+            info.subIndex = 0;
+            OnStart();
+        }
+        protected virtual void OnEnd(TreeInfo info)
+        {
+            OnEnd();
+        }
+        protected virtual void OnClear() { }
+        protected virtual Status OnUpdate(TreeInfo info)
+        {
+            return OnUpdate();
+        }
+        protected virtual Status OnUpdate() => Status.Inactive;
     }
 }

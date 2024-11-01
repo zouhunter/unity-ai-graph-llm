@@ -10,8 +10,6 @@ namespace MateAI.ScriptableBehaviourTree
         public string id;
         public bool enable;
         public string desc;
-        public Status status { get; set; }
-        public int tickCount { get; set; }
         [SerializeReference]
         public BaseNode node;
         public ConditionInfo condition = new ConditionInfo();
@@ -21,6 +19,10 @@ namespace MateAI.ScriptableBehaviourTree
         {
             id = System.Guid.NewGuid().ToString();
         }
+
+        public Status status { get; set; }
+        public int tickCount { get; set; }
+        public int subIndex { get; set; }
     }
 
     [Serializable]

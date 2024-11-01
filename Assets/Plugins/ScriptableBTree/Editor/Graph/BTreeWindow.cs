@@ -319,7 +319,7 @@ namespace MateAI.ScriptableBehaviourTree
             {
                 color = Color.gray;
             }
-            else
+            else if(bTree)
             {
                 color = GraphColorUtil.GetColorByState(endView.Info.status, endView.Info.tickCount == bTree.TickCount);
             }

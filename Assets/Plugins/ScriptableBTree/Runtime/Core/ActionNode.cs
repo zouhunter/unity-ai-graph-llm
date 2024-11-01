@@ -4,10 +4,11 @@ namespace MateAI.ScriptableBehaviourTree
 {
     public abstract class ActionNode : BaseNode
     {
-        public override Status Execute(TreeInfo info)
+        protected override Status OnUpdate(TreeInfo info)
         {
-            var result = base.Execute(info);
-            if (_conditionFaliure)
+            var result = base.OnUpdate(info);
+
+            if (result == Status.Failure)
                 return result;
 
             if (info.subTrees == null || info.subTrees.Count == 0)

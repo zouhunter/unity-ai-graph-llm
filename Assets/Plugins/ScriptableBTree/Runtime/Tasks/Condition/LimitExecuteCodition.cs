@@ -10,17 +10,22 @@ namespace MateAI.ScriptableBehaviourTree.Condition
     /// <summary>
     /// 限制次数执行条件
     /// </summary>
-    [NodePath("次数限制执行条件")]
+    [NodePath("次数限制")]
     public class LimitExecuteCodition : ConditionNode
     {
         public int limitCount = 1;
 
-        [UnityEngine.SerializeField]
-        private Ref<int> executeCount;
+        private int _counter;
+
+        protected override void OnReset()
+        {
+            base.OnReset();
+            _counter = 0;
+        }
 
         protected override bool CheckCondition()
         {
-            if (executeCount.Value++ < limitCount)
+            if (_counter++ < limitCount)
             {
                 return true;
             }
